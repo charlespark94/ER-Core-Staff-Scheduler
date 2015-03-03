@@ -4,7 +4,7 @@ Feature: set preferences by the length of shift
   So that I can set my preferences
   I want to be able to select my shift based on the hrs 
 
-Background: I am on the preferences page
+Background: I am on the shifts page
   
   Given that I am on the "shifts" page
 
