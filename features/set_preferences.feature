@@ -19,7 +19,7 @@ Scenario: user can select preference options for a given length of shift
   And I press "preference_submit"
   Then I should see my "need_x_hours" decrease by that "length"
 
-Scenario: user can reject preference optio for a given length of shift
+Scenario: user can reject preference option for a given length of shift
   Given that I have selected "desired_shift"
   Then I should be able to select: "No" for "shift_option" for every "shift"
   And I press "preference_submit"
