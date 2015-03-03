@@ -15,7 +15,7 @@ Scenario: user can select their preferred shift length
 
 Scenario: user can select preference options for a given length of shift
   Given that I have selected "desired_shift" 
-  Then I should be able to select: "Yes" or "Maybe" for "shift_option" for each "shift"
+  Then I should be able to select: "Yes, Maybe, No" for "shift_option" for each "shift"
   And I press "preference_submit"
   Then I should see my "need_x_hours" decrease by that "length"
 
