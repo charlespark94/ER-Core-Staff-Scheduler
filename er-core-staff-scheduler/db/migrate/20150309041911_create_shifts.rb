@@ -1,13 +1,11 @@
 class CreateShifts < ActiveRecord::Migration
   def change
     create_table :shifts do |t|
-    	t.string :starttime
-    	t.shiftslength :integer
-    	t.users :string[]
-    	t.owner :string
-    	t.open :boolean
-
-      t.timestamps
+    	t.datetime :shiftstart
+    	t.datetime :shiftend
+    	t.string :users, array: true, default: []
+    	t.string :owner, default: '***'
+    	t.boolean :open, default: true
     end
   end
 end

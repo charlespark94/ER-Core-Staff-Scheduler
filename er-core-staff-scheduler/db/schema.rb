@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150309035033) do
+ActiveRecord::Schema.define(:version => 20150309041911) do
+
+  create_table "shifts", :force => true do |t|
+    t.string  "starttime"
+    t.integer "shiftslength"
+    t.string  "users",        :default => "'--- []\n'"
+    t.string  "owner"
+    t.boolean "open"
+  end
 
   create_table "users", :force => true do |t|
     t.string "name"
