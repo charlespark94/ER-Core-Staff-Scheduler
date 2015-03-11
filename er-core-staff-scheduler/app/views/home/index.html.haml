@@ -3,13 +3,9 @@
 		%div.navbar-brand
 			%h1 VA hospital logo
 		%div.navbar-center
-<<<<<<< HEAD
 			= hidden_field_tag @user = User.find_by_id(session[:user_id])
 			%h1= "Hello, #{@user.name}"
 			%h3= "You are logged in as #{@user.usertype} with fte of #{@user.fte}"
-=======
-			%h1 Hello, User!
->>>>>>> b55996763171fd42a01980c1bc8c87d4ef69f33a
 		%div.collapse.navbar-collapse
 			%ul.nav.navbar-nav.navbar-right
 				%li
@@ -23,20 +19,12 @@
 	%div#sidebar-wrapper
 		%ul.sidebar-nav
 			%li.sidebar-brand
-<<<<<<< HEAD
 				%a= link_to 'VA ER Scheduler', shifts_path
 			%li 
 				%a Calendar
 			- if @user.usertype == 'Administrator'
 				%li 
 					%a Set Availability
-=======
-				%a VA ER Scheduler
-			%li 
-				%a Calendar
-			%li 
-				%a Set Availability
->>>>>>> b55996763171fd42a01980c1bc8c87d4ef69f33a
 
 	%div#page-content-wrapper
 		%div.container-fluid

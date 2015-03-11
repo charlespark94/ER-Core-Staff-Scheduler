@@ -29,18 +29,15 @@ GEM
       i18n (~> 0.6, >= 0.6.4)
       multi_json (~> 1.0)
     arel (3.0.3)
-<<<<<<< HEAD
     bcrypt (3.1.10)
     bcrypt-ruby (3.1.5)
       bcrypt (>= 3.1.3)
-=======
     autoprefixer-rails (5.1.7)
       execjs
       json
     bootstrap-sass (3.3.3)
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.2.19)
->>>>>>> b55996763171fd42a01980c1bc8c87d4ef69f33a
     builder (3.0.4)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -116,11 +113,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-<<<<<<< HEAD
   bcrypt-ruby
-=======
   bootstrap-sass (~> 3.3.3)
->>>>>>> b55996763171fd42a01980c1bc8c87d4ef69f33a
   coffee-rails (~> 3.2.1)
   haml (~> 4.0.6)
   jquery-rails
