@@ -10,6 +10,7 @@ class LoginControllerController < ApplicationController
   	else
   	  flash[:notice] = "Invalid username and/or password"
   	  redirect_to login
+  	end
   end
 
   def create
