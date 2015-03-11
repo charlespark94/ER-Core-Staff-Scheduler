@@ -14,6 +14,8 @@ group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
 
+  gem 'bootstrap-sass', '~> 3.3.3'
+
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
 
@@ -37,5 +39,9 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'debugger'
 
+<<<<<<< HEAD
 gem 'haml'
 gem "bcrypt-ruby", :require => "bcrypt"
+=======
+gem 'haml', '~> 4.0.6'
+>>>>>>> b55996763171fd42a01980c1bc8c87d4ef69f33a
