@@ -57,4 +57,7 @@ ErCoreStaffScheduler::Application.routes.draw do
   # match ':controller(/:action(/:id))(.:format)'
 
   resources :shifts
+  resources :users
+
+  root :to => 'users#index'
 end

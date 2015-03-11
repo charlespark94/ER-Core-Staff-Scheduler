@@ -10,6 +10,7 @@
 			%th available people
 			%th assigned person
 			%th open/closed
+			%th shift info
 		%tbody
 			- @shifts.each do |shift|
 				%tr
@@ -18,3 +19,4 @@
 					%td= shift.users
 					%td= shift.owner
 					%td= shift.open	
+					%td= link_to 'details', shift
