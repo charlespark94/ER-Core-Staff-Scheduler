@@ -1,6 +1,9 @@
 class ShiftsController < ApplicationController
 	
 	def index
+      if session[:user_id] == nil
+        redirect_to login_path and return
+      end
 		@shifts = Shift.all
 	end
 
