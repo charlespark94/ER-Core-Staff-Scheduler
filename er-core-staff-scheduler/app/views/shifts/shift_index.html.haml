@@ -1,0 +1,17 @@
+%h1 All Movies
+
+
+%table#shifts
+  %thead
+    %tr
+      %th Start
+      %th End
+      %th --
+  %tbody
+    - @shifts.each do |shift|
+      %tr
+        %td= shift.start 
+        %td= shift.end
+        %td= link_to "Edit", edit_path(shift)
+
+= link_to 'Add new shift', new_shift_path

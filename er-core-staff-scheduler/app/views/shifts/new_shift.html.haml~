@@ -1,0 +1,18 @@
+%h1 Add a shift
+
+= form_tag shifts_path do
+
+  = label :shift, :day, 'Day'
+  = text_field :shift, 'day'
+
+  = label :shift, :start, 'Start'
+  = text_field :shift, 'start'
+
+  = label :shift, :length, 'Length'
+  = text_field :shift, 'length'
+
+  = label :shift, :end, 'End'
+  = text_field :shift, 'end'
+
+  = submit_tag 'Save'
+
