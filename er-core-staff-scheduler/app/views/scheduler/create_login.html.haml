@@ -1,0 +1,14 @@
+%h1 Create New Login
+
+= form_tag users_path do
+
+  = label :users, :name, 'Name (First, Last)'
+  = text_field :users, 'name'
+
+  = label :users, :username, 'Username'
+  = text_field :users, 'username'
+
+  = label :users, :password, 'Password'
+  = text_field :users, 'password'
+
+  = submit_tag 'Save'
