@@ -15,4 +15,3 @@
         %td= link_to "Edit", edit_path(shift)
 
 = link_to 'Add new shift', new_shift_path
-= link_to 'Go home', home_index_path
