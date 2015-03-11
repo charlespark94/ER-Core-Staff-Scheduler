@@ -6,9 +6,9 @@
 	- @shifts.each do |shift|
 		= shift.shiftstart
 		= shift.shiftend
-		= radio_button_tag 'available', 'yes', false
-		= radio_button_tag 'available', 'maybe', true
-		= radio_button_tag 'available', 'no', false
+		= radio_button_tag "#{shift.id}available", 'yes', false
+		= radio_button_tag "#{shift.id}available", 'maybe', true
+		= radio_button_tag "#{shift.id}available", 'no', false
 		%br
 
 %h2 these are all the shifts currently in the shifts table
