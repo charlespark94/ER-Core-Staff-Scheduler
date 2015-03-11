@@ -57,6 +57,11 @@ ErCoreStaffScheduler::Application.routes.draw do
   # match ':controller(/:action(/:id))(.:format)'
 
   resources :shifts
-  get '/login', to: 'login#login'
-  get '/create_login', to: 'login#create_login'
+  resources :users
+  resources :sessions
+
+  get "sign_up" => "users#new", :as => "sign_up"
+  get "login" => "sessions#new", :as => "login"
+  get "logout" => "sessions#destroy", :as =>"logout"
+  root :to => "users#new"
 end
