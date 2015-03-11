@@ -58,5 +58,5 @@ ErCoreStaffScheduler::Application.routes.draw do
 
   resources :shifts
   get '/login', to: 'scheduler#login'
-  get '/create_login' to: 'scheduler#create_login'
+  get '/create_login', to: 'scheduler#create_login'
 end
