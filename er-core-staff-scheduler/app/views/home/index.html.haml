@@ -19,10 +19,10 @@
 	%div#sidebar-wrapper
 		%ul.sidebar-nav
 			%li.sidebar-brand
-				%a VA ER Scheduler
+				%a= link_to 'VA ER Scheduler', shifts_path
 			%li 
 				%a Calendar
-			- if @user.usertype == 'Admin'
+			- if @user.usertype == 'Administrator'
 				%li 
 					%a Set Availability
 

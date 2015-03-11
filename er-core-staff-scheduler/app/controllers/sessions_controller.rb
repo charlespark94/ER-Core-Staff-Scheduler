@@ -1,5 +1,8 @@
 class SessionsController < ApplicationController
   def new
+    if session[:user_id] != nil
+      redirect_to home_path and return
+    end
     if cookies[:login]
       if cookies[:login] == "failed"
         flash.now.alert = "Invalid username and/or password"
