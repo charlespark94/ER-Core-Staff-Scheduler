@@ -63,5 +63,6 @@ ErCoreStaffScheduler::Application.routes.draw do
   get "sign_up" => "users#new", :as => "sign_up"
   get "login" => "sessions#new", :as => "login"
   get "logout" => "sessions#destroy", :as =>"logout"
+  get "home" => "home#index", :as =>"home"
   root :to => "users#new"
 end

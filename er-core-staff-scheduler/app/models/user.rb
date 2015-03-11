@@ -4,9 +4,9 @@ class User < ActiveRecord::Base
   attr_accessor :password
   before_save :encrypt_password
 
-  validates_confirmation_of :password
-  validates_presence_of :password, :on => :create
-  validates_uniqueness_of :username
+  validates :name, :presence => true
+  validates :username, :presence => true, :uniqueness => true
+  validates :password, :presence => true, :confirmation => true
 
   def self.authenticate(username="", login_password="")
   	user = find_by_username(username)
@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
       user
   	else
   	  nil
-  	 end
+  	end
   end
 
   def encrypt_password
