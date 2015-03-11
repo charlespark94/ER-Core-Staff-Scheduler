@@ -1,4 +1,4 @@
-class LoginControllerController < ApplicationController
+class LoginController < ApplicationController
   
   def login
   	userid = params[:username]
@@ -13,7 +13,7 @@ class LoginControllerController < ApplicationController
   	end
   end
 
-  def create
+  def create_login
   	@user = User.create!(params[:user])
   	flash[:notice] = "Thank you creating an account. Please login in using your informaiton"
   	redirect_to login
