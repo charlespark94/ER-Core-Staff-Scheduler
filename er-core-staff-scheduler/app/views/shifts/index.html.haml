@@ -1,4 +1,15 @@
-%h1 this is index.html.haml
+%h1 this is index.html.haml from within views/shifts
+
+%h1 actual prefs form
+
+= form_tag shifts_path, :method => :get do
+	- @shifts.each do |shift|
+		= shift.shiftstart
+		= shift.shiftend
+		= radio_button_tag 'available', 'yes', false
+		= radio_button_tag 'available', 'maybe', true
+		= radio_button_tag 'available', 'no', false
+		%br
 
 %h2 these are all the shifts currently in the shifts table
 

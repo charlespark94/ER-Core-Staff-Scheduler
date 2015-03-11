@@ -58,6 +58,4 @@ ErCoreStaffScheduler::Application.routes.draw do
 
   resources :shifts
   resources :users
-
-  root :to => 'users#index'
 end
