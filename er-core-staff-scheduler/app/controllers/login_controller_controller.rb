@@ -5,7 +5,7 @@ class LoginControllerController < ApplicationController
   	userpass = params[:userpass]
   	@user = User.find_by_username(userid)
   	if @user.id == userid && @user.pass = userpass
-  	  session[:usertype] = @user.usertype
+  	  session[:userid] = @user.userid
   	  redirect_to user_path
   	else
   	  flash[:notice] = "Invalid username and/or password"
