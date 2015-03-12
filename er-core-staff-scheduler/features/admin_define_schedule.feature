@@ -11,14 +11,16 @@ Background: I am an admin user
 
 Scenario: admin can input shift schedule
   When I am on the "input schedule" page
-  I should see a datetime select field labeled "ShiftStart"
-  And I should see a datetime select field labeled "ShiftEnd"
-  And I should see a button labeled "Save"
+  Then I should see a datetime_select labeled ShiftStart
+  Then I should see a datetime_select labeled ShiftEnd
+  Then I should see a submit_tag labeled "Save"
 
 Scenario: admin can view shifts they have added
-  Given that "ShiftStart" is "2015/March/12/03/00"
-  And "ShiftEnd" is "2015/March/12/07/00"
+  When I am on the "input schedule" page
+  Then I fill in time shiftstart with 2015-March-12-03-00
+  Then I fill in time shiftend with 2015-March-12-07-00
   And I press "Save"
-  Then I should be redirected to the "input schedule" page
-  And I should see starttime is "2015-03-12 03:00:00"
-  And I should see endtime is "2015-03-12 07:00:00"
+  Then I should be redirected to the "shift index" page
+  And I should see one starttime is 2015-03-12 03:00:00 UTC
+  And I should see one endtime is 2015-03-12 07:00:00 UTC
+  
