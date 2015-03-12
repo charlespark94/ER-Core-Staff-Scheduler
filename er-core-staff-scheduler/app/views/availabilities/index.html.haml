@@ -2,7 +2,7 @@
 
 %h1 actual prefs form
 
-= form_tag shifts_path, :method => :get do
+= form_tag availabilities_path, :method => :get do
 	- @shifts.each do |shift|
 		= shift.shiftstart
 		= shift.shiftend
@@ -12,4 +12,26 @@
 		%br
 	= submit_tag 'Update'
 
-= puts @flag
+%h2 these are the params
+= params.inspect
+
+%h2 these are all the shifts currently in the shifts table
+
+%table#shifts
+	%thead
+		%tr
+			%th starttime
+			%th endtime
+			%th available people
+			%th possibly available
+			%th assigned person
+			%th shift info
+		%tbody
+			- @shifts.each do |shift|
+				%tr
+					%td= shift.shiftstart
+					%td= shift.shiftend
+					%td= shift.users
+					%td= shift.possible_users
+					%td= shift.owner
+					%td= link_to 'details', shift
