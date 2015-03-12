@@ -8,9 +8,7 @@
         1,
         null,
         1,
-        null,
-        1,
-        0,
+        2,
         null,
         null
       ],
@@ -110,7 +108,7 @@
       "/home/saasbook/Project/ER-Core-Staff-Scheduler/er-core-staff-scheduler/app/controllers/users_controller.rb": [
         1,
         1,
-        0,
+        1,
         null,
         null,
         1,
@@ -144,7 +142,7 @@
         null,
         null,
         1,
-        10,
+        11,
         null,
         null,
         1,
@@ -153,6 +151,6 @@
         null
       ]
     },
-    "timestamp": 1426137895
+    "timestamp": 1426202639
   }
 }
