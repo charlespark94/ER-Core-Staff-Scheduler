@@ -8,6 +8,6 @@
     = label_tag :password
     %br/
     = password_field_tag :password
-  %p.button= submit_tag "Log in"
+  %p.button= submit_tag "Log in", :id => "login_submit"
 %br
-= link_to 'Create An Account', new_user_path
+= link_to 'Create An Account', new_user_path, :id => "signup_link"

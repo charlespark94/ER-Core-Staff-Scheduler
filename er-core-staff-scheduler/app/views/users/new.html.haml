@@ -21,7 +21,7 @@
     %br
     = f.select :fte, ['0.1', '0.2', '0.25', '0.4', '0.5', '0.6', '0.75', '0.8', '1.0']
   %p
-    = f.label :username
+    = f.label :username, :id => "sign_up_username"
     %br
     = f.text_field :username
   %p
@@ -32,4 +32,4 @@
     = f.label :password_confirmation
     %br
     = f.password_field :password_confirmation
-  %p.button= f.submit
+  %p.button= f.submit "Sign Up", :id => "signup_submit"
