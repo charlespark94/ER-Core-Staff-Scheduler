@@ -24,12 +24,4 @@ class User < ActiveRecord::Base
   def match_password(login_password="")
     BCrypt::Password.new(encrypted_password) == login_password
   end
-
-  def self.all_usertype
-  	['Core', 'Admin']
-  end
-
-  def self.all_fte
-  	[0.1, 0.2, 0.35, 0.4, 1.0]
-  end
 end
