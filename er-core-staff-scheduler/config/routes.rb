@@ -58,4 +58,5 @@ ErCoreStaffScheduler::Application.routes.draw do
 
   resources :shifts
   resources :users
+  resources :availabilities
 end

@@ -14,11 +14,11 @@
 		Doctors Available:
 		= @shift.users
 	%li
+		Doctors Possibly Available:
+		= @shift.possible_users
+	%li
 		Shift Assigned To:
 		= @shift.owner
-	%li
-		Shift Taken:
-		= @shift.open
 	%li
 		ID:
 		= @shift.id

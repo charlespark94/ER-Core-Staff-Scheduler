@@ -6,10 +6,18 @@
 	- @shifts.each do |shift|
 		= shift.shiftstart
 		= shift.shiftend
-		= radio_button_tag "#{shift.id}available", 'yes', false
-		= radio_button_tag "#{shift.id}available", 'maybe', true
-		= radio_button_tag "#{shift.id}available", 'no', false
+		= radio_button_tag "#{shift.id}", 'yes', false
+		= radio_button_tag "#{shift.id}", 'maybe', true
+		= radio_button_tag "#{shift.id}", 'no', false
 		%br
+	= submit_tag 'Update'
+
+/ - @shifts.each do |shift|
+/ 	= form_for shift do |s|
+/ 		= s.radio_button 
+
+%h2 these are the params
+= params.inspect
 
 %h2 these are all the shifts currently in the shifts table
 
@@ -19,8 +27,8 @@
 			%th starttime
 			%th endtime
 			%th available people
+			%th possibly available
 			%th assigned person
-			%th open/closed
 			%th shift info
 		%tbody
 			- @shifts.each do |shift|
@@ -28,6 +36,6 @@
 					%td= shift.shiftstart
 					%td= shift.shiftend
 					%td= shift.users
+					%td= shift.possible_users
 					%td= shift.owner
-					%td= shift.open	
 					%td= link_to 'details', shift

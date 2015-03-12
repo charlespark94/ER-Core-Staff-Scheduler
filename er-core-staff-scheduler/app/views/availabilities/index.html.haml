@@ -1,0 +1,15 @@
+%h1 this is index.html.haml from within availabilities/shifts
+
+%h1 actual prefs form
+
+= form_tag shifts_path, :method => :get do
+	- @shifts.each do |shift|
+		= shift.shiftstart
+		= shift.shiftend
+		= radio_button_tag "#{shift.id}", 'yes', false
+		= radio_button_tag "#{shift.id}", 'maybe', true
+		= radio_button_tag "#{shift.id}", 'no', false
+		%br
+	= submit_tag 'Update'
+
+= puts @flag
