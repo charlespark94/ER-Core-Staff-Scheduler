@@ -1,0 +1,12 @@
+%h1 Add a shift
+
+= form_tag shifts_path do
+
+  = label :shift, :shiftstart, 'ShiftStart'
+  = datetime_select :shift, :shiftstart
+
+  = label :shift, :shiftend, 'ShiftEnd'
+  = datetime_select :shift, :shiftend
+
+  = submit_tag 'Save'
+
