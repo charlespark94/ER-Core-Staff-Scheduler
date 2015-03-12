@@ -29,9 +29,9 @@
 		%tbody
 			- @shifts.each do |shift|
 				%tr
-					%td= shift.shiftstart
-					%td= shift.shiftend
-					%td= shift.users
-					%td= shift.possible_users
-					%td= shift.owner
-					%td= link_to 'details', shift
+					%td.shiftstart= shift.shiftstart
+					%td.shiftend= shift.shiftend
+					%td.shiftuser= shift.users
+					%td.possibleusers= shift.possible_users
+					%td.owner= shift.owner
+					%td.details= link_to 'details', shift

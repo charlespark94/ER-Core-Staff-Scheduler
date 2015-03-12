@@ -37,5 +37,11 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'debugger'
 
+group :developement, :test do
+	#... other gems
+	gem 'database_cleaner'
+	gem 'cucumber-rails', :require => false
+end
+
 gem 'haml'
 gem 'rerun'
