@@ -11,17 +11,14 @@ Background: I am an admin user
 
 Scenario: admin can input shift schedule
   When I am on the "input schedule" page
-  I should see a date select field labeled "Start"
-  And I should see a date select field labeled "End"
-  And I should see a time select field labeled "Time Start"
-  And I should see a time select field labeled "Time End"
-  And I should see a button labeled "add_shift"
+  I should see a datetime select field labeled "ShiftStart"
+  And I should see a datetime select field labeled "ShiftEnd"
+  And I should see a button labeled "Save"
 
 Scenario: admin can view shifts they have added
-  Given that "Start" is "1/1/16"
-  And "End" is "1/1/16"
-  And "Time Start" is "07:00"
-  And "Time End" is "19:00"
-  And I press "add_shift"
+  Given that "ShiftStart" is "2015/March/12/03/00"
+  And "ShiftEnd" is "2015/March/12/07/00"
+  And I press "Save"
   Then I should be redirected to the "input schedule" page
-  And I should see "1/1/16 07:00 - 1/1/16 19:00"
+  And I should see starttime is "2015-03-12 03:00:00"
+  And I should see endtime is "2015-03-12 07:00:00"
