@@ -11,7 +11,7 @@ Background: I am an admin user
 
 Scenario: admin can input shift schedule
   When I am on the "input schedule" page
-  I should see a date select field labeled "Start"
+  Then I should see a date select field labeled "Start"
   And I should see a date select field labeled "End"
   And I should see a time select field labeled "Time Start"
   And I should see a time select field labeled "Time End"
