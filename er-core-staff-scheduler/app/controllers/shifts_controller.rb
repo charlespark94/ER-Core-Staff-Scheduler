@@ -7,10 +7,10 @@ class ShiftsController < ActionController::Base
     #@shift = Shift.new
   end
 
-  def show
-    id = params[:id]
-    @shift = Shift.find(id)
-  end
+  #def show
+  #  id = params[:id]
+  #  @shift = Shift.find(id)
+  #end
 
   def create
     @shift = Shift.create!(params[:shift])
@@ -19,7 +19,6 @@ class ShiftsController < ActionController::Base
   end
 
   def edit
-
     @shift = Shift.find params[:id]
   end
 
@@ -27,7 +26,7 @@ class ShiftsController < ActionController::Base
     @shift = Shift.find params[:id]
     @shift.update_attributes!(params[:shift])
     flash[:notice] = "Shift was successfully updated."
-    redirect_to shift_path(@shift)
+    redirect_to shifts_path()
   end
 
   def destroy

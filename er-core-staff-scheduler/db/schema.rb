@@ -16,9 +16,6 @@ ActiveRecord::Schema.define(:version => 20150309041911) do
   create_table "shifts", :force => true do |t|
     t.datetime "shiftstart"
     t.datetime "shiftend"
-    t.string   "users",      :default => "'--- []\n'"
-    t.string   "owner",      :default => "***"
-    t.boolean  "open",       :default => true
   end
 
   create_table "users", :force => true do |t|

@@ -3,9 +3,7 @@ class CreateShifts < ActiveRecord::Migration
     create_table :shifts do |t|
     	t.datetime :shiftstart
     	t.datetime :shiftend
-    	t.string :users, array: true, default: []
-    	t.string :owner, default: '***'
-    	t.boolean :open, default: true
+    	t.string :id
     end
   end
 end
