@@ -22,7 +22,6 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
   gem 'therubyracer'
   gem 'bootstrap-sass', '~> 3.3.3'
-  gem "bcrypt-ruby", :require => "bcrypt"
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
@@ -54,4 +53,5 @@ gem 'jquery-rails'
 # gem 'debugger'
 
 gem 'haml', '~> 4.0.6'
+gem "bcrypt-ruby", :require => "bcrypt"
 gem 'rerun'
