@@ -8,5 +8,4 @@ install:
 script:
   - rake db:migrate
   - rake db:test:prepare
-  - rake rspec
-  - rake cucumber
+  - rake
