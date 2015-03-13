@@ -192,6 +192,6 @@ DEPENDENCIES
   rspec-rails (~> 2.14.0)
   sass-rails (~> 3.2.3)
   simplecov
-  sqlite3
+  sqlite3 (~> 1.3.10)
   therubyracer
   uglifier (>= 1.0.3)
