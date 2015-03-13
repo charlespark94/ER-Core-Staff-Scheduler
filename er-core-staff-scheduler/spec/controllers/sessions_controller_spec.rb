@@ -21,12 +21,6 @@ describe SessionsController do
 					password_confirmation: 'admin'
 				}
 			end
-			let(:login_params) do
-				{
-					username: 'admin',
-					password: 'admin'
-				}
-			end
 			before do
 				@user = User.create(user_params)
 			end
@@ -34,6 +28,11 @@ describe SessionsController do
 			it 'should redirect home' do
 				@user.should be_present
 				@user.id.should be_present
+			end
+
+			it 'should redirect to home' do
+				post :create, user_params
+				response.should redirect_to(home_path)
 			end
 
 			it 'should not allow login without username' do
@@ -44,11 +43,6 @@ describe SessionsController do
 			it 'should not allow login without password' do
 				post :create, user_params.slice(:password)
 				response.should redirect_to(login_path)
-			end
-
-			it 'should redirect to home' do
-				post :create, login_params
-				response.should redirect_to(home_path)
 			end
 		end
 
@@ -97,21 +91,6 @@ describe SessionsController do
 			it "should delete current user" do
 				post :destroy, id: @current_user.id
 				response.should redirect_to(login_path)
-			end
-
-			it 'should not delete other users' do
-				other_user = User.create!(
-				{
-					name: 'jen',
-					usertype: 'Core Doctor',
-					fte: '0.8',
-					username: 'core',
-					password: 'core',
-					password_confirmation: 'core'
-				})
-				post :destroy, id: other_user.id
-				response.should redirect_to(login_path)
-				expect(other_user.reload).not_to raise_error
 			end
 		end
 	end

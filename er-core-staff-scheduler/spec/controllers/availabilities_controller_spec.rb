@@ -11,12 +11,7 @@ describe AvailabilitiesController do
 		response.should render_template('index')
 	end
 
-	before(:each) do
-		@shifts = Shift.all
-	end
-
 	it 'should update atrribute when maybe' do
-		
 		get :index, {:params => {:id => "maybe"}}
 		response.should render_template('index')
 	end
