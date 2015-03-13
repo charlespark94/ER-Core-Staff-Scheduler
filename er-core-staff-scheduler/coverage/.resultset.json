@@ -90,7 +90,7 @@
       "/home/saasbook/Project/ER-Core-Staff-Scheduler/er-core-staff-scheduler/app/controllers/shifts_controller.rb": [
         1,
         1,
-        0,
+        1,
         null,
         null,
         1,
@@ -170,6 +170,6 @@
         null
       ]
     },
-    "timestamp": 1426236457
+    "timestamp": 1426236688
   }
 }

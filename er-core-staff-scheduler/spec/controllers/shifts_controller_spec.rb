@@ -4,6 +4,10 @@ describe ShiftsController do
 
 
   describe 'editing a shift' do
+    it 'should rendering index' do
+      get :index, {:id => 1}
+      response.should render_template('index')
+    end
 
     it 'should edit a shift' do     
       @testshift = double(Shift, :shiftstart => DateTime.iso8601('2015-05-01T10:00:00'), :shiftend => DateTime.iso8601('2015-05-01T18:00:00'), :id => '1')
