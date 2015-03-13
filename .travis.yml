@@ -3,7 +3,6 @@ rvm:
   - 1.9.3
 gemfile:
   - gemfiles/Gemfile-travis
-  - install: gem 'rake'
 env:
   - DB=postgresql
 script:
