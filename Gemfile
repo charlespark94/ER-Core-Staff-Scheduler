@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 ruby '1.9.3'
 gem 'rails', '3.2.18'
 gem 'rails_12factor'
+gem 'rake'
 
 # Bundle edge Rails instead:
 
@@ -12,7 +13,6 @@ group :development, :test do
   gem 'cucumber-rails', :require => false
   gem 'rspec-rails', '~> 2.14.0'
   gem 'simplecov'
-  gem 'rake'
   gem "bcrypt-ruby", :require => "bcrypt"
 end
 
