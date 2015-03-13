@@ -5,15 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-USERS = [
-  {:name => 'Bob', :usertype => 'Core Doctor', :username => 'bobid', :password => 'bobpass', :passwordconfirmation => 'bobpass' :fte => 0.2},
-  {:name => 'Jen', :usertype => 'Administrator', :username => 'jenid', :password => 'jenpass', :passwordconfirmation => 'jenpass', :fte => 1.0},
-  {:name => 'Tonia', :usertype => 'Core Doctor', :username => 'toniaid', :password => 'toniapass', :passwordconfirmation => 'toniapass', :fte => 1.0}
-]
-
-USERS.each do |user|
-  User.create!(user)
-end
 
 SHIFTS = [
   {:shiftstart => DateTime.strptime("03/08/2015 07:00", "%m/%d/%Y %H:%M"),

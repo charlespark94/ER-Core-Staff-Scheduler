@@ -26,6 +26,14 @@ Then /I should see a (.+) labeled (.+)/ do |e1, e2|
 	end
 end
 
+And /I fill in the date select field labeled "(.+)" with (.+)/ do |e1, e2|
+	if e2 =~ /Start/ or e2 =~ /End/
+		assert e1 =~ /datetime_select/
+	elsif e2 =~ /Save/
+		assert e1 =~ /submit_tag/
+	end
+end
+
 Then /I fill in time (.+) with (.+)-(.+)-(.+)-(.+)-(.+)/ do |field ,year, month, day, hour, minute|
   select(year,   :from => "shift_#{field}_1i")
   select(month,  :from => "shift_#{field}_2i")

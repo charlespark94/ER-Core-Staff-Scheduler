@@ -6,22 +6,23 @@ Feature: admin define shift schedule
 
 Background: I am an admin user
 
+  Given 'admin' has been added to the database
   Given that I am signed in
   And I am an admin user
 
 Scenario: admin can input shift schedule
-  When I am on the "input schedule" page
+  Given that I am on the input schedule page
   Then I should see a date select field labeled "Start"
   And I should see a date select field labeled "End"
   And I should see a time select field labeled "Time Start"
   And I should see a time select field labeled "Time End"
   And I should see a button labeled "add_shift"
 
-Scenario: admin can view shifts they have added
-  Given that "Start" is "1/1/16"
-  And "End" is "1/1/16"
-  And "Time Start" is "07:00"
-  And "Time End" is "19:00"
-  And I press "add_shift"
-  Then I should be redirected to the "input schedule" page
-  And I should see "1/1/16 07:00 - 1/1/16 19:00"
+#Scenario: admin can view shifts they have added
+#  Given that I am on the input schedule page
+#  And I fill in the date select field labeled "Start" with "2015-04-01T10:00:00"
+#  And I fill in the date select field labeled "End" with "2015-04-01T18:00:00"
+#  When I press "save_submit"
+#  Then I should be redirected to the shift index page
+#  And I should see "2015-04-01T10:00:00"
+#  And I should see "2015-04-01T18:00:00"
