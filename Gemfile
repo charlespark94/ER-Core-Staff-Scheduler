@@ -13,6 +13,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 2.14.0'
   gem 'simplecov'
   gem 'rake'
+  gem "bcrypt-ruby", :require => "bcrypt"
 end
 
 # Gems used only for assets and not required
@@ -53,5 +54,4 @@ gem 'jquery-rails'
 # gem 'debugger'
 
 gem 'haml', '~> 4.0.6'
-gem "bcrypt-ruby", :require => "bcrypt"
 gem 'rerun'
