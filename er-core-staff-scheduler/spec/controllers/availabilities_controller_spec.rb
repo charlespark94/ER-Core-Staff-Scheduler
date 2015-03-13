@@ -9,7 +9,7 @@ describe AvailabilitiesController do
 	context "when param is yes" do
 		let(:params) {{:"2" => yes}}
 		it 'should update atrribute when yes' do
-			get :index, {:params => {:"2" => "yes"}}
+			get :index, {:params => {:"1" => "yes"}}
 	 		{:possible_users => nil, :users=>1}
 		end
 	end
