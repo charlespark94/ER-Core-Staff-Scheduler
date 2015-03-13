@@ -1,6 +1,6 @@
 %h1 Edit Existing Shift
 
-= form_tag edit_shift_path(@shift), :method => :put do
+= form_tag shifts_path, :method => :put do
 
   = label :shift, :shiftstart, 'Start'
   = text_field :shift, 'start'

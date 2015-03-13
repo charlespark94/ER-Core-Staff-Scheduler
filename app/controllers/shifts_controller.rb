@@ -11,7 +11,7 @@ class ShiftsController < ActionController::Base
   def create
     @shift = Shift.create!(params[:shift])
     flash[:notice] = "Shift was successfully created."
-    redirect_to shifts_path
+    redirect_to shcifts_path
   end
   
   def update
