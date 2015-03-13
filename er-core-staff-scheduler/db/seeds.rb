@@ -6,9 +6,9 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 USERS = [
-  {:name => 'Bob', :usertype => 'core', :username => 'bobid', :password => 'bobpass', :fte => 0.2},
-  {:name => 'Jen', :usertype => 'admin', :username => 'jenid', :password => 'jenpass', :fte => 1.0},
-  {:name => 'Tonia', :usertype => 'core', :username => 'toniaid', :password => 'toniapass', :fte => 1.0}
+  {:name => 'Bob', :usertype => 'Core Doctor', :username => 'bobid', :password => 'bobpass', :passwordconfirmation => 'bobpass' :fte => 0.2},
+  {:name => 'Jen', :usertype => 'Administrator', :username => 'jenid', :password => 'jenpass', :passwordconfirmation => 'jenpass', :fte => 1.0},
+  {:name => 'Tonia', :usertype => 'Core Doctor', :username => 'toniaid', :password => 'toniapass', :passwordconfirmation => 'toniapass', :fte => 1.0}
 ]
 
 USERS.each do |user|
