@@ -63,6 +63,7 @@ ErCoreStaffScheduler::Application.routes.draw do
   resources :sessions
   resources :availabilities
 
+  put "/shifts" => "shifts#update", :as => "shifts"
   get "sign_up" => "users#new", :as => "sign_up"
   get "login" => "sessions#new", :as => "login"
   get "logout" => "sessions#destroy", :as =>"logout"
