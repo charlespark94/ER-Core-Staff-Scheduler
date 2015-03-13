@@ -1,0 +1,35 @@
+%h1 Create New Login
+
+= form_for @user do |f|
+  - if @user.errors.any?
+    .error_messages
+      %h2 Form is invalid
+      %ul
+        - for message in @user.errors.full_messages
+          %li= message
+
+  %p
+    = f.label :name
+    %br
+    = f.text_field :name
+  %p
+    = f.label :usertype
+    %br
+    = f.select :usertype, ['Administrator', 'Core Doctor', 'Night Doctor']
+  %p
+    = f.label :fte
+    %br
+    = f.select :fte, ['0.1', '0.2', '0.25', '0.4', '0.5', '0.6', '0.75', '0.8', '1.0']
+  %p
+    = f.label :username, :id => "sign_up_username"
+    %br
+    = f.text_field :username
+  %p
+    = f.label :password
+    %br
+    = f.password_field :password
+  %p
+    = f.label :password_confirmation
+    %br
+    = f.password_field :password_confirmation
+  %p.button= f.submit "Sign Up", :id => "signup_submit"

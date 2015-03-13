@@ -1,0 +1,31 @@
+%nav.navbar.navbar-default
+	%div.container-fluid
+		%div.navbar-brand
+			%h1 VA hospital logo
+		%div.navbar-center
+			= hidden_field_tag @user = User.find_by_id(session[:user_id])
+			%h1= "Hello, #{@user.name}"
+			%h3= "You are logged in as #{@user.usertype} with fte of #{@user.fte}"
+		%div.collapse.navbar-collapse
+			%ul.nav.navbar-nav.navbar-right
+				%li
+					%a.button.btn.btn-default.btn-lg.btn-link{title: "Account Settings", type: "button", href: "/settings"}
+						%span.glyphicon.glyphicon-cog
+				%li
+					%a.button.btn.btn-default.btn-lg.btn-link{title: "Log Out", type: "button", href: "/logout"}
+						%span.glyphicon.glyphicon-off
+			
+%div#wrapper
+	%div#sidebar-wrapper
+		%ul.sidebar-nav
+			%li.sidebar-brand
+				%a= link_to 'VA ER Scheduler', shifts_path
+			%li 
+				%a Calendar
+			- if @user.usertype == 'Administrator'
+				%li 
+					%a Set Availability
+
+	%div#page-content-wrapper
+		%div.container-fluid
+			%h1 main

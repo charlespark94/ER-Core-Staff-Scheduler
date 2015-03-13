@@ -1,0 +1,12 @@
+%h1 Edit Existing Shift
+
+= form_tag edit_shift_path(@shift), :method => :put do
+
+  = label :shift, :shiftstart, 'Start'
+  = text_field :shift, 'start'
+
+  = label :shift, :shiftend, 'End'
+  = text_field :shift, 'start'
+
+  = submit_tag 'Update Shift'
+  = link_to 'Back to all shifts', shifts_path
