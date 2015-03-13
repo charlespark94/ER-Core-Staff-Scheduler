@@ -4,8 +4,9 @@ Feature: login to the schedular app
   So that I can identify myself 
   I want to be able to login to my account
 
-Background: I am on the login page
+Background: I am on the login page and I exist in the database
   
+  Given 'admin' has been added to the database
   Given that I am on the login page
 
 Scenario: user can enter their username and password to login

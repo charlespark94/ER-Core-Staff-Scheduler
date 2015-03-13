@@ -1,0 +1,37 @@
+%h1 this is index.html.haml from within availabilities/shifts
+
+%h1 actual prefs form
+
+= form_tag availabilities_path, :method => :get do
+	- @shifts.each do |shift|
+		= shift.shiftstart
+		= shift.shiftend
+		= radio_button_tag "#{shift.id}", 'yes', false
+		= radio_button_tag "#{shift.id}", 'maybe', true
+		= radio_button_tag "#{shift.id}", 'no', false
+		%br
+	= submit_tag 'Update'
+
+%h2 these are the params
+= params.inspect
+
+%h2 these are all the shifts currently in the shifts table
+
+%table#shifts
+	%thead
+		%tr
+			%th starttime
+			%th endtime
+			%th available people
+			%th possibly available
+			%th assigned person
+			%th shift info
+		%tbody
+			- @shifts.each do |shift|
+				%tr
+					%td.shiftstart= shift.shiftstart
+					%td.shiftend= shift.shiftend
+					%td.shiftuser= shift.users
+					%td.possibleusers= shift.possible_users
+					%td.owner= shift.owner
+					%td.details= link_to 'details', shift

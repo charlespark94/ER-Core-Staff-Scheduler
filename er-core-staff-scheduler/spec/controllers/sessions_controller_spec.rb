@@ -3,7 +3,7 @@ require 'spec_helper'
 describe SessionsController do
 	render_views
 	describe "new" do
-		it "should redirect to home" do
+		it "should redirect home" do
 			get :new, nil, {user_id: 1}
 			response.should redirect_to(home_path)
 		end
@@ -12,6 +12,7 @@ describe SessionsController do
 		context "with admin user" do
 			let(:user_params) do
 				{
+					id: 'bob_id',
 					name: 'bob',
 					usertype: 'Administrator',
 					fte: '0.8',
@@ -27,17 +28,12 @@ describe SessionsController do
 				}
 			end
 			before do
-				@user = User.authenticate('admin', 'admin')
+				@user = User.create(user_params)
 			end
 
-			it 'should redirect to home' do
-				post :create, :username => 'admin', :password => 'admin'
-				response.should redirect_to(home_path)
-			end
-
-			it 'should redirect to login' do
-				post :create, user_params
-				response.should redirect_to(login_path)
+			it 'should redirect home' do
+				@user.should be_present
+				@user.id.should be_present
 			end
 
 			it 'should not allow login without username' do
@@ -50,9 +46,9 @@ describe SessionsController do
 				response.should redirect_to(login_path)
 			end
 
-			it 'should redirect to login' do
+			it 'should redirect to home' do
 				post :create, login_params
-				response.should redirect_to(login_path)
+				response.should redirect_to(home_path)
 			end
 		end
 
