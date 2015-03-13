@@ -3,7 +3,6 @@ source 'https://rubygems.org'
 ruby '1.9.3'
 gem 'rails', '3.2.18'
 gem 'rails_12factor'
-gem 'rake'
 
 # Bundle edge Rails instead:
 
@@ -13,7 +12,7 @@ group :development, :test do
   gem 'cucumber-rails', :require => false
   gem 'rspec-rails', '~> 2.14.0'
   gem 'simplecov'
-  gem "bcrypt-ruby", :require => "bcrypt"
+  gem 'rake'
 end
 
 # Gems used only for assets and not required
@@ -23,6 +22,7 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
   gem 'therubyracer'
   gem 'bootstrap-sass', '~> 3.3.3'
+  gem "bcrypt-ruby", :require => "bcrypt"
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
