@@ -5,3 +5,6 @@ gemfile:
   - Gemfile
 install:
   - bundle install
+script:
+  - rake db:migrate
+  - rake db:test:prepare
