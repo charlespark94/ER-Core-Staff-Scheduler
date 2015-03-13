@@ -6,19 +6,22 @@ describe AvailabilitiesController do
 		response.should render_template('index')
 	end
 
-	context "when param is yes" do
-		let(:params) {{:"2" => yes}}
-		it 'should update atrribute when yes' do
-			get :index, {:params => {:"1" => "yes"}}
-	 		{:possible_users => nil, :users=>1}
-		end
+	before(:each) do
+		@shift = Shift.create!(:id => 1, :shiftstart => '2015-03-08 07:00:00 UTC', :shiftend => '2015-03-08 19:00:00 UTC')			
+	end		
+
+	it "should update attribute when yes" do
+		get :index, {:"1" => 'yes'}
+		expect(@shift.update_attributes(:possible_users => nil, :users => 1)) 
 	end
 
-	it 'should update atrribute when maybe' do
-		get :index, {:params => {:"1" => "maybe"}}
+	it "should update attribute when maybe" do
+		get :index, {:"1" => 'maybe'}
+		expect(@shift.update_attributes(:possible_users => 1, :users => nil)) 
 	end
 
-	it 'should update atrribute when no' do
-		get :index, {:params => {:"1" => "no"}}
+	it "should update attribute when no" do
+		get :index, {:"1" => 'no'}
+		expect(@shift.update_attributes(:possible_users => nil, :users => nil)) 
 	end
 end
