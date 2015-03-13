@@ -189,7 +189,7 @@ DEPENDENCIES
   jquery-rails
   pg
   rails (= 3.2.18)
-  rake
+  rake (~> 10.4.2)
   rerun
   rspec-rails (~> 2.14.0)
   sass-rails (~> 3.2.3)

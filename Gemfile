@@ -12,7 +12,7 @@ group :development, :test do
   gem 'cucumber-rails', :require => false
   gem 'rspec-rails', '~> 2.14.0'
   gem 'simplecov'
-  gem 'rake'
+  gem 'rake', '~> 10.4.2'
 end
 
 # Gems used only for assets and not required
