@@ -16,6 +16,11 @@ describe UsersController do
 				}
 			end
 
+			it 'should create new' do
+				get :new, :user => user_params
+				response.should render_template("new")
+			end
+
 			it 'should render new' do
 				post :create, :user => user_params
 				response.should render_template("new")

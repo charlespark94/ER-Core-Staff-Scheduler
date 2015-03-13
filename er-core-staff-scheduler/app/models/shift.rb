@@ -1,3 +1,3 @@
 class Shift < ActiveRecord::Base
-  attr_accessible :shiftstart, :shiftend, :users, :owner, :open
+  attr_accessible :shiftstart, :shiftend, :id
 end

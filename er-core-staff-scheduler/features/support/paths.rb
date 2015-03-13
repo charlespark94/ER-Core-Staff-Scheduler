@@ -21,6 +21,14 @@ module NavigationHelpers
       sign_up_path
     when /^logout$/
       logout_path
+    when /^availabilities$/
+      availabilities_path
+
+    #from admin-add-shifts 
+    when /^input schedule$/
+      new_shift_path
+    when /^shift index$/
+      shifts_path
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

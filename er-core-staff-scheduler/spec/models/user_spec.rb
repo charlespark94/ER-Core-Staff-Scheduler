@@ -35,7 +35,7 @@ describe User do
 
   describe "when password is not present" do
   	before do
-  	  @user = User.new(name: "Example User", usertype: "Administrator", fte: "0.1", username: "admin", password: "", password_confirmation: "")
+  	  @user = User.new(name: "Example User", usertype: "Administrator", fte: "0.1", username: "admin", password: "admin", password_confirmation: "")
   	end
   	it { should_not be_valid}
   end
@@ -59,10 +59,8 @@ describe User do
   	  it { should_not eq user_for_invalid_password}
   	  specify {expect(user_for_invalid_password).to be_false}
   	end
-  	describe "invalid password" do
-  	  let(:user_for_valid_password) {found_user.match_password(BCrypt::Password.create("admin"))}
-  	  it { should_not eq user_for_valid_password}
-  	  specify {expect(user_for_valid_password).to be_false}
+  	describe "valid password" do
+  	  it { should == User.authenticate(@user.username, @user.password)}
   	end
   end
 end
