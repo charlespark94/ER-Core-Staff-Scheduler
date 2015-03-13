@@ -15,7 +15,7 @@ Background: I am on the availabilities page
   | 2015-03-09 07:00:00 UTC    | 2015-03-09 19:00:00 UTC |      
   | 2015-03-09 10:00:00 UTC    | 2015-03-09 18:00:00 UTC |
 
-  And I am on the availabilities page
+  And that I am on the availabilities page
 
 Scenario: user can choose yes as their availability
   When I choose "yes" of shift: 1,2,3

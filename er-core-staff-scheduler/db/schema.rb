@@ -11,7 +11,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150309041911) do
+ActiveRecord::Schema.define(:version => 20150311233150) do
+
+  create_table "availabilities", :force => true do |t|
+    t.integer "preferred"
+    t.integer "maybe"
+  end
 
   create_table "shifts", :force => true do |t|
     t.datetime "shiftstart"

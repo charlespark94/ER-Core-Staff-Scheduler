@@ -7,10 +7,6 @@ class ShiftsController < ActionController::Base
     #@shift = Shift.new
   end
 
-  #def show
-  #  id = params[:id]
-  #  @shift = Shift.find(id)
-  #end
 
   def create
     @shift = Shift.create!(params[:shift])

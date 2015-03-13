@@ -61,6 +61,7 @@ ErCoreStaffScheduler::Application.routes.draw do
   resources :shifts
   resources :users
   resources :sessions
+  resources :availabilities
 
   get "sign_up" => "users#new", :as => "sign_up"
   get "login" => "sessions#new", :as => "login"

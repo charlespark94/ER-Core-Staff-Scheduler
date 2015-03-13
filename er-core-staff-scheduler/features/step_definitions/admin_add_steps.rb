@@ -14,11 +14,6 @@ Given /that I am signed in/ do
 end
 
 
-
-When /I am on the "(.+)" page/ do |page_name|
-  visit path_to(page_name)
-end
-
 And /I am an admin user/ do
 end
 
@@ -39,13 +34,6 @@ Then /I fill in time (.+) with (.+)-(.+)-(.+)-(.+)-(.+)/ do |field ,year, month,
   select(minute, :from => "shift_#{field}_5i")
 end
 
-And /I press "(.+)"/ do |button|
-	click_button(button)
-end
-
-Then /I should be redirected to the "(.+)" page/ do |page|
-	visit path_to(page)
-end
 
 And /I should see one time (.+) is "(.+)"/ do |field, time|
 	page should have_content(time)
