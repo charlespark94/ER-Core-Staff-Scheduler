@@ -24,7 +24,7 @@
 				%a Calendar
 			- if @user.usertype == 'Administrator'
 				%li 
-					%a Set Availability
+					%a= link_to 'Set Availability', availabilities_path
 
 	%div#page-content-wrapper
 		%div.container-fluid
