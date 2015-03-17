@@ -6,6 +6,6 @@ gemfile:
 install:
   - bundle install
 script:
-  - rake db:migrate
-  - rake db:test:prepare
-  - rake
+  - rake db:migrate db:test:prepare db:seed
+  - rake cucumber
+  - rake spec
