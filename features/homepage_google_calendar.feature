@@ -22,11 +22,11 @@ Feature: Display Google Calendar of Current Schedule
 	Then I should see 2015-03-08 the Google Calendar
 
 	Scenario: See the User's shifts in Google Calendar
-	When I press the 'My Shift' button
+	When I press the "My Shift" button
 	Then I should see the shift from 03:00:00 to 5:00:00 is assigned to Michelle Phung
 
 	Scenario: See everyone else's shifts in Google Calendar
-	When I press the 'Everyone's Shift button
+	When I press the "Everyone's Shifts" button
 	Then I should see the shift from 03:00:00 to 5:00:00 is assigned to Michelle Phung
 	Then I should see the shift from 11:00:00 to 15:00:00 is assigned to Jason Kim
 	Then I should see the shift from 16:00:00 to 22:00:00 is assigned to Charles Park
