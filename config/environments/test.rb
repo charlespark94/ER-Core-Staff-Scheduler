@@ -34,4 +34,8 @@ ErCoreStaffScheduler::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
+
+  config.after_initialize do
+    ActiveRecord::Base.logger = nil
+  end
 end
