@@ -38,4 +38,6 @@ ErCoreStaffScheduler::Application.configure do
   config.after_initialize do
     ActiveRecord::Base.logger = nil
   end
+
+  config.log_level = :warn
 end
