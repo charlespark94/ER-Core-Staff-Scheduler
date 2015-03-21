@@ -1,4 +1,5 @@
 ErCoreStaffScheduler::Application.routes.draw do
+
   get "home/index"
 
   # The priority is based upon order of creation:
@@ -68,5 +69,5 @@ ErCoreStaffScheduler::Application.routes.draw do
   get "login" => "sessions#new", :as => "login"
   get "logout" => "sessions#destroy", :as =>"logout"
   get "home" => "home#index", :as =>"home"
-  root :to => "users#new"
+  root :to => "home#index"
 end
