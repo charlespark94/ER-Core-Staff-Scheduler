@@ -1,9 +1,0 @@
-class CreateShifts < ActiveRecord::Migration
-  def change
-    create_table :shifts do |t|
-    	t.datetime :shiftstart
-    	t.datetime :shiftend
-    	t.id :id
-    end
-  end
-end

@@ -4,7 +4,7 @@
 			%h1 VA hospital logo
 		%div.navbar-center
 			= hidden_field_tag @user = User.find_by_id(session[:user_id])
-			%h1= "Hello, #{@user.name}"
+			%h1= "Hello, #{@user.first_name} #{@user.last_name}"
 			%h3= "You are logged in as #{@user.usertype} with FTE of #{@user.fte}"
 		%div.collapse.navbar-collapse
 			%ul.nav.navbar-nav.navbar-right

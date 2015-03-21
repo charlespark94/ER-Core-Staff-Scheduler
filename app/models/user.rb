@@ -1,10 +1,11 @@
 class User < ActiveRecord::Base
-  attr_accessible :name, :usertype, :username, :password, :password_confirmation, :fte
+  attr_accessible :first_name, :last_name, :usertype, :username, :password, :password_confirmation, :fte
 
   attr_accessor :password
   before_save :encrypt_password
 
-  validates :name, :presence => true
+  validates :first_name, :presence => true
+  validates :last_name, :presence => true
   validates :username, :presence => true, :uniqueness => true
   validates :password, :presence => true, :confirmation => true
 
