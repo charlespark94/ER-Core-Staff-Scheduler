@@ -7,7 +7,8 @@ describe UsersController do
 		context 'with invalid parameters' do
 			let(:user_params) do
 				{
-					name: 'Charles Park',
+					first_name: 'Charles',
+					last_name: 'Park',
 					usertype: 'Administrator',
 					fte: "0.8",
 					username: 'admin',
@@ -40,7 +41,8 @@ describe UsersController do
 		context 'with valid parameters' do
 			let(:user_params) do
 				{
-					name: 'Charles Park',
+					first_name: 'Charles',
+					last_name: 'Park',
 					usertype: 'Administrator',
 					fte: "0.8",
 					username: 'admin',

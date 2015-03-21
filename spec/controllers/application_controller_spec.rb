@@ -4,7 +4,8 @@ describe ApplicationController do
 describe "current_user" do
 	let(:user_params) do
 		{
-			name: 'bob',
+			first_name: 'bob',
+			last_name: 'smith',
 			usertype: 'Administrator',
 			fte: '0.8',
 			username: 'admin',
@@ -17,7 +18,7 @@ describe "current_user" do
     end
     it "should return currently logged in user" do
       @current_user = User.create(user_params)
-      hash = {name: 'bob'}
+      hash = {first_name: 'bob'}
       subject.should_receive(:session).and_return hash
       subject.current_user.should_not be_present
     end

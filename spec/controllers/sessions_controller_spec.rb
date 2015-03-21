@@ -13,7 +13,8 @@ describe SessionsController do
 			let(:user_params) do
 				{
 					id: 'bob_id',
-					name: 'bob',
+					first_name: 'bob',
+					last_name: 'smith',
 					usertype: 'Administrator',
 					fte: '0.8',
 					username: 'admin',
@@ -49,7 +50,8 @@ describe SessionsController do
 		context 'without registration' do
 			let(:user_params) do
 				{
-					name: 'bob',
+					first_name: 'bob',
+					last_name: 'smith',
 					usertype: 'Administrator',
 					fte: '0.8',
 					username: 'admin',
@@ -73,7 +75,8 @@ describe SessionsController do
 		describe 'destroy' do
 			let(:user_params) do
 				{
-					name: 'bob',
+					first_name: 'bob',
+					last_name: 'smith',
 					usertype: 'Administrator',
 					fte: '0.8',
 					username: 'admin',
