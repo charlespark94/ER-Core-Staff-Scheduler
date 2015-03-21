@@ -1,6 +1,7 @@
 Given /^'(.*)' has been added to the database$/ do |username|
   visit path_to('signup')
-  step "I fill in \"Name\" with \"#{username}\""
+  step "I fill in \"First name\" with \"#{username}\""
+  step "I fill in \"Last name\" with \"#{username}\""
   step "I fill in \"Username\" with \"#{username}\""
   step "I fill in \"Password\" with \"#{username}\""
   step "I fill in \"Password confirmation\" with \"#{username}\""

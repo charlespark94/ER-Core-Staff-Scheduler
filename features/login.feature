@@ -38,7 +38,8 @@ Scenario: user can logout
 Scenario: user can create an account
   When I go to the signup page
   Then I should be redirected to the signup page
-  When I fill in "name" with "Charles Park"
+  When I fill in "user_first_name" with "Charles"
+  And I fill in "user_last_name" with "Park"
   And I select "Core Doctor" from "user_usertype"
   And I select "0.8" from "user_fte"
   And I fill in "user_username" with "core"
