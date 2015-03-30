@@ -13,6 +13,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 2.14.0'
   gem 'simplecov'
   gem 'rake'
+  gem 'google-api-client'
 end
 
 # Gems used only for assets and not required
