@@ -3,6 +3,7 @@ Given /^'(.*)' has been added to the database$/ do |username|
   step "I fill in \"First name\" with \"#{username}\""
   step "I fill in \"Last name\" with \"#{username}\""
   step "I fill in \"Username\" with \"#{username}\""
+  step "I fill in \"Email\" with \"vacorescheduling@gmail.com\""
   step "I fill in \"Password\" with \"#{username}\""
   step "I fill in \"Password confirmation\" with \"#{username}\""
   step "I press \"signup_submit\""

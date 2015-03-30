@@ -14,7 +14,7 @@
       <img src="./assets/0.9.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2015-03-30T17:37:32-03:00">2015-03-30T17:37:32-03:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2015-03-30T17:42:43-03:00">2015-03-30T17:42:43-03:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -25,7 +25,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         2.56
+         2.52
        </span>
     </span> hits/line)
   </h2>
@@ -187,7 +187,7 @@
         <td>26</td>
         <td>26</td>
         <td>0</td>
-        <td>5.0</td>
+        <td>4.8</td>
       </tr>
       
     </tbody>
@@ -310,7 +310,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         4.47
+         4.29
        </span>
     </span> hits/line)
   </h2>
@@ -362,7 +362,7 @@
         <td>26</td>
         <td>26</td>
         <td>0</td>
-        <td>5.0</td>
+        <td>4.8</td>
       </tr>
       
     </tbody>
@@ -1835,8 +1835,8 @@
           <code class="ruby">  attr_accessor :password</code>
         </li>
       
-        <li class="covered" data-hits="20" data-linenumber="5">
-          <span class="hits">20</span>
+        <li class="covered" data-hits="19" data-linenumber="5">
+          <span class="hits">19</span>
           
           <code class="ruby">  before_create { generate_token(:auth_token)}</code>
         </li>
@@ -1949,8 +1949,8 @@
           <code class="ruby">  def encrypt_password</code>
         </li>
       
-        <li class="covered" data-hits="26" data-linenumber="24">
-          <span class="hits">26</span>
+        <li class="covered" data-hits="24" data-linenumber="24">
+          <span class="hits">24</span>
           
           <code class="ruby">    self.encrypted_password = BCrypt::Password.create(password) if password.present?</code>
         </li>
@@ -2045,14 +2045,14 @@
           <code class="ruby">    begin</code>
         </li>
       
-        <li class="covered" data-hits="21" data-linenumber="40">
-          <span class="hits">21</span>
+        <li class="covered" data-hits="20" data-linenumber="40">
+          <span class="hits">20</span>
           
           <code class="ruby">      self[column] = SecureRandom.urlsafe_base64</code>
         </li>
       
-        <li class="covered" data-hits="21" data-linenumber="41">
-          <span class="hits">21</span>
+        <li class="covered" data-hits="20" data-linenumber="41">
+          <span class="hits">20</span>
           
           <code class="ruby">    end while User.exists?(column =&gt; self[column])</code>
         </li>
