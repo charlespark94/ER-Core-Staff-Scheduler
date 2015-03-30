@@ -16,13 +16,14 @@ describe SessionsController do
 					first_name: 'bob',
 					last_name: 'smith',
 					usertype: 'Administrator',
+					email: 'vacorescheduling@gmail.com',
 					fte: '0.8',
 					username: 'admin',
 					password: 'admin',
-					password_confirmation: 'admin'
+					password_confirmation: 'admin',
 				}
 			end
-			before do
+			before(:each) do
 				@user = User.create(user_params)
 			end
 
@@ -44,7 +45,8 @@ describe SessionsController do
 			it 'should not allow login without password' do
 				post :create, user_params.slice(:password)
 				response.should redirect_to(login_path)
-			end
+			end			
+
 		end
 
 		context 'without registration' do
@@ -53,6 +55,7 @@ describe SessionsController do
 					first_name: 'bob',
 					last_name: 'smith',
 					usertype: 'Administrator',
+					email: 'vacorescheduling@gmail.com',
 					fte: '0.8',
 					username: 'admin',
 					password: 'admin',
@@ -78,6 +81,7 @@ describe SessionsController do
 					first_name: 'bob',
 					last_name: 'smith',
 					usertype: 'Administrator',
+					email: 'vacorescheduling@gmail.com',
 					fte: '0.8',
 					username: 'admin',
 					password: 'admin',

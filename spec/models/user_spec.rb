@@ -1,13 +1,14 @@
 require 'spec_helper'
 
 describe User do
-  before { @user = User.new(first_name: "Example User First Name", last_name: "Example User Last Name", usertype: "Administrator", fte: "0.8", username: "admin", password: "admin", password_confirmation: "admin")}
+  before { @user = User.new(first_name: "Example User First Name", last_name: "Example User Last Name", email: "Example@example.com", usertype: "Administrator", fte: "0.8", username: "admin", password: "admin", password_confirmation: "admin")}
 
   subject { @user }
 
   it { should respond_to(:first_name) }
   it { should respond_to(:last_name)}
   it { should respond_to(:usertype) }
+  it { should respond_to(:email)}
   it { should respond_to(:fte) }  
   it { should respond_to(:username) }
   it { should respond_to(:password) }
@@ -39,7 +40,7 @@ describe User do
 
   describe "when password is not present" do
   	before do
-  	  @user = User.new(first_name: "Example User First Name", last_name: "Example User Last Name", usertype: "Administrator", fte: "0.1", username: "admin", password: "admin", password_confirmation: "")
+  	  @user = User.new(first_name: "Example User First Name", last_name: "Example User Last Name", usertype: "Administrator", email: "Example@example.com", fte: "0.1", username: "admin", password: "admin", password_confirmation: "")
   	end
   	it { should_not be_valid}
   end
@@ -50,7 +51,7 @@ describe User do
 
   describe "when password confirmation is nil" do
   	before do
-  	  @user = User.new(first_name: "Bob", last_name: "Smith", usertype: "Administrator", fte:"1.0", username: "bobid", password: "bobpass", password_confirmation: nil)
+  	  @user = User.new(first_name: "Bob", last_name: "Smith", usertype: "Administrator", email: "example@gmail.com", fte:"1.0", username: "bobid", password: "bobpass", password_confirmation: nil)
   	end
   	it {should be_valid}
   end
