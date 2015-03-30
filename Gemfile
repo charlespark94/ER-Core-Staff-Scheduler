@@ -55,3 +55,4 @@ gem 'jquery-rails'
 gem 'haml', '~> 4.0.6'
 gem "bcrypt-ruby", :require => "bcrypt"
 gem 'rerun'
+gem 'validates_email_format_of'

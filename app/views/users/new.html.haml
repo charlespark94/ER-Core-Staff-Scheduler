@@ -17,6 +17,10 @@
     %br
     = f.text_field :last_name
   %p
+    = f.label :email
+    %br
+    = f.text_field :email
+  %p
     = f.label :usertype
     %br
     = f.select :usertype, ['Administrator', 'Core Doctor', 'Night Doctor']

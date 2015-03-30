@@ -1,4 +1,6 @@
 ErCoreStaffScheduler::Application.routes.draw do
+  get "password_resets/new"
+
   get "home/index"
 
   # The priority is based upon order of creation:
@@ -62,6 +64,7 @@ ErCoreStaffScheduler::Application.routes.draw do
   resources :users
   resources :sessions
   resources :availabilities
+  resources :password_resets
 
   put "/shifts" => "shifts#update", :as => "shifts"
   get "sign_up" => "users#new", :as => "sign_up"

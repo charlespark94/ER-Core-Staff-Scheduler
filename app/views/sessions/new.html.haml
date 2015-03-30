@@ -13,3 +13,7 @@
   %p.button= submit_tag "Log in", :id => "login_submit"
 %br
 = link_to 'Create An Account', new_user_path, :id => "signup_link"
+%p= link_to "forgotten password?", new_password_reset_path
+.field
+  = check_box_tag :remember_me, 1, params[:remember_me]
+  = label_tag :remember_me

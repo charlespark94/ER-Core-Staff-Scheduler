@@ -6,6 +6,8 @@ class CreateUsers < ActiveRecord::Migration
       t.string :usertype
       t.string :username
       t.string :password
+      t.string :email
+      t.string :auth_token
       t.float :fte
       t.string :encrypted_password
     end
