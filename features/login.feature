@@ -38,7 +38,8 @@ Scenario: user can logout
   Then I should be redirected to the login page 
 
 Scenario: user can create an account
-  When I go to the signup page
+  When I go to the login page
+  And I follow "signup_link"
   Then I should be redirected to the signup page
   When I fill in "user_first_name" with "Charles"
   And I fill in "user_last_name" with "Park"
@@ -55,13 +56,17 @@ Scenario: user can create an account
   Then I should be redirected to the home page
 
 Scenario: user forgot their password
-  When I go to the forgot page
-  And I fill in "email" with "example@example.com"
+  When I go to the login page
+  And I follow "forgot_link"
+  Then I should be redirected to the forgot page
+  When I fill in "email" with "example@example.com"
   And I press "forgot_submit"
   Then I should be redirected to the login page
 
 Scenario: user enters wrong password for password retrieval
-  When I go to the forgot page
+  When I go to the login page
+  And I follow "forgot_link"
+  Then I should be redirected to the forgot page
   And I fill in "email" with ""
   And I press "forgot_submit"
   Then I should be redirected to the forgot page
