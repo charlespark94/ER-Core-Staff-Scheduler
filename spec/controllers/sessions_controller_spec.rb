@@ -45,7 +45,12 @@ describe SessionsController do
 			it 'should not allow login without password' do
 				post :create, user_params.slice(:password)
 				response.should redirect_to(login_path)
-			end			
+			end
+
+			it 'should create permanent cookie' do
+				post :create, {:remember_me => false}
+				expect(cookies[:auth_token]).to_not eq @user.auth_token
+			end	
 
 		end
 

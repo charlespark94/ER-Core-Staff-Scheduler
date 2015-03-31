@@ -40,7 +40,6 @@ describe PasswordResetsController do
   	it {should redirect_to(new_password_reset_path)}
   end
 
-
   context "for checking edit succeeds" do
     before do
    	  @user.password_reset_token = "gB5KGF-3hC4RNHCK5niz9A"

@@ -14,7 +14,7 @@
       <img src="./assets/0.9.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2015-03-30T17:42:43-03:00">2015-03-30T17:42:43-03:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2015-03-30T22:41:20-03:00">2015-03-30T22:41:20-03:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -25,7 +25,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         2.52
+         2.6
        </span>
     </span> hits/line)
   </h2>
@@ -57,7 +57,7 @@
         <td>9</td>
         <td>9</td>
         <td>0</td>
-        <td>6.0</td>
+        <td>6.2</td>
       </tr>
       
       <tr>
@@ -97,7 +97,7 @@
         <td>18</td>
         <td>17</td>
         <td>1</td>
-        <td>1.7</td>
+        <td>1.9</td>
       </tr>
       
       <tr>
@@ -187,7 +187,7 @@
         <td>26</td>
         <td>26</td>
         <td>0</td>
-        <td>4.8</td>
+        <td>5.0</td>
       </tr>
       
     </tbody>
@@ -203,7 +203,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.99
+         2.05
        </span>
     </span> hits/line)
   </h2>
@@ -235,7 +235,7 @@
         <td>9</td>
         <td>9</td>
         <td>0</td>
-        <td>6.0</td>
+        <td>6.2</td>
       </tr>
       
       <tr>
@@ -275,7 +275,7 @@
         <td>18</td>
         <td>17</td>
         <td>1</td>
-        <td>1.7</td>
+        <td>1.9</td>
       </tr>
       
       <tr>
@@ -310,7 +310,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         4.29
+         4.47
        </span>
     </span> hits/line)
   </h2>
@@ -362,7 +362,7 @@
         <td>26</td>
         <td>26</td>
         <td>0</td>
-        <td>4.8</td>
+        <td>5.0</td>
       </tr>
       
     </tbody>
@@ -611,14 +611,14 @@
           <code class="ruby">  def destroy_page_cache</code>
         </li>
       
-        <li class="covered" data-hits="23" data-linenumber="12">
-          <span class="hits">23</span>
+        <li class="covered" data-hits="24" data-linenumber="12">
+          <span class="hits">24</span>
           
           <code class="ruby">    response.headers[&quot;Cache-Control&quot;] = &quot;no-cache, no-store, max-age=0, must-revalidate&quot;</code>
         </li>
       
-        <li class="covered" data-hits="23" data-linenumber="13">
-          <span class="hits">23</span>
+        <li class="covered" data-hits="24" data-linenumber="13">
+          <span class="hits">24</span>
           
           <code class="ruby">    response.headers[&quot;Pragma&quot;] = &quot;no-cache&quot;</code>
         </li>
@@ -1109,14 +1109,14 @@
           <code class="ruby">  def create</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="9">
-          <span class="hits">5</span>
+        <li class="covered" data-hits="6" data-linenumber="9">
+          <span class="hits">6</span>
           
           <code class="ruby">    user = User.authenticate(params[:username], params[:password])</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="10">
-          <span class="hits">5</span>
+        <li class="covered" data-hits="6" data-linenumber="10">
+          <span class="hits">6</span>
           
           <code class="ruby">    if user</code>
         </li>
@@ -1169,14 +1169,14 @@
           <code class="ruby">    else</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="19">
-          <span class="hits">4</span>
+        <li class="covered" data-hits="5" data-linenumber="19">
+          <span class="hits">5</span>
           
           <code class="ruby">      flash[:notice] = &quot;Invalid username and/or password&quot;</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="20">
-          <span class="hits">4</span>
+        <li class="covered" data-hits="5" data-linenumber="20">
+          <span class="hits">5</span>
           
           <code class="ruby">      redirect_to login_path and return</code>
         </li>
@@ -1835,8 +1835,8 @@
           <code class="ruby">  attr_accessor :password</code>
         </li>
       
-        <li class="covered" data-hits="19" data-linenumber="5">
-          <span class="hits">19</span>
+        <li class="covered" data-hits="20" data-linenumber="5">
+          <span class="hits">20</span>
           
           <code class="ruby">  before_create { generate_token(:auth_token)}</code>
         </li>
@@ -1895,14 +1895,14 @@
           <code class="ruby">  def self.authenticate(username=&quot;&quot;, login_password=&quot;&quot;)</code>
         </li>
       
-        <li class="covered" data-hits="6" data-linenumber="15">
-          <span class="hits">6</span>
+        <li class="covered" data-hits="7" data-linenumber="15">
+          <span class="hits">7</span>
           
           <code class="ruby">  	user = find_by_username(username)</code>
         </li>
       
-        <li class="covered" data-hits="6" data-linenumber="16">
-          <span class="hits">6</span>
+        <li class="covered" data-hits="7" data-linenumber="16">
+          <span class="hits">7</span>
           
           <code class="ruby">  	if user &amp;&amp; user.match_password(login_password)</code>
         </li>
@@ -1949,8 +1949,8 @@
           <code class="ruby">  def encrypt_password</code>
         </li>
       
-        <li class="covered" data-hits="24" data-linenumber="24">
-          <span class="hits">24</span>
+        <li class="covered" data-hits="25" data-linenumber="24">
+          <span class="hits">25</span>
           
           <code class="ruby">    self.encrypted_password = BCrypt::Password.create(password) if password.present?</code>
         </li>
@@ -2045,14 +2045,14 @@
           <code class="ruby">    begin</code>
         </li>
       
-        <li class="covered" data-hits="20" data-linenumber="40">
-          <span class="hits">20</span>
+        <li class="covered" data-hits="21" data-linenumber="40">
+          <span class="hits">21</span>
           
           <code class="ruby">      self[column] = SecureRandom.urlsafe_base64</code>
         </li>
       
-        <li class="covered" data-hits="20" data-linenumber="41">
-          <span class="hits">20</span>
+        <li class="covered" data-hits="21" data-linenumber="41">
+          <span class="hits">21</span>
           
           <code class="ruby">    end while User.exists?(column =&gt; self[column])</code>
         </li>

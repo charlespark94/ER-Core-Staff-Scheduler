@@ -21,6 +21,8 @@ module NavigationHelpers
       sign_up_path
     when /^logout$/
       logout_path
+    when /^forgot$/
+      new_password_reset_path
     when /^availabilities$/
       availabilities_path
 

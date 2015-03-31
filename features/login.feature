@@ -34,6 +34,8 @@ Scenario: user can logout
   Then I should be redirected to the home page
   When I go to the logout page
   Then I should be redirected to the login page
+  When I go to the home page
+  Then I should be redirected to the login page 
 
 Scenario: user can create an account
   When I go to the signup page
@@ -42,6 +44,7 @@ Scenario: user can create an account
   And I fill in "user_last_name" with "Park"
   And I select "Core Doctor" from "user_usertype"
   And I select "0.8" from "user_fte"
+  And I fill in "user_email" with "example@example.com"
   And I fill in "user_username" with "core"
   And I fill in "user_password" with "core"
   And I fill in "user_password_confirmation" with "core"
@@ -50,3 +53,15 @@ Scenario: user can create an account
   When I fill in "username" with "core"
   And I fill in "password" with "core"
   Then I should be redirected to the home page
+
+Scenario: user forgot their password
+  When I go to the forgot page
+  And I fill in "email" with "example@example.com"
+  And I press "forgot_submit"
+  Then I should be redirected to the login page
+
+Scenario: user enters wrong password for password retrieval
+  When I go to the forgot page
+  And I fill in "email" with ""
+  And I press "forgot_submit"
+  Then I should be redirected to the forgot page
