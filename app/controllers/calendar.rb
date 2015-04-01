@@ -4,11 +4,13 @@ module Calendar
   require 'yaml'
   extend ActiveSupport::Concern
 
-  googleapi_hash = YAML.load_file('.googleapi.yaml')
+  #@googleapi_hash = YAML.load_file("#{Rails.root}/config/.googleapi.yaml")
+  @googleapi_hash = YAML.load_file(".googleapi.yaml")
 
   API_VERSION = 'v3'
   CACHED_API_FILE = "calendar-#{API_VERSION}.cache"
-  CALENDAR_ID = googleapi_hash["calendarId"]
+  CALENDAR_ID = @googleapi_hash["calendarId"]
+  
 
   def gcal_event_insert
 		params = {
@@ -76,24 +78,27 @@ private
 	end
 
 	def init_client
+		@googleapi_hash = YAML.load_file(".googleapi.yaml")	
+
 		@client = Google::APIClient.new(:application_name => 'ER-Core-Staff-Scheduler', :application_version => '1.0.0')
 
 		# Load our credentials for the service account
 		#key = Google::APIClient::KeyUtils.load_from_pkcs12(Rails.application.secrets.key_file, Rails.application.secrets.key_secret)
-		key = Google::APIClient::KeyUtils.load_from_pkcs12(googleapi_hash["key_file"], googleapi_hash["key_secret"])
+		key = Google::APIClient::KeyUtils.load_from_pkcs12(@googleapi_hash["key_file"], @googleapi_hash["key_secret"])
+		#key = Google::APIClient::KeyUtils.load_from_pkcs12(".keyfile.p12", "notasecret")
 		@client.authorization = Signet::OAuth2::Client.new(
+			#:client_id => @googleapi_hash["client_id"],
+			#:client_secret => @googleapi_hash["client_secret"],
 			:token_credential_uri => 'https://accounts.google.com/o/oauth2/token',
 			:audience => 'https://accounts.google.com/o/oauth2/token',
-			:scope => 'https://www.googleapis.com/auth/calendar',
-			#:issuer => Rails.application.secrets.service_account_email,
-			:issuer => googleapi_hash["service_account_email"],
-			#:person => Rails.application.secrets.impersonate_user_email,
-			:person => googleapi_hash["impersonate_user_email"],
+			:scope => 'https://www.googleapis.com/auth/calendar.readonly',
+			:issuer => @googleapi_hash["service_account_email"],
+			#:person => @googleapi_hash["impersonate_user_email"],
 			:signing_key => key)
 
 		# Request a token for our service account
 		@client.authorization.fetch_access_token!
-		@client
+		return @client
 	end
 
 	def init_calendar
@@ -113,14 +118,15 @@ private
 	end
 
   def get_calendar
+  	@service = client.discovered_api('calendar', API_VERSION)
   	params = {
 			calendarId: CALENDAR_ID
 		}
   	result = client.execute(
-  		:api_method => service.calendar.get,
+  		:api_method => @service.calendars.get,
   		:parameters => params)
   	logger.debug(result.data.to_yaml)
-  	return result
+  	return result.data.summary
   end
 
 	def client
