@@ -67,6 +67,6 @@ Scenario: user enters wrong password for password retrieval
   When I go to the login page
   And I follow "forgot_link"
   Then I should be redirected to the forgot page
-  And I fill in "email" with ""
+  And I fill in "email" with "invalidemail@example.com"
   And I press "forgot_submit"
   Then I should be redirected to the forgot page
