@@ -13,7 +13,6 @@ group :development, :test do
   gem 'rspec-rails', '~> 2.14.0'
   gem 'simplecov'
   gem 'rake'
-  gem 'google-api-client', :require => 'google/api_client'
 end
 
 # Gems used only for assets and not required
@@ -57,3 +56,4 @@ gem 'haml', '~> 4.0.6'
 gem "bcrypt-ruby", :require => "bcrypt"
 gem 'rerun'
 gem 'validates_email_format_of'
+gem 'google-api-client', :require => 'google/api_client'
