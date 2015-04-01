@@ -1,5 +1,3 @@
-include Calendar
-
 class HomeController < ApplicationController
   include Calendar 
 
