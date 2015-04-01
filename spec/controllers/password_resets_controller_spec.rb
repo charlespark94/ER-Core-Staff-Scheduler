@@ -48,7 +48,7 @@ describe PasswordResetsController do
       put :edit, id: @user.password_reset_token
   	end
 
-  	it {@user.should_not be_nil}
+  	it {should render_template('edit')}
   end
 
   context "for checking create fail" do

@@ -20,7 +20,7 @@ class PasswordResetsController < ApplicationController
   	elsif @user.update_attributes(params[:user])
   		redirect_to login_path, :notice => "Password has been reset"
   	else
-  		render :edit
+  		redirect_to edit_password_reset_path @user.password_reset_token
   	end
   end
 end

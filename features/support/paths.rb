@@ -25,6 +25,8 @@ module NavigationHelpers
       new_password_reset_path
     when /^availabilities$/
       availabilities_path
+    when /^new password$/
+      edit_password_reset_path User.first.password_reset_token
 
     #from admin-add-shifts 
     when /^input schedule$/

@@ -13,6 +13,8 @@ group :development, :test do
   gem 'rspec-rails', '~> 2.14.0'
   gem 'simplecov'
   gem 'rake'
+  gem 'email_spec'
+  gem 'factory_girl_rails'
 end
 
 # Gems used only for assets and not required
