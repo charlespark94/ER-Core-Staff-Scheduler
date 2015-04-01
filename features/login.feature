@@ -14,6 +14,8 @@ Scenario: user can enter their username and password to login
   And I fill in "password" with "admin"
   When I press "login_submit"
   Then I should be redirected to the home page
+  When I go to the login page
+  Then I should be redirected to the home page
 
 Scenario: user is redirected to the login page when the username is wrong
   When I fill in "username" with "admin-false"
@@ -35,11 +37,10 @@ Scenario: user can logout
   When I go to the logout page
   Then I should be redirected to the login page
   When I go to the home page
-  Then I should be redirected to the login page 
+  Then I should be redirected to the login page
 
 Scenario: user can create an account
-  When I go to the login page
-  And I follow "signup_link"
+  When I follow "signup_link"
   Then I should be redirected to the signup page
   When I fill in "user_first_name" with "Charles"
   And I fill in "user_last_name" with "Park"
@@ -55,17 +56,21 @@ Scenario: user can create an account
   And I fill in "password" with "core"
   Then I should be redirected to the home page
 
+Scenario: user didn't fill out all fields for creating an account
+  When I follow "signup_link"
+  Then I should be redirected to the signup page
+  When I press "signup_submit"
+  Then I should be redirected to the signup page
+
 Scenario: user forgot their password
-  When I go to the login page
-  And I follow "forgot_link"
+  When I follow "forgot_link"
   Then I should be redirected to the forgot page
   When I fill in "email" with "example@example.com"
   And I press "forgot_submit"
   Then I should be redirected to the login page
 
 Scenario: user enters wrong password for password retrieval
-  When I go to the login page
-  And I follow "forgot_link"
+  When I follow "forgot_link"
   Then I should be redirected to the forgot page
   And I fill in "email" with "invalidemail@example.com"
   And I press "forgot_submit"

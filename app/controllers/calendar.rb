@@ -5,6 +5,7 @@ module Calendar
   extend ActiveSupport::Concern
 
   #@googleapi_hash = YAML.load_file("#{Rails.root}/config/.googleapi.yaml")
+  attr_accessor :googleapi_hash
   @googleapi_hash = YAML.load_file(".googleapi.yaml")
 
   API_VERSION = 'v3'
