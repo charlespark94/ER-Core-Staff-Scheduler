@@ -1,0 +1,5 @@
+calendarId: 'va.er.core.scheduler@gmail.com'
+service_account_email: '979646852267-n504b7vqkd1ahuqocvhb3t6uh8p4c62k@developer.gserviceaccount.com'
+impersonate_user_email: 'va.er.core.scheduler@gmail.com'
+key_file: <%= ".keyfile.p12" %>
+key_secret: 'notasecret'

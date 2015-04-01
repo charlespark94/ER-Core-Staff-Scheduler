@@ -1,0 +1,7 @@
+calendarId: 'va.er.core.scheduler@gmail.com'
+client_id: '1015162711729-4r5nn2ibft615vt22rh5npqarbpqoi27.apps.googleusercontent.com'
+client_secret: '393A3DF01C5BE76F'
+service_account_email: '1015162711729-4r5nn2ibft615vt22rh5npqarbpqoi27@developer.gserviceaccount.com'
+impersonate_user_email: 'va.er.core.scheduler@gmail.com'
+key_file: '.keyfile.p12'
+key_secret: 'notasecret'
