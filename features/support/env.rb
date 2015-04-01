@@ -7,7 +7,6 @@ require 'simplecov'
 SimpleCov.start 'rails'
 SimpleCov.coverage_dir 'coverage/cucumber'
 require 'cucumber/rails'
-require 'factory_girl'
 require 'email_spec'
 require 'email_spec/cucumber'
 
