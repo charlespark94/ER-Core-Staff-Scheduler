@@ -1,7 +1,6 @@
 Given /the following shifts exist/ do |shifts_table|
   shifts_table.hashes.each do |shift|
     Shift.create(shift)
-
   end
 end
 

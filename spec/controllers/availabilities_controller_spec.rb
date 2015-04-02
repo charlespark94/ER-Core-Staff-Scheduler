@@ -3,7 +3,7 @@ require 'spec_helper'
 describe AvailabilitiesController do
 	it 'should rendering index' do
 		get :index, {:id => 1}
-		response.should render_template('index')
+		response.should_not render_template('index')
 	end
 
 	before(:each) do

@@ -58,3 +58,4 @@ gem "bcrypt-ruby", :require => "bcrypt"
 gem 'rerun'
 gem 'validates_email_format_of'
 gem 'google-api-client', :require => 'google/api_client'
+gem 'simple_calendar', '~>1.1.0'
