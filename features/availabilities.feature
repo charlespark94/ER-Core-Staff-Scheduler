@@ -21,22 +21,22 @@ Background: I am on the availabilities page
   And that I am on the availabilities page
 
 Scenario: user can choose yes as their availability
-  When I choose "yes" of shift: 5,6,8
+  When I choose "yes" of shift: 1,2,3
   And I press "Update"
   Then I should be redirected to the availabilities page
-  And I should see that "shiftuser" equals ["1", "1", "1", "", "", ""]
+  And I should see that "shiftuser" equals ["1", "1", "1"]
 
 
 Scenario: user can choose maybe as their availability
-  When I choose "maybe" of shift: 5,6,8
+  When I choose "maybe" of shift: 1,2,3
   And I press "Update"
   Then I should be redirected to the availabilities page
-  And I should see that "shiftuser" equals ["", "", "", "", "", ""]
-  And I should see that "possibleusers" equals ["1", "1", "1", "1", "1", "1"]
+  And I should see that "shiftuser" equals ["", "", ""]
+  And I should see that "possibleusers" equals ["1", "1", "1"]
 
 Scenario: user can choose no as their avaialbility
-  When I choose "no" of shift: 5,6,8
+  When I choose "no" of shift: 1,2,3
   And I press "Update"
   Then I should be redirected to the availabilities page
-  And I should see that "shiftuser" equals ["", "", "", "", "", ""]
-  And I should see that "possibleusers" equals ["", "", "", "1", "1", "1"]
+  And I should see that "shiftuser" equals ["", "", ""]
+  And I should see that "possibleusers" equals ["", "", ""]
