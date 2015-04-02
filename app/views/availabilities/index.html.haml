@@ -1,19 +1,36 @@
 %h1 this is index.html.haml from within availabilities/shifts
 
-%h1 actual prefs form
+= month_calendar do |date|
+	= date
 
 = form_tag availabilities_path, :method => :get do
-	- @shifts.each do |shift|
-		= shift.shiftstart
-		= shift.shiftend
-		= radio_button_tag "#{shift.id}", 'yes', false
-		= radio_button_tag "#{shift.id}", 'maybe', true
-		= radio_button_tag "#{shift.id}", 'no', false
+	= week_calendar number_of_weeks: 2 do |date|
+		%div#date
+			= "#{date.to_s[5..6]}/#{date.to_s[8..9]}"
+			- @shifts.each do |shift|
+				- if shift.shiftstart.to_s[5..6].to_i == date.to_s[5..6].to_i && shift.shiftstart.to_s[8..9].to_i == date.to_s[8..9].to_i
+					%div
+						= "#{shift.shiftstart.to_s[11..15]} to #{shift.shiftend.to_s[11..15]}"
+						= radio_button_tag "#{shift.id}", 'yes', false
+						= radio_button_tag "#{shift.id}", 'maybe', true
+						= radio_button_tag "#{shift.id}", 'no', false
 		%br
 	= submit_tag 'Update'
 
+/%h1 actual prefs form
+
+/= form_tag availabilities_path, :method => :get do
+/	- @shifts.each do |shift|
+/		= shift.shiftstart
+/		= shift.shiftend
+/		= radio_button_tag "#{shift.id}", 'yes', false
+/		= radio_button_tag "#{shift.id}", 'maybe', true
+/		= radio_button_tag "#{shift.id}", 'no', false
+/		%br
+/	= submit_tag 'Update'
+
 %h2 these are the params
-= params.inspect
+/= params.inspect
 
 %h2 these are all the shifts currently in the shifts table
 

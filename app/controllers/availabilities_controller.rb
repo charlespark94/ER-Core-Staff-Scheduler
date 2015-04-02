@@ -3,6 +3,7 @@ class AvailabilitiesController < ApplicationController
 	def index
 		@availabilities = Availability.all
 		@shifts = Shift.all
+		@user = User.find_by_id(session[:user_id])
 
 		# @shifts.each do |shift|
 		# 	shift.update_attributes(:users => nil)
@@ -16,6 +17,8 @@ class AvailabilitiesController < ApplicationController
 			elsif params[:"#{shift.id}"] == "maybe"
 				shift.update_attributes(:possible_users => 1)
 				shift.update_attributes(:users => nil)
+
+				shift.update_attributes(:owner => "#{@user.first_name} #{@user.last_name}")
 			elsif params[:"#{shift.id}"] == "no"
 				shift.update_attributes(:possible_users => nil)
 				shift.update_attributes(:users => nil)

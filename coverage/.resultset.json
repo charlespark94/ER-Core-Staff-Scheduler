@@ -56,6 +56,8 @@
       "/home/saasbook/Project/ER-Core-Staff-Scheduler/er-core-staff-scheduler/app/models/availability.rb": [
         1,
         1,
+        1,
+        1,
         null
       ],
       "/home/saasbook/Project/ER-Core-Staff-Scheduler/er-core-staff-scheduler/app/controllers/calendar.rb": [
@@ -199,6 +201,7 @@
         0,
         null,
         null,
+        null,
         null
       ],
       "/home/saasbook/Project/ER-Core-Staff-Scheduler/er-core-staff-scheduler/app/controllers/home_controller.rb": [
@@ -215,7 +218,6 @@
         1,
         1,
         1,
-        null,
         null,
         null
       ],
@@ -392,6 +394,6 @@
         null
       ]
     },
-    "timestamp": 1427913771
+    "timestamp": 1427941450
   }
 }
