@@ -118,17 +118,17 @@ private
 		end
 	end
 
-  def get_calendar
-  	@service = client.discovered_api('calendar', API_VERSION)
-  	params = {
-			calendarId: CALENDAR_ID
-		}
-  	result = client.execute(
-  		:api_method => @service.calendars.get,
-  		:parameters => params)
-  	logger.debug(result.data.to_yaml)
-  	return result.data.summary
-  end
+  	def get_calendar
+  		@service = client.discovered_api('calendar', API_VERSION)
+	  	params = {
+				calendarId: CALENDAR_ID
+			}
+	  	result = client.execute(
+	  		:api_method => @service.calendars.get,
+	  		:parameters => params)
+	  	logger.debug(result.data.to_yaml)
+	  	return result.data.summary
+	end
 
 	def client
 		@client ||= init_client
@@ -137,5 +137,6 @@ private
 	def calendar
 		@calendar ||= init_calendar
 	end
+
 
 end

@@ -12,5 +12,4 @@ class HomeController < ApplicationController
   	client
   	@calendar = get_calendar
   end
-
 end
