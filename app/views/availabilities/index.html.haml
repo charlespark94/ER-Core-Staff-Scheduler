@@ -1,8 +1,15 @@
+= stylesheet_link_tag 'simple_calendar_red'
 %h1 this is index.html.haml from within availabilities/shifts
 
+:css
+	tr {
+		height: 5px;
+		vertical-align: top;
+	}
+
 = form_tag availabilities_path, :method => :get do
-	= week_calendar number_of_weeks: 2 do |date|
-		%table
+	= week_calendar number_of_weeks: 2, shifts: Shift.all do |date, shifts|
+		%table.table
 			%thead
 				%tr
 					%th= "#{date.to_s[5..6]}/#{date.to_s[8..9]}"
@@ -30,7 +37,7 @@
 /	= submit_tag 'Update'
 
 %h2 these are the params
-/= params.inspect
+= params.inspect
 
 %h2 these are all the shifts currently in the shifts table
 
