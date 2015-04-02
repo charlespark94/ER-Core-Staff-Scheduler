@@ -5,11 +5,13 @@ class HomeController < ApplicationController
     if session[:user_id] == nil
       redirect_to login_path
     end
-    display_calendar
+    test
   end
 
-  def display_calendar
-  	client
-  	@calendar = get_calendar
+  def test
+    dt_start = (DateTime.now.to_time - 7).to_time
+    dt_end = (dt_start.to_time + 5).to_time
+    gcal_event_insert(1, "david pei", "night", dt_start, dt_end, "confirmed")
   end
+
 end

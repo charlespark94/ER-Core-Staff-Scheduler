@@ -5,41 +5,43 @@ module Calendar
   extend ActiveSupport::Concern
 
   #@googleapi_hash = YAML.load_file("#{Rails.root}/config/.googleapi.yaml")
-  attr_accessor :googleapi_hash
   @googleapi_hash = YAML.load_file(".googleapi.yaml")
 
   API_VERSION = 'v3'
   CACHED_API_FILE = "calendar-#{API_VERSION}.cache"
   CALENDAR_ID = @googleapi_hash["calendarId"]
-  
 
-  def gcal_event_insert
+	def gcal_event_insert(doctor_id, name, type_of_doctor, dt_start, dt_end, status)
+		doctor_id = doctor_id.to_s
 		params = {
 			calendarId: CALENDAR_ID
 		}
 		result = client.execute(
 			:api_method => calendar.events.insert,
 			:parameters => params,
-			:body_object => convert_to_gcal_event
+			:body_object => convert_to_gcal_event(doctor_id, name, type_of_doctor, dt_start, dt_end, status)
 		)
 		logger.debug(result.data.to_yaml)
-		result
 	end
 
-	def gcal_event_update
+	def gcal_event_update(doctor_id, name, type_of_doctor, dt_start, dt_end, status)
+		doctor_id = doctor_id.to_s
+		event_id = doctor_id + "," + dt_start
 		params = {
 			calendarId: CALENDAR_ID,
-			eventId: self.gcal_id
+			eventId: event_id
 		}
 		result = client.execute(
 			:api_method => calendar.events.update,
 			:parameters => params,
-			:body_object => convert_to_gcal_event
+			:body_object => convert_to_gcal_event(doctor_id, name, type_of_doctor, dt_start, dt_end, status)
 		)
 		logger.debug(result.data.to_yaml)
 	end
 
-	def gcal_event_delete
+	def gcal_event_delete(doctor_id, dt_start)
+		doctor_id = doctor_id.to_s
+		event_id = doctor_id + "," + dt_start
 		params = {
 			calendarId: CALENDAR_ID,
 			eventId: self.gcal_id
@@ -52,31 +54,49 @@ module Calendar
 	end
 
 private
-	def convert_to_gcal_event
+	def convert_to_gcal_event(doctor_id, name, type_of_doctor, dt_start, dt_end, status)
+		doctor_id = doctor_id.to_s
+		event_id = doctor_id + "," + dt_start.to_s
 		event = {
-			'summary' => self.name,
-			'description' => self.description,
+			'extendedProperties' => {
+				'private' => {
+					'doctor_id' => doctor_id
+				}
+			},
+			'summary' => name,
+			'description' => type_of_doctor,
 			'start' => {
-				'dateTime' => self.tstart
+				'dateTime' => dt_start
 			},
 			'end' => {
-				'dateTime' => self.tend
+				'dateTime' => dt_end
 			},
-			'location' => get_event_location,
-			'extendedProperties' => {
-		'private' => {
-			'id' => self.id
+			'status' => status,
+			'id' => event_id
 		}
-			}
-		}
+		return event
 	end
 
-	def get_event_location
-		[self.location.try(:name),
-			self.location.try(:address),
-			self.location.try(:city),
-			self.location.try(:country)].compact.join(", ")
+	#not sure how we can use this to have each person see their own schedule... maybe make a new calendar just for them?
+	def find_gcal_events_by_doctor(doctor_id)
+		params = {
+			calendarId: CALENDAR_ID,
+		}
+		result = client.execute(
+			:api_method => calendar.events.list,
+			:parameters => params
+		)
+		allEvents = result.data.items
+		myEvents = []
+		allEvents.each do |e|
+			if (e.extendedProperties["private"]["doctor_id"] == doctor_id)
+				myEvents << e
+			end
+		end
+		return myEvents
 	end
+
+
 
 	def init_client
 		@googleapi_hash = YAML.load_file(".googleapi.yaml")	
@@ -103,17 +123,16 @@ private
 	end
 
 	def init_calendar
-		@calendar = nil
 		# Load cached discovered API, if it exists. This prevents retrieving the
 		# discovery document on every run, saving a round-trip to the discovery service.
 		if File.exists? CACHED_API_FILE
 			File.open(CACHED_API_FILE) do |file|
-		@calendar = Marshal.load(file)
+			calendar = Marshal.load(file)
 			end
 		else
-			@calendar = @client.discovered_api('calendar', API_VERSION)
+			calendar = @client.discovered_api('calendar', API_VERSION)
 			File.open(CACHED_API_FILE, 'w') do |file|
-		Marshal.dump(@calendar, file)
+				Marshal.dump(calendar, file)
 			end
 		end
 	end
@@ -131,11 +150,11 @@ private
 	end
 
 	def client
-		@client ||= init_client
+		client ||= init_client
 	end
 
 	def calendar
-		@calendar ||= init_calendar
+		calendar ||= init_calendar
 	end
 
 

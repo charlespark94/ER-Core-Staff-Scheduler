@@ -1,0 +1,11 @@
+# Logfile created on 2015-04-01 23:26:15 -0700 by logger.rb/31641
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: insufficientPermissions
+      message: Insufficient Permission
+    code: 403
+    message: Insufficient Permission
+
