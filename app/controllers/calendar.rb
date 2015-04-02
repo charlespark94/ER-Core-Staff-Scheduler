@@ -31,6 +31,7 @@ module Calendar
 	end
 
 	def gcal_event_update(doctor_id, name, type_of_doctor, dt_start, dt_end)
+		logger = Logger.new('logfile.log')
 		doctor_id = doctor_id.to_s
 		event_id = make_event_id(doctor_id, dt_start)
 		params = {
@@ -46,6 +47,7 @@ module Calendar
 	end
 
 	def gcal_event_delete(doctor_id, dt_start)
+		logger = Logger.new('logfile.log')
 		doctor_id = doctor_id.to_s
 		event_id = make_event_id(doctor_id, dt_start)
 		params = {
