@@ -911,3 +911,87 @@ data:
     code: 409
     message: The requested identifier already exists.
 
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  kind: calendar#event
+  etag: ! '"2856172659822000"'
+  id: 01428086280
+  status: confirmed
+  htmlLink: https://www.google.com/calendar/event?eid=MDE0MjgwODYyODAgdmEuZXIuY29yZS5zY2hlZHVsZXJAbQ
+  created: '2015-04-03T18:38:49.000Z'
+  updated: '2015-04-03T18:38:49.911Z'
+  summary: ! '***'
+  description: core
+  creator:
+    email: 1015162711729-4r5nn2ibft615vt22rh5npqarbpqoi27@developer.gserviceaccount.com
+  organizer:
+    email: va.er.core.scheduler@gmail.com
+    self: true
+  start:
+    dateTime: '2015-04-03T11:38:00-07:00'
+  end:
+    dateTime: '2015-04-03T11:38:00-07:00'
+  iCalUID: 01428086280@google.com
+  sequence: 0
+  extendedProperties:
+    private:
+      doctor_id: '0'
+  reminders:
+    useDefault: true
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  kind: calendar#event
+  etag: ! '"2856172983958000"'
+  id: 01428086460
+  status: confirmed
+  htmlLink: https://www.google.com/calendar/event?eid=MDE0MjgwODY0NjAgdmEuZXIuY29yZS5zY2hlZHVsZXJAbQ
+  created: '2015-04-03T18:41:31.000Z'
+  updated: '2015-04-03T18:41:31.979Z'
+  summary: ! '***'
+  description: core
+  creator:
+    email: 1015162711729-4r5nn2ibft615vt22rh5npqarbpqoi27@developer.gserviceaccount.com
+  organizer:
+    email: va.er.core.scheduler@gmail.com
+    self: true
+  start:
+    dateTime: '2015-04-03T11:41:00-07:00'
+  end:
+    dateTime: '2015-04-03T11:41:00-07:00'
+  iCalUID: 01428086460@google.com
+  sequence: 0
+  extendedProperties:
+    private:
+      doctor_id: '0'
+  reminders:
+    useDefault: true
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  kind: calendar#event
+  etag: ! '"2856199428958000"'
+  id: 01428494400
+  status: confirmed
+  htmlLink: https://www.google.com/calendar/event?eid=MDE0Mjg0OTQ0MDAgdmEuZXIuY29yZS5zY2hlZHVsZXJAbQ
+  created: '2015-04-03T22:21:54.000Z'
+  updated: '2015-04-03T22:21:54.479Z'
+  summary: ! '***'
+  description: core
+  creator:
+    email: 1015162711729-4r5nn2ibft615vt22rh5npqarbpqoi27@developer.gserviceaccount.com
+  organizer:
+    email: va.er.core.scheduler@gmail.com
+    self: true
+  start:
+    dateTime: '2015-04-08T05:00:00-07:00'
+  end:
+    dateTime: '2015-04-08T13:00:00-07:00'
+  iCalUID: 01428494400@google.com
+  sequence: 0
+  extendedProperties:
+    private:
+      doctor_id: '0'
+  reminders:
+    useDefault: true
+

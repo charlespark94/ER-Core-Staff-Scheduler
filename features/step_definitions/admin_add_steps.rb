@@ -10,6 +10,8 @@
 #end
 #World(WithinHelpers)
 
+include Calendar
+
 Given /that I am signed in/ do
 end
 
@@ -17,6 +19,9 @@ end
 And /I am an admin user/ do
 end
 
+And /I follow edit for shift (.+)/ do |e1|
+	visit shift_path(e1)
+end
 
 Then /I should see a (.+) labeled (.+)/ do |e1, e2|
 	if e2 =~ /ShiftStart/ or e2 =~ /ShiftEnd/
@@ -25,6 +30,17 @@ Then /I should see a (.+) labeled (.+)/ do |e1, e2|
 		assert e1 =~ /submit_tag/
 	end
 end
+
+When /I add a shift for (.+) - (.+) from (.+) to (.+)/ do |mon, day, shftst, shftend|
+	formStart = DateTime.iso8601('2015-'+mon+'-'+day+'T'+shftst+':00')
+	formEnd = DateTime.iso8601('2015-'+mon+'-'+day+'T'+shftend+':00')
+	Calendar.gcal_event_insert(0, '***', "core", formStart, formEnd)
+end
+
+Then /^(?:|I )should be redirected to the show page for shift (.+)$/ do |shift|
+  visit shift_path(shift)
+end
+
 
 And /I fill in the date select field labeled "(.+)" with (.+)/ do |e1, e2|
 	if e2 =~ /Start/ or e2 =~ /End/
@@ -41,7 +57,6 @@ Then /I fill in time (.+) with (.+)-(.+)-(.+)-(.+)-(.+)/ do |field ,year, month,
   select(hour,   :from => "shift_#{field}_4i")
   select(minute, :from => "shift_#{field}_5i")
 end
-
 
 And /I should see one time (.+) is "(.+)"/ do |field, time|
 	page should have_content(time)
