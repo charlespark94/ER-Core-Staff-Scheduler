@@ -12,7 +12,11 @@ class AvailabilitiesController < ApplicationController
 		# 	shift.update_attributes(:possible_users => nil)
 		# end
 
-		@shifts.each do |shift|
+		update_availability(@shifts)
+	end
+
+	def update_availability(shifts)
+		shifts.each do |shift|
 			if params[:"#{shift.id}"] == "yes"
 				shift.update_attributes(:users => 1)
 				shift.update_attributes(:possible_users => nil)
