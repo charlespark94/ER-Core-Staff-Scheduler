@@ -20,16 +20,6 @@ Scenario: Add shift for all doctors to see in their availability
   When I add a shift for 04 - 08 from 12:00 to 20:00
   Then I should be redirected to the shift index page
 
-Scenario: Set shift for administrative work
-  Given that I am on the availabilities page
-  When I choose "yes" of shift: 5
-  And I choose "maybe" of shift: 3, 5
-  And I choose "no" of shift: 6
-  And I press "Update"
-  Then I should be redirected to the availabilities page
-  And I should see that "shiftuser" equals ["1", "", "", "", "", ""]
-  And I should see that "possibleusers" equals ["1", "1", "1", "1", "1", ""]
-
 Scenario: Delete shift from available shifts
   Given that I am on the shift index page
   And I follow edit for shift 1
