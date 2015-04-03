@@ -52,7 +52,7 @@ module Calendar
 		event_id = make_event_id(doctor_id, dt_start)
 		params = {
 			calendarId: CALENDAR_ID,
-			eventId: self.gcal_id
+			eventId: event_id
 		}
 		result = client.execute(
 			:api_method => calendar.events.delete,
