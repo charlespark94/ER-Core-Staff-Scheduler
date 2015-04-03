@@ -62,6 +62,11 @@ And /I should see one time (.+) is "(.+)"/ do |field, time|
 	page should have_content(time)
 end
 
+Then /I should delete the shift for (.+) - (.+) starting at (.+) from google/ do |mon, day, start|
+	formStart = DateTime.iso8601('2015-'+mon+'-'+day+'T'+start+':00')
+	Calendar.gcal_event_delete('***', formStart)
+end
+
 And /I should see one (.*) is (.*)/ do |e1, e2|
 	page.should have_content(e2)
 end

@@ -1131,3 +1131,189 @@ data:
     code: 409
     message: The requested identifier already exists.
 
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: duplicate
+      message: The requested identifier already exists.
+    code: 409
+    message: The requested identifier already exists.
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: duplicate
+      message: The requested identifier already exists.
+    code: 409
+    message: The requested identifier already exists.
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: duplicate
+      message: The requested identifier already exists.
+    code: 409
+    message: The requested identifier already exists.
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: invalid
+      message: Invalid or mismatching start and end times.
+    code: 400
+    message: Invalid or mismatching start and end times.
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: invalid
+      message: ! 'Invalid value for: Invalid format: "1" is too short'
+    code: 400
+    message: ! 'Invalid value for: Invalid format: "1" is too short'
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: invalid
+      message: ! 'Invalid value for: Invalid format: "1" is too short'
+    code: 400
+    message: ! 'Invalid value for: Invalid format: "1" is too short'
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  kind: calendar#event
+  etag: ! '"2856203155598000"'
+  id: 01428101520
+  status: confirmed
+  htmlLink: https://www.google.com/calendar/event?eid=MDE0MjgxMDE1MjAgdmEuZXIuY29yZS5zY2hlZHVsZXJAbQ
+  created: '2015-04-03T22:52:57.000Z'
+  updated: '2015-04-03T22:52:57.799Z'
+  summary: ! '***'
+  description: core
+  creator:
+    email: 1015162711729-4r5nn2ibft615vt22rh5npqarbpqoi27@developer.gserviceaccount.com
+  organizer:
+    email: va.er.core.scheduler@gmail.com
+    self: true
+  start:
+    dateTime: '2015-04-03T15:52:00-07:00'
+  end:
+    dateTime: '2015-04-03T15:52:00-07:00'
+  iCalUID: 01428101520@google.com
+  sequence: 0
+  extendedProperties:
+    private:
+      doctor_id: '0'
+  reminders:
+    useDefault: true
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: duplicate
+      message: The requested identifier already exists.
+    code: 409
+    message: The requested identifier already exists.
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: invalid
+      message: ! 'Invalid value for: Invalid format: "1" is too short'
+    code: 400
+    message: ! 'Invalid value for: Invalid format: "1" is too short'
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: invalid
+      message: ! 'Invalid value for: Invalid format: "1" is too short'
+    code: 400
+    message: ! 'Invalid value for: Invalid format: "1" is too short'
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: invalid
+      message: Invalid or mismatching start and end times.
+    code: 400
+    message: Invalid or mismatching start and end times.
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  kind: calendar#event
+  etag: ! '"2856203483636000"'
+  id: 01428101700
+  status: confirmed
+  htmlLink: https://www.google.com/calendar/event?eid=MDE0MjgxMDE3MDAgdmEuZXIuY29yZS5zY2hlZHVsZXJAbQ
+  created: '2015-04-03T22:55:41.000Z'
+  updated: '2015-04-03T22:55:41.818Z'
+  summary: ! '***'
+  description: core
+  creator:
+    email: 1015162711729-4r5nn2ibft615vt22rh5npqarbpqoi27@developer.gserviceaccount.com
+  organizer:
+    email: va.er.core.scheduler@gmail.com
+    self: true
+  start:
+    dateTime: '2015-04-03T15:55:00-07:00'
+  end:
+    dateTime: '2015-04-03T15:55:00-07:00'
+  iCalUID: 01428101700@google.com
+  sequence: 0
+  extendedProperties:
+    private:
+      doctor_id: '0'
+  reminders:
+    useDefault: true
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: duplicate
+      message: The requested identifier already exists.
+    code: 409
+    message: The requested identifier already exists.
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: duplicate
+      message: The requested identifier already exists.
+    code: 409
+    message: The requested identifier already exists.
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: duplicate
+      message: The requested identifier already exists.
+    code: 409
+    message: The requested identifier already exists.
+

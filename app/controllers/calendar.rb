@@ -94,23 +94,24 @@ private
 	end
 
 	#not sure how we can use this to have each person see their own schedule... maybe make a new calendar just for them?
-	def find_gcal_events_by_doctor(doctor_id)
-		params = {
-			calendarId: CALENDAR_ID,
-		}
-		result = client.execute(
-			:api_method => calendar.events.list,
-			:parameters => params
-		)
-		allEvents = result.data.items
-		myEvents = []
-		allEvents.each do |e|
-			if (e.extendedProperties["private"]["doctor_id"] == doctor_id)
-				myEvents << e
-			end
-		end
-		return myEvents
-	end
+	
+#	def find_gcal_events_by_doctor(doctor_id)
+#		params = {
+#			calendarId: CALENDAR_ID,
+#		}
+#		result = client.execute(
+#			:api_method => calendar.events.list,
+##			:parameters => params
+#		)
+#		allEvents = result.data.items
+#		myEvents = []
+#		allEvents.each do |e|
+#			if (e.extendedProperties["private"]["doctor_id"] == doctor_id)
+#				myEvents << e
+#			end
+#		end
+#		return myEvents
+#	end
 
 	def init_client
 		@googleapi_hash = YAML.load_file(".googleapi.yaml")	

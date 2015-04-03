@@ -35,4 +35,5 @@ Scenario: Delete shift from available shifts
   And I follow edit for shift 1
   Then I should be redirected to the show page for shift 1
   When I press "Delete"
+  Then I should delete the shift for 03 - 08 starting at 07 from google
   Then I should be redirected to the shift index page 
