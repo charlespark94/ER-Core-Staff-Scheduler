@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150330174649) do
+ActiveRecord::Schema.define(:version => 20150403053733) do
 
   create_table "availabilities", :force => true do |t|
     t.integer "preferred"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(:version => 20150330174649) do
     t.string   "users"
     t.string   "possible_users"
     t.string   "owner",          :default => "***"
+    t.boolean  "ingcal",         :default => false
   end
 
   create_table "users", :force => true do |t|

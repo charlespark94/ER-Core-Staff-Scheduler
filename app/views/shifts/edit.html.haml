@@ -1,6 +1,6 @@
 %h1 Edit Existing Shift
 
-= form_tag shifts_path do
+= form_tag shift_path(@shift), :method => :put do
 
   = label :shift, :shiftstart, 'Start'
   = datetime_select :shift, :shiftstart

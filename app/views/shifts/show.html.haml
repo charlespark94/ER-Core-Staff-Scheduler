@@ -7,17 +7,13 @@
 	%li
 		End Time:
 		= @shift.shiftend
-	%li
-		Shift Length:
-		= (@shift.shiftend - @shift.shiftstart) / 3600
-	%li
-		Doctors Available:
-		= @shift.users
+	
 	%li
 		Shift Assigned To:
 		= @shift.owner
-	%li
-		Shift Taken:
-		= @shift.open
+= link_to 'Edit', edit_shift_path(@shift)
+%br
+= button_to 'Delete', shift_path(@shift), :method => :delete, :confirm => 'Are you sure?'
+%br
 
 = link_to 'Back to all shifts', shifts_path

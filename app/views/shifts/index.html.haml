@@ -11,6 +11,7 @@
 			%th assigned person
 			%th open/closed
 			%th shift info
+			%th ingcal
 		%tbody
 			- @shifts.each do |shift|
 				%tr
@@ -19,6 +20,31 @@
 					%td= shift.users
 					%td= shift.owner
 					-#%td= shift.open	
-					%td= link_to 'edit', edit_shift_path(shift)
-
+					%td= link_to 'edit', shift_path(shift)
+					%td= shift.ingcal
 = link_to 'Add new shift', new_shift_path
+
+:css
+	tr {
+		height: 5px;
+		vertical-align: top;
+	}
+= form_tag availabilities_path, :method => :get do
+	= week_calendar number_of_weeks: 2, shifts: Shift.all do |date, shifts|
+		%table.table
+			%thead
+				%tr
+					%th= "#{date.to_s[5..6]}/#{date.to_s[8..9]}"
+				%tbody
+					- @shifts.each do |shift|
+						- if shift.shiftstart.to_s[5..6].to_i == date.to_s[5..6].to_i && shift.shiftstart.to_s[8..9].to_i == date.to_s[8..9].to_i
+							%tr
+								%td= "#{shift.shiftstart.to_s[11..15]} to #{shift.shiftend.to_s[11..15]}"
+								%td Assigned doctor: "#{shift.owner}"
+								%td= link_to 'edit', edit_shift_path(shift)
+		%br
+
+%div#wrapper
+	%div#page-content-wrapper
+		%div.container-fluid 
+			<iframe src="https://www.google.com/calendar/embed?src=va.er.core.scheduler%40gmail.com&ctz=America/Los_Angeles" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
