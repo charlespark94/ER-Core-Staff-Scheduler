@@ -2,6 +2,11 @@
 
 %h2 these are all the shifts currently in the shifts table
 
+%div#wrapper
+	%div#page-content-wrapper
+		%div.container-fluid 
+			<iframe src="https://www.google.com/calendar/embed?src=va.er.core.scheduler%40gmail.com&ctz=America/Los_Angeles" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+
 %table#shifts
 	%thead
 		%tr
@@ -44,7 +49,4 @@
 								%td= link_to 'edit', edit_shift_path(shift)
 		%br
 
-%div#wrapper
-	%div#page-content-wrapper
-		%div.container-fluid 
-			<iframe src="https://www.google.com/calendar/embed?src=va.er.core.scheduler%40gmail.com&ctz=America/Los_Angeles" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+
