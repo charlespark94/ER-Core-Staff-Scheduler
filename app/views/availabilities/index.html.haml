@@ -18,17 +18,34 @@
 					- @shifts.each do |shift|
 						- if shift.shiftstart.to_s[5..6] == date.to_s[5..6] && shift.shiftstart.to_s[8..9] == date.to_s[8..9]
 							%tr
-								%td= "#{shift.shiftstart.to_s[11..15]} to"
 								- if shift.shiftend.to_s[8..9].to_s == date.to_s[8..9]
-									%td= shift.shiftend.to_s[11..15]
+									%td= "#{shift.shiftstart.to_s[11..15]} to #{shift.shiftend.to_s[11..15]}"
 								- else
-									%td= "#{shift.shiftend.to_s[11..15]}+"
+									%td= "#{shift.shiftstart.to_s[11..15]} to #{shift.shiftend.to_s[11..15]}+"
 								%td= radio_button_tag "#{shift.id}", 'yes', false
 								%td= radio_button_tag "#{shift.id}", 'maybe', true
 								%td= radio_button_tag "#{shift.id}", 'no', false
 
 		%br
 	= submit_tag 'Update'
+
+%h2 Your Availabilities
+
+= week_calendar number_of_weeks: 2 do |date|
+	%table.table
+		%thead
+			%tr
+				%th= "#{date.month}/#{date.day}"
+			%tbody
+				- @shifts.each do |shift|
+					- if shift.shiftstart.to_s[5..6] == date.to_s[5..6] && shift.shiftstart.to_s[8..9] == date.to_s[8..9]
+						- if shift.users || shift.possible_users
+							%tr
+								- if shift.shiftend.to_s[8..9].to_s == date.to_s[8..9]
+									%td= "#{shift.shiftstart.to_s[11..15]} to #{shift.shiftend.to_s[11..15]}"
+								- else
+									%td= "#{shift.shiftstart.to_s[11..15]} to #{shift.shiftend.to_s[11..15]}+"
+
 
 /= form_tag availabilities_path, :method => :get do
 /	- @shifts.each do |shift|
@@ -39,9 +56,6 @@
 /		= radio_button_tag "#{shift.id}", 'no', false
 /		%br
 /	= submit_tag 'Update'
-
-%h2 these are the params
-= params.inspect
 
 %h2 these are all the shifts currently in the shifts table
 
