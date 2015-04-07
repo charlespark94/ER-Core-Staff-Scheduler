@@ -14,4 +14,5 @@ Feature: Add Recurring Availability
 
  Scenario: User can select their current availability based on their previous pay period 
  When I press "Set availability of previous pay period"
- Then I should see that the current shift equals the previous shift
+ And the previous "shiftuser" equals ["1", "1", "1"]
+ Then I should see that the current "shiftuser" equals ["1", "1", "1"]
