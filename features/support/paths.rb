@@ -33,6 +33,10 @@ module NavigationHelpers
       new_shift_path
     when /^shift index$/
       shifts_path
+    when /^verification$/
+      home_path
+    when /^verification complete$/
+      home_path
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

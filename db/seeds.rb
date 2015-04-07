@@ -7,13 +7,13 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 SHIFTS = [
-  {:shiftstart => DateTime.strptime("04/05/2015 07:00", "%m/%d/%Y %H:%M"),
-   :shiftend => DateTime.strptime("04/05/2015 19:00", "%m/%d/%Y %H:%M")},
-  {:shiftstart => DateTime.strptime("04/05/2015 11:00", "%m/%d/%Y %H:%M"),
-   :shiftend => DateTime.strptime("04/05/2015 19:00", "%m/%d/%Y %H:%M")},
-  {:shiftstart => DateTime.strptime("04/05/2015 14:00", "%m/%d/%Y %H:%M"),
-   :shiftend => DateTime.strptime("04/05/2015 22:00", "%m/%d/%Y %H:%M")},
-  {:shiftstart => DateTime.strptime("04/05/2015 19:00", "%m/%d/%Y %H:%M"),
+  {:shiftstart => DateTime.strptime("04/12/2015 07:00", "%m/%d/%Y %H:%M"),
+   :shiftend => DateTime.strptime("04/12/2015 19:00", "%m/%d/%Y %H:%M")},
+  {:shiftstart => DateTime.strptime("04/12/2015 11:00", "%m/%d/%Y %H:%M"),
+   :shiftend => DateTime.strptime("04/12/2015 19:00", "%m/%d/%Y %H:%M")},
+  {:shiftstart => DateTime.strptime("04/12/2015 14:00", "%m/%d/%Y %H:%M"),
+   :shiftend => DateTime.strptime("04/12/2015 22:00", "%m/%d/%Y %H:%M")},
+  {:shiftstart => DateTime.strptime("04/12/2015 19:00", "%m/%d/%Y %H:%M"),
    :shiftend => DateTime.strptime("03/30/2015 07:00", "%m/%d/%Y %H:%M")},
   {:shiftstart => DateTime.strptime("03/30/2015 07:00", "%m/%d/%Y %H:%M"),
    :shiftend => DateTime.strptime("03/30/2015 19:00", "%m/%d/%Y %H:%M")},
@@ -86,7 +86,7 @@ SHIFTS = [
   {:shiftstart => DateTime.strptime("04/04/2015 14:00", "%m/%d/%Y %H:%M"),
    :shiftend => DateTime.strptime("04/04/2015 22:00", "%m/%d/%Y %H:%M")},
   {:shiftstart => DateTime.strptime("04/04/2015 19:00", "%m/%d/%Y %H:%M"),
-   :shiftend => DateTime.strptime("04/05/2015 07:00", "%m/%d/%Y %H:%M")}
+   :shiftend => DateTime.strptime("04/12/2015 07:00", "%m/%d/%Y %H:%M")}
 ]
 
 SHIFTS.each do |shift|
