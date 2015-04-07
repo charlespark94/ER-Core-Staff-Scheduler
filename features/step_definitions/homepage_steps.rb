@@ -22,5 +22,5 @@ And /^(?:|I )should be logged in$/ do
 end
 
 Then /^(?:I )should see the schedule for two payment periods$/ do
-  page.should have_content("Schedule")
+  page.should have_css("iframe")
 end
