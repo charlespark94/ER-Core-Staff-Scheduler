@@ -6,6 +6,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     if @user.save
+      UserMailer.verify_email(@user).deliver
       redirect_to login_path, :notice => "Thank you for creating an account"
     else
       render "new"

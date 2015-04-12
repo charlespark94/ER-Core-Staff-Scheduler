@@ -10,6 +10,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :auth_token
       t.float :fte
       t.string :encrypted_password
+      t.boolean :verified
     end
   end
 

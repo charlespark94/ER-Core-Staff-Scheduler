@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :first_name, :last_name, :usertype, :username, :password, :password_confirmation, :email, :fte
+  attr_accessible :first_name, :last_name, :usertype, :username, :password, :password_confirmation, :email, :fte, :verified
 
   attr_accessor :password
   before_create { generate_token(:auth_token)}
@@ -39,5 +39,9 @@ class User < ActiveRecord::Base
     begin
       self[column] = SecureRandom.urlsafe_base64
     end while User.exists?(column => self[column])
+  end
+
+  def verifier
+    self.update_attributes(:verified => true)
   end
 end

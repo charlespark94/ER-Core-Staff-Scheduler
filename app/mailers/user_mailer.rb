@@ -10,4 +10,14 @@ class UserMailer < ActionMailer::Base
     @user = user
     mail :to => user.email, :subject => "Password Reset"
   end
+
+  def verify_email(user)
+    @user = user
+    mail :to => "vaverifyscheduler@gmail.com", :subject => "An Email Has Been Sent to The Admin for Verification"
+  end
+
+  def been_verified(user)
+    @user = user
+    mail :to => user.email, :subject => "Your Account Has Been Verified and Added to the Application"
+  end
 end

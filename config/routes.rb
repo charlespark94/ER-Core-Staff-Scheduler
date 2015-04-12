@@ -71,5 +71,7 @@ ErCoreStaffScheduler::Application.routes.draw do
   get "login" => "sessions#new", :as => "login"
   get "logout" => "sessions#destroy", :as =>"logout"
   get "home" => "home#index", :as =>"home"
+  get "not_verified" => "verification#not", :as => "not_verified"
+  get "verified" => "verification#index", :as => "verified"
   root :to => "users#new"
 end

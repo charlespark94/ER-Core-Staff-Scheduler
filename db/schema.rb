@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(:version => 20150403053733) do
     t.string   "encrypted_password"
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
+    t.boolean  "verified",       :default => false
   end
 
 end
