@@ -1,9 +1,9 @@
 class CreateAvailabilities < ActiveRecord::Migration
   def change
   	create_table :availabilities do |a|
-  		a.integer :id
-  		a.integer :preferred, array: true
-  		a.integer :maybe, array: true
+  		a.belongs_to :user
+  		a.belongs_to :shift
+  		a.integer :availability
   	end
   end
 end

@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
   attr_accessible :first_name, :last_name, :usertype, :username, :password, :password_confirmation, :email, :fte, :verified
+  has_many :availabilities, dependent: :destroy
+  has_many :shifts, :through => :availabilities
 
   attr_accessor :password
   before_create { generate_token(:auth_token)}

@@ -14,8 +14,9 @@
 ActiveRecord::Schema.define(:version => 20150403053733) do
 
   create_table "availabilities", :force => true do |t|
-    t.integer "preferred"
-    t.integer "maybe"
+    t.integer "user_id"
+    t.integer "shift_id"
+    t.integer "availability"
   end
 
   create_table "shifts", :force => true do |t|
@@ -37,9 +38,9 @@ ActiveRecord::Schema.define(:version => 20150403053733) do
     t.string   "auth_token"
     t.float    "fte"
     t.string   "encrypted_password"
+    t.boolean  "verified"
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
-    t.boolean  "verified",       :default => false
   end
 
 end
