@@ -2120,3 +2120,79 @@ error:
   code: 404
   message: Not Found
 
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  kind: calendar#event
+  etag: ! '"2857585958050000"'
+  id: 01428792960
+  status: confirmed
+  htmlLink: https://www.google.com/calendar/event?eid=MDE0Mjg3OTI5NjAgdmEuZXIuY29yZS5zY2hlZHVsZXJAbQ
+  created: '2015-04-11T22:56:18.000Z'
+  updated: '2015-04-11T22:56:19.025Z'
+  summary: ! '***'
+  description: core
+  creator:
+    email: 1015162711729-4r5nn2ibft615vt22rh5npqarbpqoi27@developer.gserviceaccount.com
+  organizer:
+    email: va.er.core.scheduler@gmail.com
+    self: true
+  start:
+    dateTime: '2015-04-11T15:56:00-07:00'
+  end:
+    dateTime: '2015-04-12T15:56:00-07:00'
+  iCalUID: 01428792960@google.com
+  sequence: 0
+  extendedProperties:
+    private:
+      doctor_id: '0'
+  reminders:
+    useDefault: true
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: notFound
+      message: Not Found
+    code: 404
+    message: Not Found
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: notFound
+      message: Not Found
+    code: 404
+    message: Not Found
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  kind: calendar#event
+  etag: ! '"2857596021256000"'
+  id: 01428792960
+  status: confirmed
+  htmlLink: https://www.google.com/calendar/event?eid=MDE0Mjg3OTI5NjAgdmEuZXIuY29yZS5zY2hlZHVsZXJAbQ
+  created: '2015-04-11T22:56:18.000Z'
+  updated: '2015-04-12T00:20:10.628Z'
+  summary: dylan
+  description: core
+  creator:
+    email: 1015162711729-4r5nn2ibft615vt22rh5npqarbpqoi27@developer.gserviceaccount.com
+  organizer:
+    email: va.er.core.scheduler@gmail.com
+    self: true
+  start:
+    dateTime: '2015-04-11T15:56:00-07:00'
+  end:
+    dateTime: '2015-04-12T15:56:00-07:00'
+  iCalUID: 01428792960@google.com
+  sequence: 0
+  extendedProperties:
+    private:
+      doctor_id: '0'
+  reminders:
+    useDefault: true
+

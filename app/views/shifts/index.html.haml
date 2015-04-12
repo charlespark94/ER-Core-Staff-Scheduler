@@ -46,7 +46,7 @@
 							%tr
 								%td= "#{shift.shiftstart.to_s[11..15]} to #{shift.shiftend.to_s[11..15]}"
 								%td Assigned doctor: "#{shift.owner}"
-								%td= link_to 'edit', edit_shift_path(shift)
+								%td= link_to 'edit', shift_path(shift)
 		%br
 
 

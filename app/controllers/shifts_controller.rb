@@ -43,6 +43,10 @@ class ShiftsController < ActionController::Base
   def update
     @shift = Shift.find params[:id]
     @shift.update_attributes!(params[:shift])
+    dt_start = @shift.shiftstart
+    dt_end = @shift.shiftend
+    dt_doc = @shift.owner
+    gcal_event_update(0, dt_doc, "core", dt_start, dt_end )
     flash[:notice] = "Shift was successfully updated."
     redirect_to shift_path(@shift)
   end
