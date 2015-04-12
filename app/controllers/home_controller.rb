@@ -2,12 +2,13 @@ class HomeController < ApplicationController
   include Calendar 
 
   def index
-    verify = User.find_by_id(session[:user_id]).verified
+    # => verify = User.find_by_id(session[:user_id]).verified
     if session[:user_id] == nil
       redirect_to login_path
-    elsif !verify
-      redirect_to not_verified_path
     end
+    #elsif !verify
+    #  redirect_to not_verified_path
+    #end
   end
 
   # This is how you would want to call the things in calendar module. 
