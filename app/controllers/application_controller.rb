@@ -12,9 +12,7 @@ class ApplicationController < ActionController::Base
   def check_account_verified
   	if session[:user_id] != nil
       verify = User.find_by_id(session[:user_id]).verified
-      if verify
-        redirect_to home_path and return
-      else
+      if !verify
         redirect_to not_verified_path and return
       end
     end
