@@ -68,8 +68,8 @@ ErCoreStaffScheduler::Application.configure do
   config.action_mailer.smtp_settings = {
    :address              => "smtp.gmail.com",
    :port                 => 587,
-   :user_name            => 'vacorescheduling@gmail.com',
-   :password             => 'cs169core',
+   :user_name            => 'vaverifyscheduling@gmail.com',
+   :password             => 'ooksmfeppkpxslnd',
    :authentication       => "plain",
    :enable_starttls_auto => true
   }

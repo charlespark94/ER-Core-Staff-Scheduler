@@ -43,13 +43,13 @@ ErCoreStaffScheduler::Application.configure do
 
   config.action_mailer.default_url_options = { :host => "sleepy-lowlands-9442.herokuapp.com" }
 
-  config.action_mailer.delivery_method = :test
-  # SMTP settings for gmail
+  #config.action_mailer.delivery_method = :test
+  SMTP settings for gmail
   config.action_mailer.smtp_settings = {
    :address              => "smtp.gmail.com",
    :port                 => 587,
-   :user_name            => 'vacorescheduling@gmail.com',
-   :password             => 'cs169core',
+   :user_name            => 'vaverifyscheduling@gmail.com',
+   :password             => 'ooksmfeppkpxslnd',
    :authentication       => "plain",
    :enable_starttls_auto => true
   }
