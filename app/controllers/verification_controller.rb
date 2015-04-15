@@ -15,7 +15,7 @@ class VerificationController < ApplicationController
 
 	def verification(user)
 		if user != nil
-			user.update_attribute(:verified, true)
+			user.user_verification
 			UserMailer.been_verified(user).deliver
 		end
 	end

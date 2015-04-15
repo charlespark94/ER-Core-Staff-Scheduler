@@ -1,4 +1,4 @@
-class User < ActiveRecord::Base
+  class User < ActiveRecord::Base
   attr_accessible :first_name, :last_name, :usertype, :username, :password, :password_confirmation, :email, :fte, :verified, :fte_multiplier
 
   attr_accessor :password
@@ -39,5 +39,9 @@ class User < ActiveRecord::Base
     begin
       self[column] = SecureRandom.urlsafe_base64
     end while User.exists?(column => self[column])
+  end
+
+  def user_verification
+    self.update_attribute(:verified, true)
   end
 end
