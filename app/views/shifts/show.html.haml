@@ -10,15 +10,20 @@
 
 	%li
 		Available People:
-		= @shift.users.split(" ").map{|i| User.find(i).first_name}
+		- if !@shift.users.nil?
+			= @shift.users.split(" ").map{|i| User.find(i).first_name}
 
 	%li
 		Possible Users:
-		= @shift.possible_users.split(" ").map{|i| User.find(i).first_name}
+		- if !@shift.users.nil?
+			= @shift.possible_users.split(" ").map{|i| User.find(i).first_name}
 	
 	%li
 		Shift Assigned To:
-		= @shift.owner
+		- if !@shift.users.nil?
+			= @shift.owner
+		- else
+			***
 = link_to 'Edit', edit_shift_path(@shift)
 %br
 = button_to 'Delete', shift_path(@shift), :method => :delete, :confirm => 'Are you sure?'
