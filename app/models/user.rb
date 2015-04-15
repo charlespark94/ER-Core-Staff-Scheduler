@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :first_name, :last_name, :usertype, :username, :password, :password_confirmation, :email, :fte, :verified
+  attr_accessible :first_name, :last_name, :usertype, :username, :password, :password_confirmation, :email, :fte, :verified, :fte_multiplier
 
   attr_accessor :password
   before_create { generate_token(:auth_token)}
@@ -42,6 +42,10 @@ class User < ActiveRecord::Base
   end
 
   def verifier
-    self.update_attributes(:verified => true)
+    self.update_attributes(:verified, true)
+  end
+
+  def multiplier(val)
+    self.update_attribute(:fte_multiplier, val)
   end
 end

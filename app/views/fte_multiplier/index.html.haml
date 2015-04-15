@@ -1,0 +1,25 @@
+%h1 Set the FTE multiplier for each doctor
+
+:css
+	tr, th {
+		vertical-align: top;
+		text-align: center;
+		padding: 15px;
+	}
+= form_tag multiply_path, :method => :get do
+	%table#multiplier
+		%thead
+			%tr
+				%th Doctor
+				%th Current FTE
+				%th Current Multiplier
+				%th New Multiplier
+			%tbody
+				-@users.each do |user|
+					%tr
+						%td= "#{user.last_name}, #{user.first_name}"
+						%td= user.fte
+						%td= user.fte_multiplier
+						%td= number_field_tag "#{user.id}", user.fte_multiplier, step: 0.1, size: 5
+
+	= submit_tag 'Update'

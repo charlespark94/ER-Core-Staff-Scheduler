@@ -40,8 +40,8 @@ ErCoreStaffScheduler::Application.configure do
   end
 
   config.log_level = :warn
-  #config.action_mailer.default_url_options = { :host => "localhost:3000"}
-  config.action_mailer.default_url_options = { :host => "sleepy-lowlands-9442.herokuapp.com" }
+  config.action_mailer.default_url_options = { :host => "localhost:3000"}
+  #config.action_mailer.default_url_options = { :host => "sleepy-lowlands-9442.herokuapp.com" }
 
   config.action_mailer.delivery_method = :smtp
   # SMTP settings for gmail

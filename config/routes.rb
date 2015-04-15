@@ -65,6 +65,7 @@ ErCoreStaffScheduler::Application.routes.draw do
   resources :sessions
   resources :availabilities
   resources :password_resets
+  resources :fte_multiplier
 
   put "/shifts" => "shifts#update", :as => "shifts"
   get "sign_up" => "users#new", :as => "sign_up"
@@ -73,5 +74,6 @@ ErCoreStaffScheduler::Application.routes.draw do
   get "home" => "home#index", :as =>"home"
   get "not_verified" => "verification#not", :as => "not_verified"
   get "verified" => "verification#index", :as => "verified"
+  get "multiply" => "fte_multiplier#index", :as => "multiply"
   root :to => "users#new"
 end

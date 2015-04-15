@@ -1,0 +1,2 @@
+module FteMultiplierHelper
+end

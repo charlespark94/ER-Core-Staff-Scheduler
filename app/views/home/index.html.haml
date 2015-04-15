@@ -18,13 +18,15 @@
 %div#wrapper
 	%div#sidebar-wrapper
 		%ul.sidebar-nav
-			%li.sidebar-brand
+			%li
 				%a= link_to 'Set Availability', availabilities_path
 			%li 
 				%a Calendar
 			- if @user.usertype == 'Administrator'
 				%li 
 					%a= link_to 'VA ER Scheduler', shifts_path
+				%li
+					%a= link_to 'Set FTE Multiplier', multiply_path
 
 	%div#page-content-wrapper
 		%div.container-fluid 
