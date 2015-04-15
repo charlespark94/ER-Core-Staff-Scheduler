@@ -9,8 +9,8 @@ describe ShiftsController do
       response.should render_template('index')
     end
 
-    it 'should edit a shift' do     
-      @testshift = double(Shift, :id => "1", :shiftstart => DateTime.iso8601('2015-05-01T10:00:00'), :shiftend => DateTime.iso8601('2015-05-01T18:00:00'), :owner => '***')
+    it 'should redirect to edit page' do     
+      @testshift = double(Shift, :id => "1", :shiftstart => DateTime.iso8601('2015-05-01T10:00:00'), :shiftend => DateTime.iso8601('2015-05-01T18:00:00'), :owner => '***', :users => nil, :possible_users => nil)
       Shift.stub(:find).with("1").and_return(@testshift)
       @testshift.stub(:update_attributes!).and_return(true)
       put :update, {:id => "1", :shiftend => DateTime.iso8601('2015-05-01T22:00:00')}
