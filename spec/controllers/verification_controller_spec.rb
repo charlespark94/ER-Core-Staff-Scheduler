@@ -18,9 +18,8 @@ describe VerificationController do
 	
 	it "should redirect verified" do
 		@user = User.create(user_params)
-		User.stub(:find).with('1').and_return(@user)
-		@user.stub(:update_attribute).and_return(true)
-		get :index, {user_id: 1}
+		User.stub(:find_by_id).and_return(@user)
+		get :index, user_params, {user_id: 1}
 	end
 
 	it "should redirect not verified" do

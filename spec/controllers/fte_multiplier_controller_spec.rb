@@ -18,9 +18,8 @@ describe FteMultiplierController do
 	
 	it "should update fte mutiplier" do
 		@user = User.create(user_params)
-		User.stub(:find).with('1').and_return(@user)
-		@user.stub(:update_attribute).and_return(true)
-		get :index, {user_id: 1}
+		controller.stub(:params).and_return({:"1" => 1})
+		get :index, user_params, {user_id: 1}
 	end
 		
 end

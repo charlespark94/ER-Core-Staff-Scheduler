@@ -5,7 +5,7 @@ module Calendar
 	describe Calendar do
 		include Calendar
 		before do
-			stub(:gcal_id)
+			double(:gcal_id)
 		end
 		it "checks gcal_event_insert" do
 			gcal_event_insert('1','bob','Administrator','1','1')
