@@ -10,6 +10,10 @@ class VerificationController < ApplicationController
 
 	def index
 		user = User.find_by_id(params[:format])
+		verification(user)
+	end
+
+	def verification(user)
 		if user != nil
 			user.update_attribute(:verified, true)
 			UserMailer.been_verified(user).deliver

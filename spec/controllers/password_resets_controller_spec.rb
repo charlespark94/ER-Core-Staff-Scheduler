@@ -13,10 +13,11 @@ describe PasswordResetsController do
 		username: 'admin',
 		password: 'admin',
 		password_confirmation: 'admin',
+    verified: 'true'
 	}
   end
   before do
-	@user = User.create(user_params)
+	 @user = User.create(user_params)
   end
   context "for checking update succeeds" do
     before do

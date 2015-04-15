@@ -3,10 +3,43 @@ require 'spec_helper'
 describe SessionsController do
 	render_views
 	describe "new" do
+		let(:user_params1) do
+			{
+				id: 'bob_id',
+				first_name: 'bob',
+				last_name: 'smith',
+				usertype: 'Administrator',
+				email: 'vacorescheduling@gmail.com',
+				fte: '0.8',
+				username: 'admin',
+				password: 'admin',
+				password_confirmation: 'admin',
+			}
+		end
+		let(:user_params2) do
+			{
+				id: '2',
+				first_name: 'second',
+				last_name: 'smith',
+				usertype: 'Administrator',
+				email: 'vacorescheduling@gmail.com',
+				fte: '0.8',
+				username: 'admin',
+				password: 'admin',
+				password_confirmation: 'admin',
+				verified: 'true',
+			}
+		end
+		it "should redirect not verified" do
+			@user = User.create(user_params1)
+			get :new, nil, {user_id: 1}
+			response.should redirect_to(not_verified_path)
+		end
 		it "should redirect home" do
+			@user = User.create(user_params2)
 			get :new, nil, {user_id: 1}
 			response.should redirect_to(home_path)
-		end
+		end								
 	end
 	describe "create" do
 		context "with admin user" do
