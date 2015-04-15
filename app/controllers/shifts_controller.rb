@@ -46,9 +46,10 @@ class ShiftsController < ActionController::Base
     @shift.update_attributes!(params[:shift])
     dt_start = @shift.shiftstart
     dt_end = @shift.shiftend
-    if !@shift.owner.nil?
+    if !@shift.users.nil?
       redirect_to edit_shift_path
-    else     
+    else
+      dt_doc = @shift.owner     
       gcal_event_insert(User.find_by_first_name(dt_doc).id, dt_doc, "core", dt_start, dt_end )
       gcal_event_delete(0, dt_start)
       flash[:notice] = "Shift was successfully updated."
