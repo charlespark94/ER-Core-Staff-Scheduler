@@ -14,9 +14,9 @@ Background: I am on the availabilities page
   Then I should be redirected to the home page
   Given the following shifts exist:
   | shiftstart                 | shiftend                |
-  | 2015-03-30 07:00:00 UTC    | 2015-03-30 19:00:00 UTC |   
-  | 2015-03-30 10:00:00 UTC    | 2015-03-30 18:00:00 UTC |       
-  | 2015-03-30 14:00:00 UTC    | 2015-03-30 22:00:00 UTC |
+  | 2015-04-14 07:00:00 UTC    | 2015-04-14 19:00:00 UTC |   
+  | 2015-04-14 10:00:00 UTC    | 2015-04-14 18:00:00 UTC |       
+  | 2015-04-14 14:00:00 UTC    | 2015-04-14 22:00:00 UTC |
 
   And that I am on the availabilities page
 

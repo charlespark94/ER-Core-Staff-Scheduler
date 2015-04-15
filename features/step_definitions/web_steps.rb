@@ -70,3 +70,7 @@ Then /^(?:|I )should see "([^"]*)"$/ do |text|
     assert page.has_content?(text)
   end
 end
+
+Given /^that I am not logged in$/ do
+  visit path_to("logout")
+end

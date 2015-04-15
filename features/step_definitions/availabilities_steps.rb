@@ -1,4 +1,4 @@
-Given /the following shifts exist/ do |shifts_table|
+Given /the following shifts exist/ do |table|
   shifts_table.hashes.each do |shift|
     Shift.create(shift)
   end

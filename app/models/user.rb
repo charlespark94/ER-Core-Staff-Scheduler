@@ -40,12 +40,4 @@ class User < ActiveRecord::Base
       self[column] = SecureRandom.urlsafe_base64
     end while User.exists?(column => self[column])
   end
-
-  def verifier
-    self.update_attributes(:verified, true)
-  end
-
-  def multiplier(val)
-    self.update_attribute(:fte_multiplier, val)
-  end
 end

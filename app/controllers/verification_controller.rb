@@ -1,5 +1,5 @@
 class VerificationController < ApplicationController
-	#skip_before_filter :check_account_verified
+	skip_before_filter :check_account_verified
 
 	def not
 		user = User.find_by_id(session[:user_id])
@@ -10,7 +10,9 @@ class VerificationController < ApplicationController
 
 	def index
 		user = User.find_by_id(params[:format])
-		user.verifier
-		UserMailer.been_verified(user).deliver
+		if user != nil
+			user.update_attribute(:verified, true)
+			UserMailer.been_verified(user).deliver
+		end
 	end
 end
