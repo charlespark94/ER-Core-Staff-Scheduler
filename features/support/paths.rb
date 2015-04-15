@@ -39,6 +39,8 @@ module NavigationHelpers
       verified_path
     when /^multiply$/
       multiply_path
+    when /^verified$/
+      "/verified.1"
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

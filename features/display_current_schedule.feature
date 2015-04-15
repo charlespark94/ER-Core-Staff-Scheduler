@@ -7,8 +7,9 @@ Background: Given I have been added to the database
 	
 	Given 'admin' has been added to the database
 	Given I am logged in as 'admin' with password 'admin'
-	Then I should be logged in
-	And I should be on the home page
+	When I go to the verified page
+	And I go to the home page
+	Then I should be on the home page
 
 Scenario: User can see calendar for two payment periods
 	Then I should see the schedule for two payment periods
