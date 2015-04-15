@@ -10,11 +10,11 @@
 
 	%li
 		Available People:
-		= @shift.users
+		= @shift.users.split(" ").map{|i| User.find(i).first_name}
 
 	%li
 		Possible Users:
-		= @shift.possible_users
+		= @shift.possible_users.split(" ").map{|i| User.find(i).first_name}
 	
 	%li
 		Shift Assigned To:

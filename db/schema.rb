@@ -21,8 +21,8 @@ ActiveRecord::Schema.define(:version => 20150403053733) do
   create_table "shifts", :force => true do |t|
     t.datetime "shiftstart"
     t.datetime "shiftend"
-    t.string   "users"
-    t.string   "possible_users"
+    t.string   "users",          :default => " "
+    t.string   "possible_users", :default => " "
     t.string   "owner",          :default => "***"
     t.boolean  "ingcal",         :default => false
   end

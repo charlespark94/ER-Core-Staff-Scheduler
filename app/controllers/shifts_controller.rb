@@ -42,11 +42,13 @@ class ShiftsController < ActionController::Base
   
   def update
     @shift = Shift.find params[:id]
+    #@uservalue = @shift.users.split(" ")
     @shift.update_attributes!(params[:shift])
     dt_start = @shift.shiftstart
     dt_end = @shift.shiftend
     dt_doc = @shift.owner
-    gcal_event_update(0, dt_doc, "core", dt_start, dt_end )
+    gcal_event_insert(User.find_by_first_name(dt_doc).id, dt_doc, "core", dt_start, dt_end )
+    gcal_event_delete(0, dt_start)
     flash[:notice] = "Shift was successfully updated."
     redirect_to shift_path(@shift)
   end
