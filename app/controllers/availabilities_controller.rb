@@ -17,19 +17,23 @@ class AvailabilitiesController < ApplicationController
 
 	def update_availability(shifts)
 		shifts.each do |shift|
-			in_user = shift.users.split(" ").include?(session[:user_id].to_s)
-			in_pos = shift.possible_users.split(" ").include?(session[:user_id].to_s)
-			not_choose = (not in_pos) and (not in_user)
+			if !shift.users.nil?
+				in_user = shift.users.split(" ").include?(session[:user_id].to_s)
+				in_pos = shift.possible_users.split(" ").include?(session[:user_id].to_s)
+				not_choose = (not in_pos) and (not in_user)
+			else
+				not_choose = true
+			end
 			if params[:"#{shift.id}"] == "yes"
 				
 				if not_choose
-					newstring = shift.users + " " + session[:user_id].to_s
+					newstring = "#{shift.users} #{session[:user_id].to_s}"
 					shift.update_attributes(:users => newstring)
 				end
 				#shift.update_attributes(:possible_users => nil)
 			elsif params[:"#{shift.id}"] == "maybe"
 				if not_choose
-					newstring = shift.possible_users + " " + session[:user_id].to_s
+					newstring = "#{shift.possible_users} #{session[:user_id]}.to_s"
 					shift.update_attributes(:possible_users => newstring)
 				end
 				#shift.update_attributes(:users => nil)
