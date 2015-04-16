@@ -2,6 +2,7 @@ class ShiftsController < ActionController::Base
   include Calendar
   def index
     @shifts = Shift.all
+    @hours_per_person = show_hours_per_person
     #@shifts.each do |shift|
     #  if shift.ingcal == true
     #    next
@@ -83,5 +84,34 @@ class ShiftsController < ActionController::Base
     @shift.destroy
     flash[:notice] = "Shift deleted."
     redirect_to shifts_path
+  end
+
+  def show_hours_per_person
+    users = User.all
+    hours_per_person = {"***" => [0, 0]}
+    #add each person into the hash with 0 hours initially
+    users.each do |user|
+      #we prob should change it so that the owner name is full name or something instead, because there mgiht be two johns
+      full_name = user.first_name #+ " " + user.last_name
+      hours_per_person[full_name] = [0, (user.fte*80).to_i]
+    end
+
+    # printing purposes
+    # hours_per_person.each do |key, value|
+    #   printf key.to_s + " " + value.to_s
+    #   printf "\n"
+    # end
+
+    shifts = Shift.all
+    #add each shift's time to their respective individual in the hash
+    shifts.each do |shift|
+      # I wanted to avoid using if else here to get a better runtime, but there's a user with no name
+      if hours_per_person.has_key?(shift.owner)
+        hours_per_person[shift.owner][0] = hours_per_person[shift.owner][0] + ((shift.shiftend - shift.shiftstart)/(60*60)).to_i
+      else
+        hours_per_person[shift.owner] = [((shift.shiftend - shift.shiftstart)/(60*60)).to_i, 0]      
+      end
+    end
+    return hours_per_person
   end
 end
