@@ -14,10 +14,50 @@ describe ShiftsController do
       Shift.stub(:find).with("1").and_return(@testshift)
       @testshift.stub(:update_attributes!).and_return(true)
       put :update, {:id => "1", :shiftend => DateTime.iso8601('2015-05-01T22:00:00')}
-      #response.should redirect_to(shifts_path)
+    end
+
+    let(:user_params) do
+      {
+        id: '1',
+        first_name: 'second',
+        last_name: 'smith',
+        usertype: 'Administrator',
+        email: 'vacorescheduling@gmail.com',
+        fte: '0.8',
+        username: 'admin',
+        password: 'admin',
+        password_confirmation: 'admin',
+        verified: 'true',
+      }
+    end
+
+    it 'should update event' do
+      @user = User.create(user_params)
+      @testshift = double(Shift, :id => "1", :shiftstart => DateTime.iso8601('2015-05-01T10:00:00'), :shiftend => DateTime.iso8601('2015-05-01T18:00:00'), :owner => @user.first_name, :users => @user.first_name, :possible_users => nil)
+      Shift.stub(:find).with("1").and_return(@testshift)      
+      @testshift.stub(:update_attributes!).and_return(true)
+      put :update, {:id => "1", :shiftend => DateTime.iso8601('2015-05-01T22:00:00')}
     end
 
   end 
+
+  describe 'display shift info' do
+    it 'should load show page' do
+      @testshift = double(Shift, :id => "1", :shiftstart => DateTime.iso8601('2015-05-01T10:00:00'), :shiftend => DateTime.iso8601('2015-05-01T18:00:00'), :owner => '***', :users => nil, :possible_users => nil)
+      Shift.stub(:find).with("1").and_return(@testshift)
+      controller.stub(:params).and_return({:id => "1"})
+      get :show, {:id => "1"}
+    end
+  end
+
+  describe 'display edit info' do
+    it 'should load show page' do
+      @testshift = double(Shift, :id => "1", :shiftstart => DateTime.iso8601('2015-05-01T10:00:00'), :shiftend => DateTime.iso8601('2015-05-01T18:00:00'), :owner => '***', :users => nil, :possible_users => nil)
+      Shift.stub(:find).with("1").and_return(@testshift)
+      controller.stub(:params).and_return({:id => "1"})
+      get :edit, {:id => "1"}
+    end
+  end
 
 
   describe 'create and delete shift' do
