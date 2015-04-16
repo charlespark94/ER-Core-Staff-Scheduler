@@ -44,4 +44,18 @@ describe ShiftsController do
       response.should redirect_to(shifts_path)
     end
   end
+
+  describe 'add a doctor to shift' do
+   before :each do
+      @testshift20 = double(Shift, :shiftstart => DateTime.iso8601('2015-05-01T07:00:00'), :shiftend => DateTime.iso8601('2015-05-01T19:00:00'), :id => '20', :possible_users => 'Smith Evans Applegate')
+      Shift.stub(:find).with('20').and_return(@testshift10)
+   end
+
+   it 'should add a doctor to an existing shift' do
+     Shift.stub(:find).with('20').and_return(@testshift20)
+     @testshift20.stub(:update_attributes!).and_return(true)
+     put :update, {:owner => 'Smith'}
+     Calendar.stub(gcal_event_update('1', 'Smith', 'core', @testshift20.shiftstart, @testshift20.shiftend)
+   end
+  end
 end
