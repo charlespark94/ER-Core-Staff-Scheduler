@@ -9254,3 +9254,454 @@ data:
 --- 
 ...
 
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: invalid
+      message: ! 'Invalid value for: Invalid format: "1" is too short'
+    code: 400
+    message: ! 'Invalid value for: Invalid format: "1" is too short'
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: invalid
+      message: ! 'Invalid value for: Invalid format: "1" is too short'
+    code: 400
+    message: ! 'Invalid value for: Invalid format: "1" is too short'
+
+---
+error:
+  errors:
+  - domain: global
+    reason: notFound
+    message: Not Found
+  code: 404
+  message: Not Found
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: invalid
+      message: Invalid or mismatching start and end times.
+    code: 400
+    message: Invalid or mismatching start and end times.
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: invalid
+      message: ! 'Invalid value for: Invalid format: "1" is too short'
+    code: 400
+    message: ! 'Invalid value for: Invalid format: "1" is too short'
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: invalid
+      message: ! 'Invalid value for: Invalid format: "1" is too short'
+    code: 400
+    message: ! 'Invalid value for: Invalid format: "1" is too short'
+
+---
+error:
+  errors:
+  - domain: global
+    reason: notFound
+    message: Not Found
+  code: 404
+  message: Not Found
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: invalid
+      message: Invalid or mismatching start and end times.
+    code: 400
+    message: Invalid or mismatching start and end times.
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: invalid
+      message: Invalid or mismatching start and end times.
+    code: 400
+    message: Invalid or mismatching start and end times.
+
+---
+error:
+  errors:
+  - domain: global
+    reason: notFound
+    message: Not Found
+  code: 404
+  message: Not Found
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: invalid
+      message: ! 'Invalid value for: Invalid format: "1" is too short'
+    code: 400
+    message: ! 'Invalid value for: Invalid format: "1" is too short'
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: invalid
+      message: ! 'Invalid value for: Invalid format: "1" is too short'
+    code: 400
+    message: ! 'Invalid value for: Invalid format: "1" is too short'
+
+---
+error:
+  errors:
+  - domain: global
+    reason: notFound
+    message: Not Found
+  code: 404
+  message: Not Found
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: invalid
+      message: Invalid or mismatching start and end times.
+    code: 400
+    message: Invalid or mismatching start and end times.
+
+---
+error:
+  errors:
+  - domain: global
+    reason: notFound
+    message: Not Found
+  code: 404
+  message: Not Found
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: invalid
+      message: ! 'Invalid value for: Invalid format: "1" is too short'
+    code: 400
+    message: ! 'Invalid value for: Invalid format: "1" is too short'
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: invalid
+      message: ! 'Invalid value for: Invalid format: "1" is too short'
+    code: 400
+    message: ! 'Invalid value for: Invalid format: "1" is too short'
+
+---
+error:
+  errors:
+  - domain: global
+    reason: notFound
+    message: Not Found
+  code: 404
+  message: Not Found
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: invalid
+      message: Invalid or mismatching start and end times.
+    code: 400
+    message: Invalid or mismatching start and end times.
+
+---
+error:
+  errors:
+  - domain: global
+    reason: notFound
+    message: Not Found
+  code: 404
+  message: Not Found
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: invalid
+      message: ! 'Invalid value for: Invalid format: "1" is too short'
+    code: 400
+    message: ! 'Invalid value for: Invalid format: "1" is too short'
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: invalid
+      message: ! 'Invalid value for: Invalid format: "1" is too short'
+    code: 400
+    message: ! 'Invalid value for: Invalid format: "1" is too short'
+
+---
+error:
+  errors:
+  - domain: global
+    reason: notFound
+    message: Not Found
+  code: 404
+  message: Not Found
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: invalid
+      message: ! 'Invalid value for: Invalid format: "1" is too short'
+    code: 400
+    message: ! 'Invalid value for: Invalid format: "1" is too short'
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: invalid
+      message: ! 'Invalid value for: Invalid format: "1" is too short'
+    code: 400
+    message: ! 'Invalid value for: Invalid format: "1" is too short'
+
+---
+error:
+  errors:
+  - domain: global
+    reason: notFound
+    message: Not Found
+  code: 404
+  message: Not Found
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: invalid
+      message: Invalid or mismatching start and end times.
+    code: 400
+    message: Invalid or mismatching start and end times.
+
+---
+error:
+  errors:
+  - domain: global
+    reason: notFound
+    message: Not Found
+  code: 404
+  message: Not Found
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: invalid
+      message: ! 'Invalid value for: Invalid format: "1" is too short'
+    code: 400
+    message: ! 'Invalid value for: Invalid format: "1" is too short'
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: invalid
+      message: ! 'Invalid value for: Invalid format: "1" is too short'
+    code: 400
+    message: ! 'Invalid value for: Invalid format: "1" is too short'
+
+---
+error:
+  errors:
+  - domain: global
+    reason: notFound
+    message: Not Found
+  code: 404
+  message: Not Found
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: invalid
+      message: Invalid or mismatching start and end times.
+    code: 400
+    message: Invalid or mismatching start and end times.
+
+---
+error:
+  errors:
+  - domain: global
+    reason: notFound
+    message: Not Found
+  code: 404
+  message: Not Found
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: invalid
+      message: Invalid or mismatching start and end times.
+    code: 400
+    message: Invalid or mismatching start and end times.
+
+---
+error:
+  errors:
+  - domain: global
+    reason: notFound
+    message: Not Found
+  code: 404
+  message: Not Found
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: invalid
+      message: ! 'Invalid value for: Invalid format: "1" is too short'
+    code: 400
+    message: ! 'Invalid value for: Invalid format: "1" is too short'
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: invalid
+      message: ! 'Invalid value for: Invalid format: "1" is too short'
+    code: 400
+    message: ! 'Invalid value for: Invalid format: "1" is too short'
+
+---
+error:
+  errors:
+  - domain: global
+    reason: notFound
+    message: Not Found
+  code: 404
+  message: Not Found
+
+---
+error:
+  errors:
+  - domain: global
+    reason: notFound
+    message: Not Found
+  code: 404
+  message: Not Found
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  kind: calendar#event
+  etag: ! '"2858409113510000"'
+  id: '01430474400'
+  status: confirmed
+  htmlLink: https://www.google.com/calendar/event?eid=MDE0MzA0NzQ0MDAgdmEuZXIuY29yZS5zY2hlZHVsZXJAbQ
+  created: '2015-04-16T17:15:56.000Z'
+  updated: '2015-04-16T17:15:56.755Z'
+  summary: ! '***'
+  description: core
+  creator:
+    email: 1015162711729-4r5nn2ibft615vt22rh5npqarbpqoi27@developer.gserviceaccount.com
+  organizer:
+    email: va.er.core.scheduler@gmail.com
+    self: true
+  start:
+    dateTime: '2015-05-01T03:00:00-07:00'
+  end:
+    dateTime: '2015-05-01T11:00:00-07:00'
+  iCalUID: 01430474400@google.com
+  sequence: 0
+  extendedProperties:
+    private:
+      doctor_id: '0'
+  reminders:
+    useDefault: true
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: invalid
+      message: Invalid or mismatching start and end times.
+    code: 400
+    message: Invalid or mismatching start and end times.
+
+---
+error:
+  errors:
+  - domain: global
+    reason: notFound
+    message: Not Found
+  code: 404
+  message: Not Found
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: invalid
+      message: ! 'Invalid value for: Invalid format: "1" is too short'
+    code: 400
+    message: ! 'Invalid value for: Invalid format: "1" is too short'
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: invalid
+      message: ! 'Invalid value for: Invalid format: "1" is too short'
+    code: 400
+    message: ! 'Invalid value for: Invalid format: "1" is too short'
+
+---
+error:
+  errors:
+  - domain: global
+    reason: notFound
+    message: Not Found
+  code: 404
+  message: Not Found
+

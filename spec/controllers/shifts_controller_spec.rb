@@ -37,7 +37,7 @@ describe ShiftsController do
 
 
     it 'should delete the shift' do
-      @testshift = double(Shift, :shiftstart => DateTime.iso8601('2015-05-01T12:00:00'), :shiftend => DateTime.iso8601('2015-05-01T16:00:00'), :id => '3')
+      @testshift = double(Shift, :shiftstart => DateTime.iso8601('2015-05-01T12:00:00'), :shiftend => DateTime.iso8601('2015-05-01T16:00:00'), :id => '3', :owner => '***')
       Shift.stub(:find).with('3').and_return(@testshift)
       @testshift.should_receive(:destroy)
       delete 'destroy', {:id => '3'}

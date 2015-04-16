@@ -45,10 +45,10 @@ class ShiftsController < ActionController::Base
     @shift = Shift.find params[:id]
     old_start = @shift.shiftstart
     old_user = @shift.owner
-    if old_user == '***' || old_user = "" ||old_user = " "
+    if old_user == '***' || old_user = "" ||old_user = " " || old_user.nil?
       delete_id = 0
     else
-      delete_id = User.find_by_first_name(old_user)
+      delete_id = User.find_by_first_name(old_user).id
     end
     @shift.update_attributes!(params[:shift])
     dt_start = @shift.shiftstart
@@ -58,7 +58,7 @@ class ShiftsController < ActionController::Base
       gcal_event_delete(delete_id, old_start)
       gcal_event_insert(User.find_by_first_name(dt_doc).id, dt_doc, "core", dt_start, dt_end )
     else
-      gcal_event_delete(old_user.id, old_start)
+      gcal_event_delete(delete_id, old_start)
       gcal_event_insert(0, dt_doc, "core", dt_start, dt_end)
     end
 
@@ -75,10 +75,10 @@ class ShiftsController < ActionController::Base
   def destroy
     @shift = Shift.find(params[:id])
     dt_start = @shift.shiftstart
-    dt_doc = @shift.owner
-    if dt_doc == '***' || dt_doc == "" || dt_doc.nil? || dt_doc == " "
+    if @shift.owner == '***' || @shift.owner == "" || @shift.owner.nil? || @shift.owner == " "
       gcal_event_delete(0, dt_start)
     else
+      dt_doc = @shift.owner
       gcal_event_delete(User.find_by_first_name(dt_doc).id, dt_start)
     end
     @shift.destroy
