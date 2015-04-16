@@ -47,18 +47,32 @@ class ShiftsController < ActionController::Base
     dt_start = @shift.shiftstart
     dt_end = @shift.shiftend
     dt_doc = @shift.owner  
-    if @shift.users.nil? && @shift.possible_users.nil?
-      gcal_event_update(0, dt_doc, "core", dt_start, dt_end)
-    else   
+    if (@shift.users != " " || @shift.possible_users != " ") &&(dt_doc != nil)
       gcal_event_insert(User.find_by_first_name(dt_doc).id, dt_doc, "core", dt_start, dt_end )
       gcal_event_delete(0, dt_start)
+    else
+      gcal_event_update(0, dt_doc, "core", dt_start, dt_end)
     end
+
+    #if dt_doc == "***" || dt_doc == nil
+    #  gcal_event_update(0, dt_doc, "core", dt_start, dt_end)
+    #else   
+    #  gcal_event_insert(User.find_by_first_name(dt_doc).id, dt_doc, "core", dt_start, dt_end )
+    #  gcal_event_delete(0, dt_start)
+    #end
     flash[:notice] = "Shift was successfully updated."
     redirect_to shift_path(@shift)
   end
 
   def destroy
     @shift = Shift.find(params[:id])
+    dt_start = @shift.shiftstart
+    dt_doc = @shift.owner
+    if dt_doc == '***' || dt_doc == "" || dt_doc.nil? || dt_doc == " "
+      gcal_event_delete(0, dt_start)
+    else
+      gcal_event_delete(User.find_by_first_name(dt_doc).id, dt_start)
+    end
     @shift.destroy
     flash[:notice] = "Shift deleted."
     redirect_to shifts_path
