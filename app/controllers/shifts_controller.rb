@@ -48,18 +48,18 @@ class ShiftsController < ActionController::Base
     if old_user == '***' || old_user = "" ||old_user = " "
       delete_id = 0
     else
-      delete_id = User.find_by_first_name(old_user).id
+      delete_id = User.find_by_first_name(old_user)
     end
     @shift.update_attributes!(params[:shift])
     dt_start = @shift.shiftstart
     dt_end = @shift.shiftend
     dt_doc = @shift.owner  
-    if (@shift.users != " " || @shift.possible_users != " ") &&(dt_doc != nil)
+    if (!@shift.users.nil? || !@shift.possible_users.nil?) &&(!dt_doc.nil?)
+      gcal_event_delete(delete_id, old_start)
       gcal_event_insert(User.find_by_first_name(dt_doc).id, dt_doc, "core", dt_start, dt_end )
-      gcal_event_delete(delete_id, old_start)
     else
+      gcal_event_delete(old_user.id, old_start)
       gcal_event_insert(0, dt_doc, "core", dt_start, dt_end)
-      gcal_event_delete(delete_id, old_start)
     end
 
     #if dt_doc == "***" || dt_doc == nil
