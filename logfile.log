@@ -9705,3 +9705,558 @@ error:
   code: 404
   message: Not Found
 
+---
+error:
+  errors:
+  - domain: global
+    reason: deleted
+    message: Resource has been deleted
+  code: 410
+  message: Resource has been deleted
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: duplicate
+      message: The requested identifier already exists.
+    code: 409
+    message: The requested identifier already exists.
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: invalid
+      message: Invalid or mismatching start and end times.
+    code: 400
+    message: Invalid or mismatching start and end times.
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: invalid
+      message: ! 'Invalid value for: Invalid format: "1" is too short'
+    code: 400
+    message: ! 'Invalid value for: Invalid format: "1" is too short'
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: invalid
+      message: ! 'Invalid value for: Invalid format: "1" is too short'
+    code: 400
+    message: ! 'Invalid value for: Invalid format: "1" is too short'
+
+---
+error:
+  errors:
+  - domain: global
+    reason: notFound
+    message: Not Found
+  code: 404
+  message: Not Found
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: invalid
+      message: ! 'Invalid value for: Invalid format: "1" is too short'
+    code: 400
+    message: ! 'Invalid value for: Invalid format: "1" is too short'
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: invalid
+      message: ! 'Invalid value for: Invalid format: "1" is too short'
+    code: 400
+    message: ! 'Invalid value for: Invalid format: "1" is too short'
+
+---
+error:
+  errors:
+  - domain: global
+    reason: notFound
+    message: Not Found
+  code: 404
+  message: Not Found
+
+---
+error:
+  errors:
+  - domain: global
+    reason: deleted
+    message: Resource has been deleted
+  code: 410
+  message: Resource has been deleted
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: duplicate
+      message: The requested identifier already exists.
+    code: 409
+    message: The requested identifier already exists.
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: invalid
+      message: Invalid or mismatching start and end times.
+    code: 400
+    message: Invalid or mismatching start and end times.
+
+---
+error:
+  errors:
+  - domain: global
+    reason: notFound
+    message: Not Found
+  code: 404
+  message: Not Found
+
+--- 
+...
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  kind: calendar#event
+  etag: ! '"2858411679738000"'
+  id: 01430225940
+  status: confirmed
+  htmlLink: https://www.google.com/calendar/event?eid=MDE0MzAyMjU5NDAgdmEuZXIuY29yZS5zY2hlZHVsZXJAbQ
+  created: '2015-04-16T17:37:19.000Z'
+  updated: '2015-04-16T17:37:19.869Z'
+  summary: ! '***'
+  description: core
+  creator:
+    email: 1015162711729-4r5nn2ibft615vt22rh5npqarbpqoi27@developer.gserviceaccount.com
+  organizer:
+    email: va.er.core.scheduler@gmail.com
+    self: true
+  start:
+    dateTime: '2015-04-28T05:59:00-07:00'
+  end:
+    dateTime: '2015-04-28T06:59:00-07:00'
+  iCalUID: 01430225940@google.com
+  sequence: 0
+  extendedProperties:
+    private:
+      doctor_id: '0'
+  reminders:
+    useDefault: true
+
+---
+error:
+  errors:
+  - domain: global
+    reason: notFound
+    message: Not Found
+  code: 404
+  message: Not Found
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  kind: calendar#event
+  etag: ! '"2858412666130000"'
+  id: '01430502300'
+  status: confirmed
+  htmlLink: https://www.google.com/calendar/event?eid=MDE0MzA1MDIzMDAgdmEuZXIuY29yZS5zY2hlZHVsZXJAbQ
+  created: '2015-04-16T17:45:32.000Z'
+  updated: '2015-04-16T17:45:33.065Z'
+  summary: ! '***'
+  description: core
+  creator:
+    email: 1015162711729-4r5nn2ibft615vt22rh5npqarbpqoi27@developer.gserviceaccount.com
+  organizer:
+    email: va.er.core.scheduler@gmail.com
+    self: true
+  start:
+    dateTime: '2015-05-01T10:45:00-07:00'
+  end:
+    dateTime: '2015-05-01T10:45:00-07:00'
+  iCalUID: 01430502300@google.com
+  sequence: 0
+  extendedProperties:
+    private:
+      doctor_id: '0'
+  reminders:
+    useDefault: true
+
+---
+error:
+  errors:
+  - domain: global
+    reason: notFound
+    message: Not Found
+  code: 404
+  message: Not Found
+
+---
+error:
+  errors:
+  - domain: global
+    reason: notFound
+    message: Not Found
+  code: 404
+  message: Not Found
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  kind: calendar#event
+  etag: ! '"2858412979484000"'
+  id: '01430502420'
+  status: confirmed
+  htmlLink: https://www.google.com/calendar/event?eid=MDE0MzA1MDI0MjAgdmEuZXIuY29yZS5zY2hlZHVsZXJAbQ
+  created: '2015-04-16T17:48:09.000Z'
+  updated: '2015-04-16T17:48:09.742Z'
+  summary: ! '***'
+  description: core
+  creator:
+    email: 1015162711729-4r5nn2ibft615vt22rh5npqarbpqoi27@developer.gserviceaccount.com
+  organizer:
+    email: va.er.core.scheduler@gmail.com
+    self: true
+  start:
+    dateTime: '2015-05-01T10:47:00-07:00'
+  end:
+    dateTime: '2015-05-01T10:47:00-07:00'
+  iCalUID: 01430502420@google.com
+  sequence: 0
+  extendedProperties:
+    private:
+      doctor_id: '0'
+  reminders:
+    useDefault: true
+
+--- 
+...
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  kind: calendar#event
+  etag: ! '"2858415205986000"'
+  id: 01429985160
+  status: confirmed
+  htmlLink: https://www.google.com/calendar/event?eid=MDE0Mjk5ODUxNjAgdmEuZXIuY29yZS5zY2hlZHVsZXJAbQ
+  created: '2015-04-16T18:06:42.000Z'
+  updated: '2015-04-16T18:06:42.993Z'
+  summary: ! '***'
+  description: core
+  creator:
+    email: 1015162711729-4r5nn2ibft615vt22rh5npqarbpqoi27@developer.gserviceaccount.com
+  organizer:
+    email: va.er.core.scheduler@gmail.com
+    self: true
+  start:
+    dateTime: '2015-04-25T11:06:00-07:00'
+  end:
+    dateTime: '2015-04-25T11:06:00-07:00'
+  iCalUID: 01429985160@google.com
+  sequence: 0
+  extendedProperties:
+    private:
+      doctor_id: '0'
+  reminders:
+    useDefault: true
+
+--- 
+...
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  kind: calendar#event
+  etag: ! '"2858415275300000"'
+  id: '11429985160'
+  status: confirmed
+  htmlLink: https://www.google.com/calendar/event?eid=MTE0Mjk5ODUxNjAgdmEuZXIuY29yZS5zY2hlZHVsZXJAbQ
+  created: '2015-04-16T18:07:17.000Z'
+  updated: '2015-04-16T18:07:17.650Z'
+  summary: John
+  description: core
+  creator:
+    email: 1015162711729-4r5nn2ibft615vt22rh5npqarbpqoi27@developer.gserviceaccount.com
+  organizer:
+    email: va.er.core.scheduler@gmail.com
+    self: true
+  start:
+    dateTime: '2015-04-25T11:06:00-07:00'
+  end:
+    dateTime: '2015-04-25T11:06:00-07:00'
+  iCalUID: 11429985160@google.com
+  sequence: 0
+  extendedProperties:
+    private:
+      doctor_id: '1'
+  reminders:
+    useDefault: true
+
+---
+error:
+  errors:
+  - domain: global
+    reason: deleted
+    message: Resource has been deleted
+  code: 410
+  message: Resource has been deleted
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  kind: calendar#event
+  etag: ! '"2858415312866000"'
+  id: '11430071560'
+  status: confirmed
+  htmlLink: https://www.google.com/calendar/event?eid=MTE0MzAwNzE1NjAgdmEuZXIuY29yZS5zY2hlZHVsZXJAbQ
+  created: '2015-04-16T18:07:36.000Z'
+  updated: '2015-04-16T18:07:36.433Z'
+  summary: John
+  description: core
+  creator:
+    email: 1015162711729-4r5nn2ibft615vt22rh5npqarbpqoi27@developer.gserviceaccount.com
+  organizer:
+    email: va.er.core.scheduler@gmail.com
+    self: true
+  start:
+    dateTime: '2015-04-26T11:06:00-07:00'
+  end:
+    dateTime: '2015-04-26T11:06:00-07:00'
+  iCalUID: 11430071560@google.com
+  sequence: 0
+  extendedProperties:
+    private:
+      doctor_id: '1'
+  reminders:
+    useDefault: true
+
+---
+error:
+  errors:
+  - domain: global
+    reason: notFound
+    message: Not Found
+  code: 404
+  message: Not Found
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  kind: calendar#event
+  etag: ! '"2858415878564000"'
+  id: '11430157960'
+  status: confirmed
+  htmlLink: https://www.google.com/calendar/event?eid=MTE0MzAxNTc5NjAgdmEuZXIuY29yZS5zY2hlZHVsZXJAbQ
+  created: '2015-04-16T18:12:19.000Z'
+  updated: '2015-04-16T18:12:19.282Z'
+  summary: John
+  description: core
+  creator:
+    email: 1015162711729-4r5nn2ibft615vt22rh5npqarbpqoi27@developer.gserviceaccount.com
+  organizer:
+    email: va.er.core.scheduler@gmail.com
+    self: true
+  start:
+    dateTime: '2015-04-27T11:06:00-07:00'
+  end:
+    dateTime: '2015-04-27T11:06:00-07:00'
+  iCalUID: 11430157960@google.com
+  sequence: 0
+  extendedProperties:
+    private:
+      doctor_id: '1'
+  reminders:
+    useDefault: true
+
+--- 
+...
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  kind: calendar#event
+  etag: ! '"2858416079110000"'
+  id: '11429553160'
+  status: confirmed
+  htmlLink: https://www.google.com/calendar/event?eid=MTE0Mjk1NTMxNjAgdmEuZXIuY29yZS5zY2hlZHVsZXJAbQ
+  created: '2015-04-16T18:13:59.000Z'
+  updated: '2015-04-16T18:13:59.555Z'
+  summary: John
+  description: core
+  creator:
+    email: 1015162711729-4r5nn2ibft615vt22rh5npqarbpqoi27@developer.gserviceaccount.com
+  organizer:
+    email: va.er.core.scheduler@gmail.com
+    self: true
+  start:
+    dateTime: '2015-04-20T11:06:00-07:00'
+  end:
+    dateTime: '2015-04-20T11:06:00-07:00'
+  iCalUID: 11429553160@google.com
+  sequence: 0
+  extendedProperties:
+    private:
+      doctor_id: '1'
+  reminders:
+    useDefault: true
+
+--- 
+...
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  kind: calendar#event
+  etag: ! '"2858416124254000"'
+  id: '11429639560'
+  status: confirmed
+  htmlLink: https://www.google.com/calendar/event?eid=MTE0Mjk2Mzk1NjAgdmEuZXIuY29yZS5zY2hlZHVsZXJAbQ
+  created: '2015-04-16T18:14:22.000Z'
+  updated: '2015-04-16T18:14:22.127Z'
+  summary: John
+  description: core
+  creator:
+    email: 1015162711729-4r5nn2ibft615vt22rh5npqarbpqoi27@developer.gserviceaccount.com
+  organizer:
+    email: va.er.core.scheduler@gmail.com
+    self: true
+  start:
+    dateTime: '2015-04-21T11:06:00-07:00'
+  end:
+    dateTime: '2015-04-21T11:06:00-07:00'
+  iCalUID: 11429639560@google.com
+  sequence: 0
+  extendedProperties:
+    private:
+      doctor_id: '1'
+  reminders:
+    useDefault: true
+
+--- 
+...
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: duplicate
+      message: The requested identifier already exists.
+    code: 409
+    message: The requested identifier already exists.
+
+---
+error:
+  errors:
+  - domain: global
+    reason: deleted
+    message: Resource has been deleted
+  code: 410
+  message: Resource has been deleted
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: duplicate
+      message: The requested identifier already exists.
+    code: 409
+    message: The requested identifier already exists.
+
+---
+error:
+  errors:
+  - domain: global
+    reason: deleted
+    message: Resource has been deleted
+  code: 410
+  message: Resource has been deleted
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: duplicate
+      message: The requested identifier already exists.
+    code: 409
+    message: The requested identifier already exists.
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: invalid
+      message: ! 'Invalid value for: Invalid format: "1" is too short'
+    code: 400
+    message: ! 'Invalid value for: Invalid format: "1" is too short'
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: invalid
+      message: ! 'Invalid value for: Invalid format: "1" is too short'
+    code: 400
+    message: ! 'Invalid value for: Invalid format: "1" is too short'
+
+---
+error:
+  errors:
+  - domain: global
+    reason: notFound
+    message: Not Found
+  code: 404
+  message: Not Found
+
+---
+error:
+  errors:
+  - domain: global
+    reason: deleted
+    message: Resource has been deleted
+  code: 410
+  message: Resource has been deleted
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: duplicate
+      message: The requested identifier already exists.
+    code: 409
+    message: The requested identifier already exists.
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: invalid
+      message: Invalid or mismatching start and end times.
+    code: 400
+    message: Invalid or mismatching start and end times.
+
+---
+error:
+  errors:
+  - domain: global
+    reason: notFound
+    message: Not Found
+  code: 404
+  message: Not Found
+

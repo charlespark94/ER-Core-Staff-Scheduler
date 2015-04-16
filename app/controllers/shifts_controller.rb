@@ -48,7 +48,7 @@ class ShiftsController < ActionController::Base
     if old_user == '***' || old_user = "" ||old_user = " " || old_user.nil?
       delete_id = 0
     else
-      delete_id = User.find_by_first_name(old_user).id
+      delete_id = User.find_by_first_name(old_user)
     end
     @shift.update_attributes!(params[:shift])
     dt_start = @shift.shiftstart
