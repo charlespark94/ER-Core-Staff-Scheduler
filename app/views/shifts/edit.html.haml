@@ -14,6 +14,7 @@
     = select("shift", "owner", "#{@shift.users}#{@shift.possible_users}".split(" ").collect {|num| [User.find(num.to_i).first_name]}, {include_blank: true})
   - else
     No Available Doctors to Assign for This Shift
+    
 
 
   

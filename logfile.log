@@ -8282,3 +8282,236 @@ error:
   code: 404
   message: Not Found
 
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  kind: calendar#event
+  etag: ! '"2858294778758000"'
+  id: 01429492920
+  status: confirmed
+  htmlLink: https://www.google.com/calendar/event?eid=MDE0Mjk0OTI5MjAgdmEuZXIuY29yZS5zY2hlZHVsZXJAbQ
+  created: '2015-04-16T01:23:09.000Z'
+  updated: '2015-04-16T01:23:09.379Z'
+  summary: ! '***'
+  description: core
+  creator:
+    email: 1015162711729-4r5nn2ibft615vt22rh5npqarbpqoi27@developer.gserviceaccount.com
+  organizer:
+    email: va.er.core.scheduler@gmail.com
+    self: true
+  start:
+    dateTime: '2015-04-19T18:22:00-07:00'
+  end:
+    dateTime: '2015-04-19T21:22:00-07:00'
+  iCalUID: 01429492920@google.com
+  sequence: 0
+  extendedProperties:
+    private:
+      doctor_id: '0'
+  reminders:
+    useDefault: true
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  kind: calendar#event
+  etag: ! '"2858294831978000"'
+  id: 01430011380
+  status: confirmed
+  htmlLink: https://www.google.com/calendar/event?eid=MDE0MzAwMTEzODAgdmEuZXIuY29yZS5zY2hlZHVsZXJAbQ
+  created: '2015-04-16T01:23:35.000Z'
+  updated: '2015-04-16T01:23:35.989Z'
+  summary: ! '***'
+  description: core
+  creator:
+    email: 1015162711729-4r5nn2ibft615vt22rh5npqarbpqoi27@developer.gserviceaccount.com
+  organizer:
+    email: va.er.core.scheduler@gmail.com
+    self: true
+  start:
+    dateTime: '2015-04-25T18:23:00-07:00'
+  end:
+    dateTime: '2015-04-25T18:23:00-07:00'
+  iCalUID: 01430011380@google.com
+  sequence: 0
+  extendedProperties:
+    private:
+      doctor_id: '0'
+  reminders:
+    useDefault: true
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: notFound
+      message: Not Found
+    code: 404
+    message: Not Found
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  kind: calendar#event
+  etag: ! '"2858297405610000"'
+  id: 01430184180
+  status: confirmed
+  htmlLink: https://www.google.com/calendar/event?eid=MDE0MzAxODQxODAgdmEuZXIuY29yZS5zY2hlZHVsZXJAbQ
+  created: '2015-04-16T01:45:02.000Z'
+  updated: '2015-04-16T01:45:02.805Z'
+  summary: ! '***'
+  description: core
+  creator:
+    email: 1015162711729-4r5nn2ibft615vt22rh5npqarbpqoi27@developer.gserviceaccount.com
+  organizer:
+    email: va.er.core.scheduler@gmail.com
+    self: true
+  start:
+    dateTime: '2015-04-27T18:23:00-07:00'
+  end:
+    dateTime: '2015-04-28T21:23:00-07:00'
+  iCalUID: 01430184180@google.com
+  sequence: 0
+  extendedProperties:
+    private:
+      doctor_id: '0'
+  reminders:
+    useDefault: true
+
+---
+error:
+  errors:
+  - domain: global
+    reason: notFound
+    message: Not Found
+  code: 404
+  message: Not Found
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  kind: calendar#event
+  etag: ! '"2858297963684000"'
+  id: '11430391600'
+  status: confirmed
+  htmlLink: https://www.google.com/calendar/event?eid=MTE0MzAzOTE2MDAgdmEuZXIuY29yZS5zY2hlZHVsZXJAbQ
+  created: '2015-04-16T01:49:41.000Z'
+  updated: '2015-04-16T01:49:41.842Z'
+  summary: dylan
+  description: core
+  creator:
+    email: 1015162711729-4r5nn2ibft615vt22rh5npqarbpqoi27@developer.gserviceaccount.com
+  organizer:
+    email: va.er.core.scheduler@gmail.com
+    self: true
+  start:
+    dateTime: '2015-04-30T04:00:00-07:00'
+  end:
+    dateTime: '2015-04-30T12:00:00-07:00'
+  iCalUID: 11430391600@google.com
+  sequence: 0
+  extendedProperties:
+    private:
+      doctor_id: '1'
+  reminders:
+    useDefault: true
+
+---
+error:
+  errors:
+  - domain: global
+    reason: notFound
+    message: Not Found
+  code: 404
+  message: Not Found
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  kind: calendar#event
+  etag: ! '"2858298009310000"'
+  id: '11430305200'
+  status: confirmed
+  htmlLink: https://www.google.com/calendar/event?eid=MTE0MzAzMDUyMDAgdmEuZXIuY29yZS5zY2hlZHVsZXJAbQ
+  created: '2015-04-16T01:50:04.000Z'
+  updated: '2015-04-16T01:50:04.655Z'
+  summary: dylan
+  description: core
+  creator:
+    email: 1015162711729-4r5nn2ibft615vt22rh5npqarbpqoi27@developer.gserviceaccount.com
+  organizer:
+    email: va.er.core.scheduler@gmail.com
+    self: true
+  start:
+    dateTime: '2015-04-29T04:00:00-07:00'
+  end:
+    dateTime: '2015-04-29T12:00:00-07:00'
+  iCalUID: 11430305200@google.com
+  sequence: 0
+  extendedProperties:
+    private:
+      doctor_id: '1'
+  reminders:
+    useDefault: true
+
+---
+error:
+  errors:
+  - domain: global
+    reason: notFound
+    message: Not Found
+  code: 404
+  message: Not Found
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: duplicate
+      message: The requested identifier already exists.
+    code: 409
+    message: The requested identifier already exists.
+
+---
+error:
+  errors:
+  - domain: global
+    reason: notFound
+    message: Not Found
+  code: 404
+  message: Not Found
+
+--- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  kind: calendar#event
+  etag: ! '"2858298456446000"'
+  id: '11430301600'
+  status: confirmed
+  htmlLink: https://www.google.com/calendar/event?eid=MTE0MzAzMDE2MDAgdmEuZXIuY29yZS5zY2hlZHVsZXJAbQ
+  created: '2015-04-16T01:53:48.000Z'
+  updated: '2015-04-16T01:53:48.223Z'
+  summary: dylan
+  description: core
+  creator:
+    email: 1015162711729-4r5nn2ibft615vt22rh5npqarbpqoi27@developer.gserviceaccount.com
+  organizer:
+    email: va.er.core.scheduler@gmail.com
+    self: true
+  start:
+    dateTime: '2015-04-29T03:00:00-07:00'
+  end:
+    dateTime: '2015-04-29T12:00:00-07:00'
+  iCalUID: 11430301600@google.com
+  sequence: 0
+  extendedProperties:
+    private:
+      doctor_id: '1'
+  reminders:
+    useDefault: true
+
+---
+error:
+  errors:
+  - domain: global
+    reason: notFound
+    message: Not Found
+  code: 404
+  message: Not Found
+
