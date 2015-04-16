@@ -6,6 +6,18 @@
 
 %div#wrapper
 	%div#page-content-wrapper
+		%table
+			%thead
+				%th Person
+				%th Hours Assigned
+				%th Hours Required
+			%tbody
+				- @hours_per_person.each do |person, hours|
+					%tr
+						%td= person
+						%td= hours[0]
+						%td= hours[1]
+
 		%div.container-fluid 
 			<iframe src="https://www.google.com/calendar/embed?src=va.er.core.scheduler%40gmail.com&ctz=America/Los_Angeles" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
 
