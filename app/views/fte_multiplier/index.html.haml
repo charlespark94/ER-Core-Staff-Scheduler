@@ -47,6 +47,7 @@
 							%th Current FTE
 							%th Current Multiplier
 							%th New Multiplier
+							%th Required Availability Hours
 						%tbody
 							-@users.each do |user|
 								%tr
@@ -55,5 +56,6 @@
 									%td= user.fte
 									%td= user.fte_multiplier
 									%td= number_field_tag "#{user.id}", user.fte_multiplier, step: 0.1
+									%td= (user.fte*user.fte_multiplier*80)
 
 				= submit_tag 'Update'

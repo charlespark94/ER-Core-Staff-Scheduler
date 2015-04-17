@@ -1,7 +1,7 @@
 {
   "Cucumber Features": {
     "coverage": {
-      "/home/saasbook/ER-Core-Staff-Scheduler/app/controllers/application_controller.rb": [
+      "/home/saasbook/Project/ER-Core-Staff-Scheduler/app/controllers/application_controller.rb": [
         1,
         1,
         null,
@@ -9,70 +9,50 @@
         1,
         null,
         1,
-<<<<<<< Updated upstream
-        307,
-        307,
+        310,
+        310,
         null,
         null,
         1,
-        251,
-        109,
-        109,
+        254,
+        112,
+        112,
         39,
-=======
-        284,
-        284,
-        null,
-        null,
-        1,
-        231,
-        90,
-        90,
-        37,
->>>>>>> Stashed changes
         null,
         null,
         null,
         null
       ],
-      "/home/saasbook/ER-Core-Staff-Scheduler/app/helpers/application_helper.rb": [
+      "/home/saasbook/Project/ER-Core-Staff-Scheduler/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/home/saasbook/ER-Core-Staff-Scheduler/app/helpers/fte_multiplier_helper.rb": [
+      "/home/saasbook/Project/ER-Core-Staff-Scheduler/app/helpers/fte_multiplier_helper.rb": [
         1,
         null
       ],
-      "/home/saasbook/ER-Core-Staff-Scheduler/app/helpers/home_helper.rb": [
+      "/home/saasbook/Project/ER-Core-Staff-Scheduler/app/helpers/home_helper.rb": [
         1,
         null
       ],
-      "/home/saasbook/ER-Core-Staff-Scheduler/app/helpers/password_resets_helper.rb": [
+      "/home/saasbook/Project/ER-Core-Staff-Scheduler/app/helpers/password_resets_helper.rb": [
         1,
         null
       ],
-      "/home/saasbook/ER-Core-Staff-Scheduler/app/helpers/verification_helper.rb": [
+      "/home/saasbook/Project/ER-Core-Staff-Scheduler/app/helpers/verification_helper.rb": [
         1,
         null
       ],
-      "/home/saasbook/ER-Core-Staff-Scheduler/app/controllers/availabilities_controller.rb": [
+      "/home/saasbook/Project/ER-Core-Staff-Scheduler/app/controllers/availabilities_controller.rb": [
         1,
         null,
         null,
         1,
-<<<<<<< Updated upstream
-        17,
+        18,
         0,
         null,
-        17,
-        17,
-=======
-        12,
-        0,
-        null,
-        12,
-        12,
->>>>>>> Stashed changes
+        18,
+        18,
         null,
         null,
         null,
@@ -80,7 +60,6 @@
         null,
         null,
         1,
-<<<<<<< Updated upstream
         6,
         6,
         6,
@@ -96,33 +75,12 @@
         null,
         18,
         12,
-=======
-        3,
-        3,
-        3,
-        3,
-        null,
-        null,
-        1,
-        3,
-        9,
-        9,
-        9,
-        9,
-        null,
-        9,
-        3,
->>>>>>> Stashed changes
         null,
         3,
         null,
         3,
         null,
-<<<<<<< Updated upstream
         18,
-=======
-        9,
->>>>>>> Stashed changes
         0,
         null,
         null,
@@ -221,14 +179,14 @@
         null,
         null
       ],
-      "/home/saasbook/ER-Core-Staff-Scheduler/app/models/availability.rb": [
+      "/home/saasbook/Project/ER-Core-Staff-Scheduler/app/models/availability.rb": [
         1,
         1,
         1,
         1,
         null
       ],
-      "/home/saasbook/ER-Core-Staff-Scheduler/app/controllers/calendar.rb": [
+      "/home/saasbook/Project/ER-Core-Staff-Scheduler/app/controllers/calendar.rb": [
         1,
         1,
         1,
@@ -298,7 +256,6 @@
         null,
         1,
         1,
-<<<<<<< Updated upstream
         4,
         4,
         4,
@@ -306,15 +263,6 @@
         4,
         4,
         4,
-=======
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
->>>>>>> Stashed changes
         null,
         null,
         null,
@@ -330,11 +278,7 @@
         null,
         null,
         null,
-<<<<<<< Updated upstream
         4,
-=======
-        2,
->>>>>>> Stashed changes
         null,
         null,
         1,
@@ -363,7 +307,6 @@
         null,
         null,
         1,
-<<<<<<< Updated upstream
         7,
         null,
         7,
@@ -373,24 +316,12 @@
         7,
         null,
         7,
-=======
-        5,
-        null,
-        5,
-        null,
-        null,
-        null,
-        5,
-        null,
-        5,
->>>>>>> Stashed changes
         null,
         null,
         null,
         null,
         null,
         null,
-<<<<<<< Updated upstream
         7,
         7,
         7,
@@ -399,32 +330,15 @@
         0,
         null,
         7,
-=======
-        5,
-        5,
-        5,
-        5,
-        5,
-        0,
-        null,
-        5,
->>>>>>> Stashed changes
         null,
         null,
         1,
         null,
         null,
-<<<<<<< Updated upstream
         9,
         9,
         9,
         9,
-=======
-        7,
-        7,
-        7,
-        7,
->>>>>>> Stashed changes
         null,
         null,
         0,
@@ -435,25 +349,17 @@
         null,
         null,
         1,
-<<<<<<< Updated upstream
         7,
         null,
         null,
         1,
         9,
-=======
-        5,
-        null,
-        null,
-        1,
-        7,
->>>>>>> Stashed changes
         null,
         null,
         null,
         null
       ],
-      "/home/saasbook/ER-Core-Staff-Scheduler/app/controllers/fte_multiplier_controller.rb": [
+      "/home/saasbook/Project/ER-Core-Staff-Scheduler/app/controllers/fte_multiplier_controller.rb": [
         1,
         1,
         3,
@@ -465,7 +371,7 @@
         null,
         null
       ],
-      "/home/saasbook/ER-Core-Staff-Scheduler/app/controllers/home_controller.rb": [
+      "/home/saasbook/Project/ER-Core-Staff-Scheduler/app/controllers/home_controller.rb": [
         1,
         1,
         null,
@@ -489,7 +395,7 @@
         null,
         null
       ],
-      "/home/saasbook/ER-Core-Staff-Scheduler/app/controllers/password_resets_controller.rb": [
+      "/home/saasbook/Project/ER-Core-Staff-Scheduler/app/controllers/password_resets_controller.rb": [
         1,
         1,
         3,
@@ -517,21 +423,16 @@
         null,
         null
       ],
-      "/home/saasbook/ER-Core-Staff-Scheduler/app/controllers/sessions_controller.rb": [
+      "/home/saasbook/Project/ER-Core-Staff-Scheduler/app/controllers/sessions_controller.rb": [
         1,
         null,
         1,
-<<<<<<< Updated upstream
         58,
-=======
-        57,
->>>>>>> Stashed changes
         1,
         null,
         null,
         null,
         1,
-<<<<<<< Updated upstream
         19,
         19,
         17,
@@ -541,17 +442,6 @@
         null,
         17,
         17,
-=======
-        18,
-        18,
-        16,
-        0,
-        null,
-        16,
-        null,
-        16,
-        16,
->>>>>>> Stashed changes
         null,
         2,
         2,
@@ -565,7 +455,7 @@
         null,
         null
       ],
-      "/home/saasbook/ER-Core-Staff-Scheduler/app/controllers/shifts_controller.rb": [
+      "/home/saasbook/Project/ER-Core-Staff-Scheduler/app/controllers/shifts_controller.rb": [
         1,
         1,
         1,
@@ -577,11 +467,7 @@
         null,
         null,
         1,
-<<<<<<< Updated upstream
         13,
-=======
-        7,
->>>>>>> Stashed changes
         null,
         null,
         1,
@@ -660,7 +546,7 @@
         null,
         null
       ],
-      "/home/saasbook/ER-Core-Staff-Scheduler/app/models/shift.rb": [
+      "/home/saasbook/Project/ER-Core-Staff-Scheduler/app/models/shift.rb": [
         1,
         1,
         1,
@@ -668,7 +554,7 @@
         null,
         null
       ],
-      "/home/saasbook/ER-Core-Staff-Scheduler/app/controllers/users_controller.rb": [
+      "/home/saasbook/Project/ER-Core-Staff-Scheduler/app/controllers/users_controller.rb": [
         1,
         1,
         24,
@@ -685,7 +571,7 @@
         null,
         null
       ],
-      "/home/saasbook/ER-Core-Staff-Scheduler/app/models/user.rb": [
+      "/home/saasbook/Project/ER-Core-Staff-Scheduler/app/models/user.rb": [
         1,
         1,
         1,
@@ -702,34 +588,20 @@
         1,
         null,
         1,
-<<<<<<< Updated upstream
         19,
         19,
         17,
-=======
-        18,
-        18,
-        16,
->>>>>>> Stashed changes
         null,
         null,
         null,
         null,
         null,
         1,
-<<<<<<< Updated upstream
         41,
         null,
         null,
         1,
         18,
-=======
-        40,
-        null,
-        null,
-        1,
-        17,
->>>>>>> Stashed changes
         null,
         null,
         1,
@@ -746,32 +618,22 @@
         null,
         null,
         1,
-<<<<<<< Updated upstream
         14,
-=======
-        13,
->>>>>>> Stashed changes
         null,
         null
       ],
-      "/home/saasbook/ER-Core-Staff-Scheduler/app/controllers/verification_controller.rb": [
+      "/home/saasbook/Project/ER-Core-Staff-Scheduler/app/controllers/verification_controller.rb": [
         1,
         1,
         null,
         1,
-<<<<<<< Updated upstream
         41,
         41,
-=======
-        39,
-        39,
->>>>>>> Stashed changes
         1,
         null,
         null,
         null,
         1,
-<<<<<<< Updated upstream
         15,
         15,
         null,
@@ -780,21 +642,11 @@
         15,
         14,
         14,
-=======
-        14,
-        14,
-        null,
-        null,
-        1,
-        14,
-        13,
-        13,
->>>>>>> Stashed changes
         null,
         null,
         null
       ],
-      "/home/saasbook/ER-Core-Staff-Scheduler/app/mailers/user_mailer.rb": [
+      "/home/saasbook/Project/ER-Core-Staff-Scheduler/app/mailers/user_mailer.rb": [
         1,
         1,
         null,
@@ -814,21 +666,12 @@
         null,
         null,
         1,
-<<<<<<< Updated upstream
         14,
         14,
-=======
-        13,
-        13,
->>>>>>> Stashed changes
         null,
         null
       ]
     },
-<<<<<<< Updated upstream
-    "timestamp": 1429272667
-=======
-    "timestamp": 1429274175
->>>>>>> Stashed changes
+    "timestamp": 1429274416
   }
 }
