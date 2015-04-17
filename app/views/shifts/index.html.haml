@@ -30,6 +30,12 @@
 
 	%div#page-content-wrapper
 		%div.container-fluid 
+			:css
+				td,th {
+					text-align: center;
+					padding: 5px;
+					vertical-align: top;
+				}
 			%h1 ER Shifts
 
 			%h2 these are all the shifts currently in the shifts table
@@ -44,7 +50,7 @@
 				%tbody
 					- @hours_per_person.each do |person, hours|
 						%tr
-							- if person != '***'
+							- if person != '***' && person != "" && !person.nil?
 								%td= person
 								%td= hours[0]
 								%td= hours[1]
@@ -66,8 +72,8 @@
 							%tr
 								%td= shift.shiftstart
 								%td= shift.shiftend
-								- temp1 = shift.users.where(id: shift.availabilities.select(:user_id).where(shift_id: shift.id, availability: 1))
-								- temp2 = shift.users.where(id: shift.availabilities.select(:user_id).where(shift_id: shift.id, availability: 2))
+								- temp1 = shift.users.where(id: shift.availabilities.select(:user_id).where(shift_id: shift.id, availability: 2))
+								- temp2 = shift.users.where(id: shift.availabilities.select(:user_id).where(shift_id: shift.id, availability: 1))
 								%td= temp1.pluck(:first_name)
 								%td= temp2.pluck(:first_name)
 								%td= shift.owner

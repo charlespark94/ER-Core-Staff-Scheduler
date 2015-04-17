@@ -74,7 +74,7 @@ class ShiftsController < ApplicationController
     users = User.all
     hours_per_person = {"***" => [0, 0]}
     users.each do |user|
-      full_name = "#{user.first_name} #{user.last_name[0]}"
+      full_name = "#{user.first_name}"
       hours_per_person[full_name] = [0, (user.fte*80).to_i]
     end
     shifts = Shift.all
