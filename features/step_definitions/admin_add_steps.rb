@@ -34,7 +34,7 @@ end
 When /I add a shift for (.+) - (.+) from (.+) to (.+)/ do |mon, day, shftst, shftend|
 	formStart = DateTime.iso8601('2015-'+mon+'-'+day+'T'+shftst+':00')
 	formEnd = DateTime.iso8601('2015-'+mon+'-'+day+'T'+shftend+':00')
-	Calendar.gcal_event_insert(0, '***', "core", formStart, formEnd)
+	Calendar.gcal_event_insert(0, '***', "core", formStart, formEnd, 1)
 end
 
 Then /^(?:|I )should be redirected to the show page for shift (.+)$/ do |shift|
@@ -64,7 +64,7 @@ end
 
 Then /I should delete the shift for (.+) - (.+) starting at (.+) from google/ do |mon, day, start|
 	formStart = DateTime.iso8601('2015-'+mon+'-'+day+'T'+start+':00')
-	Calendar.gcal_event_delete('***', formStart)
+	Calendar.gcal_event_delete(1)
 end
 
 And /I should see one (.*) is (.*)/ do |e1, e2|

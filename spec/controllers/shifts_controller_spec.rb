@@ -10,7 +10,7 @@ describe ShiftsController do
     end
 
     it 'should redirect to edit page' do     
-      @testshift = double(Shift, :id => "1", :shiftstart => DateTime.iso8601('2015-05-01T10:00:00'), :shiftend => DateTime.iso8601('2015-05-01T18:00:00'), :owner => '***', :users => nil, :possible_users => nil)
+      @testshift = double(Shift, :id => "1", :shiftstart => DateTime.iso8601('2015-05-01T10:00:00'), :shiftend => DateTime.iso8601('2015-05-01T18:00:00'), :owner => '***', :users => nil, :possible_users => nil, :ingcal => 1, :event_id => 1)
       Shift.stub(:find).with("1").and_return(@testshift)
       @testshift.stub(:update_attributes!).and_return(true)
       put :update, {:id => "1", :shiftend => DateTime.iso8601('2015-05-01T22:00:00')}
@@ -33,7 +33,7 @@ describe ShiftsController do
 
     it 'should update event' do
       @user = User.create(user_params)
-      @testshift = double(Shift, :id => "1", :shiftstart => DateTime.iso8601('2015-05-01T10:00:00'), :shiftend => DateTime.iso8601('2015-05-01T18:00:00'), :owner => @user.first_name, :users => @user.first_name, :possible_users => nil)
+      @testshift = double(Shift, :id => "1", :shiftstart => DateTime.iso8601('2015-05-01T10:00:00'), :shiftend => DateTime.iso8601('2015-05-01T18:00:00'), :owner => @user.first_name, :users => @user.first_name, :possible_users => nil, :event_id => 1)
       Shift.stub(:find).with("1").and_return(@testshift)      
       @testshift.stub(:update_attributes!).and_return(true)
       put :update, {:id => "1", :shiftend => DateTime.iso8601('2015-05-01T22:00:00')}
@@ -77,7 +77,7 @@ describe ShiftsController do
 
 
     it 'should delete the shift' do
-      @testshift = double(Shift, :shiftstart => DateTime.iso8601('2015-05-01T12:00:00'), :shiftend => DateTime.iso8601('2015-05-01T16:00:00'), :id => '3', :owner => '***')
+      @testshift = double(Shift, :shiftstart => DateTime.iso8601('2015-05-01T12:00:00'), :shiftend => DateTime.iso8601('2015-05-01T16:00:00'), :id => '3', :owner => '***', :event_id => 1)
       Shift.stub(:find).with('3').and_return(@testshift)
       @testshift.should_receive(:destroy)
       delete 'destroy', {:id => '3'}

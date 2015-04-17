@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150403053733) do
+ActiveRecord::Schema.define(:version => 20150330174649) do
 
   create_table "availabilities", :force => true do |t|
     t.integer "preferred"

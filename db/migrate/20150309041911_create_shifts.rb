@@ -7,6 +7,7 @@ class CreateShifts < ActiveRecord::Migration
     	t.string :possible_users, array: true, default: " "
     	t.string :owner, default: '***'
     	t.string :event_id
+        t.boolean :ingcal, :default => false
     end
   end
 end

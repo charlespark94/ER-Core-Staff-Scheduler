@@ -5,7 +5,7 @@ So that I can schedule availabilities
 I want to be able to assign doctors to shifts
 
 Background:
-  Given the following shfits exist:
+  Given the following shifts exist:
   | shiftstart                 | shiftend                |
   | 2015-04-16 07:00:00 UTC    | 2015-04-16 19:00:00 UTC |   
   | 2015-04-16 10:00:00 UTC    | 2015-04-16 18:00:00 UTC |     

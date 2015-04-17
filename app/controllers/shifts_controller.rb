@@ -3,22 +3,9 @@ class ShiftsController < ActionController::Base
   def index
     @shifts = Shift.all
     @hours_per_person = show_hours_per_person
-    #@shifts.each do |shift|
-    #  if shift.ingcal == true
-    #    next
-    #  else
-    #    dt_start = shift.shiftstart
-    #    dt_end = shift.shiftend
-    #    dt_doc = shift.owner
-    #    gcal_event_insert(0, dt_doc, "core", dt_start, dt_end)
-    #    shift.ingcal = true
-    #    shift.save!
-    #  end
-    #end
   end
 
   def new
-    #@shift = Shift.new
   end
 
   def show
@@ -60,16 +47,9 @@ class ShiftsController < ActionController::Base
       dt_doc = "***"
     end
     if (!@shift.users.nil? || !@shift.possible_users.nil?) &&(dt_doc != "***")
-      #gcal_event_delete(delete_id, old_start)
-      #gcal_event_insert(User.find_by_first_name(dt_doc).id, dt_doc, "core", dt_start, dt_end )
       gcal_event_update(User.find_by_first_name(dt_doc).id, dt_doc, "core", dt_start, dt_end, @shift.event_id)
     else
-      #gcal_event_delete(delete_id, old_start)
-      if !@shift.ingcal
-        gcal_event_insert(0, dt_doc, "core", dt_start, dt_end, @shift.event_id)
-      else
-        gcal_event_update(0, dt_doc, "core", dt_start, dt_end, @shift.event_id)
-      end
+      gcal_event_update(0, dt_doc, "core", dt_start, dt_end, @shift.event_id)
     end
 
     #if dt_doc == "***" || dt_doc == nil
@@ -89,7 +69,6 @@ class ShiftsController < ActionController::Base
       gcal_event_delete(@shift.event_id)
     else
       dt_doc = @shift.owner
-      #gcal_event_delete(User.find_by_first_name(dt_doc).id, dt_start)
       gcal_event_delete(@shift.event_id)
     end
     @shift.destroy
