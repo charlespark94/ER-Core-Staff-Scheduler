@@ -29,22 +29,35 @@ class AvailabilitiesController < ApplicationController
 			else
 				not_choose = true
 			end
-			if params[:"#{shift.id}"] == "yes"
+			#if params[:"#{shift.id}"] == "yes"
 				
-				if not_choose
-					newstring = "#{shift.users} #{session[:user_id]}"
-					shift.update_attributes(:users => newstring)
-				end
+			#	if not_choose
+			#		newstring = "#{shift.users} #{session[:user_id]}"
+			#		shift.update_attributes(:users => newstring)
+			#	end
 				#shift.update_attributes(:possible_users => nil)
-			elsif params[:"#{shift.id}"] == "maybe"
-				if not_choose
-					newstring = "#{shift.possible_users} #{session[:user_id]}"
-					shift.update_attributes(:possible_users => newstring)
-				end
+			#elsif params[:"#{shift.id}"] == "maybe"
+			#	if not_choose
+			#		newstring = "#{shift.possible_users} #{session[:user_id]}"
+			#		shift.update_attributes(:possible_users => newstring)
+			#	end
 				#shift.update_attributes(:users => nil)
-			elsif params[:"#{shift.id}"] == "no"
+			#elsif params[:"#{shift.id}"] == "no"
 				#shift.update_attributes(:possible_users => nil)
 				#shift.update_attributes(:users => nil)
+			#end
+			update_availability_helper(shift, params[:"#{shift.id}"], not_choose)
+		end
+	end
+
+	def update_availability_helper(shift, val, not_choose)
+		if not_choose
+			if val == "yes"
+				newstring = "#{shift.users} #{session[:user_id]}"
+				shift.update_attribute(:users, newstring)
+			elsif val == "maybe"
+				newstring = "#{shift.possible_users} #{session[:user_id]}"
+				shift.update_attribute(:possible_users, newstring)
 			end
 		end
 	end
