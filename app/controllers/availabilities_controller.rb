@@ -84,7 +84,7 @@ class AvailabilitiesController < ApplicationController
 
 			#setting each preference of current shift to preference of previous shift
 			if prev_time == nil
-				redirect_to availabilites_path
+				redirect_to availabilities_path
 			else
 				if users_exist?(prev_time.users)
 					in_user = prev_time.users.split(" ").include?(session[:user_id].to_s)
