@@ -51,13 +51,6 @@ class ShiftsController < ActionController::Base
     else
       gcal_event_update(0, dt_doc, "core", dt_start, dt_end, @shift.event_id)
     end
-
-    #if dt_doc == "***" || dt_doc == nil
-    #  gcal_event_update(0, dt_doc, "core", dt_start, dt_end)
-    #else   
-    #  gcal_event_insert(User.find_by_first_name(dt_doc).id, dt_doc, "core", dt_start, dt_end )
-    #  gcal_event_delete(0, dt_start)
-    #end
     flash[:notice] = "Shift was successfully updated."
     redirect_to shift_path(@shift)
   end
@@ -79,23 +72,12 @@ class ShiftsController < ActionController::Base
   def show_hours_per_person
     users = User.all
     hours_per_person = {"***" => [0, 0]}
-    #add each person into the hash with 0 hours initially
     users.each do |user|
-      #we prob should change it so that the owner name is full name or something instead, because there mgiht be two johns
-      full_name = user.first_name #+ " " + user.last_name
+      full_name = "#{user.first_name} #{user.last_name[0]}"
       hours_per_person[full_name] = [0, (user.fte*80).to_i]
     end
-
-    # printing purposes
-    # hours_per_person.each do |key, value|
-    #   printf key.to_s + " " + value.to_s
-    #   printf "\n"
-    # end
-
     shifts = Shift.all
-    #add each shift's time to their respective individual in the hash
     shifts.each do |shift|
-      # I wanted to avoid using if else here to get a better runtime, but there's a user with no name
       if hours_per_person.has_key?(shift.owner)
         hours_per_person[shift.owner][0] = hours_per_person[shift.owner][0] + ((shift.shiftend - shift.shiftstart)/(60*60)).to_i
       else
