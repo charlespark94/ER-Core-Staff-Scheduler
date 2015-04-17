@@ -84,16 +84,19 @@ class AvailabilitiesController < ApplicationController
 				end
 
 				if in_user
-						newstring = "#{shift.users} #{session[:user_id]}"
-						shift.update_attributes(:users => newstring)
+					recurring_helper(:users)
 				end
 
 				if in_pos
-						newstring = "#{shift.possible_users} #{session[:user_id]}"
-						shift.update_attributes(:possible_users => newstring)
-					end
+					recurring_helper(:possible_users)
+				end
 			end
 		end
+	end
+
+	def recurring_helper(val)
+		newstring = "#{shift.users} #{session[:user_id]}"
+		shift.update_attribute(val, newstring)
 	end
 
 end
