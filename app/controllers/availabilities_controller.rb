@@ -7,11 +7,6 @@ class AvailabilitiesController < ApplicationController
 		end
 		@availabilities = Availability.all
 		@shifts = Shift.all
-		# @shifts.each do |shift|
-		# 	shift.update_attributes(:users => nil)
-		# 	shift.update_attributes(:possible_users => nil)
-		# end
-
 		update_availability(@shifts)
 	end
 
@@ -23,29 +18,11 @@ class AvailabilitiesController < ApplicationController
 			if users_exist?(shift.possible_users)
 				in_pos = shift.possible_users.split(" ").include?(session[:user_id].to_s)
 			end 
-				#not_choose = (not in_pos) and (not in_user)
 			if (in_user || in_pos)
 				not_choose = false
 			else
 				not_choose = true
 			end
-			#if params[:"#{shift.id}"] == "yes"
-				
-			#	if not_choose
-			#		newstring = "#{shift.users} #{session[:user_id]}"
-			#		shift.update_attributes(:users => newstring)
-			#	end
-				#shift.update_attributes(:possible_users => nil)
-			#elsif params[:"#{shift.id}"] == "maybe"
-			#	if not_choose
-			#		newstring = "#{shift.possible_users} #{session[:user_id]}"
-			#		shift.update_attributes(:possible_users => newstring)
-			#	end
-				#shift.update_attributes(:users => nil)
-			#elsif params[:"#{shift.id}"] == "no"
-				#shift.update_attributes(:possible_users => nil)
-				#shift.update_attributes(:users => nil)
-			#end
 			update_availability_helper(shift, params[:"#{shift.id}"], not_choose)
 		end
 	end

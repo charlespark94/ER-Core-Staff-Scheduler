@@ -4,15 +4,8 @@
 #
 # You have been warned
 module NavigationHelpers
-  # Maps a name to a path. Used by the
-  #
-  #   When /^I go to (.+)$/ do |page_name|
-  #
-  # step definition in web_steps.rb
-  #
   def path_to(page_name)
     case page_name
-
     when /^home$/
       home_path
     when /^login$/
@@ -29,8 +22,6 @@ module NavigationHelpers
       new_availability_path
     when /^new password$/
       edit_password_reset_path User.first.password_reset_token
-
-    #from admin-add-shifts 
     when /^input schedule$/
       new_shift_path
     when /^shift index$/
@@ -43,13 +34,6 @@ module NavigationHelpers
       multiply_path
     when /^verified$/
       "/verified.1"
-
-    # Add more mappings here.
-    # Here is an example that pulls values out of the Regexp:
-    #
-    #   when /^(.*)'s profile page$/i
-    #     user_profile_path(User.find_by_login($1))
-
     else
       begin
         page_name =~ /^the (.*) page$/
