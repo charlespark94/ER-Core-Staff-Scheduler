@@ -30,15 +30,14 @@
 
 	%div#page-content-wrapper
 		%div.container-fluid 
-			%h1 this is index.html.haml from within availabilities/shifts
-
-			%h1 actual prefs form
-			%td= link_to 'Back to Home Page', home_index_path()
+			%h1 Set Your Preference
 
 			:css
-				tr {
+				td, th {
 					vertical-align: top;
 					text-align: center;
+					padding-left: 5px;
+					padding-right: 5px;
 				}
 
 			= form_tag 'update_availabilities', :method => :get do
@@ -55,9 +54,20 @@
 												%td= "#{shift.shiftstart.to_s[11..15]} to #{shift.shiftend.to_s[11..15]}"
 											- else
 												%td= "#{shift.shiftstart.to_s[11..15]} to #{shift.shiftend.to_s[11..15]}+"
-											%td= radio_button_tag "#{shift.id}", 'yes', false
-											%td= radio_button_tag "#{shift.id}", 'maybe', true
-											%td= radio_button_tag "#{shift.id}", 'no', false
+											- availability = Availability.where(user_id: session[:user_id], shift_id: shift.id).first
+											- if availability.nil? || availability.availability == 2
+												%td= radio_button_tag "#{shift.id}", 'yes', true
+												%td= radio_button_tag "#{shift.id}", 'maybe', false
+												%td= radio_button_tag "#{shift.id}", 'no', false
+											- elsif availability.availability == 1
+												%td= radio_button_tag "#{shift.id}", 'yes', false
+												%td= radio_button_tag "#{shift.id}", 'maybe', true
+												%td= radio_button_tag "#{shift.id}", 'no', false
+											- elsif availability.availability == 0
+												%td= radio_button_tag "#{shift.id}", 'yes', false
+												%td= radio_button_tag "#{shift.id}", 'maybe', false
+												%td= radio_button_tag "#{shift.id}", 'no', true
+
 
 					%br
 				= submit_tag 'Update'
@@ -76,21 +86,12 @@
 								- if shift.shiftstart.to_s[5..6] == date.to_s[5..6] && shift.shiftstart.to_s[8..9] == date.to_s[8..9]
 									- if shift.users || shift.possible_users
 										%tr
-											- if shift.shiftend.to_s[8..9].to_s == date.to_s[8..9]
-												%td= "#{shift.shiftstart.to_s[11..15]} to #{shift.shiftend.to_s[11..15]}"
-											- else
-												%td= "#{shift.shiftstart.to_s[11..15]} to #{shift.shiftend.to_s[11..15]}+"
-
-
-			/= form_tag availabilities_path, :method => :get do
-			/	- @shifts.each do |shift|
-			/		= shift.shiftstart
-			/		= shift.shiftend
-			/		= radio_button_tag "#{shift.id}", 'yes', false
-			/		= radio_button_tag "#{shift.id}", 'maybe', true
-			/		= radio_button_tag "#{shift.id}", 'no', false
-			/		%br
-			/	= submit_tag 'Update'
+											-availability = Availability.where(user_id: session[:user_id], shift_id: shift.id).first
+											- if availability.availability != 0
+												- if shift.shiftend.to_s[8..9].to_s == date.to_s[8..9]
+													%td= "#{shift.shiftstart.to_s[11..15]} to #{shift.shiftend.to_s[11..15]}"
+												- else
+													%td= "#{shift.shiftstart.to_s[11..15]} to #{shift.shiftend.to_s[11..15]}+"
 
 			%h2 these are all the shifts currently in the shifts table
 
