@@ -17420,3 +17420,407 @@ update params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>nil
 results of update are: --- 
 ...
 
+insert params are: {:calendarId=>"va.er.core.scheduler@gmail.com"}
+resulsts of inserting are: --- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  kind: calendar#event
+  etag: ! '"2858507035042000"'
+  id: 01429253460
+  status: confirmed
+  htmlLink: https://www.google.com/calendar/event?eid=MDE0MjkyNTM0NjAgdmEuZXIuY29yZS5zY2hlZHVsZXJAbQ
+  created: '2015-04-17T06:51:57.000Z'
+  updated: '2015-04-17T06:51:57.521Z'
+  summary: ! '***'
+  description: core
+  creator:
+    email: 1015162711729-4r5nn2ibft615vt22rh5npqarbpqoi27@developer.gserviceaccount.com
+  organizer:
+    email: va.er.core.scheduler@gmail.com
+    self: true
+  start:
+    dateTime: '2015-04-16T23:51:00-07:00'
+  end:
+    dateTime: '2015-04-16T23:51:00-07:00'
+  iCalUID: 01429253460@google.com
+  sequence: 0
+  extendedProperties:
+    private:
+      doctor_id: '0'
+  reminders:
+    useDefault: true
+
+insert params are: {:calendarId=>"va.er.core.scheduler@gmail.com"}
+resulsts of inserting are: --- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: invalid
+      message: Invalid resource id value.
+    code: 400
+    message: Invalid resource id value.
+
+delete params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>nil}
+results of deleting are: --- 
+...
+
+delete params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>1}
+results of deleting are: ---
+error:
+  errors:
+  - domain: global
+    reason: notFound
+    message: Not Found
+  code: 404
+  message: Not Found
+
+update params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>nil}
+results of update are: --- 
+...
+
+update params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>nil}
+results of update are: --- 
+...
+
+update params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>nil}
+results of update are: --- 
+...
+
+update params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>nil}
+results of update are: --- 
+...
+
+insert params are: {:calendarId=>"va.er.core.scheduler@gmail.com"}
+resulsts of inserting are: --- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  kind: calendar#event
+  etag: ! '"2858507989564000"'
+  id: 01429253940
+  status: confirmed
+  htmlLink: https://www.google.com/calendar/event?eid=MDE0MjkyNTM5NDAgdmEuZXIuY29yZS5zY2hlZHVsZXJAbQ
+  created: '2015-04-17T06:59:54.000Z'
+  updated: '2015-04-17T06:59:54.782Z'
+  summary: ! '***'
+  description: core
+  creator:
+    email: 1015162711729-4r5nn2ibft615vt22rh5npqarbpqoi27@developer.gserviceaccount.com
+  organizer:
+    email: va.er.core.scheduler@gmail.com
+    self: true
+  start:
+    dateTime: '2015-04-16T23:59:00-07:00'
+  end:
+    dateTime: '2015-04-16T23:59:00-07:00'
+  iCalUID: 01429253940@google.com
+  sequence: 0
+  extendedProperties:
+    private:
+      doctor_id: '0'
+  reminders:
+    useDefault: true
+
+insert params are: {:calendarId=>"va.er.core.scheduler@gmail.com"}
+resulsts of inserting are: --- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: invalid
+      message: Invalid resource id value.
+    code: 400
+    message: Invalid resource id value.
+
+delete params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>nil}
+results of deleting are: --- 
+...
+
+delete params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>1}
+results of deleting are: ---
+error:
+  errors:
+  - domain: global
+    reason: notFound
+    message: Not Found
+  code: 404
+  message: Not Found
+
+update params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>nil}
+results of update are: --- 
+...
+
+update params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>nil}
+results of update are: --- 
+...
+
+update params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>nil}
+results of update are: --- 
+...
+
+update params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>nil}
+results of update are: --- 
+...
+
+delete params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>nil}
+results of deleting are: --- 
+...
+
+update params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>nil}
+results of update are: --- 
+...
+
+delete params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>nil}
+results of deleting are: --- 
+...
+
+update params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>nil}
+results of update are: --- 
+...
+
+delete params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>nil}
+results of deleting are: --- 
+...
+
+update params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>nil}
+results of update are: --- 
+...
+
+delete params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>nil}
+results of deleting are: --- 
+...
+
+update params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>nil}
+results of update are: --- 
+...
+
+delete params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>nil}
+results of deleting are: --- 
+...
+
+update params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>nil}
+results of update are: --- 
+...
+
+delete params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>nil}
+results of deleting are: --- 
+...
+
+update params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>nil}
+results of update are: --- 
+...
+
+delete params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>nil}
+results of deleting are: --- 
+...
+
+update params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>nil}
+results of update are: --- 
+...
+
+delete params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>nil}
+results of deleting are: --- 
+...
+
+update params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>nil}
+results of update are: --- 
+...
+
+delete params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>nil}
+results of deleting are: --- 
+...
+
+update params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>nil}
+results of update are: --- 
+...
+
+delete params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>nil}
+results of deleting are: --- 
+...
+
+update params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>nil}
+results of update are: --- 
+...
+
+delete params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>nil}
+results of deleting are: --- 
+...
+
+update params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>nil}
+results of update are: --- 
+...
+
+delete params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>nil}
+results of deleting are: --- 
+...
+
+update params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>nil}
+results of update are: --- 
+...
+
+delete params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>nil}
+results of deleting are: --- 
+...
+
+update params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>nil}
+results of update are: --- 
+...
+
+delete params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>nil}
+results of deleting are: --- 
+...
+
+update params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>nil}
+results of update are: --- 
+...
+
+delete params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>nil}
+results of deleting are: --- 
+...
+
+update params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>nil}
+results of update are: --- 
+...
+
+delete params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>nil}
+results of deleting are: --- 
+...
+
+update params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>nil}
+results of update are: --- 
+...
+
+delete params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>nil}
+results of deleting are: --- 
+...
+
+insert params are: {:calendarId=>"va.er.core.scheduler@gmail.com"}
+resulsts of inserting are: --- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  kind: calendar#event
+  etag: ! '"2858509866914000"'
+  id: 01429254900
+  status: confirmed
+  htmlLink: https://www.google.com/calendar/event?eid=MDE0MjkyNTQ5MDAgdmEuZXIuY29yZS5zY2hlZHVsZXJAbQ
+  created: '2015-04-17T07:15:33.000Z'
+  updated: '2015-04-17T07:15:33.457Z'
+  summary: ! '***'
+  description: core
+  creator:
+    email: 1015162711729-4r5nn2ibft615vt22rh5npqarbpqoi27@developer.gserviceaccount.com
+  organizer:
+    email: va.er.core.scheduler@gmail.com
+    self: true
+  start:
+    dateTime: '2015-04-17T00:15:00-07:00'
+  end:
+    dateTime: '2015-04-17T00:15:00-07:00'
+  iCalUID: 01429254900@google.com
+  sequence: 0
+  extendedProperties:
+    private:
+      doctor_id: '0'
+  reminders:
+    useDefault: true
+
+insert params are: {:calendarId=>"va.er.core.scheduler@gmail.com"}
+resulsts of inserting are: --- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: invalid
+      message: Invalid resource id value.
+    code: 400
+    message: Invalid resource id value.
+
+delete params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>nil}
+results of deleting are: --- 
+...
+
+delete params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>1}
+results of deleting are: ---
+error:
+  errors:
+  - domain: global
+    reason: notFound
+    message: Not Found
+  code: 404
+  message: Not Found
+
+update params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>nil}
+results of update are: --- 
+...
+
+update params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>nil}
+results of update are: --- 
+...
+
+delete params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>nil}
+results of deleting are: --- 
+...
+
+insert params are: {:calendarId=>"va.er.core.scheduler@gmail.com"}
+resulsts of inserting are: --- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  kind: calendar#event
+  etag: ! '"2858510048244000"'
+  id: 01429255020
+  status: confirmed
+  htmlLink: https://www.google.com/calendar/event?eid=MDE0MjkyNTUwMjAgdmEuZXIuY29yZS5zY2hlZHVsZXJAbQ
+  created: '2015-04-17T07:17:03.000Z'
+  updated: '2015-04-17T07:17:04.122Z'
+  summary: ! '***'
+  description: core
+  creator:
+    email: 1015162711729-4r5nn2ibft615vt22rh5npqarbpqoi27@developer.gserviceaccount.com
+  organizer:
+    email: va.er.core.scheduler@gmail.com
+    self: true
+  start:
+    dateTime: '2015-04-17T00:17:00-07:00'
+  end:
+    dateTime: '2015-04-17T00:17:00-07:00'
+  iCalUID: 01429255020@google.com
+  sequence: 0
+  extendedProperties:
+    private:
+      doctor_id: '0'
+  reminders:
+    useDefault: true
+
+insert params are: {:calendarId=>"va.er.core.scheduler@gmail.com"}
+resulsts of inserting are: --- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: invalid
+      message: Invalid resource id value.
+    code: 400
+    message: Invalid resource id value.
+
+delete params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>nil}
+results of deleting are: --- 
+...
+
+delete params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>1}
+results of deleting are: ---
+error:
+  errors:
+  - domain: global
+    reason: notFound
+    message: Not Found
+  code: 404
+  message: Not Found
+
+update params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>nil}
+results of update are: --- 
+...
+
+update params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>nil}
+results of update are: --- 
+...
+
+delete params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>nil}
+results of deleting are: --- 
+...
+
