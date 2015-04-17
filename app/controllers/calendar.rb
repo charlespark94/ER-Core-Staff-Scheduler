@@ -12,59 +12,63 @@ module Calendar
   CALENDAR_ID = @googleapi_hash["calendarId"]
 
 
-	def gcal_event_insert(doctor_id, name, type_of_doctor, dt_start, dt_end)
+	def gcal_event_insert(doctor_id, name, type_of_doctor, dt_start, dt_end, e_id)
 		logger = Logger.new('logfile.log')
 		doctor_id = doctor_id.to_s
 		print CALENDAR_ID
 		print "\n"
 		print calendar
 		print "\n"
+		event_id = make_event_id(doctor_id, dt_start)
 		params = {
 			calendarId: CALENDAR_ID
 		}
+		logger.debug("insert params are: #{params}")
 		result = client.execute(
 			:api_method => calendar.events.insert,
 			:parameters => params,
-			:body_object => convert_to_gcal_event(doctor_id, name, type_of_doctor, dt_start, dt_end)
+			:body_object => convert_to_gcal_event(doctor_id, name, type_of_doctor, dt_start, dt_end, e_id)
 		)
-		logger.debug(result.data.to_yaml)
+		logger.debug("resulsts of inserting are: #{result.data.to_yaml}")
 	end
 
-	def gcal_event_update(doctor_id, name, type_of_doctor, dt_start, dt_end)
+	def gcal_event_update(doctor_id, name, type_of_doctor, dt_start, dt_end, e_id)
 		logger = Logger.new('logfile.log')
 		doctor_id = doctor_id.to_s
-		event_id = make_event_id(doctor_id, dt_start)
+		#event_id = make_event_id(delete_id, old_start)
 		params = {
 			calendarId: CALENDAR_ID,
-			eventId: event_id
+			eventId: e_id
 		}
+		logger.debug("update params are: #{params.inspect}")
 		result = client.execute(
 			:api_method => calendar.events.update,
 			:parameters => params,
-			:body_object => convert_to_gcal_event(doctor_id, name, type_of_doctor, dt_start, dt_end)
+			:body_object => convert_to_gcal_event(doctor_id, name, type_of_doctor, dt_start, dt_end, e_id)
 		)
-		logger.debug(result.data.to_yaml)
+		logger.debug("results of update are: #{result.data.to_yaml}")
 	end
 
-	def gcal_event_delete(doctor_id, dt_start)
+	def gcal_event_delete(e_id)
 		logger = Logger.new('logfile.log')
 		doctor_id = doctor_id.to_s
-		event_id = make_event_id(doctor_id, dt_start)
+		event_id = e_id
 		params = {
 			calendarId: CALENDAR_ID,
-			eventId: event_id
+			eventId: e_id
 		}
+		logger.debug("delete params are: #{params.inspect}")
 		result = client.execute(
 			:api_method => calendar.events.delete,
 			:parameters => params
 		)
-		logger.debug(result.data.to_yaml)
+		logger.debug("results of deleting are: #{result.data.to_yaml}")
 	end
 
 private
-	def convert_to_gcal_event(doctor_id, name, type_of_doctor, dt_start, dt_end)
+	def convert_to_gcal_event(doctor_id, name, type_of_doctor, dt_start, dt_end, e_id)
 		doctor_id = doctor_id.to_s
-		event_id = make_event_id(doctor_id, dt_start)
+		event_id = e_id
 		print dt_start
 		print "\n"
 		print dt_end

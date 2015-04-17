@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(:version => 20150403053733) do
     t.string   "users",          :default => " "
     t.string   "possible_users", :default => " "
     t.string   "owner",          :default => "***"
+    t.string   "event_id"
     t.boolean  "ingcal",         :default => false
   end
 

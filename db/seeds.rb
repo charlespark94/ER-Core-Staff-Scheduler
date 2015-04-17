@@ -89,6 +89,6 @@ SHIFTS = [
    :shiftend => DateTime.strptime("04/19/2015 07:00", "%m/%d/%Y %H:%M")}
 ]
 
-SHIFTS.each do |shift|
-  Shift.create!(shift)
-end
+#SHIFTS.each do |shift|
+#  Shift.create!(shift)
+#end
