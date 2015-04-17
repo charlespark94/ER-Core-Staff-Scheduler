@@ -3,7 +3,9 @@ As an Admin
 So that I can have dynamic and robust shifts
 I want to be able to set shifts in the calendar
 
-Background: Given I am logged in as an admin
+Background:
+  Given 'admin' has been added to the database
+  Given I am logged in as 'admin' with password 'admin'
   And the following shifts exist:
   | shiftstart                 | shiftend                |
   | 2015-03-08 07:00:00 UTC    | 2015-03-08 19:00:00 UTC |

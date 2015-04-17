@@ -4,11 +4,9 @@ Feature: admin define shift schedule
   So that I can set shift coverage during the pay period 
   I want to be able to define a list of all available shifts for the pay period that must be filled
 
-Background: I am an admin user
-
+Background:
   Given 'admin' has been added to the database
-  Given that I am signed in
-  And I am an admin user
+  Given I am logged in as 'admin' with password 'admin'
   Given that I am on the input schedule page
 
 Scenario: admin can input shift schedule

@@ -7,8 +7,7 @@ Feature: admine define fte multipier
 Background: I am an admin user
 
   Given 'admin' has been added to the database
-  Given that I am signed in
-  And I am an admin user
+  Given I am logged in as 'admin' with password 'admin'
   And that I am on the multiply page
 
 

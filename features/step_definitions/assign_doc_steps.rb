@@ -6,9 +6,20 @@ end
 
 Given /(.+) chooses yes on the shift (.+) at availabilities page/ do |e1, e2|
 	shift = Shift.find(e2)
-	user = User.find_by_first_name(e1)
-	newstring = "#{shift.users} 1"
-	shift.update_attributes(:users => newstring)
+	#user = User.find_by_first_name(e1)
+  user = User.where(first_name: e1).first
+  puts user.nil?
+
+  @availability = Availability.where(user_id: user.id, shift_id: shift.id).first
+  if @availability.nil?
+    @availability = shift.availabilities.build(:user_id => user.id)
+  end
+  @availability.update_attributes(:availability => 2)
+  if !@availability.save
+    flash[:notice] = "Something bad happened"
+  end
+	# newstring = "#{shift.users} 1"
+	# shift.update_attributes(:users => newstring)
 end
 
 Then /I should see the users is (.+)/ do |e2|

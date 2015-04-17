@@ -14,9 +14,6 @@ class AvailabilitiesController < ApplicationController
 	end
 
 	def update_all
-		if session[:user_id] == nil
-			redirect_to login_path
-		end
 		@availabilities = Availability.all
 		@shifts = Shift.all
 		update_availability(@shifts)

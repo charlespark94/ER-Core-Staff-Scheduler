@@ -9,9 +9,9 @@ Background:
   Given that I am signed in
   And I am an admin user
   Given the following users exist:
-  |first_name  |
-  |"admin"     |
-  |"Jason"     |
+  | first_name |
+  | admin      |
+  | Jason      |
 
   Given the following shifts exist:
   | shiftstart                 | shiftend                |

@@ -12,6 +12,8 @@ module Calendar
 			gcal_event_update('1', 'bob','Administrator', '1','1', '1')
 			convert_to_gcal_event('1', 'bob', 'Administrator', '1','1', '1')
 			gcal_event_delete('1')
+			File.stub(:exists?).and_return(false)
+			init_calendar
 		end
 	end
 

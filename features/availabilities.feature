@@ -26,7 +26,7 @@ Scenario: user can choose yes as their availability
   When I choose "yes" of shift: 1,2,3
   And I press "Update"
   Then I should be redirected to the availabilities page
-  And I should see that "shiftuser" equals ["1", "1", "1"]
+  And I should see that "shiftuser" equals ["["admin"]","["admin"]","["admin"]"]"
 
 
 Scenario: user can choose maybe as their availability
