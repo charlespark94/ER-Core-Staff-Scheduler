@@ -25,6 +25,8 @@ module NavigationHelpers
       new_password_reset_path
     when /^availabilities$/
       availabilities_path
+    when /^availabilities new$/
+      new_availability_path
     when /^new password$/
       edit_password_reset_path User.first.password_reset_token
 
