@@ -17,17 +17,17 @@ Background: I am on the availabilities page
   Given that I am on the verified page
   Then I should see "The account has been verified and added to the application"
   Given the following shifts exist:
-  | shiftstart                 | shiftend                | users |
-  | 2015-04-02 07:00:00 UTC    | 2015-04-02 19:00:00 UTC |   1   |
-  | 2015-04-02 10:00:00 UTC    | 2015-04-02 18:00:00 UTC |       | 
-  | 2015-04-02 14:00:00 UTC    | 2015-04-02 22:00:00 UTC |   1   |
-  | 2015-04-16 07:00:00 UTC    | 2015-04-16 19:00:00 UTC |       |
-  | 2015-04-16 10:00:00 UTC    | 2015-04-16 18:00:00 UTC |       |
-  | 2015-04-16 14:00:00 UTC    | 2015-04-16 22:00:00 UTC |       |
+  | shiftstart                 | shiftend                | possible_users |
+  | 2015-04-02 07:00:00 UTC    | 2015-04-02 19:00:00 UTC | ["admin"]      |
+  | 2015-04-02 10:00:00 UTC    | 2015-04-02 18:00:00 UTC |                |
+  | 2015-04-02 14:00:00 UTC    | 2015-04-02 22:00:00 UTC | ["admin"]      |
+  | 2015-04-16 07:00:00 UTC    | 2015-04-16 19:00:00 UTC |                |
+  | 2015-04-16 10:00:00 UTC    | 2015-04-16 18:00:00 UTC |                |
+  | 2015-04-16 14:00:00 UTC    | 2015-04-16 22:00:00 UTC |                |
 
   And that I am on the availabilities page
 
 Scenario: user can choose yes as their availability
   When I follow "Set Availabilities to Previous Pay Period" 
   Then I should be redirected to the availabilities new page
-  And I should see that "shiftuser" equals ["1", "", "1", "1 1", "", "1 1"]
+  And I should see that "possibleusers" equals ["[\"admin\"]", "", "[\"admin\"]", "", "", ""]

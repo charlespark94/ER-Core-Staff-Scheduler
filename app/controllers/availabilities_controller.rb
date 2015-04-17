@@ -127,8 +127,8 @@ class AvailabilitiesController < ApplicationController
 	end
 
 	def recurring_helper(shift, val)
-		newstring = "#{shift.users} #{session[:user_id]}"
-		shift.update_attribute(val, newstring)
+
+		shift.update_attribute(val, "['admin']")
 	end
 
 end
