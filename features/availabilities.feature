@@ -26,19 +26,19 @@ Scenario: user can choose yes as their availability
   When I choose "yes" of shift: 1,2,3
   And I press "Update"
   Then I should be redirected to the availabilities page
-  And I should see that "shiftuser" equals ["["admin"]","["admin"]","["admin"]"]"
+  And I should see that "shiftuser" equals ["[\"admin\"]", "[\"admin\"]", "[\"admin\"]"]
 
 
 Scenario: user can choose maybe as their availability
   When I choose "maybe" of shift: 1,2,3
   And I press "Update"
   Then I should be redirected to the availabilities page
-  And I should see that "shiftuser" equals ["", "", ""]
-  And I should see that "possibleusers" equals ["1", "1", "1"]
+  And I should see that "shiftuser" equals ["[]", "[]", "[]"]
+  And I should see that "possibleusers" equals ["[\"admin\"]", "[\"admin\"]", "[\"admin\"]"]
 
 Scenario: user can choose no as their avaialbility
   When I choose "no" of shift: 1,2,3
   And I press "Update"
   Then I should be redirected to the availabilities page
-  And I should see that "shiftuser" equals ["", "", ""]
-  And I should see that "possibleusers" equals ["", "", ""]
+  And I should see that "shiftuser" equals ["[]", "[]", "[]"]
+  And I should see that "possibleusers" equals ["[]", "[]", "[]"]
