@@ -7,10 +7,6 @@ class AvailabilitiesController < ApplicationController
 		end
 		@availabilities = Availability.all
 		@shifts = Shift.all
-		# @shifts.each do |shift|
-		# 	shift.update_attributes(:users => nil)
-		# 	shift.update_attributes(:possible_users => nil)
-		# end
 	end
 
 	def update_all
@@ -28,13 +24,6 @@ class AvailabilitiesController < ApplicationController
 					@availability = shift.availabilities.build(:user_id => session[:user_id])
 				end
 				update_availability_helper(@availability, params[:"#{shift.id}"])
-				#if params[:"#{shift.id}"] == "yes"
-				#	@availability.update_attributes(:availability => 2)
-				#elsif params[:"#{shift.id}"] == "maybe"
-				#	@availability.update_attributes(:availability => 1)
-				#elsif params[:"#{shift.id}"] == "no"
-				#	@availability.update_attributes(:availability => 0)
-				#end
 				if !@availability.save
 					flash[:notice] = "Something bad happened, saving new ability in availabilities_controller"
 				end
