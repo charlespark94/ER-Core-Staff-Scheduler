@@ -12,11 +12,13 @@ Background: I am on the availabilities page
   And I fill in "password" with "admin"
   When I press "login_submit"
   Then I should be redirected to the home page
+  Given that I am on the verified page
+  Then I should see "The account has been verified and added to the application"
   Given the following shifts exist:
   | shiftstart                 | shiftend                |
-  | 2015-04-14 07:00:00 UTC    | 2015-04-14 19:00:00 UTC |   
-  | 2015-04-14 10:00:00 UTC    | 2015-04-14 18:00:00 UTC |       
-  | 2015-04-14 14:00:00 UTC    | 2015-04-14 22:00:00 UTC |
+  | 2015-04-16 07:00:00 UTC    | 2015-04-16 19:00:00 UTC |   
+  | 2015-04-16 10:00:00 UTC    | 2015-04-16 18:00:00 UTC |       
+  | 2015-04-16 14:00:00 UTC    | 2015-04-16 22:00:00 UTC |
 
   And that I am on the availabilities page
 
