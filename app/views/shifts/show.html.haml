@@ -32,7 +32,6 @@
 		%div.container-fluid 
 			%h2 shift details
 
-<<<<<<< HEAD
 			%ul#details
 				%li
 					Start Time: 
@@ -40,35 +39,16 @@
 				%li
 					End Time:
 					= @shift.shiftend
-
+					
 				%li
 					Available People:
 					- if !@shift.users.nil?
-						= @shift.users.split(" ").map{|i| User.find_by_id(i[0]).first_name}
-=======
-	%li
-		Available People:
-		- if !@shift.users.nil?
-			= @shift.users.where(id: @shift.availabilities.select(:user_id).where(shift_id: @shift.id, availability: 2)).pluck(:last_name)
-
-	%li
-		Possible Users:
-		- if !@shift.possible_users.nil?
-			= @shift.users.where(id: @shift.availabilities.select(:user_id).where(shift_id: @shift.id, availability: 1)).pluck(:last_name)
-	
-	%li
-		Shift Assigned To:
-		=@shift.owner
-= link_to 'Edit', edit_shift_path(@shift)
-%br
-= button_to 'Delete', shift_path(@shift), :method => :delete, :confirm => 'Are you sure?'
-%br
->>>>>>> 8d8e157fe3a6bf96669f9dd31a755e2589167a65
+						= @shift.users.where(id: @shift.availabilities.select(:user_id).where(shift_id: @shift.id, availability: 2)).pluck(:last_name)
 
 				%li
 					Possible Users:
 					- if !@shift.possible_users.nil?
-						= @shift.possible_users.split(" ").map{|i| User.find(i).first_name}
+						= @shift.users.where(id: @shift.availabilities.select(:user_id).where(shift_id: @shift.id, availability: 1)).pluck(:last_name)
 				
 				%li
 					Shift Assigned To:
@@ -77,5 +57,3 @@
 			%br
 			= button_to 'Delete', shift_path(@shift), :method => :delete, :confirm => 'Are you sure?'
 			%br
-
-			= link_to 'Back to all shifts', shifts_path

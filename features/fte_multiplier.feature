@@ -4,13 +4,12 @@ Feature: admine define fte multipier
   So that I can get a fair availabilities preference from each doctor
   I want to be able to define a fte multiplier
 
-Background: I am an admin user
-
+Background:
   Given 'admin' has been added to the database
   Given I am logged in as 'admin' with password 'admin'
+  Given that I am on the verified page
+  Then I should see "The account has been verified and added to the application"
   And that I am on the multiply page
-
-
 
 Scenario: admin can input shift schedule
   When I fill in "1" with "2.5"

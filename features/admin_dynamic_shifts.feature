@@ -6,6 +6,8 @@ I want to be able to set shifts in the calendar
 Background:
   Given 'admin' has been added to the database
   Given I am logged in as 'admin' with password 'admin'
+  Given that I am on the verified page
+  Then I should see "The account has been verified and added to the application"
   And the following shifts exist:
   | shiftstart                 | shiftend                |
   | 2015-03-08 07:00:00 UTC    | 2015-03-08 19:00:00 UTC |
