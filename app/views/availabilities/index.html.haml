@@ -87,7 +87,7 @@
 									- if shift.users || shift.possible_users
 										%tr
 											-availability = Availability.where(user_id: session[:user_id], shift_id: shift.id).first
-											- if availability.availability != 0
+											- if !availability.nil? && availability.availability != 0
 												- if shift.shiftend.to_s[8..9].to_s == date.to_s[8..9]
 													%td= "#{shift.shiftstart.to_s[11..15]} to #{shift.shiftend.to_s[11..15]}"
 												- else

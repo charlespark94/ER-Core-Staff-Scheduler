@@ -102,10 +102,9 @@ describe ShiftsController do
     end
     it 'should return a hash of assigned and required hours per person' do
       @user = User.create(user_params)
-      full_name = "#{@user.first_name} #{@user.last_name[0]}"
-      @testshift = Shift.create(:id => "1", :shiftstart => DateTime.iso8601('2015-05-01T10:00:00'), :shiftend => DateTime.iso8601('2015-05-01T18:00:00'), :owner => full_name, :users => [], :possible_users => [], :ingcal => true, :event_id => 1)
+      @testshift = Shift.create(:id => "1", :shiftstart => DateTime.iso8601('2015-05-01T10:00:00'), :shiftend => DateTime.iso8601('2015-05-01T18:00:00'), :owner => @user.first_name, :users => [], :possible_users => [], :ingcal => true, :event_id => 1)
       Shift.stub(:all).and_return([@testshift])
-      controller.show_hours_per_person().should == {"***" => [0,0], full_name => [8,64]}
+      controller.show_hours_per_person().should == {"***" => [0,0], @user.first_name => [8,64]}
     end
   end
 end

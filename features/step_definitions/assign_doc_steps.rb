@@ -12,7 +12,7 @@ Given /(.+) has chosen yes on the shift (.+) at availabilities page/ do |e1, e2|
   if @availability.nil?
     @availability = shift.availabilities.build(:user_id => user.id)
   end
-  @availability.update_attributes(:availability => 1)
+  @availability.update_attributes(:availability => 2)
   if !@availability.save
     flash[:notice] = "Something bad happened"
   end
