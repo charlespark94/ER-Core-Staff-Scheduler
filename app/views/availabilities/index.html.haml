@@ -9,7 +9,7 @@
 		text-align: left;
 	}
 
-= form_tag new_availability_path, :method => :get do
+= form_tag 'update_availabilities', :method => :get do
 	= week_calendar number_of_weeks: 2 do |date|
 		%table.table
 			%thead

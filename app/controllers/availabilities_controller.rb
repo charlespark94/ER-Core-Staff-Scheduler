@@ -13,7 +13,7 @@ class AvailabilitiesController < ApplicationController
 		# end
 	end
 
-	def new
+	def update_all
 		if session[:user_id] == nil
 			redirect_to login_path
 		end
