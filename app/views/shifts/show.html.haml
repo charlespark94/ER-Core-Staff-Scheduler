@@ -43,7 +43,7 @@
 				%li
 					Available People:
 					- if !@shift.users.nil?
-						= @shift.users.split(" ").map{|i| User.find(i).first_name}
+						= @shift.users.split(" ").map{|i| User.find_by_id(i[0]).first_name}
 
 				%li
 					Possible Users:

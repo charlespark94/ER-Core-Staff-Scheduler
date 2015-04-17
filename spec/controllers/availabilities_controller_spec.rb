@@ -47,17 +47,17 @@ describe AvailabilitiesController do
 
 	it "should update attribute when yes" do
 		get :index, {:"1" => 'yes'}
-		expect(@shift.update_attributes(:possible_users => nil, :users => 1)) 
+		expect(@shift.update_attributes(:availability => 2)) 
 	end
 
 	it "should update attribute when maybe" do
 		get :index, {:"1" => 'maybe'}
-		expect(@shift.update_attributes(:possible_users => 1, :users => nil)) 
+		expect(@shift.update_attributes(:availability => 1)) 
 	end
 
 	it "should update attribute when no" do
 		get :index, {:"1" => 'no'}
-		expect(@shift.update_attributes(:possible_users => nil, :users => nil)) 
+		expect(@shift.update_attributes(:availability => 0)) 
 	end
 
 	it "should have reccuring shift" do
