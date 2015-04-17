@@ -1,4 +1,4 @@
-class ShiftsController < ActionController::Base
+class ShiftsController < ApplicationController
   include Calendar
   def index
     @shifts = Shift.all
