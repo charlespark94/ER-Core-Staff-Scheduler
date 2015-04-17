@@ -53,4 +53,57 @@ class AvailabilitiesController < ApplicationController
 		return !val.nil?
 	end
 
+	def new
+		@shifts = Shift.all
+		@days_of_week = []
+
+		#getting the dates of the current payperiod
+		today = Date.today
+		(today.at_beginning_of_week..today.at_end_of_week).map.each {|day| @days_of_week << day}
+		next_week = Date.today + 7
+		(next_week.at_beginning_of_week..next_week.at_end_of_week).map.each {|day| @days_of_week << day}
+		@first_shift = @days_of_week[2].to_s[5..6]
+
+		#getting the shifts of the current pay period
+		@current_shifts = []
+
+		@shifts.each do |shift|
+			@days_of_week.each do |day|
+				if shift.shiftstart.to_s[0..9] == day.to_s[0..9]
+					@current_shifts << shift
+				end
+			end
+		end
+
+		#mapping each current shift to the shift from two weeks before
+		@current_shifts.each do |shift|
+			@match_startshift = shift.shiftstart - (14*24*60*60)
+			@match_endshift = shift.shiftend - (14*24*60*60)
+			prev_shifts = Shift.where(:shiftstart => @match_startshift, :shiftend => @match_endshift).all
+			prev_time = prev_shifts[0]
+
+			#setting each preference of current shift to preference of previous shift
+			if prev_time == nil
+				redirect_to availabilites_path
+			else
+				if users_exist?(prev_time.users)
+					in_user = prev_time.users.split(" ").include?(session[:user_id].to_s)
+				end
+				if users_exist?(prev_time.possible_users)
+					in_pos = prev_time.possible_users.split(" ").include?(session[:user_id].to_s)
+				end
+
+				if in_user
+						newstring = "#{shift.users} #{session[:user_id]}"
+						shift.update_attributes(:users => newstring)
+				end
+
+				if in_pos
+						newstring = "#{shift.possible_users} #{session[:user_id]}"
+						shift.update_attributes(:possible_users => newstring)
+					end
+			end
+		end
+	end
+
 end
