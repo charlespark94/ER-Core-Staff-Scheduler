@@ -14,8 +14,9 @@
 ActiveRecord::Schema.define(:version => 20150330174649) do
 
   create_table "availabilities", :force => true do |t|
-    t.integer "preferred"
-    t.integer "maybe"
+    t.integer "user_id"
+    t.integer "shift_id"
+    t.integer "availability"
   end
 
   create_table "shifts", :force => true do |t|

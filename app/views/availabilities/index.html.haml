@@ -9,7 +9,7 @@
 		text-align: left;
 	}
 
-= form_tag availabilities_path, :method => :get do
+= form_tag new_availability_path, :method => :get do
 	= week_calendar number_of_weeks: 2 do |date|
 		%table.table
 			%thead
@@ -74,7 +74,22 @@
 				%tr
 					%td.shiftstart= shift.shiftstart
 					%td.shiftend= shift.shiftend
-					%td.shiftuser= shift.users
-					%td.possibleusers= shift.possible_users
+					%td.shiftuser= shift.users.where(id: shift.availabilities.select(:user_id).where(shift_id: shift.id, availability: 2)).pluck(:last_name)
+					%td.possibleusers= shift.users.where(id: shift.availabilities.select(:user_id).where(shift_id: shift.id, availability: 1)).pluck(:last_name)
 					%td.owner= shift.owner
 					%td.details= link_to 'details', shift
+
+%h2 this is the availabilities table
+
+%table#availabilities
+	%thead
+		%tr
+			%th user_id
+			%th shift_id
+			%th availability
+		%tbody
+			- @availabilities.each do |a|
+				%tr
+					%td.user_id= a.user_id
+					%td.shift_id= a.shift_id
+					%td.availability= a.availability

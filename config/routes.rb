@@ -60,8 +60,12 @@ ErCoreStaffScheduler::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
 
-  resources :shifts
-  resources :users
+  resources :shifts do
+    resources :availabilities
+  end
+  resources :users do
+    resources :availabilities
+  end
   resources :sessions
   resources :availabilities
   resources :password_resets
