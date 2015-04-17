@@ -84,4 +84,28 @@ describe ShiftsController do
       response.should redirect_to(shifts_path)
     end
   end
+
+  describe 'hours per person' do
+    let(:user_params) do
+      {
+        id: '1',
+        first_name: 'second',
+        last_name: 'smith',
+        usertype: 'Administrator',
+        email: 'vacorescheduling@gmail.com',
+        fte: '0.8',
+        username: 'admin',
+        password: 'admin',
+        password_confirmation: 'admin',
+        verified: 'true',
+      }
+    end
+    it 'should return a hash of assigned and required hours per person' do
+      @user = User.create(user_params)
+      full_name = "#{@user.first_name} #{@user.last_name[0]}"
+      @testshift = Shift.create(:id => "1", :shiftstart => DateTime.iso8601('2015-05-01T10:00:00'), :shiftend => DateTime.iso8601('2015-05-01T18:00:00'), :owner => full_name, :users => [], :possible_users => [], :ingcal => true, :event_id => 1)
+      Shift.stub(:all).and_return([@testshift])
+      controller.show_hours_per_person().should == {"***" => [0,0], full_name => [8,64]}
+    end
+  end
 end
