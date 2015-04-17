@@ -1,56 +1,88 @@
-%h1 this is new.html.haml from within availabilities/shifts
+%nav.navbar.navbar-default
+	%div.container-fluid
+		%div.navbar-brand
+			%h1 VA hospital logo
+		%div.navbar-center
+			= hidden_field_tag @user = User.find_by_id(session[:user_id])
+			%h2.title= "Hello, #{@user.first_name} #{@user.last_name}"
+			%p= "You are logged in as #{@user.usertype} with FTE of #{@user.fte}"
+		%div.collapse.navbar-collapse
+			%ul.nav.navbar-nav.navbar-right
+				%li
+					%a.button.btn.btn-default.btn-lg.btn-link{title: "Account Settings", type: "button", href: "/settings"}
+						%span.glyphicon.glyphicon-cog
+				%li
+					%a.button.btn.btn-default.btn-lg.btn-link{title: "Log Out", type: "button", href: "/logout"}
+						%span.glyphicon.glyphicon-off
+			
+%div#wrapper
+	%div#sidebar-wrapper
+		%ul.sidebar-nav
+			%li
+				%a= link_to 'Home', home_path
+			%li
+				%a= link_to 'Set Availability', availabilities_path
+			- if @user.usertype == 'Administrator'
+				%li 
+					%a= link_to 'VA ER Scheduler', shifts_path
+				%li
+					%a= link_to 'Set FTE Multiplier', multiply_path
 
-%h1 recurring availabilitiy
+	%div#page-content-wrapper
+		%div.container-fluid 
+			%h1 this is new.html.haml from within availabilities/shifts
 
-%h2 these are all the shifts currently in the shifts table
+			%h1 recurring availabilitiy
 
-%td= link_to 'Back to Home Page', home_index_path()
+			%h2 these are all the shifts currently in the shifts table
+
+			%td= link_to 'Back to Home Page', home_index_path()
 
 
-%table#shifts
-	%thead
-		%tr
-			%th starttime
-			%th endtime
-			%th available people
-			%th possibly available
-			%th assigned person
-			%th shift info
-		%tbody
-			- @shifts.each do |shift|
-				%tr
-					%td.shiftstart= shift.shiftstart
-					%td.shiftend= shift.shiftend
-					%td.shiftuser= shift.users
-					%td.possibleusers= shift.possible_users
-					%td.owner= shift.owner
-					%td.details= link_to 'details', shift
+			%table#shifts
+				%thead
+					%tr
+						%th starttime
+						%th endtime
+						%th available people
+						%th possibly available
+						%th assigned person
+						%th shift info
+					%tbody
+						- @shifts.each do |shift|
+							%tr
+								%td.shiftstart= shift.shiftstart
+								%td.shiftend= shift.shiftend
+								%td.shiftuser= shift.users
+								%td.possibleusers= shift.possible_users
+								%td.owner= shift.owner
+								%td.details= link_to 'details', shift
 
-/ :css
-/ 	tr {
-/ 		vertical-align: top;
-/ 		text-align: left;
-/ 	}
-/ - x = 
-/ = form_tag availabilities_path, :method => :get do
-/ 	= week_calendar number_of_weeks: 2 do |date|
-/ 		%table.table
-/ 			%thead
-/ 				%tr
-/ 					%th= "#{date.month}/#{date.day}"
-/ 				%tbody
-/ 					- @shifts.each do |shift|
-/ 						- if shift.shiftstart.to_s[5..6] == date.to_s[5..6] && shift.shiftstart.to_s[8..9] == date.to_s[8..9]
-/ 							%tr
-/ 								- if shift.shiftend.to_s[8..9].to_s == date.to_s[8..9]
-/ 									%td= "#{shift.shiftstart.to_s[11..15]} to #{shift.shiftend.to_s[11..15]}"
-/ 								- else
-/ 									%td= "#{shift.shiftstart.to_s[11..15]} to #{shift.shiftend.to_s[11..15]}+"
-/ 								- prev_availabilitiy = Shift.where(:shiftstart => shift.shiftstart -14 , :shiftend => shift.shiftend - 14)
-/ 								- if prev_availability.
-/ 								%td= radio_button_tag "#{shift.id}", 'yes', false
-/ 								%td= radio_button_tag "#{shift.id}", 'maybe', true
-/ 								%td= radio_button_tag "#{shift.id}", 'no', false
+			/ :css
+			/ 	tr {
+			/ 		vertical-align: top;
+			/ 		text-align: left;
+			/ 	}
+			/ - x = 
+			/ = form_tag availabilities_path, :method => :get do
+			/ 	= week_calendar number_of_weeks: 2 do |date|
+			/ 		%table.table
+			/ 			%thead
+			/ 				%tr
+			/ 					%th= "#{date.month}/#{date.day}"
+			/ 				%tbody
+			/ 					- @shifts.each do |shift|
+			/ 						- if shift.shiftstart.to_s[5..6] == date.to_s[5..6] && shift.shiftstart.to_s[8..9] == date.to_s[8..9]
+			/ 							%tr
+			/ 								- if shift.shiftend.to_s[8..9].to_s == date.to_s[8..9]
+			/ 									%td= "#{shift.shiftstart.to_s[11..15]} to #{shift.shiftend.to_s[11..15]}"
+			/ 								- else
+			/ 									%td= "#{shift.shiftstart.to_s[11..15]} to #{shift.shiftend.to_s[11..15]}+"
+			/ 								- prev_availabilitiy = Shift.where(:shiftstart => shift.shiftstart -14 , :shiftend => shift.shiftend - 14)
+			/ 								- if prev_availability.
+			/ 								%td= radio_button_tag "#{shift.id}", 'yes', false
+			/ 								%td= radio_button_tag "#{shift.id}", 'maybe', true
+			/ 								%td= radio_button_tag "#{shift.id}", 'no', false
 
-/ 		%br
-/ 	= submit_tag 'Update'
+			/ 		%br
+			/ 	= submit_tag 'Update'

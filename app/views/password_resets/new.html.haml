@@ -1,7 +1,8 @@
-%p.notice= notice
-%p.alert= alert
+%p#notice= notice
+%p#alert= alert
+%h3 Please enter the email address associated with your account
 = form_tag password_resets_path, :method => :post do
-  .field
-    = label_tag :email
-    = text_field_tag :email, params[:email]
-  .actions= submit_tag "Reset Password", :id => "forgot_submit"
+	.field
+		= label_tag :email
+		= text_field_tag :email, params[:email]
+	.actions= submit_tag "Reset Password", :id => "forgot_submit"

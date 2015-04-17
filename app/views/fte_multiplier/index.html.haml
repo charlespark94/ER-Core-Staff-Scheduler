@@ -1,27 +1,59 @@
-%h1 Set the FTE multiplier for each doctor
+%nav.navbar.navbar-default
+	%div.container-fluid
+		%div.navbar-brand
+			%h1 VA hospital logo
+		%div.navbar-center
+			= hidden_field_tag @user = User.find_by_id(session[:user_id])
+			%h2.title= "Hello, #{@user.first_name} #{@user.last_name}"
+			%p= "You are logged in as #{@user.usertype} with FTE of #{@user.fte}"
+		%div.collapse.navbar-collapse
+			%ul.nav.navbar-nav.navbar-right
+				%li
+					%a.button.btn.btn-default.btn-lg.btn-link{title: "Account Settings", type: "button", href: "/settings"}
+						%span.glyphicon.glyphicon-cog
+				%li
+					%a.button.btn.btn-default.btn-lg.btn-link{title: "Log Out", type: "button", href: "/logout"}
+						%span.glyphicon.glyphicon-off
+			
+%div#wrapper
+	%div#sidebar-wrapper
+		%ul.sidebar-nav
+			%li
+				%a= link_to 'Home', home_path
+			%li
+				%a= link_to 'Set Availability', availabilities_path
+			- if @user.usertype == 'Administrator'
+				%li 
+					%a= link_to 'VA ER Scheduler', shifts_path
+				%li
+					%a= link_to 'Set FTE Multiplier', multiply_path
 
-:css
-	tr, th {
-		vertical-align: top;
-		text-align: center;
-		padding: 15px;
-	}
-= form_tag multiply_path, :method => :get do
-	%table#multiplier
-		%thead
-			%tr
-				%th Doctor
-				%th Account Type
-				%th Current FTE
-				%th Current Multiplier
-				%th New Multiplier
-			%tbody
-				-@users.each do |user|
-					%tr
-						%td= "#{user.last_name}, #{user.first_name}"
-						%td= user.usertype
-						%td= user.fte
-						%td= user.fte_multiplier
-						%td= number_field_tag "#{user.id}", user.fte_multiplier, step: 0.1
+	%div#page-content-wrapper
+		%div.container-fluid
+			%h1 Set the FTE multiplier for each doctor
 
-	= submit_tag 'Update'
+			:css
+				tr, th {
+					vertical-align: top;
+					text-align: center;
+					padding: 15px;
+				}
+			= form_tag multiply_path, :method => :get do
+				%table#multiplier
+					%thead
+						%tr
+							%th Doctor
+							%th Account Type
+							%th Current FTE
+							%th Current Multiplier
+							%th New Multiplier
+						%tbody
+							-@users.each do |user|
+								%tr
+									%td= "#{user.last_name}, #{user.first_name}"
+									%td= user.usertype
+									%td= user.fte
+									%td= user.fte_multiplier
+									%td= number_field_tag "#{user.id}", user.fte_multiplier, step: 0.1
+
+				= submit_tag 'Update'

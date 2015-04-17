@@ -1,67 +1,95 @@
-%h1 ER Shifts
-
-%h2 these are all the shifts currently in the shifts table
-
-%td= link_to 'Back to Home Page', home_index_path()
-
+%nav.navbar.navbar-default
+	%div.container-fluid
+		%div.navbar-brand
+			%h1 VA hospital logo
+		%div.navbar-center
+			= hidden_field_tag @user = User.find_by_id(session[:user_id])
+			%h2.title= "Hello, #{@user.first_name} #{@user.last_name}"
+			%p= "You are logged in as #{@user.usertype} with FTE of #{@user.fte}"
+		%div.collapse.navbar-collapse
+			%ul.nav.navbar-nav.navbar-right
+				%li
+					%a.button.btn.btn-default.btn-lg.btn-link{title: "Account Settings", type: "button", href: "/settings"}
+					%span.glyphicon.glyphicon-cog
+				%li
+					%a.button.btn.btn-default.btn-lg.btn-link{title: "Log Out", type: "button", href: "/logout"}
+						%span.glyphicon.glyphicon-off
+      
 %div#wrapper
-	%div#page-content-wrapper
-		%table
-			%thead
-				%th Person
-				%th Hours Assigned
-				%th Hours Required
-			%tbody
-				- @hours_per_person.each do |person, hours|
-					%tr
-						- if person != '***'
-							%td= person
-							%td= hours[0]
-							%td= hours[1]
+	%div#sidebar-wrapper
+		%ul.sidebar-nav
+			%li
+				%a= link_to 'Home', home_path
+			%li
+				%a= link_to 'Set Availability', availabilities_path
+			- if @user.usertype == 'Administrator'
+				%li 
+					%a= link_to 'VA ER Scheduler', shifts_path
+				%li
+					%a= link_to 'Set FTE Multiplier', multiply_path
 
+	%div#page-content-wrapper
 		%div.container-fluid 
+			%h1 ER Shifts
+
+			%h2 these are all the shifts currently in the shifts table
+
+			%td= link_to 'Back to Home Page', home_index_path()
+
+			%table
+				%thead
+					%th Person
+					%th Hours Assigned
+					%th Hours Required
+				%tbody
+					- @hours_per_person.each do |person, hours|
+						%tr
+							- if person != '***'
+								%td= person
+								%td= hours[0]
+								%td= hours[1]
 			<iframe src="https://www.google.com/calendar/embed?src=va.er.core.scheduler%40gmail.com&ctz=America/Los_Angeles" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
 
-%table#shifts
-	%thead
-		%tr
-			%th starttime
-			%th endtime
-			%th available people
-			%th assigned person
-			%th open/closed
-			%th shift info
-			%th ingcal
-		%tbody
-			- @shifts.each do |shift|
-				%tr
-					%td= shift.shiftstart
-					%td= shift.shiftend
-					%td= shift.users
-					%td= shift.owner
-					-#%td= shift.open	
-					%td= link_to 'edit', shift_path(shift)
-					%td= shift.ingcal
-= link_to 'Add new shift', new_shift_path
-
-:css
-	tr {
-		height: 5px;
-		vertical-align: top;
-	}
-= form_tag availabilities_path, :method => :get do
-	= week_calendar number_of_weeks: 2, shifts: Shift.all do |date, shifts|
-		%table.table
-			%thead
-				%tr
-					%th= "#{date.to_s[5..6]}/#{date.to_s[8..9]}"
-				%tbody
-					- @shifts.each do |shift|
-						- if shift.shiftstart.to_s[5..6].to_i == date.to_s[5..6].to_i && shift.shiftstart.to_s[8..9].to_i == date.to_s[8..9].to_i
+			%table#shifts
+				%thead
+					%tr
+						%th starttime
+						%th endtime
+						%th available people
+						%th assigned person
+						%th open/closed
+						%th shift info
+						%th ingcal
+					%tbody
+						- @shifts.each do |shift|
 							%tr
-								%td= "#{shift.shiftstart.to_s[11..15]} to #{shift.shiftend.to_s[11..15]}"
-								%td Assigned doctor: "#{shift.owner}"
+								%td= shift.shiftstart
+								%td= shift.shiftend
+								%td= shift.users
+								%td= shift.owner
+								-#%td= shift.open	
 								%td= link_to 'edit', shift_path(shift)
-		%br
+								%td= shift.ingcal
+			= link_to 'Add new shift', new_shift_path
+
+			:css
+				tr {
+					height: 5px;
+					vertical-align: top;
+				}
+			= form_tag availabilities_path, :method => :get do
+				= week_calendar number_of_weeks: 2, shifts: Shift.all do |date, shifts|
+					%table.table
+						%thead
+							%tr
+								%th= "#{date.to_s[5..6]}/#{date.to_s[8..9]}"
+							%tbody
+								- @shifts.each do |shift|
+									- if shift.shiftstart.to_s[5..6].to_i == date.to_s[5..6].to_i && shift.shiftstart.to_s[8..9].to_i == date.to_s[8..9].to_i
+										%tr
+											%td= "#{shift.shiftstart.to_s[11..15]} to #{shift.shiftend.to_s[11..15]}"
+											%td Assigned doctor: "#{shift.owner}"
+											%td= link_to 'edit', shift_path(shift)
+					%br
 
 
