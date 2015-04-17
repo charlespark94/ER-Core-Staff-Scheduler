@@ -66,7 +66,8 @@ describe AvailabilitiesController do
 		Shift.all.each do |shift|
 			@match_startshift = shift.shiftstart - (14*24*60*60)
 			@match_endshift = shift.shiftend - (14*24*60*60)
-			prev_time = Shift.where(:shiftstart => @match_startshift, :shiftend => @match_endshift).all[0]
+			prev_shifts = Shift.where(:shiftstart => @match_startshift, :shiftend => @match_endshift).all
+			prev_time = prev_shifts[0]
 		end
 		get :new
 	end
