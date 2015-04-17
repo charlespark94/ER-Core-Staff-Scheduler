@@ -6,9 +6,7 @@ end
 
 Given /(.+) chooses yes on the shift (.+) at availabilities page/ do |e1, e2|
 	shift = Shift.find(e2)
-	#user = User.find_by_first_name(e1)
-  user = User.where(first_name: e1).first
-  puts user.nil?
+	user = User.find_by_id(1)
 
   @availability = Availability.where(user_id: user.id, shift_id: shift.id).first
   if @availability.nil?

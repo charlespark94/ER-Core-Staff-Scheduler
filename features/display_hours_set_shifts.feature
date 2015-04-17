@@ -5,8 +5,10 @@ Feature: Display Hour Amount of Assigned Shifts
 
 Background:
 	Given 'admin' has been added to the database
-	Given that I am signed in
-	And I am an admin user
+	Given I am logged in as 'admin' with password 'admin'
+	Given that I am on the verified page
+	Then I should see "The account has been verified and added to the application"
+	And that I am on the availabilities page
 	Given the following users exist:
 	|first_name   |
 	|"admin"	  |

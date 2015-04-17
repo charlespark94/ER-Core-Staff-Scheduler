@@ -55,7 +55,8 @@
 					%tr
 						%th starttime
 						%th endtime
-						%th available people
+						%th available
+						%th potentially available
 						%th assigned person
 						%th open/closed
 						%th shift info
@@ -65,9 +66,11 @@
 							%tr
 								%td= shift.shiftstart
 								%td= shift.shiftend
-								%td= shift.users
+								- temp1 = shift.users.where(id: shift.availabilities.select(:user_id).where(shift_id: shift.id, availability: 1))
+								- temp2 = shift.users.where(id: shift.availabilities.select(:user_id).where(shift_id: shift.id, availability: 2))
+								%td= temp1.pluck(:first_name)
+								%td= temp2.pluck(:first_name)
 								%td= shift.owner
-								-#%td= shift.open	
 								%td= link_to 'edit', shift_path(shift)
 								%td= shift.ingcal
 			= link_to 'Add new shift', new_shift_path

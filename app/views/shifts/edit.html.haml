@@ -41,9 +41,12 @@
         = datetime_select :shift, :shiftend
         %br
 
-        - if @shift.users != " " || @shift.possible_users != " " 
+        - if @shift.users != [] || @shift.possible_users != [] 
           = label :shift, :owner, 'Assign Person'
-          = select("shift", "owner", "#{@shift.users}#{@shift.possible_users}".split(" ").collect {|num| [User.find(num.to_i).first_name]}, {include_blank: true})
+          - @temp1 = @shift.users.where(id: @shift.availabilities.select(:user_id).where(shift_id: @shift.id, availability: 1))
+          - @temp2 = @shift.users.where(id: @shift.availabilities.select(:user_id).where(shift_id: @shift.id, availability: 2))
+          - @temp1.push(@temp2.flatten!)
+          = select("shift", "owner", @temp1.pluck(:first_name)  {|num| [User.find_by_id(num.to_i).first_name]}, {include_blank: true})
         - else
           No Available Doctors to Assign for This Shift
           
