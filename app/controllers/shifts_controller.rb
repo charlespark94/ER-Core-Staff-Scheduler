@@ -45,6 +45,7 @@ class ShiftsController < ApplicationController
     dt_doc = @shift.owner
     if dt_doc == "" || dt_doc.nil?
       dt_doc = "***"
+      @shift.update_attribute(:owner, '***')
     end
     if (!@shift.users.nil? || !@shift.possible_users.nil?) &&(dt_doc != "***")
       gcal_event_update(User.find_by_first_name(dt_doc).id, dt_doc, "core", dt_start, dt_end, @shift.event_id)

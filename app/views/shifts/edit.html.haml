@@ -43,8 +43,8 @@
 
         - if @shift.users != [] || @shift.possible_users != [] 
           = label :shift, :owner, 'Assign Person'
-          - @temp1 = @shift.users.where(id: @shift.availabilities.select(:user_id).where(shift_id: @shift.id, availability: 1))
-          - @temp2 = @shift.users.where(id: @shift.availabilities.select(:user_id).where(shift_id: @shift.id, availability: 2))
+          - @temp1 = @shift.users.where(id: @shift.availabilities.select(:user_id).where(shift_id: @shift.id, availability: 2))
+          - @temp2 = @shift.users.where(id: @shift.availabilities.select(:user_id).where(shift_id: @shift.id, availability: 1))
           - @temp1.push(@temp2.flatten!)
           = select("shift", "owner", @temp1.pluck(:first_name)  {|num| [User.find_by_id(num.to_i).first_name]}, {include_blank: true})
         - else
