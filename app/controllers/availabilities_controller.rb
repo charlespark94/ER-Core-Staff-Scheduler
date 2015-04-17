@@ -84,17 +84,17 @@ class AvailabilitiesController < ApplicationController
 				end
 
 				if in_user
-					recurring_helper(:users)
+					recurring_helper(shift, :users)
 				end
 
 				if in_pos
-					recurring_helper(:possible_users)
+					recurring_helper(shift, :possible_users)
 				end
 			end
 		end
 	end
 
-	def recurring_helper(val)
+	def recurring_helper(shift, val)
 		newstring = "#{shift.users} #{session[:user_id]}"
 		shift.update_attribute(val, newstring)
 	end
