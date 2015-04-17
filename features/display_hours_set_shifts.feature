@@ -18,7 +18,10 @@ Background:
     | 2015-04-14 07:00:00 UTC    | 2015-04-14 19:00:00 UTC |
     | 2015-04-14 10:00:00 UTC    | 2015-04-14 18:00:00 UTC |
     | 2015-04-14 14:00:00 UTC    | 2015-04-14 22:00:00 UTC |
-    And 'admin' chooses yes on the shift 1 at availabilities page
+	Given that I am on the availabilities page
+	And I choose "yes" of shift: 1,2,3
+	And I press "Update"
+    And 'admin' has chosen yes on the shift 1 at availabilities page
 
 Scenario: Admin can see hour amount change from assigning
 	When I follow edit for shift 1

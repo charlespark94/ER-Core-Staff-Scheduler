@@ -4,7 +4,7 @@ Given /the following users exist/ do |users_table|
   end
 end
 
-Given /(.+) chooses yes on the shift (.+) at availabilities page/ do |e1, e2|
+Given /(.+) has chosen yes on the shift (.+) at availabilities page/ do |e1, e2|
 	shift = Shift.find(e2)
 	user = User.find_by_id(1)
 
@@ -12,7 +12,7 @@ Given /(.+) chooses yes on the shift (.+) at availabilities page/ do |e1, e2|
   if @availability.nil?
     @availability = shift.availabilities.build(:user_id => user.id)
   end
-  @availability.update_attributes(:availability => 2)
+  @availability.update_attributes(:availability => 1)
   if !@availability.save
     flash[:notice] = "Something bad happened"
   end

@@ -6,8 +6,9 @@ I want to be able to assign doctors to shifts
 
 Background:
   Given 'admin' has been added to the database
-  Given that I am signed in
-  And I am an admin user
+  Given I am logged in as 'admin' with password 'admin'
+  Given that I am on the verified page
+  Then I should see "The account has been verified and added to the application"
   Given the following users exist:
   | first_name |
   | admin      |
@@ -18,10 +19,11 @@ Background:
   | 2015-04-14 07:00:00 UTC    | 2015-04-14 19:00:00 UTC |
   | 2015-04-14 10:00:00 UTC    | 2015-04-14 18:00:00 UTC |
   | 2015-04-14 14:00:00 UTC    | 2015-04-14 22:00:00 UTC |
-  Given 'admin' chooses yes on the shift 1 at availabilities page
-
-
-  And that I am on the shift index page
+  Given that I am on the availabilities page
+  And I choose "yes" of shift: 1,2,3
+  And I press "Update"
+  Given that I am on the shift index page
+  And 'admin' has chosen yes on the shift 1 at availabilities page
 
 Scenario: Admin sees possible doctors for shift
   When I follow edit for shift 1
