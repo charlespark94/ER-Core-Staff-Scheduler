@@ -43,7 +43,7 @@ ErCoreStaffScheduler::Application.configure do
 
   config.action_mailer.default_url_options = { :host => "sleepy-lowlands-9442.herokuapp.com" }
 
-  #config.action_mailer.delivery_method = :test
+  config.action_mailer.delivery_method = :test
   #SMTP settings for gmail
   config.action_mailer.smtp_settings = {
    :address              => "smtp.gmail.com",
