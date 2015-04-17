@@ -31,6 +31,16 @@ Then /I should see the owner is (.+)/ do |e2|
 	page.should have_content(e2)
 end
 
+Then /^I should see that "([^"]*)" has (.+) hours assigned$/ do |name, hour|
+  user = User.find_by_first_name(name)
+  shift = Shift.find_by_owner(user.first_name)
+  if !shift.nil?
+  	assert_equal ((shift.shiftend - shift.shiftstart)/(60*60)).to_i.to_s, hour
+  else
+  	assert_equal 0.to_s, hour
+  end
+end
+
 
 
 
