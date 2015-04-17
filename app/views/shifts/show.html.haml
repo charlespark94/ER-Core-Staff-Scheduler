@@ -11,12 +11,12 @@
 	%li
 		Available People:
 		- if !@shift.users.nil?
-			= @shift.users.split(" ").map{|i| User.find(i).first_name}
+			= @shift.users.where(id: @shift.availabilities.select(:user_id).where(shift_id: @shift.id, availability: 2)).pluck(:last_name)
 
 	%li
 		Possible Users:
 		- if !@shift.possible_users.nil?
-			= @shift.possible_users.split(" ").map{|i| User.find(i).first_name}
+			= @shift.users.where(id: @shift.availabilities.select(:user_id).where(shift_id: @shift.id, availability: 1)).pluck(:last_name)
 	
 	%li
 		Shift Assigned To:
