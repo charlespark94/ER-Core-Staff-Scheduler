@@ -6,12 +6,32 @@
 
 /* Toggle Styles */
 
+.navbar-collapse {
+    position: fixed;
+    right: 2px;
+    z-index: 9999;
+}
+
+.navbar-center, .navbar-brand {
+    position: fixed;
+    z-index: 9998;
+}
+
+.navbar-default {
+    position: fixed;
+    z-index: 9997;
+    width: 100%;
+    height: 60px;
+    margin-top: -60px;
+}
+
 #wrapper {
     padding-left: 0;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
+    z-index: 9997;
 }
 
 #wrapper.toggled {
@@ -116,6 +136,8 @@
     #page-content-wrapper {
         padding: 20px;
         position: relative;
+        margin-top: 60px;
+        z-index: 9996;
     }
 
     #wrapper.toggled #page-content-wrapper {
