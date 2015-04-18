@@ -127,6 +127,7 @@
 
     #sidebar-wrapper {
         width: 250px;
+        z-index: 9999;
     }
 
     #wrapper.toggled #sidebar-wrapper {
