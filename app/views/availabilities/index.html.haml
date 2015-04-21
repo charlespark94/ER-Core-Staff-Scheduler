@@ -39,6 +39,21 @@
 					padding-left: 5px;
 					padding-right: 5px;
 				}
+			:css
+				div#green {
+					width: 20px;
+					border-bottom: 5px solid green;
+				}
+			:css
+				div#yellow {
+					width:20px;
+					border-bottom: 5px solid gold;
+				}
+			:css
+				div#red {
+					width:20px;
+					border-bottom: 5px solid red;
+				}
 
 			= form_tag 'update_availabilities', :method => :get do
 				= week_calendar number_of_weeks: 2 do |date|
@@ -56,9 +71,12 @@
 												%td= "#{shift.shiftstart.to_s[11..15]} to #{shift.shiftend.to_s[11..15]}+"
 											- availability = Availability.where(user_id: session[:user_id], shift_id: shift.id).first
 											- if availability.nil? || availability.availability == 2
-												%td= radio_button_tag "#{shift.id}", 'yes', true
-												%td= radio_button_tag "#{shift.id}", 'maybe', false
-												%td= radio_button_tag "#{shift.id}", 'no', false
+												%td
+													%div#green= radio_button_tag "#{shift.id}", 'yes', true
+												%td
+													%div#yellow= radio_button_tag "#{shift.id}", 'maybe', false
+												%td
+													%div#red= radio_button_tag "#{shift.id}", 'no', false
 											- elsif availability.availability == 1
 												%td= radio_button_tag "#{shift.id}", 'yes', false
 												%td= radio_button_tag "#{shift.id}", 'maybe', true
