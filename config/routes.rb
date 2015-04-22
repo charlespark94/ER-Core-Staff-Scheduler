@@ -80,5 +80,5 @@ ErCoreStaffScheduler::Application.routes.draw do
   get "verified" => "verification#index", :as => "verified"
   get "multiply" => "fte_multiplier#index", :as => "multiply"
   get "update_availabilities" => "availabilities#update_all", :as => "update_all"
-  root :to => "users#new"
+  root :to => "home#index"
 end
