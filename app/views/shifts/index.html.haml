@@ -38,44 +38,44 @@
 				}
 			%h1 ER Shifts
 
-			%h2 These are all the shifts currently in the shifts table
+			/ %h2 These are all the shifts currently in the shifts table
 
-			%table
-				%thead
-					%th Person
-					%th Hours Assigned
-					%th Hours Required
-				%tbody
-					- @hours_per_person.each do |person, hours|
-						%tr
-							- if person != '***' && person != "" && !person.nil?
-								%td= person
-								%td= hours[0]
-								%td= hours[1]
-			<iframe src="https://www.google.com/calendar/embed?src=va.er.core.scheduler%40gmail.com&ctz=America/Los_Angeles" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+			/ %table
+			/ 	%thead
+			/ 		%th Person
+			/ 		%th Hours Assigned
+			/ 		%th Hours Required
+			/ 	%tbody
+			/ 		- @hours_per_person.each do |person, hours|
+			/ 			%tr
+			/ 				- if person != '***' && person != "" && !person.nil?
+			/ 					%td= person
+			/ 					%td= hours[0]
+			/ 					%td= hours[1]
+			/ <iframe src="https://www.google.com/calendar/embed?src=va.er.core.scheduler%40gmail.com&ctz=America/Los_Angeles" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
 
-			%table#shifts
-				%thead
-					%tr
-						%th starttime
-						%th endtime
-						%th available
-						%th potentially available
-						%th assigned person
-						%th shift info
-						%th ingcal
-					%tbody
-						- @shifts.each do |shift|
-							%tr
-								%td= shift.shiftstart
-								%td= shift.shiftend
-								- temp1 = shift.users.where(id: shift.availabilities.select(:user_id).where(shift_id: shift.id, availability: 2))
-								- temp2 = shift.users.where(id: shift.availabilities.select(:user_id).where(shift_id: shift.id, availability: 1))
-								%td= temp1.pluck(:first_name)
-								%td= temp2.pluck(:first_name)
-								%td= shift.owner
-								%td= link_to 'edit', shift_path(shift)
-								%td= shift.ingcal
+			/ %table#shifts
+			/ 	%thead
+			/ 		%tr
+			/ 			%th starttime
+			/ 			%th endtime
+			/ 			%th available
+			/ 			%th potentially available
+			/ 			%th assigned person
+			/ 			%th shift info
+			/ 			%th ingcal
+			/ 		%tbody
+			/ 			- @shifts.each do |shift|
+			/ 				%tr
+			/ 					%td= shift.shiftstart
+			/ 					%td= shift.shiftend
+			/ 					- temp1 = shift.users.where(id: shift.availabilities.select(:user_id).where(shift_id: shift.id, availability: 2))
+			/ 					- temp2 = shift.users.where(id: shift.availabilities.select(:user_id).where(shift_id: shift.id, availability: 1))
+			/ 					%td= temp1.pluck(:first_name)
+			/ 					%td= temp2.pluck(:first_name)
+			/ 					%td= shift.owner
+			/ 					%td= link_to 'edit', shift_path(shift)
+			/ 					%td= shift.ingcal
 			= link_to 'Add new shift', new_shift_path
 
 			:css
