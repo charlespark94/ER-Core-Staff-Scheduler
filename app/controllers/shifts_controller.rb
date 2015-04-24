@@ -22,8 +22,6 @@ class ShiftsController < ApplicationController
     dt_start = @shift.shiftstart
     dt_end = @shift.shiftend
     dt_doc = @shift.owner
-    e_id = "0#{dt_start.to_i.to_s}"
-    @shift.update_attribute(:event_id, e_id)
     gcal_event_insert(0, dt_doc, "core", dt_start, dt_end, @shift.event_id)
     @shift.ingcal = true
     @shift.save!
@@ -31,7 +29,7 @@ class ShiftsController < ApplicationController
   end
   
   def update
-    @shift = Shift.find params[:id]
+    @shift = Shift.find params[:id] 
     old_start = @shift.shiftstart
     old_user = @shift.owner
     if old_user == '***' || old_user == ""
