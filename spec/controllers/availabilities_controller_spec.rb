@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe AvailabilitiesController do
-
+	include Calendar
 	let(:user_params1) do
 		{
 			id: '1',
@@ -33,9 +33,13 @@ describe AvailabilitiesController do
 	end
 
 	before(:each) do
+		Calendar.stub(:gcal_event_insert)
+		Calendar.stub(:gcal_event_update)
+		Calendar.stub(:gcal_event_delete)
 		@user1 = User.create(user_params1)
 		@user2 = User.create(user_params2)
 		controller.stub(:session).and_return({:user_id => 1})
+
 	end
 
 	it 'should update all' do

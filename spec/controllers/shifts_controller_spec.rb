@@ -1,6 +1,12 @@
 require 'spec_helper'
 
 describe ShiftsController do
+  include Calendar
+  before(:each) do
+    Calendar.stub(:gcal_event_insert)
+    Calendar.stub(:gcal_event_delete)
+    Calendar.stub(:gcal_event_update)
+  end
 
 
   describe 'editing a shift' do

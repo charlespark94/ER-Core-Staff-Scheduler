@@ -14,7 +14,7 @@
       <img src="./assets/0.9.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2015-04-24T19:32:45-03:00">2015-04-24T19:32:45-03:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2015-04-24T20:25:41-03:00">2015-04-24T20:25:41-03:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -25,7 +25,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         9.06
+         9.36
        </span>
     </span> hits/line)
   </h2>
@@ -57,7 +57,7 @@
         <td>12</td>
         <td>12</td>
         <td>0</td>
-        <td>95.3</td>
+        <td>97.3</td>
       </tr>
       
       <tr>
@@ -77,7 +77,7 @@
         <td>73</td>
         <td>69</td>
         <td>4</td>
-        <td>3.2</td>
+        <td>3.8</td>
       </tr>
       
       <tr>
@@ -127,7 +127,7 @@
         <td>61</td>
         <td>54</td>
         <td>7</td>
-        <td>4.1</td>
+        <td>4.6</td>
       </tr>
       
       <tr>
@@ -253,7 +253,7 @@
      covered at
      <span class="covered_strength">
        <span class="green">
-         9.6
+         9.97
        </span>
     </span> hits/line)
   </h2>
@@ -285,7 +285,7 @@
         <td>12</td>
         <td>12</td>
         <td>0</td>
-        <td>95.3</td>
+        <td>97.3</td>
       </tr>
       
       <tr>
@@ -305,7 +305,7 @@
         <td>73</td>
         <td>69</td>
         <td>4</td>
-        <td>3.2</td>
+        <td>3.8</td>
       </tr>
       
       <tr>
@@ -355,7 +355,7 @@
         <td>61</td>
         <td>54</td>
         <td>7</td>
-        <td>4.1</td>
+        <td>4.6</td>
       </tr>
       
       <tr>
@@ -687,14 +687,14 @@
           <code class="ruby">  def destroy_page_cache</code>
         </li>
       
-        <li class="covered" data-hits="310" data-linenumber="8">
-          <span class="hits">310</span>
+        <li class="covered" data-hits="315" data-linenumber="8">
+          <span class="hits">315</span>
           
           <code class="ruby">    response.headers[&quot;Cache-Control&quot;] = &quot;no-cache, no-store, max-age=0, must-revalidate&quot;</code>
         </li>
       
-        <li class="covered" data-hits="310" data-linenumber="9">
-          <span class="hits">310</span>
+        <li class="covered" data-hits="315" data-linenumber="9">
+          <span class="hits">315</span>
           
           <code class="ruby">    response.headers[&quot;Pragma&quot;] = &quot;no-cache&quot;</code>
         </li>
@@ -717,20 +717,20 @@
           <code class="ruby">  def check_account_verified</code>
         </li>
       
-        <li class="covered" data-hits="254" data-linenumber="13">
-          <span class="hits">254</span>
+        <li class="covered" data-hits="259" data-linenumber="13">
+          <span class="hits">259</span>
           
           <code class="ruby">  	if !session[:user_id].nil?</code>
         </li>
       
-        <li class="covered" data-hits="112" data-linenumber="14">
-          <span class="hits">112</span>
+        <li class="covered" data-hits="117" data-linenumber="14">
+          <span class="hits">117</span>
           
           <code class="ruby">      user_verify = User.find_by_id(session[:user_id]).verified</code>
         </li>
       
-        <li class="covered" data-hits="112" data-linenumber="15">
-          <span class="hits">112</span>
+        <li class="covered" data-hits="117" data-linenumber="15">
+          <span class="hits">117</span>
           
           <code class="ruby">      if !user_verify</code>
         </li>
@@ -1731,26 +1731,26 @@
           <code class="ruby">	def gcal_event_delete(e_id)</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="52">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="5" data-linenumber="52">
+          <span class="hits">5</span>
           
           <code class="ruby">		logger = Logger.new('logfile.log')</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="53">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="5" data-linenumber="53">
+          <span class="hits">5</span>
           
           <code class="ruby">		doctor_id = doctor_id.to_s</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="54">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="5" data-linenumber="54">
+          <span class="hits">5</span>
           
           <code class="ruby">		event_id = e_id</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="55">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="5" data-linenumber="55">
+          <span class="hits">5</span>
           
           <code class="ruby">		params = {</code>
         </li>
@@ -1773,14 +1773,14 @@
           <code class="ruby">		}</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="59">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="5" data-linenumber="59">
+          <span class="hits">5</span>
           
           <code class="ruby">		logger.debug(&quot;delete params are: #{params.inspect}&quot;)</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="60">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="5" data-linenumber="60">
+          <span class="hits">5</span>
           
           <code class="ruby">		result = client.execute(</code>
         </li>
@@ -1803,8 +1803,8 @@
           <code class="ruby">		)</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="64">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="5" data-linenumber="64">
+          <span class="hits">5</span>
           
           <code class="ruby">		logger.debug(&quot;results of deleting are: #{result.data.to_yaml}&quot;)</code>
         </li>
@@ -2139,8 +2139,8 @@
           <code class="ruby">	def init_client</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="120">
-          <span class="hits">7</span>
+        <li class="covered" data-hits="9" data-linenumber="120">
+          <span class="hits">9</span>
           
           <code class="ruby">		@googleapi_hash = YAML.load_file(&quot;.googleapi.yaml&quot;)	</code>
         </li>
@@ -2151,8 +2151,8 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="122">
-          <span class="hits">7</span>
+        <li class="covered" data-hits="9" data-linenumber="122">
+          <span class="hits">9</span>
           
           <code class="ruby">		client0 = Google::APIClient.new(:application_name =&gt; 'ER-Core-Staff-Scheduler', :application_version =&gt; '1.0.0')</code>
         </li>
@@ -2175,8 +2175,8 @@
           <code class="ruby">		#key = Google::APIClient::KeyUtils.load_from_pkcs12(Rails.application.secrets.key_file, Rails.application.secrets.key_secret)</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="126">
-          <span class="hits">7</span>
+        <li class="covered" data-hits="9" data-linenumber="126">
+          <span class="hits">9</span>
           
           <code class="ruby">		key = Google::APIClient::KeyUtils.load_from_pkcs12(@googleapi_hash[&quot;key_file&quot;], @googleapi_hash[&quot;key_secret&quot;])</code>
         </li>
@@ -2187,8 +2187,8 @@
           <code class="ruby">		#key = Google::APIClient::KeyUtils.load_from_pkcs12(&quot;.keyfile.p12&quot;, &quot;notasecret&quot;)</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="128">
-          <span class="hits">7</span>
+        <li class="covered" data-hits="9" data-linenumber="128">
+          <span class="hits">9</span>
           
           <code class="ruby">		client0.authorization = Signet::OAuth2::Client.new(</code>
         </li>
@@ -2229,32 +2229,32 @@
           <code class="ruby">			:signing_key =&gt; key)</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="135">
-          <span class="hits">7</span>
+        <li class="covered" data-hits="9" data-linenumber="135">
+          <span class="hits">9</span>
           
           <code class="ruby">		client0.authorization.fetch_access_token!</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="136">
-          <span class="hits">7</span>
+        <li class="covered" data-hits="9" data-linenumber="136">
+          <span class="hits">9</span>
           
           <code class="ruby">		print(&quot;THIS IS MY ACCESS TOKEN \n&quot;)</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="137">
-          <span class="hits">7</span>
+        <li class="covered" data-hits="9" data-linenumber="137">
+          <span class="hits">9</span>
           
           <code class="ruby">		print(client0.authorization.access_token)</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="138">
-          <span class="hits">7</span>
+        <li class="covered" data-hits="9" data-linenumber="138">
+          <span class="hits">9</span>
           
           <code class="ruby">		print &quot;\n&quot;</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="139">
-          <span class="hits">7</span>
+        <li class="covered" data-hits="9" data-linenumber="139">
+          <span class="hits">9</span>
           
           <code class="ruby">		if client0.authorization.access_token.nil?</code>
         </li>
@@ -2271,8 +2271,8 @@
           <code class="ruby">		end</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="142">
-          <span class="hits">7</span>
+        <li class="covered" data-hits="9" data-linenumber="142">
+          <span class="hits">9</span>
           
           <code class="ruby">		return client0</code>
         </li>
@@ -2307,26 +2307,26 @@
           <code class="ruby">		# discovery document on every run, saving a round-trip to the discovery service.</code>
         </li>
       
-        <li class="covered" data-hits="9" data-linenumber="148">
-          <span class="hits">9</span>
+        <li class="covered" data-hits="11" data-linenumber="148">
+          <span class="hits">11</span>
           
           <code class="ruby">		if File.exists? CACHED_API_FILE</code>
         </li>
       
-        <li class="covered" data-hits="9" data-linenumber="149">
-          <span class="hits">9</span>
+        <li class="covered" data-hits="11" data-linenumber="149">
+          <span class="hits">11</span>
           
           <code class="ruby">			print &quot;cached&quot;</code>
         </li>
       
-        <li class="covered" data-hits="9" data-linenumber="150">
-          <span class="hits">9</span>
+        <li class="covered" data-hits="11" data-linenumber="150">
+          <span class="hits">11</span>
           
           <code class="ruby">			File.open(CACHED_API_FILE) do |file|</code>
         </li>
       
-        <li class="covered" data-hits="9" data-linenumber="151">
-          <span class="hits">9</span>
+        <li class="covered" data-hits="11" data-linenumber="151">
+          <span class="hits">11</span>
           
           <code class="ruby">			calendar = Marshal.load(file)</code>
         </li>
@@ -2391,8 +2391,8 @@
           <code class="ruby">	def client</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="162">
-          <span class="hits">7</span>
+        <li class="covered" data-hits="9" data-linenumber="162">
+          <span class="hits">9</span>
           
           <code class="ruby">		client ||= init_client</code>
         </li>
@@ -2415,8 +2415,8 @@
           <code class="ruby">	def calendar</code>
         </li>
       
-        <li class="covered" data-hits="9" data-linenumber="166">
-          <span class="hits">9</span>
+        <li class="covered" data-hits="11" data-linenumber="166">
+          <span class="hits">11</span>
           
           <code class="ruby">		calendar ||= init_calendar</code>
         </li>
@@ -3081,14 +3081,14 @@
           <code class="ruby">  def index</code>
         </li>
       
-        <li class="covered" data-hits="10" data-linenumber="4">
-          <span class="hits">10</span>
+        <li class="covered" data-hits="12" data-linenumber="4">
+          <span class="hits">12</span>
           
           <code class="ruby">    @shifts = Shift.all</code>
         </li>
       
-        <li class="covered" data-hits="10" data-linenumber="5">
-          <span class="hits">10</span>
+        <li class="covered" data-hits="12" data-linenumber="5">
+          <span class="hits">12</span>
           
           <code class="ruby">    @hours_per_person = show_hours_per_person</code>
         </li>
@@ -3129,8 +3129,8 @@
           <code class="ruby">  def show</code>
         </li>
       
-        <li class="covered" data-hits="13" data-linenumber="12">
-          <span class="hits">13</span>
+        <li class="covered" data-hits="15" data-linenumber="12">
+          <span class="hits">15</span>
           
           <code class="ruby">    @shift = Shift.find params[:id]</code>
         </li>
@@ -3405,26 +3405,26 @@
           <code class="ruby">  def destroy</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="58">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="3" data-linenumber="58">
+          <span class="hits">3</span>
           
           <code class="ruby">    @shift = Shift.find(params[:id])</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="59">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="3" data-linenumber="59">
+          <span class="hits">3</span>
           
           <code class="ruby">    dt_start = @shift.shiftstart</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="60">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="3" data-linenumber="60">
+          <span class="hits">3</span>
           
           <code class="ruby">    if @shift.owner == '***' || @shift.owner == &quot;&quot; || @shift.owner.nil? || @shift.owner == &quot; &quot;</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="61">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="3" data-linenumber="61">
+          <span class="hits">3</span>
           
           <code class="ruby">      gcal_event_delete(@shift.event_id)</code>
         </li>
@@ -3453,20 +3453,20 @@
           <code class="ruby">    end</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="66">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="3" data-linenumber="66">
+          <span class="hits">3</span>
           
           <code class="ruby">    @shift.destroy</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="67">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="3" data-linenumber="67">
+          <span class="hits">3</span>
           
           <code class="ruby">    flash[:notice] = &quot;Shift deleted.&quot;</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="68">
-          <span class="hits">2</span>
+        <li class="covered" data-hits="3" data-linenumber="68">
+          <span class="hits">3</span>
           
           <code class="ruby">    redirect_to shifts_path</code>
         </li>
@@ -3489,32 +3489,32 @@
           <code class="ruby">  def show_hours_per_person</code>
         </li>
       
-        <li class="covered" data-hits="10" data-linenumber="72">
-          <span class="hits">10</span>
+        <li class="covered" data-hits="12" data-linenumber="72">
+          <span class="hits">12</span>
           
           <code class="ruby">    users = User.all</code>
         </li>
       
-        <li class="covered" data-hits="10" data-linenumber="73">
-          <span class="hits">10</span>
+        <li class="covered" data-hits="12" data-linenumber="73">
+          <span class="hits">12</span>
           
           <code class="ruby">    hours_per_person = {&quot;***&quot; =&gt; [0, 0]}</code>
         </li>
       
-        <li class="covered" data-hits="10" data-linenumber="74">
-          <span class="hits">10</span>
+        <li class="covered" data-hits="12" data-linenumber="74">
+          <span class="hits">12</span>
           
           <code class="ruby">    users.each do |user|</code>
         </li>
       
-        <li class="covered" data-hits="10" data-linenumber="75">
-          <span class="hits">10</span>
+        <li class="covered" data-hits="12" data-linenumber="75">
+          <span class="hits">12</span>
           
           <code class="ruby">      full_name = &quot;#{user.first_name}&quot;</code>
         </li>
       
-        <li class="covered" data-hits="10" data-linenumber="76">
-          <span class="hits">10</span>
+        <li class="covered" data-hits="12" data-linenumber="76">
+          <span class="hits">12</span>
           
           <code class="ruby">      hours_per_person[full_name] = [0, (user.fte*80).to_i]</code>
         </li>
@@ -3525,14 +3525,14 @@
           <code class="ruby">    end</code>
         </li>
       
-        <li class="covered" data-hits="10" data-linenumber="78">
-          <span class="hits">10</span>
+        <li class="covered" data-hits="12" data-linenumber="78">
+          <span class="hits">12</span>
           
           <code class="ruby">    shifts = Shift.all</code>
         </li>
       
-        <li class="covered" data-hits="10" data-linenumber="79">
-          <span class="hits">10</span>
+        <li class="covered" data-hits="12" data-linenumber="79">
+          <span class="hits">12</span>
           
           <code class="ruby">    shifts.each do |shift|</code>
         </li>
@@ -3573,8 +3573,8 @@
           <code class="ruby">    end</code>
         </li>
       
-        <li class="covered" data-hits="10" data-linenumber="86">
-          <span class="hits">10</span>
+        <li class="covered" data-hits="12" data-linenumber="86">
+          <span class="hits">12</span>
           
           <code class="ruby">    return hours_per_person</code>
         </li>

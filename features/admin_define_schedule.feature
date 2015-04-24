@@ -23,3 +23,8 @@ Scenario: admin can view shifts they have added
   And I fill in the date select field labeled "End" with "2015-04-01T18:00:00"
   When I press "save_submit"
   Then I should be redirected to the shift index page
+  And I follow edit for shift 1
+  Then I should be redirected to the show page for shift 1
+  When I press "Delete"
+  Then I should delete the shift for 04 - 01 starting at 00 from google
+  Then I should be redirected to the shift index page 
