@@ -78,13 +78,19 @@
 												%td
 													%div#red= radio_button_tag "#{shift.id}", 'no', false
 											- elsif availability.availability == 1
-												%td= radio_button_tag "#{shift.id}", 'yes', false
-												%td= radio_button_tag "#{shift.id}", 'maybe', true
-												%td= radio_button_tag "#{shift.id}", 'no', false
+												%td
+													%div#green= radio_button_tag "#{shift.id}", 'yes', false
+												%td
+													%div#yellow= radio_button_tag "#{shift.id}", 'maybe', true
+												%td
+													%div#red= radio_button_tag "#{shift.id}", 'no', false
 											- elsif availability.availability == 0
-												%td= radio_button_tag "#{shift.id}", 'yes', false
-												%td= radio_button_tag "#{shift.id}", 'maybe', false
-												%td= radio_button_tag "#{shift.id}", 'no', true
+												%td
+													%div#green= radio_button_tag "#{shift.id}", 'yes', false
+												%td
+													%div#yellow= radio_button_tag "#{shift.id}", 'maybe', false
+												%td
+													%div#red= radio_button_tag "#{shift.id}", 'no', true
 
 
 					%br
