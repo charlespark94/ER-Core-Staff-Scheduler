@@ -14,18 +14,18 @@
       <img src="./assets/0.9.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2015-04-24T20:25:41-03:00">2015-04-24T20:25:41-03:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2015-04-24T20:29:21-03:00">2015-04-24T20:29:21-03:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="green">90.06%</span></span>
+    (<span class="covered_percent"><span class="green">93.98%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         9.36
+         9.61
        </span>
     </span> hits/line)
   </h2>
@@ -33,8 +33,8 @@
   <div>
     <b>19</b> files in total.
     <b>332</b> relevant lines. 
-    <span class="green"><b>299</b> lines covered</span> and
-    <span class="red"><b>33</b> lines missed </span>
+    <span class="green"><b>312</b> lines covered</span> and
+    <span class="red"><b>20</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -62,12 +62,12 @@
       
       <tr>
         <td class="strong"><a href="#3754a4faae047f7245d628adc8894dbade1a5301" class="src_link" title="app/controllers/availabilities_controller.rb">app/controllers/availabilities_controller.rb</a></td>
-        <td class="red strong">67.8 %</td>
+        <td class="yellow strong">89.83 %</td>
         <td>104</td>
         <td>59</td>
-        <td>40</td>
-        <td>19</td>
-        <td>8.0</td>
+        <td>53</td>
+        <td>6</td>
+        <td>9.4</td>
       </tr>
       
       <tr>
@@ -249,11 +249,11 @@
           <div class="file_list_container" id="Controllers">
   <h2>
     <span class="group_name">Controllers</span>
-    (<span class="covered_percent"><span class="yellow">88.24%</span></span>
+    (<span class="covered_percent"><span class="green">93.01%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         9.97
+         10.27
        </span>
     </span> hits/line)
   </h2>
@@ -261,8 +261,8 @@
   <div>
     <b>10</b> files in total.
     <b>272</b> relevant lines. 
-    <span class="green"><b>240</b> lines covered</span> and
-    <span class="red"><b>32</b> lines missed </span>
+    <span class="green"><b>253</b> lines covered</span> and
+    <span class="red"><b>19</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -290,12 +290,12 @@
       
       <tr>
         <td class="strong"><a href="#3754a4faae047f7245d628adc8894dbade1a5301" class="src_link" title="app/controllers/availabilities_controller.rb">app/controllers/availabilities_controller.rb</a></td>
-        <td class="red strong">67.8 %</td>
+        <td class="yellow strong">89.83 %</td>
         <td>104</td>
         <td>59</td>
-        <td>40</td>
-        <td>19</td>
-        <td>8.0</td>
+        <td>53</td>
+        <td>6</td>
+        <td>9.4</td>
       </tr>
       
       <tr>
@@ -772,11 +772,11 @@
         <div class="source_table" id="3754a4faae047f7245d628adc8894dbade1a5301">
   <div class="header">
     <h3>app/controllers/availabilities_controller.rb</h3>
-    <h4><span class="red">67.8 %</span> covered</h4>
+    <h4><span class="yellow">89.83 %</span> covered</h4>
     <div>
       <b>59</b> relevant lines. 
-      <span class="green"><b>40</b> lines covered</span> and
-      <span class="red"><b>19</b> lines missed.</span>
+      <span class="green"><b>53</b> lines covered</span> and
+      <span class="red"><b>6</b> lines missed.</span>
     </div>
   </div>
   
@@ -1047,8 +1047,8 @@
           <code class="ruby">	def users_exist?(val)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="45">
-          
+        <li class="covered" data-hits="12" data-linenumber="45">
+          <span class="hits">12</span>
           
           <code class="ruby">		return !val.nil?</code>
         </li>
@@ -1167,8 +1167,8 @@
           <code class="ruby">				if shift.shiftstart.to_s[0..9] == day.to_s[0..9]</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="65">
-          
+        <li class="covered" data-hits="6" data-linenumber="65">
+          <span class="hits">6</span>
           
           <code class="ruby">					@current_shifts &lt;&lt; shift</code>
         </li>
@@ -1209,26 +1209,26 @@
           <code class="ruby">		@current_shifts.each do |shift|</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="72">
-          
+        <li class="covered" data-hits="6" data-linenumber="72">
+          <span class="hits">6</span>
           
           <code class="ruby">			@match_startshift = shift.shiftstart - (14*24*60*60)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="73">
-          
+        <li class="covered" data-hits="6" data-linenumber="73">
+          <span class="hits">6</span>
           
           <code class="ruby">			@match_endshift = shift.shiftend - (14*24*60*60)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="74">
-          
+        <li class="covered" data-hits="6" data-linenumber="74">
+          <span class="hits">6</span>
           
           <code class="ruby">			prev_shifts = Shift.where(:shiftstart =&gt; @match_startshift, :shiftend =&gt; @match_endshift).all</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="75">
-          
+        <li class="covered" data-hits="6" data-linenumber="75">
+          <span class="hits">6</span>
           
           <code class="ruby">			prev_time = prev_shifts[0]</code>
         </li>
@@ -1245,8 +1245,8 @@
           <code class="ruby">			#setting each preference of current shift to preference of previous shift</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="78">
-          
+        <li class="covered" data-hits="6" data-linenumber="78">
+          <span class="hits">6</span>
           
           <code class="ruby">			if prev_time == nil</code>
         </li>
@@ -1263,14 +1263,14 @@
           <code class="ruby">			else</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="81">
-          
+        <li class="covered" data-hits="6" data-linenumber="81">
+          <span class="hits">6</span>
           
           <code class="ruby">				if users_exist?(prev_time.users)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="82">
-          
+        <li class="covered" data-hits="6" data-linenumber="82">
+          <span class="hits">6</span>
           
           <code class="ruby">					in_user = prev_time.users.split(&quot; &quot;).include?(session[:user_id].to_s)</code>
         </li>
@@ -1281,14 +1281,14 @@
           <code class="ruby">				end</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="84">
-          
+        <li class="covered" data-hits="6" data-linenumber="84">
+          <span class="hits">6</span>
           
           <code class="ruby">				if users_exist?(prev_time.possible_users)</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="85">
-          
+        <li class="covered" data-hits="6" data-linenumber="85">
+          <span class="hits">6</span>
           
           <code class="ruby">					in_pos = prev_time.possible_users.split(&quot; &quot;).include?(session[:user_id].to_s)</code>
         </li>
@@ -1305,8 +1305,8 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="88">
-          
+        <li class="covered" data-hits="6" data-linenumber="88">
+          <span class="hits">6</span>
           
           <code class="ruby">				if in_user</code>
         </li>
@@ -1329,8 +1329,8 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="92">
-          
+        <li class="covered" data-hits="6" data-linenumber="92">
+          <span class="hits">6</span>
           
           <code class="ruby">				if in_pos</code>
         </li>
