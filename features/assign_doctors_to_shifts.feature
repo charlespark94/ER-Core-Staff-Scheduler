@@ -16,9 +16,9 @@ Background:
 
   Given the following shifts exist:
   | shiftstart                 | shiftend                |
-  | 2015-04-14 07:00:00 UTC    | 2015-04-14 19:00:00 UTC |
-  | 2015-04-14 10:00:00 UTC    | 2015-04-14 18:00:00 UTC |
-  | 2015-04-14 14:00:00 UTC    | 2015-04-14 22:00:00 UTC |
+  | 2015-04-30 07:00:00 UTC    | 2015-04-30 19:00:00 UTC |
+  | 2015-04-30 10:00:00 UTC    | 2015-04-30 18:00:00 UTC |
+  | 2015-04-30 14:00:00 UTC    | 2015-04-30 22:00:00 UTC |
   Given that I am on the availabilities page
   And I choose "yes" of shift: 1,2,3
   And I press "Update"

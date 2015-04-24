@@ -16,9 +16,9 @@ Background: I am on the availabilities page
   Then I should see "The account has been verified and added to the application"
   Given the following shifts exist:
   | shiftstart                 | shiftend                |
-  | 2015-04-16 07:00:00 UTC    | 2015-04-16 19:00:00 UTC |   
-  | 2015-04-16 10:00:00 UTC    | 2015-04-16 18:00:00 UTC |       
-  | 2015-04-16 14:00:00 UTC    | 2015-04-16 22:00:00 UTC |
+  | 2015-04-30 07:00:00 UTC    | 2015-04-30 19:00:00 UTC |   
+  | 2015-04-30 10:00:00 UTC    | 2015-04-30 18:00:00 UTC |       
+  | 2015-04-30 14:00:00 UTC    | 2015-04-30 22:00:00 UTC |
 
   And that I am on the availabilities page
 

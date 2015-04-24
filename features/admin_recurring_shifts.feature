@@ -6,7 +6,7 @@ Feature: Recurring Shifts
 
 Background: Given the following shifts exist:
 | shiftstart                 | shiftend                  |
-| 2015-04-06 07:00:00 PST    | 2015-04-06 19:00:00 PST   |
+| 2015-04-30 07:00:00 PST    | 2015-04-30 19:00:00 PST   |
 
 And I am logged in as an admin
 And I am on the shift index page

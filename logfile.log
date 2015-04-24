@@ -3411,3 +3411,354 @@ delete params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>"33
 results of deleting are: --- 
 ...
 
+insert params are: {:calendarId=>"va.er.core.scheduler@gmail.com"}
+resulsts of inserting are: --- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  kind: calendar#event
+  etag: ! '"2859827362348000"'
+  id: 901c436f2cf8
+  status: confirmed
+  htmlLink: https://www.google.com/calendar/event?eid=OTAxYzQzNmYyY2Y4IHZhLmVyLmNvcmUuc2NoZWR1bGVyQG0
+  created: '2015-04-24T22:14:41.000Z'
+  updated: '2015-04-24T22:14:41.174Z'
+  summary: ! '***'
+  description: core
+  creator:
+    email: 1015162711729-4r5nn2ibft615vt22rh5npqarbpqoi27@developer.gserviceaccount.com
+  organizer:
+    email: va.er.core.scheduler@gmail.com
+    self: true
+  start:
+    dateTime: '2015-04-24T15:14:00-07:00'
+  end:
+    dateTime: '2015-04-24T15:14:00-07:00'
+  iCalUID: 901c436f2cf8@google.com
+  sequence: 0
+  extendedProperties:
+    private:
+      doctor_id: '0'
+  reminders:
+    useDefault: true
+
+insert params are: {:calendarId=>"va.er.core.scheduler@gmail.com"}
+resulsts of inserting are: --- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: invalid
+      message: Invalid resource id value.
+    code: 400
+    message: Invalid resource id value.
+
+delete params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>"ac1138629132"}
+results of deleting are: ---
+error:
+  errors:
+  - domain: global
+    reason: notFound
+    message: Not Found
+  code: 404
+  message: Not Found
+
+delete params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>1}
+results of deleting are: ---
+error:
+  errors:
+  - domain: global
+    reason: notFound
+    message: Not Found
+  code: 404
+  message: Not Found
+
+insert params are: {:calendarId=>"va.er.core.scheduler@gmail.com"}
+resulsts of inserting are: --- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  kind: calendar#event
+  etag: ! '"2859828815966000"'
+  id: 823722ab4133
+  status: confirmed
+  htmlLink: https://www.google.com/calendar/event?eid=ODIzNzIyYWI0MTMzIHZhLmVyLmNvcmUuc2NoZWR1bGVyQG0
+  created: '2015-04-24T22:26:47.000Z'
+  updated: '2015-04-24T22:26:47.983Z'
+  summary: ! '***'
+  description: core
+  creator:
+    email: 1015162711729-4r5nn2ibft615vt22rh5npqarbpqoi27@developer.gserviceaccount.com
+  organizer:
+    email: va.er.core.scheduler@gmail.com
+    self: true
+  start:
+    dateTime: '2015-04-24T15:26:00-07:00'
+  end:
+    dateTime: '2015-04-24T15:26:00-07:00'
+  iCalUID: 823722ab4133@google.com
+  sequence: 0
+  extendedProperties:
+    private:
+      doctor_id: '0'
+  reminders:
+    useDefault: true
+
+insert params are: {:calendarId=>"va.er.core.scheduler@gmail.com"}
+resulsts of inserting are: --- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  kind: calendar#event
+  etag: ! '"2859828828492000"'
+  id: d58ddf5e7706
+  status: confirmed
+  htmlLink: https://www.google.com/calendar/event?eid=ZDU4ZGRmNWU3NzA2IHZhLmVyLmNvcmUuc2NoZWR1bGVyQG0
+  created: '2015-04-24T22:26:54.000Z'
+  updated: '2015-04-24T22:26:54.246Z'
+  summary: ! '***'
+  description: core
+  creator:
+    email: 1015162711729-4r5nn2ibft615vt22rh5npqarbpqoi27@developer.gserviceaccount.com
+  organizer:
+    email: va.er.core.scheduler@gmail.com
+    self: true
+  start:
+    dateTime: '2015-04-24T15:26:00-07:00'
+  end:
+    dateTime: '2015-04-24T15:26:00-07:00'
+  iCalUID: d58ddf5e7706@google.com
+  sequence: 0
+  extendedProperties:
+    private:
+      doctor_id: '0'
+  reminders:
+    useDefault: true
+
+insert params are: {:calendarId=>"va.er.core.scheduler@gmail.com"}
+resulsts of inserting are: --- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  kind: calendar#event
+  etag: ! '"2859829275714000"'
+  id: 59b50749b4e0
+  status: confirmed
+  htmlLink: https://www.google.com/calendar/event?eid=NTliNTA3NDliNGUwIHZhLmVyLmNvcmUuc2NoZWR1bGVyQG0
+  created: '2015-04-24T22:30:37.000Z'
+  updated: '2015-04-24T22:30:37.857Z'
+  summary: ! '***'
+  description: core
+  creator:
+    email: 1015162711729-4r5nn2ibft615vt22rh5npqarbpqoi27@developer.gserviceaccount.com
+  organizer:
+    email: va.er.core.scheduler@gmail.com
+    self: true
+  start:
+    dateTime: '2015-04-24T15:30:00-07:00'
+  end:
+    dateTime: '2015-04-24T15:30:00-07:00'
+  iCalUID: 59b50749b4e0@google.com
+  sequence: 0
+  extendedProperties:
+    private:
+      doctor_id: '0'
+  reminders:
+    useDefault: true
+
+insert params are: {:calendarId=>"va.er.core.scheduler@gmail.com"}
+resulsts of inserting are: --- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: invalid
+      message: Invalid resource id value.
+    code: 400
+    message: Invalid resource id value.
+
+delete params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>"9bf97c431e51"}
+results of deleting are: ---
+error:
+  errors:
+  - domain: global
+    reason: notFound
+    message: Not Found
+  code: 404
+  message: Not Found
+
+delete params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>1}
+results of deleting are: ---
+error:
+  errors:
+  - domain: global
+    reason: notFound
+    message: Not Found
+  code: 404
+  message: Not Found
+
+insert params are: {:calendarId=>"va.er.core.scheduler@gmail.com"}
+resulsts of inserting are: --- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  kind: calendar#event
+  etag: ! '"2859829399928000"'
+  id: 2779e79420bb
+  status: confirmed
+  htmlLink: https://www.google.com/calendar/event?eid=Mjc3OWU3OTQyMGJiIHZhLmVyLmNvcmUuc2NoZWR1bGVyQG0
+  created: '2015-04-24T22:31:39.000Z'
+  updated: '2015-04-24T22:31:39.964Z'
+  summary: ! '***'
+  description: core
+  creator:
+    email: 1015162711729-4r5nn2ibft615vt22rh5npqarbpqoi27@developer.gserviceaccount.com
+  organizer:
+    email: va.er.core.scheduler@gmail.com
+    self: true
+  start:
+    dateTime: '2015-04-24T15:31:00-07:00'
+  end:
+    dateTime: '2015-04-24T15:31:00-07:00'
+  iCalUID: 2779e79420bb@google.com
+  sequence: 0
+  extendedProperties:
+    private:
+      doctor_id: '0'
+  reminders:
+    useDefault: true
+
+insert params are: {:calendarId=>"va.er.core.scheduler@gmail.com"}
+resulsts of inserting are: --- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: invalid
+      message: Invalid resource id value.
+    code: 400
+    message: Invalid resource id value.
+
+delete params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>"48fd6e371cd4"}
+results of deleting are: ---
+error:
+  errors:
+  - domain: global
+    reason: notFound
+    message: Not Found
+  code: 404
+  message: Not Found
+
+delete params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>1}
+results of deleting are: ---
+error:
+  errors:
+  - domain: global
+    reason: notFound
+    message: Not Found
+  code: 404
+  message: Not Found
+
+update params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>"515691d6a31f"}
+results of update are: --- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: notFound
+      message: Not Found
+    code: 404
+    message: Not Found
+
+delete params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>"854a65ca5b98"}
+results of deleting are: ---
+error:
+  errors:
+  - domain: global
+    reason: notFound
+    message: Not Found
+  code: 404
+  message: Not Found
+
+insert params are: {:calendarId=>"va.er.core.scheduler@gmail.com"}
+resulsts of inserting are: --- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  kind: calendar#event
+  etag: ! '"2859829492334000"'
+  id: 2e63715616f4
+  status: confirmed
+  htmlLink: https://www.google.com/calendar/event?eid=MmU2MzcxNTYxNmY0IHZhLmVyLmNvcmUuc2NoZWR1bGVyQG0
+  created: '2015-04-24T22:32:26.000Z'
+  updated: '2015-04-24T22:32:26.167Z'
+  summary: ! '***'
+  description: core
+  creator:
+    email: 1015162711729-4r5nn2ibft615vt22rh5npqarbpqoi27@developer.gserviceaccount.com
+  organizer:
+    email: va.er.core.scheduler@gmail.com
+    self: true
+  start:
+    dateTime: '2015-04-24T15:32:00-07:00'
+  end:
+    dateTime: '2015-04-24T15:32:00-07:00'
+  iCalUID: 2e63715616f4@google.com
+  sequence: 0
+  extendedProperties:
+    private:
+      doctor_id: '0'
+  reminders:
+    useDefault: true
+
+insert params are: {:calendarId=>"va.er.core.scheduler@gmail.com"}
+resulsts of inserting are: --- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: invalid
+      message: Invalid resource id value.
+    code: 400
+    message: Invalid resource id value.
+
+delete params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>"8c2db9411019"}
+results of deleting are: ---
+error:
+  errors:
+  - domain: global
+    reason: notFound
+    message: Not Found
+  code: 404
+  message: Not Found
+
+delete params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>1}
+results of deleting are: ---
+error:
+  errors:
+  - domain: global
+    reason: notFound
+    message: Not Found
+  code: 404
+  message: Not Found
+
+update params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>"6998ccf0664a"}
+results of update are: --- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: notFound
+      message: Not Found
+    code: 404
+    message: Not Found
+
+update params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>"d7bea42b43dd"}
+results of update are: --- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: notFound
+      message: Not Found
+    code: 404
+    message: Not Found
+
+delete params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>"31bdb198449e"}
+results of deleting are: ---
+error:
+  errors:
+  - domain: global
+    reason: notFound
+    message: Not Found
+  code: 404
+  message: Not Found
+
