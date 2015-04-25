@@ -234,6 +234,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activesupport
   bcrypt-ruby
   bootstrap-sass (~> 3.3.3)
   coffee-rails (~> 3.2.1)

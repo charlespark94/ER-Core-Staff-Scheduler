@@ -3411,3 +3411,217 @@ delete params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>"33
 results of deleting are: --- 
 ...
 
+insert params are: {:calendarId=>"va.er.core.scheduler@gmail.com"}
+resulsts of inserting are: --- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: invalid
+      message: Invalid or mismatching start and end times.
+    code: 400
+    message: Invalid or mismatching start and end times.
+
+insert params are: {:calendarId=>"va.er.core.scheduler@gmail.com"}
+resulsts of inserting are: --- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  kind: calendar#event
+  etag: ! '"2859989772334000"'
+  id: 3c9b26f288d2
+  status: confirmed
+  htmlLink: https://www.google.com/calendar/event?eid=M2M5YjI2ZjI4OGQyIHZhLmVyLmNvcmUuc2NoZWR1bGVyQG0
+  created: '2015-04-25T20:48:05.000Z'
+  updated: '2015-04-25T20:48:06.167Z'
+  summary: ! '***'
+  description: core
+  creator:
+    email: 1015162711729-4r5nn2ibft615vt22rh5npqarbpqoi27@developer.gserviceaccount.com
+  organizer:
+    email: va.er.core.scheduler@gmail.com
+    self: true
+  start:
+    dateTime: '2015-04-25T13:47:00-07:00'
+  end:
+    dateTime: '2015-04-25T14:47:00-07:00'
+  iCalUID: 3c9b26f288d2@google.com
+  sequence: 0
+  extendedProperties:
+    private:
+      doctor_id: '0'
+  reminders:
+    useDefault: true
+
+insert params are: {:calendarId=>"va.er.core.scheduler@gmail.com"}
+resulsts of inserting are: --- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  kind: calendar#event
+  etag: ! '"2859989985572000"'
+  id: 59b3adac2997
+  status: confirmed
+  htmlLink: https://www.google.com/calendar/event?eid=NTliM2FkYWMyOTk3IHZhLmVyLmNvcmUuc2NoZWR1bGVyQG0
+  created: '2015-04-25T20:49:52.000Z'
+  updated: '2015-04-25T20:49:52.786Z'
+  summary: ! '***'
+  description: core
+  creator:
+    email: 1015162711729-4r5nn2ibft615vt22rh5npqarbpqoi27@developer.gserviceaccount.com
+  organizer:
+    email: va.er.core.scheduler@gmail.com
+    self: true
+  start:
+    dateTime: '2015-04-25T03:03:00-07:00'
+  end:
+    dateTime: '2015-04-25T04:03:00-07:00'
+  iCalUID: 59b3adac2997@google.com
+  sequence: 0
+  extendedProperties:
+    private:
+      doctor_id: '0'
+  reminders:
+    useDefault: true
+
+insert params are: {:calendarId=>"va.er.core.scheduler@gmail.com"}
+resulsts of inserting are: --- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  kind: calendar#event
+  etag: ! '"2859990133728000"'
+  id: 20cd015035e9
+  status: confirmed
+  htmlLink: https://www.google.com/calendar/event?eid=MjBjZDAxNTAzNWU5IHZhLmVyLmNvcmUuc2NoZWR1bGVyQG0
+  created: '2015-04-25T20:51:06.000Z'
+  updated: '2015-04-25T20:51:06.864Z'
+  summary: ! '***'
+  description: core
+  creator:
+    email: 1015162711729-4r5nn2ibft615vt22rh5npqarbpqoi27@developer.gserviceaccount.com
+  organizer:
+    email: va.er.core.scheduler@gmail.com
+    self: true
+  start:
+    dateTime: '2015-04-25T13:51:00-07:00'
+  end:
+    dateTime: '2015-04-25T14:51:00-07:00'
+  iCalUID: 20cd015035e9@google.com
+  sequence: 0
+  extendedProperties:
+    private:
+      doctor_id: '0'
+  reminders:
+    useDefault: true
+
+insert params are: {:calendarId=>"va.er.core.scheduler@gmail.com"}
+resulsts of inserting are: --- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  kind: calendar#event
+  etag: ! '"2859991469382000"'
+  id: dcfb660cf3b0
+  status: confirmed
+  htmlLink: https://www.google.com/calendar/event?eid=ZGNmYjY2MGNmM2IwIHZhLmVyLmNvcmUuc2NoZWR1bGVyQG0
+  created: '2015-04-25T21:02:14.000Z'
+  updated: '2015-04-25T21:02:14.691Z'
+  summary: ! '***'
+  description: core
+  creator:
+    email: 1015162711729-4r5nn2ibft615vt22rh5npqarbpqoi27@developer.gserviceaccount.com
+  organizer:
+    email: va.er.core.scheduler@gmail.com
+    self: true
+  start:
+    dateTime: '2015-04-25T14:02:00-07:00'
+  end:
+    dateTime: '2015-04-25T15:02:00-07:00'
+  iCalUID: dcfb660cf3b0@google.com
+  sequence: 0
+  extendedProperties:
+    private:
+      doctor_id: '0'
+  reminders:
+    useDefault: true
+
+insert params are: {:calendarId=>"va.er.core.scheduler@gmail.com"}
+resulsts of inserting are: --- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  kind: calendar#event
+  etag: ! '"2859991937838000"'
+  id: 263f7e1b0257
+  status: confirmed
+  htmlLink: https://www.google.com/calendar/event?eid=MjYzZjdlMWIwMjU3IHZhLmVyLmNvcmUuc2NoZWR1bGVyQG0
+  created: '2015-04-25T21:06:08.000Z'
+  updated: '2015-04-25T21:06:08.919Z'
+  summary: ! '***'
+  description: core
+  creator:
+    email: 1015162711729-4r5nn2ibft615vt22rh5npqarbpqoi27@developer.gserviceaccount.com
+  organizer:
+    email: va.er.core.scheduler@gmail.com
+    self: true
+  start:
+    dateTime: '2015-04-25T14:06:00-07:00'
+  end:
+    dateTime: '2015-04-25T15:06:00-07:00'
+  iCalUID: 263f7e1b0257@google.com
+  sequence: 0
+  extendedProperties:
+    private:
+      doctor_id: '0'
+  reminders:
+    useDefault: true
+
+insert params are: {:calendarId=>"va.er.core.scheduler@gmail.com"}
+resulsts of inserting are: --- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  kind: calendar#event
+  etag: ! '"2859998921628000"'
+  id: 3b456a3d979b
+  status: confirmed
+  htmlLink: https://www.google.com/calendar/event?eid=M2I0NTZhM2Q5NzliIHZhLmVyLmNvcmUuc2NoZWR1bGVyQG0
+  created: '2015-04-25T22:04:20.000Z'
+  updated: '2015-04-25T22:04:20.814Z'
+  summary: ! '***'
+  description: core
+  creator:
+    email: 1015162711729-4r5nn2ibft615vt22rh5npqarbpqoi27@developer.gserviceaccount.com
+  organizer:
+    email: va.er.core.scheduler@gmail.com
+    self: true
+  start:
+    dateTime: '2015-04-25T22:00:00-07:00'
+  end:
+    dateTime: '2015-04-26T00:00:00-07:00'
+  iCalUID: 3b456a3d979b@google.com
+  sequence: 0
+  extendedProperties:
+    private:
+      doctor_id: '0'
+  reminders:
+    useDefault: true
+
+insert params are: {:calendarId=>"va.er.core.scheduler@gmail.com"}
+resulsts of inserting are: --- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  kind: calendar#event
+  etag: ! '"2859999033014000"'
+  id: 1d50d40b3805
+  status: confirmed
+  htmlLink: https://www.google.com/calendar/event?eid=MWQ1MGQ0MGIzODA1IHZhLmVyLmNvcmUuc2NoZWR1bGVyQG0
+  created: '2015-04-25T22:05:16.000Z'
+  updated: '2015-04-25T22:05:16.507Z'
+  summary: ! '***'
+  description: core
+  creator:
+    email: 1015162711729-4r5nn2ibft615vt22rh5npqarbpqoi27@developer.gserviceaccount.com
+  organizer:
+    email: va.er.core.scheduler@gmail.com
+    self: true
+  start:
+    dateTime: '2015-05-25T15:05:00-07:00'
+  end:
+    dateTime: '2015-05-25T16:05:00-07:00'
+  iCalUID: 1d50d40b3805@google.com
+  sequence: 0
+  extendedProperties:
+    private:
+      doctor_id: '0'
+  reminders:
+    useDefault: true
+

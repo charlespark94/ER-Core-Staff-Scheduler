@@ -18,7 +18,15 @@ class ShiftsController < ApplicationController
 
   def create
     @shift = Shift.create!(params[:shift])
+    offset = params[:length]
+    new_shiftend = @shift.shiftstart + offset[:length].to_i.hours
+    @shift.update_attribute(:shiftend, new_shiftend.to_datetime)
     flash[:notice] = "Shift was successfully created."
+    #if  == nil
+    #  raise Exception, "Not working"
+    #else
+    #raise Exception, "Is Working " + offset[:length].to_s + "\n Adding end:" +  @shift.shiftend.strftime("%Y/%m/%d - %H:%M") 
+    #end
     dt_start = @shift.shiftstart
     dt_end = @shift.shiftend
     dt_doc = @shift.owner
@@ -77,6 +85,11 @@ class ShiftsController < ApplicationController
     end
     shifts = Shift.all
     shifts.each do |shift|
+      if shift.shiftstart == nil
+        raise Exception, "start Not working \n Adding end:" +  @shift.shiftend.strftime("%Y/%m/%d - %H:%M") 
+      elsif shift.shiftend == nil
+        raise Exception, "Not Working \n Adding end:" +  @shift.shiftend.strftime("%Y/%m/%d - %H:%M") 
+      end
       if hours_per_person.has_key?(shift.owner)
         hours_per_person[shift.owner][0] = hours_per_person[shift.owner][0] + ((shift.shiftend - shift.shiftstart)/(60*60)).to_i
       else

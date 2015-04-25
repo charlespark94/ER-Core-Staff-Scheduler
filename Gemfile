@@ -14,6 +14,7 @@ group :development, :test do
   gem 'simplecov'
   gem 'rake'
   gem 'email_spec'
+  gem 'activesupport'
 end
 
 # Gems used only for assets and not required

@@ -37,8 +37,9 @@
 				= label :shift, :shiftstart, 'Start'
 				= datetime_select :shift, :shiftstart
 
-				= label :shift, :shiftend, 'End'
-				= datetime_select :shift, :shiftend
+
+				= label :shift, :shiftend, 'Length'
+				= select :length, :length, [1, 2, 4, 6, 8, 12]
 
 				= submit_tag 'Save', :id => "save_submit"
 
