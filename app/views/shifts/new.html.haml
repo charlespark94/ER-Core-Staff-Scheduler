@@ -24,7 +24,7 @@
 				%a= link_to 'Set Availability', availabilities_path
 			- if @user.usertype == 'Administrator'
 				%li 
-					%a= link_to 'VA ER Scheduler', shifts_path
+					%a= link_to 'Shift Scheduler', shifts_path
 				%li
 					%a= link_to 'Set FTE Multiplier', multiply_path
 
@@ -35,13 +35,13 @@
 			= form_tag shifts_path do
 				- if Time.now.dst?
 					= label :shift, :shiftstart, 'Start'
-					= datetime_select :shift, :shiftstart, default: -7.hours.from_now
+					= datetime_select :shift, :shiftstart, default: -8.hours.from_now
 				- else
 					= label :shift, :shiftstart, 'Start'
-					= datetime_select :shift, :shiftstart, default: -8.hours.from_now
-
+					= datetime_select :shift, :shiftstart, default: -9.hours.from_now
+				%br
 				= label :shift, :shiftend, 'Length'
 				= select :length, :length, [1, 2, 4, 6, 8, 12]
-
+				%br
 				= submit_tag 'Save', :id => "save_submit"
 

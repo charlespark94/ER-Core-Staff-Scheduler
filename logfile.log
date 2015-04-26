@@ -7995,3 +7995,94 @@ error:
   code: 404
   message: Not Found
 
+update params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>"5f940a8a9251"}
+results of update are: --- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  kind: calendar#event
+  etag: ! '"2860019859482000"'
+  id: 5f940a8a9251
+  status: confirmed
+  htmlLink: https://www.google.com/calendar/event?eid=NWY5NDBhOGE5MjUxIHZhLmVyLmNvcmUuc2NoZWR1bGVyQG0
+  created: '2015-04-26T00:58:04.000Z'
+  updated: '2015-04-26T00:58:49.741Z'
+  summary: Charles
+  description: core
+  creator:
+    email: 1015162711729-4r5nn2ibft615vt22rh5npqarbpqoi27@developer.gserviceaccount.com
+  organizer:
+    email: va.er.core.scheduler@gmail.com
+    self: true
+  start:
+    dateTime: '2015-04-25T17:58:00-07:00'
+  end:
+    dateTime: '2015-04-25T23:58:00-07:00'
+  iCalUID: 5f940a8a9251@google.com
+  sequence: 0
+  extendedProperties:
+    private:
+      doctor_id: '1'
+  reminders:
+    useDefault: true
+
+update params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>"5f940a8a9251"}
+results of update are: --- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  kind: calendar#event
+  etag: ! '"2860019859482000"'
+  id: 5f940a8a9251
+  status: confirmed
+  htmlLink: https://www.google.com/calendar/event?eid=NWY5NDBhOGE5MjUxIHZhLmVyLmNvcmUuc2NoZWR1bGVyQG0
+  created: '2015-04-26T00:58:04.000Z'
+  updated: '2015-04-26T00:58:49.741Z'
+  summary: Charles
+  description: core
+  creator:
+    email: 1015162711729-4r5nn2ibft615vt22rh5npqarbpqoi27@developer.gserviceaccount.com
+  organizer:
+    email: va.er.core.scheduler@gmail.com
+    self: true
+  start:
+    dateTime: '2015-04-25T17:58:00-07:00'
+  end:
+    dateTime: '2015-04-25T23:58:00-07:00'
+  iCalUID: 5f940a8a9251@google.com
+  sequence: 0
+  extendedProperties:
+    private:
+      doctor_id: '1'
+  reminders:
+    useDefault: true
+
+update params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>"5f940a8a9251"}
+results of update are: --- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  kind: calendar#event
+  etag: ! '"2860019859482000"'
+  id: 5f940a8a9251
+  status: confirmed
+  htmlLink: https://www.google.com/calendar/event?eid=NWY5NDBhOGE5MjUxIHZhLmVyLmNvcmUuc2NoZWR1bGVyQG0
+  created: '2015-04-26T00:58:04.000Z'
+  updated: '2015-04-26T00:58:49.741Z'
+  summary: Charles
+  description: core
+  creator:
+    email: 1015162711729-4r5nn2ibft615vt22rh5npqarbpqoi27@developer.gserviceaccount.com
+  organizer:
+    email: va.er.core.scheduler@gmail.com
+    self: true
+  start:
+    dateTime: '2015-04-25T17:58:00-07:00'
+  end:
+    dateTime: '2015-04-25T23:58:00-07:00'
+  iCalUID: 5f940a8a9251@google.com
+  sequence: 0
+  extendedProperties:
+    private:
+      doctor_id: '1'
+  reminders:
+    useDefault: true
+
+delete params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>"5f940a8a9251"}
+results of deleting are: --- 
+...
+

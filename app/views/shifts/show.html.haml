@@ -24,13 +24,13 @@
 				%a= link_to 'Set Availability', availabilities_path
 			- if @user.usertype == 'Administrator'
 				%li 
-					%a= link_to 'VA ER Scheduler', shifts_path
+					%a= link_to 'Shift Scheduler', shifts_path
 				%li
 					%a= link_to 'Set FTE Multiplier', multiply_path
 
 	%div#page-content-wrapper
 		%div.container-fluid 
-			%h2 shift details
+			%h2 Shift Details
 
 			%ul#details
 				%li
@@ -53,8 +53,4 @@
 				%li
 					Shift Assigned To:
 					=@shift.owner
-			= link_to 'Edit', edit_shift_path(@shift)
-			%br
-			= button_to 'Delete', shift_path(@shift), :method => :delete, :confirm => 'Are you sure?'
-			%br
-			= link_to 'Back to all shifts', shifts_path
+			= link_to 'Back to my availabilities', availabilities_path

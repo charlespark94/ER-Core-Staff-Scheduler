@@ -24,7 +24,7 @@
         %a= link_to 'Set Availability', availabilities_path
       - if @user.usertype == 'Administrator'
         %li 
-          %a= link_to 'VA ER Scheduler', shifts_path
+          %a= link_to 'Shift Scheduler', shifts_path
         %li
           %a= link_to 'Set FTE Multiplier', multiply_path
 
@@ -32,11 +32,37 @@
     %div.container-fluid 
       %h1 Edit Existing Shift
 
+      %h2 Shift Details
+
+      %ul#details
+        %li
+          Start Time: 
+          = @shift.shiftstart
+        %li
+          End Time:
+          = @shift.shiftend
+          
+        %li
+          Available People:
+          - if !@shift.users.nil?
+            = @shift.users.where(id: @shift.availabilities.select(:user_id).where(shift_id: @shift.id, availability: 2)).pluck(:last_name)
+
+        %li
+          Possible Users:
+          - if !@shift.possible_users.nil?
+            = @shift.users.where(id: @shift.availabilities.select(:user_id).where(shift_id: @shift.id, availability: 1)).pluck(:last_name)
+        
+        %li
+          Shift Assigned To:
+          =@shift.owner
+      = button_to 'Delete', shift_path(@shift), :method => :delete, :confirm => 'Are you sure?'
+      %br
+
       = form_tag shift_path(@shift), :method => :put do
 
         = label :shift, :shiftstart, 'Start'
         = datetime_select :shift, :shiftstart
-
+        %br
         = label :shift, :shiftend, 'End'
         = datetime_select :shift, :shiftend
         %br
@@ -54,5 +80,8 @@
 
         
         %br
+        %br
         = submit_tag 'Update Shift'
+        %br
+        %br
         = link_to 'Back to all shifts', shifts_path
