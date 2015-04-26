@@ -35,9 +35,9 @@
 			= form_tag shifts_path do
 				- if Time.now.dst?
 					= label :shift, :shiftstart, 'Start'
-					= datetime_select :shift, :shiftstart, default: -8.hours.from_now
+					= datetime_select :shift, :shiftstart, default: -6.hours.from_now
 				- else
-					= label :shift, :shiftstart, 'Start'
+					= label :shift, :shiftstart, 'Start No DST'
 					= datetime_select :shift, :shiftstart, default: -7.hours.from_now
 				%br
 				= label :shift, :shiftend, 'Length'
