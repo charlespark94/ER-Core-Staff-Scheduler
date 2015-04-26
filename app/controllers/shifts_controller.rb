@@ -89,9 +89,9 @@ class ShiftsController < ApplicationController
 
   def fix_timezone(dt)
       if Time.now.dst?
-        return (dt + 7.hours).to_datetime
-      else
         return (dt + 8.hours).to_datetime
+      else
+        return (dt + 9.hours).to_datetime
       end
   end
 end
