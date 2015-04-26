@@ -19,8 +19,8 @@ class ShiftsController < ApplicationController
   def create
     @shift = Shift.create!(params[:shift])
     flash[:notice] = "Shift was successfully created."
-    dt_start = @shift.shiftstart
-    dt_end = @shift.shiftend
+    dt_start = fix_timezone(@shift.shiftstart)
+    dt_end = fix_timezone(@shift.shiftend)
     dt_doc = @shift.owner
     gcal_event_insert(0, dt_doc, "core", dt_start, dt_end, @shift.event_id)
     @shift.ingcal = true
@@ -29,8 +29,7 @@ class ShiftsController < ApplicationController
   end
   
   def update
-    @shift = Shift.find params[:id] 
-    old_start = @shift.shiftstart
+    @shift = Shift.find params[:id]
     old_user = @shift.owner
     if old_user == '***' || old_user == ""
       delete_id = 0
@@ -38,8 +37,8 @@ class ShiftsController < ApplicationController
       delete_id = User.find_by_first_name(old_user).id
     end
     @shift.update_attributes!(params[:shift])
-    dt_start = @shift.shiftstart
-    dt_end = @shift.shiftend
+    dt_start = fix_timezone(@shift.shiftstart)
+    dt_end = fix_timezone(@shift.shiftend)
     dt_doc = @shift.owner
     if dt_doc == "" || dt_doc.nil?
       dt_doc = "***"
@@ -56,7 +55,6 @@ class ShiftsController < ApplicationController
 
   def destroy
     @shift = Shift.find(params[:id])
-    dt_start = @shift.shiftstart
     if @shift.owner == '***' || @shift.owner == "" || @shift.owner.nil? || @shift.owner == " "
       gcal_event_delete(@shift.event_id)
     else
@@ -84,5 +82,13 @@ class ShiftsController < ApplicationController
       end
     end
     return hours_per_person
+  end
+
+  def fix_timezone(dt)
+      if Time.now.dst?
+        return (dt + 7.hours).to_datetime
+      else
+        return (dt + 8.hours).to_datetime
+      end
   end
 end

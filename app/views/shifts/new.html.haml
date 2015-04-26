@@ -33,12 +33,18 @@
 			%h1 Add a shift
 
 			= form_tag shifts_path do
+				- if Time.now.dst?
+					= label :shift, :shiftstart, 'Start'
+					= datetime_select :shift, :shiftstart, default: -7.hours.from_now
 
-				= label :shift, :shiftstart, 'Start'
-				= datetime_select :shift, :shiftstart
+					= label :shift, :shiftend, 'End'
+					= datetime_select :shift, :shiftend, default: -7.hours.from_now
+				- else
+					= label :shift, :shiftstart, 'Start'
+					= datetime_select :shift, :shiftstart, default: -8.hours.from_now
 
-				= label :shift, :shiftend, 'End'
-				= datetime_select :shift, :shiftend
+					= label :shift, :shiftend, 'End'
+					= datetime_select :shift, :shiftend, default: -8.hours.from_now
 
 				= submit_tag 'Save', :id => "save_submit"
 
