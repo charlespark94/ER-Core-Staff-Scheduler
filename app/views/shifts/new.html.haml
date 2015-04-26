@@ -37,7 +37,7 @@
 					= label :shift, :shiftstart, 'Start'
 					= datetime_select :shift, :shiftstart, default: -6.hours.from_now
 				- else
-					= label :shift, :shiftstart, 'Start No DST'
+					= label :shift, :shiftstart, 'Start'
 					= datetime_select :shift, :shiftstart, default: -7.hours.from_now
 				%br
 				= label :shift, :shiftend, 'Length'
