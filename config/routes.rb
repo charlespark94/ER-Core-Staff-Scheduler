@@ -70,6 +70,7 @@ ErCoreStaffScheduler::Application.routes.draw do
   resources :availabilities
   resources :password_resets
   resources :fte_multiplier
+  resources :settings
 
   put "/shifts" => "shifts#update", :as => "shifts"
   get "sign_up" => "users#new", :as => "sign_up"

@@ -30,5 +30,21 @@
 
 	%div#page-content-wrapper
 		%div.container-fluid 
-			<iframe src="https://www.google.com/calendar/embed?src=va.er.core.scheduler%40gmail.com&ctz=America/San_Francisco" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
-			
+			%h1 User Details
+
+			%ul#details
+				%li
+					User Name: 
+					= "#{@user.first_name} #{@user.last_name}"
+				%li
+					Email:
+					= @user.email
+
+				%li
+					FTE:
+					= @user.fte
+
+				%li
+					Verified:
+					= @user.verified
+			= link_to 'Edit', edit_setting_path(@user)

@@ -29,6 +29,37 @@
 					%a= link_to 'Set FTE Multiplier', multiply_path
 
 	%div#page-content-wrapper
-		%div.container-fluid 
-			<iframe src="https://www.google.com/calendar/embed?src=va.er.core.scheduler%40gmail.com&ctz=America/San_Francisco" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
-			
+		%div.container-fluid
+			%p#notice= notice
+			%h1 Edit User Information
+
+			= form_tag setting_path, :method => :put do
+
+				= label :user, :first_name, 'First Name'
+				%br
+				= text_field :user, :first_name
+				%br
+				= label :user, :last_name, 'Last Name'
+				%br
+				= text_field :user, :last_name
+				%br
+				= label :user, :email, 'Email'
+				%br
+				= text_field :user, :email
+				%br
+				= label :user, :fte, 'FTE'
+				%br
+				= number_field :user, :fte, step: 0.1, :"value" => 1.0, :"max" => 1.0, :"min" => 0
+				%br
+				= label :user, :password, 'New Password'
+				%br
+				= password_field :user, :password
+				%br
+				= label :user, :password_confirmation, 'New Password Confirnmation'
+				%br
+				= password_field :user, :password_confirmation
+				%br
+				%br
+				= submit_tag 'Update Shift'
+		%br
+		= link_to 'Back to all shifts', shifts_path
