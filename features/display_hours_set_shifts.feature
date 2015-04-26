@@ -25,23 +25,18 @@ Background:
 
 Scenario: Admin can see hour amount change from assigning
 	When I follow edit for shift 1
-	Then I should be redirected to the show page for shift 1
-	Then I should see the users is ["admin"]
-	When I follow "Edit"
 	Then I should be redirected to the edit page for shift 1
+	Then I should see the users is ["admin"]
 	Then I should see a dropdown menu for Assign Person
 	Then I select admin for Assign Person
 	When I press "Update Shift"
-	Then I should be redirected to the show page for shift 1
 	Then I should see the owner is "admin"
 	Then I should see that "admin" has 12 hours assigned
 
 Scenario: Admin can see hour amount change from reassigning
 	When I follow edit for shift 1
-	Then I should be redirected to the show page for shift 1
+	Then I should be redirected to the edit page for shift 1
 	Then I should see the users is ["admin"]
-	When I follow "Edit"
-  	Then I should be redirected to the show page for shift 1
  	When I press "Delete"
   	Then I should be redirected to the shift index page 
 	And I should see that "admin" has 0 hours assigned

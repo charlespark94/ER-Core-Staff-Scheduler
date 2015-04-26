@@ -27,7 +27,7 @@ Scenario: Add shift for all doctors to see in their availability
 Scenario: Delete shift from available shifts
   Given that I am on the shift index page
   And I follow edit for shift 1
-  Then I should be redirected to the show page for shift 1
+  Then I should be redirected to the edit page for shift 1
   When I press "Delete"
   Then I should delete the shift for 03 - 08 starting at 07 from google
   Then I should be redirected to the shift index page 

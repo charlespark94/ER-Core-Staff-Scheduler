@@ -10,8 +10,4 @@ class Shift < ActiveRecord::Base
   	end while self.class.exists?(:event_id => event_id)
   end
 
-  def converted_shift
- 	  return self.shiftstart.in_time_zone('Pacific Time (US & Canada)')
-  end
-
 end

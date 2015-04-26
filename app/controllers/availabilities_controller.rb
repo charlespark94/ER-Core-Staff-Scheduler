@@ -2,9 +2,6 @@ class AvailabilitiesController < ApplicationController
 
 	
 	def index
-		if session[:user_id] == nil
-			redirect_to login_path
-		end
 		@availabilities = Availability.all
 		@shifts = Shift.all
 	end

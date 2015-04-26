@@ -37,8 +37,8 @@ When /I add a shift for (.+) - (.+) from (.+) to (.+)/ do |mon, day, shftst, shf
 	Calendar.gcal_event_insert(0, '***', "core", formStart, formEnd, 1)
 end
 
-Then /^(?:|I )should be redirected to the show page for shift (.+)$/ do |shift|
-  visit shift_path(shift)
+Then /^(?:|I )should be redirected to the edit page for shift (.+)$/ do |shift|
+  visit edit_shift_path(shift)
 end
 
 

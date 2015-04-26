@@ -24,10 +24,6 @@ Then /I should see the users is (.+)/ do |e2|
 	page.should have_content(e2)
 end
 
-Then /^(?:|I )should be redirected to the edit page for shift (.+)$/ do |shift|
-  visit edit_shift_path(shift)
-end
-
 Then /I should see a dropdown menu for (.+)/ do |e1|
 	page.should have_content(e1)
 end

@@ -1,10 +1,15 @@
 class VerificationController < ApplicationController
 	skip_before_filter :check_account_verified
+	skip_before_filter :check_logged_in
 
 	def not
-		user = User.find_by_id(session[:user_id])
-		if user.verified == true
-			redirect_to home_path
+		if session[:user_id] == nil
+			redirect_to login_path
+		else
+			user = User.find_by_id(session[:user_id])
+			if user.verified == true
+				redirect_to home_path
+			end
 		end
 	end
 
