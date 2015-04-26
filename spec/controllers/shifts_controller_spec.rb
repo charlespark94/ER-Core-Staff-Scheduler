@@ -77,8 +77,8 @@ describe ShiftsController do
     end
      
     it 'should create a shift with attributes' do
-      ShiftsController.stub(:create).and_return(double('Shift'))
-      post 'create', {:id => '2'}
+      controller.stub(:params).and_return({:"shift" => {:"shiftstart(1i)" => "2015", :"shiftstart(2i)" => "4", :"shiftstart(3i)" => "25", :"shiftstart(4i)" => "18", :"shiftstart(5i)" => "17"}, :"length" => { :"length" => "1"}})
+      post 'create', {:"1i" => '1'}
     end
 
 

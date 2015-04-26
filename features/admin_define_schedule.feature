@@ -20,7 +20,7 @@ Scenario: admin can input shift schedule
 
 Scenario: admin can view shifts they have added
   When I fill in the date select field labeled "Start" with "2015-04-01T10:00:00"
-  And I fill in the date select field labeled "End" with "2015-04-01T18:00:00"
+  And I select "1" from "length_length"
   When I press "save_submit"
   Then I should be redirected to the shift index page
   And I follow edit for shift 1

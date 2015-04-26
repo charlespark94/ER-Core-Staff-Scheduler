@@ -18,6 +18,9 @@ class ShiftsController < ApplicationController
 
   def create
     @shift = Shift.create!(params[:shift])
+    offset = params[:length]
+    new_shiftend = @shift.shiftstart + offset[:length].to_i.hours
+    @shift.update_attribute(:shiftend, new_shiftend.to_datetime)
     flash[:notice] = "Shift was successfully created."
     dt_start = fix_timezone(@shift.shiftstart)
     dt_end = fix_timezone(@shift.shiftend)

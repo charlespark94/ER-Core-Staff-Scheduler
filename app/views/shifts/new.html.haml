@@ -36,15 +36,12 @@
 				- if Time.now.dst?
 					= label :shift, :shiftstart, 'Start'
 					= datetime_select :shift, :shiftstart, default: -7.hours.from_now
-
-					= label :shift, :shiftend, 'End'
-					= datetime_select :shift, :shiftend, default: -7.hours.from_now
 				- else
 					= label :shift, :shiftstart, 'Start'
 					= datetime_select :shift, :shiftstart, default: -8.hours.from_now
 
-					= label :shift, :shiftend, 'End'
-					= datetime_select :shift, :shiftend, default: -8.hours.from_now
+				= label :shift, :shiftend, 'Length'
+				= select :length, :length, [1, 2, 4, 6, 8, 12]
 
 				= submit_tag 'Save', :id => "save_submit"
 
