@@ -1,43 +1,44 @@
-%h1 Create New Login
+%body#center
+  %h1 Create New Login
 
-= form_for @user do |f|
-  - if @user.errors.any?
-    .error_messages
-      %h2 Form is invalid
-      %ul
-        - for message in @user.errors.full_messages
-          %li= message
+  = form_for @user do |f|
+    - if @user.errors.any?
+      .error_messages
+        %h2 Form is invalid
+        %ul
+          - for message in @user.errors.full_messages
+            %li= message
 
-  %p
-    = f.label :first_name
-    %br
-    = f.text_field :first_name
-  %p
-    = f.label :last_name
-    %br
-    = f.text_field :last_name
-  %p
-    = f.label :email
-    %br
-    = f.text_field :email
-  %p
-    = f.label :usertype
-    %br
-    = f.select :usertype, ['Administrator', 'Core Doctor', 'Night Doctor']
-  %p
-    = f.label :fte
-    %br
-    = f.number_field :fte, step: 0.1, :"value" => 1.0, :"max" => 1.0, :"min" => 0.1
-  %p
-    = f.label :username, :id => "sign_up_username"
-    %br
-    = f.text_field :username
-  %p
-    = f.label :password
-    %br
-    = f.password_field :password
-  %p
-    = f.label :password_confirmation
-    %br
-    = f.password_field :password_confirmation
-  %p.button= f.submit "Sign Up", :id => "signup_submit"
+    %p
+      = f.label :first_name
+      %br
+      = f.text_field :first_name
+    %p
+      = f.label :last_name
+      %br
+      = f.text_field :last_name
+    %p
+      = f.label :email
+      %br
+      = f.text_field :email
+    %p
+      = f.label :usertype
+      %br
+      = f.select :usertype, ['Administrator', 'Core Doctor', 'Night Doctor']
+    %p
+      = f.label :fte
+      %br
+      = f.number_field :fte, step: 0.1, :"value" => 1.0, :"max" => 1.0, :"min" => 0.1
+    %p
+      = f.label :username, :id => "sign_up_username"
+      %br
+      = f.text_field :username
+    %p
+      = f.label :password
+      %br
+      = f.password_field :password
+    %p
+      = f.label :password_confirmation
+      %br
+      = f.password_field :password_confirmation
+    %p.button= f.submit "Sign Up", :id => "signup_submit"

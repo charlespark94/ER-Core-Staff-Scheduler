@@ -1,16 +1,21 @@
 .title {
 	margin: 0;
+	color: rgb(187, 121, 0);
 }
 
-body {
-	color: #000000;
+.header-info {
+	color: #dedede;
+}
+
+body#center{
+	text-align: center !important;
 }
 
 .navbar {
 	margin: 0;
 	border: 0;
-	background-color: #00688B;
 	border-radius: 0px !important;
+	background-image: linear-gradient(to bottom, #3f3f3f 0%, #030303 100%);
 }
 
 .navbar-center {
@@ -21,6 +26,21 @@ body {
 }
 
 .navbar-brand {
-	padding: 0;
+	padding: 10px 10px;
 	vertical-align: middle;
+	color: rgb(187, 121, 0) !important;
+	margin: 0 !important;
+	line-height: 35px !important;
+	font-size: 30px;
+}
+
+.btn {
+	color: rgb(187, 121, 0) !important;
+}
+
+.content-separator {
+	margin-bottom: 20px;
+    border-top: 1px solid;
+    margin-top: 20px;
+    border-color: gray;
 }

@@ -1,11 +1,11 @@
 %nav.navbar.navbar-default
 	%div.container-fluid
 		%div.navbar-brand
-			%h1 VA hospital logo
+			%a.title{:href => home_path} VA ER Core Staff Scheduler
 		%div.navbar-center
 			= hidden_field_tag @user = User.find_by_id(session[:user_id])
 			%h2.title= "Hello, #{@user.first_name} #{@user.last_name}"
-			%p= "You are logged in as #{@user.usertype} with FTE of #{@user.fte}"
+			%p.header-info= "You are logged in as #{@user.usertype} with FTE of #{@user.fte}"
 		%div.collapse.navbar-collapse
 			%ul.nav.navbar-nav.navbar-right
 				%li
@@ -30,7 +30,7 @@
 
 	%div#page-content-wrapper
 		%div.container-fluid 
-			%h1 Set Your Preference
+			%h2 Set Your Preference
 
 			:css
 				td, th {
@@ -101,6 +101,7 @@
 
 				= link_to 'Set Availabilities to Previous Pay Period', new_availability_path
 
+			%div.content-separator
 			%h2 Your Availabilities
 
 			= week_calendar number_of_weeks: 2 do |date|

@@ -10666,3 +10666,32 @@ error:
   code: 404
   message: Not Found
 
+insert params are: {:calendarId=>"va.er.core.scheduler@gmail.com"}
+resulsts of inserting are: --- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  kind: calendar#event
+  etag: ! '"2860249187280000"'
+  id: 09996a5aa66c
+  status: confirmed
+  htmlLink: https://www.google.com/calendar/event?eid=MDk5OTZhNWFhNjZjIHZhLmVyLmNvcmUuc2NoZWR1bGVyQG0
+  created: '2015-04-27T08:49:53.000Z'
+  updated: '2015-04-27T08:49:53.640Z'
+  summary: ! '***'
+  description: core
+  creator:
+    email: 1015162711729-4r5nn2ibft615vt22rh5npqarbpqoi27@developer.gserviceaccount.com
+  organizer:
+    email: va.er.core.scheduler@gmail.com
+    self: true
+  start:
+    dateTime: '2015-04-27T01:49:00-07:00'
+  end:
+    dateTime: '2015-04-27T02:49:00-07:00'
+  iCalUID: 09996a5aa66c@google.com
+  sequence: 0
+  extendedProperties:
+    private:
+      doctor_id: '0'
+  reminders:
+    useDefault: true
+
