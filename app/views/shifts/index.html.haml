@@ -84,19 +84,58 @@
 					height: 5px;
 					vertical-align: top;
 				}
+			%br
+			%br
+			:plain
+				Pay Period
+			= (@date_start.strftime("%U")).to_i/2
+			%br
+			= link_to '<<', shifts_path(:newstart => @date_start - 14.to_f)
+			= "#{@date_start.strftime("%B")} #{@date_start.day} to #{(@date_start + 13.to_f).strftime("%B")} #{(@date_start + 13.to_f).day}"
+			= link_to '>>', shifts_path(:newstart => @date_start + 14.to_f)
 			= form_tag availabilities_path, :method => :get do
-				= week_calendar number_of_weeks: 2, shifts: Shift.all do |date, shifts|
-					%table.table
-						%thead
-							%tr
-								%th= "#{date.to_s[5..6]}/#{date.to_s[8..9]}"
-							%tbody
-								- @shifts.each do |shift|
-									- if shift.shiftstart.to_s[5..6].to_i == date.to_s[5..6].to_i && shift.shiftstart.to_s[8..9].to_i == date.to_s[8..9].to_i
-										%tr
-											%td= "#{shift.shiftstart.to_s[11..15]} to #{shift.shiftend.to_s[11..15]}"
-											%td Assigned doctor: "#{shift.owner}"
-											%td= link_to 'edit', edit_shift_path(shift)
-					%br
+				%table.table
+					%thead
+						- @next_seven.each do |day|
+							%th= "#{day.to_time.strftime("%A")} #{day.month}/#{day.day}"
+					%tbody
+						%tr
+							- @next_seven.each do |day|
+								%td
+									%table
+										- @shifts.sort.each do |shift|
+											- if shift.shiftstart.to_s[5..6] == day.to_s[5..6] && shift.shiftstart.to_s[8..9] == day.to_s[8..9]
+												- if shift.users || shift.possible_users
+													%tr
+														%td= "#{shift.shiftstart.to_s[11..15]} to #{shift.shiftend.to_s[11..15]}"
+														%td Assigned doctor: "#{shift.owner}"
+														%td= link_to 'edit', edit_shift_path(shift)
+				%table.table
+					%thead
+						- @second_seven.each do |day|
+							%th= "#{day.to_time.strftime("%A")} #{day.month}/#{day.day}"
+					%tbody
+						%tr
+							- @second_seven.each do |day|
+								%td
+									%table
+										- @shifts.each do |shift|
+											- if shift.shiftstart.to_s[5..6] == day.to_s[5..6] && shift.shiftstart.to_s[8..9] == day.to_s[8..9]
+												- if shift.users || shift.possible_users
+													%tr
+														%td= "#{shift.shiftstart.to_s[11..15]} to #{shift.shiftend.to_s[11..15]}"
+														%td Assigned doctor: "#{shift.owner}"
+														%td= link_to 'edit', edit_shift_path(shift)
 
-
+				/ = week_calendar number_of_weeks: 2, shifts: Shift.all do |date, shifts|
+				/ 	%table.table
+				/ 		%thead
+				/ 			%tr
+				/ 				%th= "#{date.to_s[5..6]}/#{date.to_s[8..9]}"
+				/ 			%tbody
+				/ 				- @shifts.each do |shift|
+				/ 					- if shift.shiftstart.to_s[5..6].to_i == date.to_s[5..6].to_i && shift.shiftstart.to_s[8..9].to_i == date.to_s[8..9].to_i
+				/ 						%tr
+				/ 							%td= "#{shift.shiftstart.to_s[11..15]} to #{shift.shiftend.to_s[11..15]}"
+				/ 							%td Assigned doctor: "#{shift.owner}"
+				/ 							%td= link_to 'edit', edit_shift_path(shift)

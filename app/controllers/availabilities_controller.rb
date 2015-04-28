@@ -3,7 +3,7 @@ class AvailabilitiesController < ApplicationController
 	
 	def index
 		@availabilities = Availability.all
-		@shifts = Shift.all
+		@shifts = Shift.order(:shiftstart)
 		@flag = Flag.find_by_id(1)
 		Time.zone = "UTC"
 		#Time.zone = "America/Los_Angeles"
@@ -13,11 +13,6 @@ class AvailabilitiesController < ApplicationController
 		@date_start = @flag.flagstart.to_date
 		if !params[:newstart].nil?
 			@date_start = params[:newstart].to_date
-			#	session[:newstart] = @date_start + params[:newstart].to_f
-			#else
-			#	session[:newstart] = session[:newstart] + params[:newstart].to_f
-			#end
-			#@date_start += session[:newstart]
 		end
 		@next_seven = @date_start..(@date_start + 6)
 		@second_seven = (@date_start + 7)..(@date_start + 13)

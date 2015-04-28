@@ -1,8 +1,21 @@
 class ShiftsController < ApplicationController
   include Calendar
   def index
-    @shifts = Shift.all
+    @shifts = Shift.order(:shiftstart)
     @hours_per_person = show_hours_per_person
+    @flag = Flag.find_by_id(1)
+    Time.zone = "UTC"
+    #Time.zone = "America/Los_Angeles"
+    if ((Time.current - 7.hour).to_date - @flag.flagstart.to_date).to_i >= 14
+      @flag.update_attribute(:flagstart, (Time.current - Time.current.wday.day).to_date)
+    end
+    @date_start = @flag.flagstart.to_date
+    if !params[:newstart].nil?
+      @date_start = params[:newstart].to_date
+    end
+    @next_seven = @date_start..(@date_start + 6)
+    @second_seven = (@date_start + 7)..(@date_start + 13)
+    #recur(true)
   end
 
   def new
@@ -19,10 +32,6 @@ class ShiftsController < ApplicationController
   def create
     date = DateTime.new(params[:shift][:"date(1i)"].to_i, params[:shift][:"date(2i)"].to_i, params[:shift][:"date(3i)"].to_i, params[:shift][:hour].to_i, params[:shift][:min].to_i)
     @shift = Shift.create(:shiftstart => date, :shiftend => (date + params[:length][:length].to_i.hours).to_datetime)
-    #@shift = Shift.create!(params[:shift])
-    #offset = params[:length]
-    #new_shiftend = @shift.shiftstart + offset[:length].to_i.hours
-    #@shift.update_attribute(:shiftend, new_shiftend.to_datetime)
     flash[:notice] = "Shift was successfully created."
     dt_start = fix_timezone(@shift.shiftstart)
     dt_end = fix_timezone(@shift.shiftend)
@@ -96,5 +105,26 @@ class ShiftsController < ApplicationController
       else
         return (dt + 7.hours).to_datetime
       end
+  end
+
+  def recur(recurring)
+    @shift_template = IO.read("public/shift_template.json")
+    @shift_pattern = JSON.parse(@shift_template)
+    curSunday = Flag.find_by_id(1).flagstart
+    #recurDay = curSunday #+ 14.days
+    for i in 0..13
+      if !@shift_pattern[i].nil?
+        cur_pattern = @shift_pattern[i]
+        if @cur_pattern.nil?
+          for key in cur_pattern
+            recurDay = curSunday + i.day + key[1][0].hour + key[1][1].minute
+            dayend = recurDay + key[1][2].hours
+            Shift.create(:shiftstart => recurDay, :shiftend =>dayend)
+            #Not put into google calendar yet
+          end
+        end
+      end
+     # recurDay = recurDay + 1.day
+    end
   end
 end
