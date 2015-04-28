@@ -117,8 +117,18 @@ class ShiftsController < ApplicationController
             for key in cur_pattern
               recur_day = cur_sunday + counter.day + key[1][0].hour + key[1][1].minute
               day_end = recur_day + key[1][2].hours
-              Shift.create(:shiftstart => recur_day, :shiftend =>day_end)
-              Shift.create(:shiftstart => (recur_day + 1.week), :shiftend => (day_end + 1.week))
+              @shift_1 = Shift.create(:shiftstart => recur_day, :shiftend =>day_end)
+              dt_start_1 = fix_timezone(@shift_1.shiftstart)
+              dt_end_1 = fix_timezone(@shift_1.shiftend)
+              dt_doc_1 = @shift_1.owner
+              gcal_event_insert(0, dt_doc, "core", dt_start_1, dt_end_1, @shift_1.event_id)
+              @shift_1.update_attribute(:ingcal, true)
+              @shift_2 = Shift.create(:shiftstart => (recur_day + 1.week), :shiftend => (day_end + 1.week))
+              dt_start_2 = fix_timezone(@shift_2.shiftstart)
+              dt_end_2 = fix_timezone(@shift_2.shiftend)
+              dt_doc_2 = @shift_2.owner
+              gcal_event_insert(0, dt_doc2, "core", dt_start2, dt_end2, @shift_2.event_id)
+              @shift_2.update_attribute(:ingcal, true)
             end
           end
           counter += 1
