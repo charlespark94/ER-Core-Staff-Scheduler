@@ -75,7 +75,10 @@
         = date_select :shift, :shiftstart, :start_year => Date.today.year
         %br
         =label :time, :hour, 'Shift Start Time:'
-        = select :time, :hour, ['00', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23'], selected: @shift.shiftstart.hour.to_s
+        - hour = @shift.shiftstart.hour.to_i
+        - if hour < 10
+          - hour = "0#{hour}"
+        = select :time, :hour, ['00', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23'], selected: hour
         :plain
           :
         = select :time, :min, ['00', '15', '30', '45'], selected: @shift.shiftstart.min.to_s
