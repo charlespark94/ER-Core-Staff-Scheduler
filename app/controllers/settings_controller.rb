@@ -1,6 +1,6 @@
 class SettingsController < ApplicationController
   skip_before_filter :check_account_verified
-  def new
+  def index
     @user = User.find_by_id(session[:user_id])
   end
 

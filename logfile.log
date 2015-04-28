@@ -10695,3 +10695,625 @@ data:
   reminders:
     useDefault: true
 
+insert params are: {:calendarId=>"va.er.core.scheduler@gmail.com"}
+resulsts of inserting are: --- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: invalid
+      message: ! 'Invalid value for: Invalid format: "1" is too short'
+    code: 400
+    message: ! 'Invalid value for: Invalid format: "1" is too short'
+
+update params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>"1"}
+results of update are: --- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: invalid
+      message: ! 'Invalid value for: Invalid format: "1" is too short'
+    code: 400
+    message: ! 'Invalid value for: Invalid format: "1" is too short'
+
+delete params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>"1"}
+results of deleting are: ---
+error:
+  errors:
+  - domain: global
+    reason: notFound
+    message: Not Found
+  code: 404
+  message: Not Found
+
+delete params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>1}
+results of deleting are: ---
+error:
+  errors:
+  - domain: global
+    reason: notFound
+    message: Not Found
+  code: 404
+  message: Not Found
+
+update params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>1}
+results of update are: --- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: notFound
+      message: Not Found
+    code: 404
+    message: Not Found
+
+update params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>1}
+results of update are: --- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: notFound
+      message: Not Found
+    code: 404
+    message: Not Found
+
+insert params are: {:calendarId=>"va.er.core.scheduler@gmail.com"}
+resulsts of inserting are: --- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: invalid
+      message: ! 'Invalid value for: Invalid format: "1" is too short'
+    code: 400
+    message: ! 'Invalid value for: Invalid format: "1" is too short'
+
+update params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>"1"}
+results of update are: --- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: invalid
+      message: ! 'Invalid value for: Invalid format: "1" is too short'
+    code: 400
+    message: ! 'Invalid value for: Invalid format: "1" is too short'
+
+delete params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>"1"}
+results of deleting are: ---
+error:
+  errors:
+  - domain: global
+    reason: notFound
+    message: Not Found
+  code: 404
+  message: Not Found
+
+delete params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>1}
+results of deleting are: ---
+error:
+  errors:
+  - domain: global
+    reason: notFound
+    message: Not Found
+  code: 404
+  message: Not Found
+
+update params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>1}
+results of update are: --- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: notFound
+      message: Not Found
+    code: 404
+    message: Not Found
+
+update params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>1}
+results of update are: --- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: notFound
+      message: Not Found
+    code: 404
+    message: Not Found
+
+insert params are: {:calendarId=>"va.er.core.scheduler@gmail.com"}
+resulsts of inserting are: --- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: invalid
+      message: ! 'Invalid value for: Invalid format: "1" is too short'
+    code: 400
+    message: ! 'Invalid value for: Invalid format: "1" is too short'
+
+update params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>"1"}
+results of update are: --- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: invalid
+      message: ! 'Invalid value for: Invalid format: "1" is too short'
+    code: 400
+    message: ! 'Invalid value for: Invalid format: "1" is too short'
+
+delete params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>"1"}
+results of deleting are: ---
+error:
+  errors:
+  - domain: global
+    reason: notFound
+    message: Not Found
+  code: 404
+  message: Not Found
+
+delete params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>1}
+results of deleting are: ---
+error:
+  errors:
+  - domain: global
+    reason: notFound
+    message: Not Found
+  code: 404
+  message: Not Found
+
+update params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>1}
+results of update are: --- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: notFound
+      message: Not Found
+    code: 404
+    message: Not Found
+
+update params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>1}
+results of update are: --- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  error:
+    errors:
+    - domain: global
+      reason: notFound
+      message: Not Found
+    code: 404
+    message: Not Found
+
+insert params are: {:calendarId=>"va.er.core.scheduler@gmail.com"}
+resulsts of inserting are: --- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  kind: calendar#event
+  etag: ! '"2860377357090000"'
+  id: d036cb5c9c45
+  status: confirmed
+  htmlLink: https://www.google.com/calendar/event?eid=ZDAzNmNiNWM5YzQ1IHZhLmVyLmNvcmUuc2NoZWR1bGVyQG0
+  created: '2015-04-28T02:37:58.000Z'
+  updated: '2015-04-28T02:37:58.545Z'
+  summary: ! '***'
+  description: core
+  creator:
+    email: 1015162711729-4r5nn2ibft615vt22rh5npqarbpqoi27@developer.gserviceaccount.com
+  organizer:
+    email: va.er.core.scheduler@gmail.com
+    self: true
+  start:
+    dateTime: '2015-04-27T16:00:00-07:00'
+  end:
+    dateTime: '2015-04-27T16:00:00-07:00'
+  iCalUID: d036cb5c9c45@google.com
+  sequence: 0
+  extendedProperties:
+    private:
+      doctor_id: '0'
+  reminders:
+    useDefault: true
+
+delete params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>"d036cb5c9c45"}
+results of deleting are: --- 
+...
+
+insert params are: {:calendarId=>"va.er.core.scheduler@gmail.com"}
+resulsts of inserting are: --- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  kind: calendar#event
+  etag: ! '"2860377698724000"'
+  id: f7c20ad6963f
+  status: confirmed
+  htmlLink: https://www.google.com/calendar/event?eid=ZjdjMjBhZDY5NjNmIHZhLmVyLmNvcmUuc2NoZWR1bGVyQG0
+  created: '2015-04-28T02:40:49.000Z'
+  updated: '2015-04-28T02:40:49.362Z'
+  summary: ! '***'
+  description: core
+  creator:
+    email: 1015162711729-4r5nn2ibft615vt22rh5npqarbpqoi27@developer.gserviceaccount.com
+  organizer:
+    email: va.er.core.scheduler@gmail.com
+    self: true
+  start:
+    dateTime: '2015-04-27T16:00:00-07:00'
+  end:
+    dateTime: '2015-04-27T17:00:00-07:00'
+  iCalUID: f7c20ad6963f@google.com
+  sequence: 0
+  extendedProperties:
+    private:
+      doctor_id: '0'
+  reminders:
+    useDefault: true
+
+delete params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>"f7c20ad6963f"}
+results of deleting are: --- 
+...
+
+insert params are: {:calendarId=>"va.er.core.scheduler@gmail.com"}
+resulsts of inserting are: --- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  kind: calendar#event
+  etag: ! '"2860378078958000"'
+  id: 6c58a48db676
+  status: confirmed
+  htmlLink: https://www.google.com/calendar/event?eid=NmM1OGE0OGRiNjc2IHZhLmVyLmNvcmUuc2NoZWR1bGVyQG0
+  created: '2015-04-28T02:43:59.000Z'
+  updated: '2015-04-28T02:43:59.479Z'
+  summary: ! '***'
+  description: core
+  creator:
+    email: 1015162711729-4r5nn2ibft615vt22rh5npqarbpqoi27@developer.gserviceaccount.com
+  organizer:
+    email: va.er.core.scheduler@gmail.com
+    self: true
+  start:
+    dateTime: '2015-04-27T23:00:00-07:00'
+  end:
+    dateTime: '2015-04-28T00:00:00-07:00'
+  iCalUID: 6c58a48db676@google.com
+  sequence: 0
+  extendedProperties:
+    private:
+      doctor_id: '0'
+  reminders:
+    useDefault: true
+
+delete params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>"6c58a48db676"}
+results of deleting are: --- 
+...
+
+insert params are: {:calendarId=>"va.er.core.scheduler@gmail.com"}
+resulsts of inserting are: --- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  kind: calendar#event
+  etag: ! '"2860378148834000"'
+  id: 33e4351d0701
+  status: confirmed
+  htmlLink: https://www.google.com/calendar/event?eid=MzNlNDM1MWQwNzAxIHZhLmVyLmNvcmUuc2NoZWR1bGVyQG0
+  created: '2015-04-28T02:44:34.000Z'
+  updated: '2015-04-28T02:44:34.417Z'
+  summary: ! '***'
+  description: core
+  creator:
+    email: 1015162711729-4r5nn2ibft615vt22rh5npqarbpqoi27@developer.gserviceaccount.com
+  organizer:
+    email: va.er.core.scheduler@gmail.com
+    self: true
+  start:
+    dateTime: '2015-04-29T14:30:00-07:00'
+  end:
+    dateTime: '2015-04-29T15:30:00-07:00'
+  iCalUID: 33e4351d0701@google.com
+  sequence: 0
+  extendedProperties:
+    private:
+      doctor_id: '0'
+  reminders:
+    useDefault: true
+
+delete params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>"33e4351d0701"}
+results of deleting are: --- 
+...
+
+insert params are: {:calendarId=>"va.er.core.scheduler@gmail.com"}
+resulsts of inserting are: --- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  kind: calendar#event
+  etag: ! '"2860381254158000"'
+  id: 21e3c7e12834
+  status: confirmed
+  htmlLink: https://www.google.com/calendar/event?eid=MjFlM2M3ZTEyODM0IHZhLmVyLmNvcmUuc2NoZWR1bGVyQG0
+  created: '2015-04-28T03:10:26.000Z'
+  updated: '2015-04-28T03:10:27.079Z'
+  summary: ! '***'
+  description: core
+  creator:
+    email: 1015162711729-4r5nn2ibft615vt22rh5npqarbpqoi27@developer.gserviceaccount.com
+  organizer:
+    email: va.er.core.scheduler@gmail.com
+    self: true
+  start:
+    dateTime: '2015-04-28T19:00:00-07:00'
+  end:
+    dateTime: '2015-04-28T20:00:00-07:00'
+  iCalUID: 21e3c7e12834@google.com
+  sequence: 0
+  extendedProperties:
+    private:
+      doctor_id: '0'
+  reminders:
+    useDefault: true
+
+update params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>"21e3c7e12834"}
+results of update are: --- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  kind: calendar#event
+  etag: ! '"2860382866630000"'
+  id: 21e3c7e12834
+  status: confirmed
+  htmlLink: https://www.google.com/calendar/event?eid=MjFlM2M3ZTEyODM0IHZhLmVyLmNvcmUuc2NoZWR1bGVyQG0
+  created: '2015-04-28T03:10:26.000Z'
+  updated: '2015-04-28T03:23:53.315Z'
+  summary: ! '***'
+  description: core
+  creator:
+    email: 1015162711729-4r5nn2ibft615vt22rh5npqarbpqoi27@developer.gserviceaccount.com
+  organizer:
+    email: va.er.core.scheduler@gmail.com
+    self: true
+  start:
+    dateTime: '2015-04-27T23:00:00-07:00'
+  end:
+    dateTime: '2015-04-28T20:00:00-07:00'
+  iCalUID: 21e3c7e12834@google.com
+  sequence: 1
+  extendedProperties:
+    private:
+      doctor_id: '0'
+  reminders:
+    useDefault: true
+
+update params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>"21e3c7e12834"}
+results of update are: --- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  kind: calendar#event
+  etag: ! '"2860382882838000"'
+  id: 21e3c7e12834
+  status: confirmed
+  htmlLink: https://www.google.com/calendar/event?eid=MjFlM2M3ZTEyODM0IHZhLmVyLmNvcmUuc2NoZWR1bGVyQG0
+  created: '2015-04-28T03:10:26.000Z'
+  updated: '2015-04-28T03:24:01.419Z'
+  summary: Charles
+  description: core
+  creator:
+    email: 1015162711729-4r5nn2ibft615vt22rh5npqarbpqoi27@developer.gserviceaccount.com
+  organizer:
+    email: va.er.core.scheduler@gmail.com
+    self: true
+  start:
+    dateTime: '2015-04-27T23:00:00-07:00'
+  end:
+    dateTime: '2015-04-28T20:00:00-07:00'
+  iCalUID: 21e3c7e12834@google.com
+  sequence: 1
+  extendedProperties:
+    private:
+      doctor_id: '1'
+  reminders:
+    useDefault: true
+
+update params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>"21e3c7e12834"}
+results of update are: --- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  kind: calendar#event
+  etag: ! '"2860382900296000"'
+  id: 21e3c7e12834
+  status: confirmed
+  htmlLink: https://www.google.com/calendar/event?eid=MjFlM2M3ZTEyODM0IHZhLmVyLmNvcmUuc2NoZWR1bGVyQG0
+  created: '2015-04-28T03:10:26.000Z'
+  updated: '2015-04-28T03:24:10.148Z'
+  summary: ! '***'
+  description: core
+  creator:
+    email: 1015162711729-4r5nn2ibft615vt22rh5npqarbpqoi27@developer.gserviceaccount.com
+  organizer:
+    email: va.er.core.scheduler@gmail.com
+    self: true
+  start:
+    dateTime: '2015-04-27T23:00:00-07:00'
+  end:
+    dateTime: '2015-04-28T20:00:00-07:00'
+  iCalUID: 21e3c7e12834@google.com
+  sequence: 1
+  extendedProperties:
+    private:
+      doctor_id: '0'
+  reminders:
+    useDefault: true
+
+update params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>"21e3c7e12834"}
+results of update are: --- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  kind: calendar#event
+  etag: ! '"2860382900296000"'
+  id: 21e3c7e12834
+  status: confirmed
+  htmlLink: https://www.google.com/calendar/event?eid=MjFlM2M3ZTEyODM0IHZhLmVyLmNvcmUuc2NoZWR1bGVyQG0
+  created: '2015-04-28T03:10:26.000Z'
+  updated: '2015-04-28T03:24:10.148Z'
+  summary: ! '***'
+  description: core
+  creator:
+    email: 1015162711729-4r5nn2ibft615vt22rh5npqarbpqoi27@developer.gserviceaccount.com
+  organizer:
+    email: va.er.core.scheduler@gmail.com
+    self: true
+  start:
+    dateTime: '2015-04-27T23:00:00-07:00'
+  end:
+    dateTime: '2015-04-28T20:00:00-07:00'
+  iCalUID: 21e3c7e12834@google.com
+  sequence: 1
+  extendedProperties:
+    private:
+      doctor_id: '0'
+  reminders:
+    useDefault: true
+
+update params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>"21e3c7e12834"}
+results of update are: --- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  kind: calendar#event
+  etag: ! '"2860382900296000"'
+  id: 21e3c7e12834
+  status: confirmed
+  htmlLink: https://www.google.com/calendar/event?eid=MjFlM2M3ZTEyODM0IHZhLmVyLmNvcmUuc2NoZWR1bGVyQG0
+  created: '2015-04-28T03:10:26.000Z'
+  updated: '2015-04-28T03:24:10.148Z'
+  summary: ! '***'
+  description: core
+  creator:
+    email: 1015162711729-4r5nn2ibft615vt22rh5npqarbpqoi27@developer.gserviceaccount.com
+  organizer:
+    email: va.er.core.scheduler@gmail.com
+    self: true
+  start:
+    dateTime: '2015-04-27T23:00:00-07:00'
+  end:
+    dateTime: '2015-04-28T20:00:00-07:00'
+  iCalUID: 21e3c7e12834@google.com
+  sequence: 1
+  extendedProperties:
+    private:
+      doctor_id: '0'
+  reminders:
+    useDefault: true
+
+delete params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>"21e3c7e12834"}
+results of deleting are: --- 
+...
+
+insert params are: {:calendarId=>"va.er.core.scheduler@gmail.com"}
+resulsts of inserting are: --- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  kind: calendar#event
+  etag: ! '"2860383470118000"'
+  id: f29d37dcd53c
+  status: confirmed
+  htmlLink: https://www.google.com/calendar/event?eid=ZjI5ZDM3ZGNkNTNjIHZhLmVyLmNvcmUuc2NoZWR1bGVyQG0
+  created: '2015-04-28T03:28:54.000Z'
+  updated: '2015-04-28T03:28:55.059Z'
+  summary: ! '***'
+  description: core
+  creator:
+    email: 1015162711729-4r5nn2ibft615vt22rh5npqarbpqoi27@developer.gserviceaccount.com
+  organizer:
+    email: va.er.core.scheduler@gmail.com
+    self: true
+  start:
+    dateTime: '2015-04-28T19:00:00-07:00'
+  end:
+    dateTime: '2015-04-28T20:00:00-07:00'
+  iCalUID: f29d37dcd53c@google.com
+  sequence: 0
+  extendedProperties:
+    private:
+      doctor_id: '0'
+  reminders:
+    useDefault: true
+
+update params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>"f29d37dcd53c"}
+results of update are: --- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  kind: calendar#event
+  etag: ! '"2860383683616000"'
+  id: f29d37dcd53c
+  status: confirmed
+  htmlLink: https://www.google.com/calendar/event?eid=ZjI5ZDM3ZGNkNTNjIHZhLmVyLmNvcmUuc2NoZWR1bGVyQG0
+  created: '2015-04-28T03:28:54.000Z'
+  updated: '2015-04-28T03:30:41.808Z'
+  summary: ! '***'
+  description: core
+  creator:
+    email: 1015162711729-4r5nn2ibft615vt22rh5npqarbpqoi27@developer.gserviceaccount.com
+  organizer:
+    email: va.er.core.scheduler@gmail.com
+    self: true
+  start:
+    dateTime: '2015-04-27T23:00:00-07:00'
+  end:
+    dateTime: '2015-04-28T20:00:00-07:00'
+  iCalUID: f29d37dcd53c@google.com
+  sequence: 1
+  extendedProperties:
+    private:
+      doctor_id: '0'
+  reminders:
+    useDefault: true
+
+update params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>"f29d37dcd53c"}
+results of update are: --- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  kind: calendar#event
+  etag: ! '"2860384302028000"'
+  id: f29d37dcd53c
+  status: confirmed
+  htmlLink: https://www.google.com/calendar/event?eid=ZjI5ZDM3ZGNkNTNjIHZhLmVyLmNvcmUuc2NoZWR1bGVyQG0
+  created: '2015-04-28T03:28:54.000Z'
+  updated: '2015-04-28T03:35:51.014Z'
+  summary: ! '***'
+  description: core
+  creator:
+    email: 1015162711729-4r5nn2ibft615vt22rh5npqarbpqoi27@developer.gserviceaccount.com
+  organizer:
+    email: va.er.core.scheduler@gmail.com
+    self: true
+  start:
+    dateTime: '2015-04-28T19:00:00-07:00'
+  end:
+    dateTime: '2015-04-28T20:00:00-07:00'
+  iCalUID: f29d37dcd53c@google.com
+  sequence: 2
+  extendedProperties:
+    private:
+      doctor_id: '0'
+  reminders:
+    useDefault: true
+
+update params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>"f29d37dcd53c"}
+results of update are: --- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  kind: calendar#event
+  etag: ! '"2860384351396000"'
+  id: f29d37dcd53c
+  status: confirmed
+  htmlLink: https://www.google.com/calendar/event?eid=ZjI5ZDM3ZGNkNTNjIHZhLmVyLmNvcmUuc2NoZWR1bGVyQG0
+  created: '2015-04-28T03:28:54.000Z'
+  updated: '2015-04-28T03:36:15.698Z'
+  summary: ! '***'
+  description: core
+  creator:
+    email: 1015162711729-4r5nn2ibft615vt22rh5npqarbpqoi27@developer.gserviceaccount.com
+  organizer:
+    email: va.er.core.scheduler@gmail.com
+    self: true
+  start:
+    dateTime: '2015-04-28T17:00:00-07:00'
+  end:
+    dateTime: '2015-04-28T18:00:00-07:00'
+  iCalUID: f29d37dcd53c@google.com
+  sequence: 3
+  extendedProperties:
+    private:
+      doctor_id: '0'
+  reminders:
+    useDefault: true
+
+delete params are: {:calendarId=>"va.er.core.scheduler@gmail.com", :eventId=>"f29d37dcd53c"}
+results of deleting are: --- 
+...
+

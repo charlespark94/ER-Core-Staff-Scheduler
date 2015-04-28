@@ -14,7 +14,12 @@
         %li
           %a.button.btn.btn-default.btn-lg.btn-link{title: "Log Out", type: "button", href: "/logout"}
             %span.glyphicon.glyphicon-off
-      
+
+:css
+  label {
+    width: 120px;
+  }
+    
 %div#wrapper
   %div#sidebar-wrapper
     %ul.sidebar-nav
@@ -36,45 +41,57 @@
 
       %ul#details
         %li
-          Start Time: 
-          = @shift.shiftstart
+          %b Shift Start Time: 
+          = @shift.shiftstart.strftime("%m/%d/%Y at %H:%M")
+          /= "#{@shift.shiftstart.month}/#{@shift.shiftstart.day}/#{@shift.shiftstart.year} at #{@shift.shiftstart.hour}:#{@shift.shiftstart.min}"
         %li
-          End Time:
-          = @shift.shiftend
-          
+          %b Shift Duration:
+          = ((@shift.shiftend - @shift.shiftstart) / 1.hours).round
+          :plain
+            hour(s)
         %li
-          Available People:
-          - if !@shift.users.nil?
+          %b Available Doctors:
+          - if @shift.users != []
             = @shift.users.where(id: @shift.availabilities.select(:user_id).where(shift_id: @shift.id, availability: 2)).pluck(:last_name)
+          - else
+            No Available Doctors
 
         %li
-          Possible Users:
-          - if !@shift.possible_users.nil?
+          %b Possibly Available Doctors:
+          - if @shift.possible_users != " "
             = @shift.users.where(id: @shift.availabilities.select(:user_id).where(shift_id: @shift.id, availability: 1)).pluck(:last_name)
-        
+          - else
+            No Possibly Available Doctors
+
         %li
-          Shift Assigned To:
+          %b Shift Assigned To:
           =@shift.owner
       = button_to 'Delete', shift_path(@shift), :method => :delete, :confirm => 'Are you sure?'
       %br
 
       = form_tag shift_path(@shift), :method => :put do
 
-        = label :shift, :shiftstart, 'Start'
-        = datetime_select :shift, :shiftstart
+        = label :shift, :shiftstart, 'Shift Start Date:'
+        = date_select :shift, :shiftstart, :start_year => Date.today.year
         %br
-        = label :shift, :shiftend, 'End'
-        = datetime_select :shift, :shiftend
+        =label :time, :hour, 'Shift Start Time:'
+        = select :time, :hour, ['00', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23'], selected: @shift.shiftstart.hour.to_s
+        :plain
+          :
+        = select :time, :min, ['00', '15', '30', '45'], selected: @shift.shiftstart.min.to_s
+        %br
+        = label :shift, :shiftend, 'Duration of Shift:'
+        = select :length, :length, [1, 2, 4, 6, 8, 12], selected: ((@shift.shiftend - @shift.shiftstart)/1.hour).round
         %br
 
-        - if @shift.users != [] || @shift.possible_users != [] 
-          = label :shift, :owner, 'Assign Person'
+        - if @shift.users != [] || @shift.possible_users != " " 
+          = label :shift, :owner, 'Assign Doctor:'
           - @temp1 = @shift.users.where(id: @shift.availabilities.select(:user_id).where(shift_id: @shift.id, availability: 2))
           - @temp2 = @shift.users.where(id: @shift.availabilities.select(:user_id).where(shift_id: @shift.id, availability: 1))
           - @temp3 = @temp1 | @temp2
           = select("shift", "owner", @temp3.map  {|num| [User.find_by_id(num).first_name]}, {include_blank: true})
         - else
-          No Available Doctors to Assign for This Shift
+          %b No Available Doctors to Assign for This Shift
           
 
 

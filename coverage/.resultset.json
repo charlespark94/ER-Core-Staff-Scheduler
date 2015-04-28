@@ -10,8 +10,8 @@
         1,
         null,
         1,
-        38,
-        38,
+        39,
+        39,
         null,
         null,
         1,
@@ -24,7 +24,7 @@
         null,
         null,
         1,
-        16,
+        17,
         2,
         null,
         null,
@@ -43,6 +43,10 @@
         null
       ],
       "/home/saasbook/Project/ER-Core-Staff-Scheduler/app/helpers/password_resets_helper.rb": [
+        1,
+        null
+      ],
+      "/home/saasbook/Project/ER-Core-Staff-Scheduler/app/helpers/settings_helper.rb": [
         1,
         null
       ],
@@ -422,6 +426,32 @@
         null,
         null
       ],
+      "/home/saasbook/Project/ER-Core-Staff-Scheduler/app/controllers/settings_controller.rb": [
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        null,
+        0,
+        0,
+        0,
+        null,
+        null
+      ],
       "/home/saasbook/Project/ER-Core-Staff-Scheduler/app/controllers/shifts_controller.rb": [
         1,
         1,
@@ -561,7 +591,7 @@
         1,
         null,
         1,
-        39,
+        40,
         1,
         null,
         1,
@@ -580,7 +610,7 @@
         null,
         null,
         1,
-        46,
+        47,
         null,
         null,
         1,
@@ -596,8 +626,8 @@
         null,
         1,
         null,
-        40,
-        40,
+        41,
+        41,
         null,
         null,
         1,
@@ -660,6 +690,6 @@
         null
       ]
     },
-    "timestamp": 1430019312
+    "timestamp": 1430184064
   }
 }

@@ -29,6 +29,8 @@ module NavigationHelpers
       multiply_path
     when /^verified$/
       "/verified.1"
+    when /^settings$/
+      edit_setting_path(User.find_by_id(1))
     else
       begin
         page_name =~ /^the (.*) page$/

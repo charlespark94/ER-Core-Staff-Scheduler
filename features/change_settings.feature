@@ -4,19 +4,29 @@ Feature: Change account information
 	I would like to be able to change my settings
 
 Background:
-	Given I am logged in
-	And I am on the settings page
+	Given 'admin' has been added to the database
+	Given I am logged in as 'admin' with password 'admin'
+	Given that I am on the verified page
+	Then I should see "The account has been verified and added to the application"
+	Given that I am on the settings page
 
 Scenario: user can change password
-	Given I fill in current password with "password"
-	And I fill in new password with "new"
-	And I press 'Update'
-	Then if I logout
-	And login with "new"
-	Then I should see the home page
+	Given I fill in "user_password" with "test"
+	And I fill in "user_password_confirmation" with "test"
+	When I press "update_submit"
+	And I go to the logout page
+	And I fill in "username" with "admin"
+	And I fill in "password" with "test"
+	Then I should be redirected to the home page
 
 Scenario: user can change FTE
-	Given I change FTE to 1.0
-	And I press 'Update'
+	Given I fill in "user_fte" with "0.9"
+	When I press "update_submit"
 	When I go to the home page
-	Then I should see "FTE of 1.0"
+	Then I should see "FTE of 0.9"
+
+Scenario: user inputs wrong password confirmation
+	Given I fill in "user_password" with "test"
+	And I fill in "user_password_confirmation" with "testnot"
+	When I press "update_submit"
+	Then I should be redirected to the settings page
