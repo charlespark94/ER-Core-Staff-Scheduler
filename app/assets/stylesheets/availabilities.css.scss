@@ -7,7 +7,12 @@ td {
 	text-align: center;
 	padding-left: 5px;
 	padding-right: 5px;
-	width: 10%
+	width: 10%;
+	text-align: left;
+}
+
+tr.shift {
+	border-bottom: 1px solid lightgray
 }
 
 th {

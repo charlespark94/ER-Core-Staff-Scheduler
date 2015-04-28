@@ -79,11 +79,6 @@
 			/ 					%td= shift.ingcal
 			= link_to 'Add new shift', new_shift_path
 
-			:css
-				tr {
-					height: 5px;
-					vertical-align: top;
-				}
 			%br
 			%br
 			:plain
@@ -106,7 +101,7 @@
 										- @shifts.sort.each do |shift|
 											- if shift.shiftstart.to_s[5..6] == day.to_s[5..6] && shift.shiftstart.to_s[8..9] == day.to_s[8..9]
 												- if shift.users || shift.possible_users
-													%tr
+													%tr.shift
 														%td= "#{shift.shiftstart.to_s[11..15]} to #{shift.shiftend.to_s[11..15]}"
 														%td Assigned doctor: "#{shift.owner}"
 														%td= link_to 'edit', edit_shift_path(shift)
@@ -122,7 +117,7 @@
 										- @shifts.each do |shift|
 											- if shift.shiftstart.to_s[5..6] == day.to_s[5..6] && shift.shiftstart.to_s[8..9] == day.to_s[8..9]
 												- if shift.users || shift.possible_users
-													%tr
+													%tr.shift
 														%td= "#{shift.shiftstart.to_s[11..15]} to #{shift.shiftend.to_s[11..15]}"
 														%td Assigned doctor: "#{shift.owner}"
 														%td= link_to 'edit', edit_shift_path(shift)

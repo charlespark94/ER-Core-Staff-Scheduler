@@ -52,7 +52,7 @@
 									%table
 										- @shifts.each do |shift|
 											- if shift.shiftstart.to_s[5..6] == day.to_s[5..6] && shift.shiftstart.to_s[8..9] == day.to_s[8..9]
-												%tr
+												%tr.shift
 													- if shift.shiftend.to_s[8..9].to_s == day.to_s[8..9]
 														%td= "#{shift.shiftstart.to_s[11..15]} to #{shift.shiftend.to_s[11..15]}"
 													- else
@@ -94,7 +94,7 @@
 									%table
 										- @shifts.each do |shift|
 											- if shift.shiftstart.to_s[5..6] == day.to_s[5..6] && shift.shiftstart.to_s[8..9] == day.to_s[8..9]
-												%tr
+												%tr.shift
 													- if shift.shiftend.to_s[8..9].to_s == day.to_s[8..9]
 														%td= "#{shift.shiftstart.to_s[11..15]} to #{shift.shiftend.to_s[11..15]}"
 													- else
@@ -185,7 +185,7 @@
 									- @shifts.each do |shift|
 										- if shift.shiftstart.to_s[5..6] == day.to_s[5..6] && shift.shiftstart.to_s[8..9] == day.to_s[8..9]
 											- if shift.users || shift.possible_users
-												%tr
+												%tr.shift
 													-availability = Availability.where(user_id: session[:user_id], shift_id: shift.id).first
 													- if !availability.nil? && availability.availability != 0
 														- if shift.shiftend.to_s[8..9].to_s == day.to_s[8..9]
@@ -205,7 +205,7 @@
 									- @shifts.each do |shift|
 										- if shift.shiftstart.to_s[5..6] == day.to_s[5..6] && shift.shiftstart.to_s[8..9] == day.to_s[8..9]
 											- if shift.users || shift.possible_users
-												%tr
+												%tr.avail
 													-availability = Availability.where(user_id: session[:user_id], shift_id: shift.id).first
 													- if !availability.nil? && availability.availability != 0
 														- if shift.shiftend.to_s[8..9].to_s == day.to_s[8..9]

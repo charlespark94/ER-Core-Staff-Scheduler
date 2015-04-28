@@ -35,7 +35,7 @@
 
 			= form_tag shifts_path do
 				= label :shift, :date, 'Shift Start Date:'
-				= date_select :shift, :date, :start_year => Time.now.year
+				= date_select :shift, :date, :start_year => Time.now.year, :default => -7.hour.from_now
 				%br
 				=label :shift, :time, 'Shift Start Time:'
 				- hour = Time.now.hour.to_i
