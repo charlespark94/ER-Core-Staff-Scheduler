@@ -12,6 +12,7 @@
 					%a.button.btn.btn-default.btn-lg.btn-link{title: "Account Settings", type: "button", href: "/settings"}
 						%span.glyphicon.glyphicon-cog
 				%li
+					/%a.title{:href => logout_path} Log Out
 					%a.button.btn.btn-default.btn-lg.btn-link{title: "Log Out", type: "button", href: "/logout"}
 						%span.glyphicon.glyphicon-off
 			
@@ -36,7 +37,7 @@
 			= (@date_start.strftime("%U")).to_i/2
 			%br
 			= link_to '<<', availabilities_path(:newstart => @date_start - 14.to_f)
-			= "#{@date_start.strftime("%B")}, #{@date_start.day} to #{(@date_start + 13.to_f).strftime("%B")}, #{(@date_start + 13.to_f).day}"
+			= "#{@date_start.strftime("%B")} #{@date_start.day} to #{(@date_start + 13.to_f).strftime("%B")} #{(@date_start + 13.to_f).day}"
 			= link_to '>>', availabilities_path(:newstart => @date_start + 14.to_f)
 
 			= form_tag 'update_availabilities', :method => :get do
