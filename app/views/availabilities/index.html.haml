@@ -32,9 +32,9 @@
 		%div.container-fluid 
 			%h2 Set Your Preference
 
-			= link_to '<<', availabilities_path(:newstart => -14)
-			= "#{Date.today.strftime("%B")}, #{Date.today.day}"
-			= link_to '>>', availabilities_path(:newstart => 14)
+			= link_to '<<', availabilities_path(:newstart => @date_start - 14.to_f)
+			= "#{@date_start.strftime("%B")}, #{@date_start.day} to #{(@date_start + 13.to_f).strftime("%B")}, #{(@date_start + 13.to_f).day}"
+			= link_to '>>', availabilities_path(:newstart => @date_start + 14.to_f)
 
 			= form_tag 'update_availabilities', :method => :get do
 				%table.table

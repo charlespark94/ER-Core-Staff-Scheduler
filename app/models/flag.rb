@@ -1,3 +1,3 @@
 class Flag < ActiveRecord::Base
-  # attr_accessible :title, :body
+  attr_accessible :flagstart, :recurring
 end

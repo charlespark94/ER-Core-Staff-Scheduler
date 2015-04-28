@@ -11507,3 +11507,32 @@ data:
   reminders:
     useDefault: true
 
+insert params are: {:calendarId=>"va.er.core.scheduler@gmail.com"}
+resulsts of inserting are: --- !ruby/object:Google::APIClient::Schema::Calendar::V3::Event
+data:
+  kind: calendar#event
+  etag: ! '"2860399618274000"'
+  id: f88f74453f0a
+  status: confirmed
+  htmlLink: https://www.google.com/calendar/event?eid=Zjg4Zjc0NDUzZjBhIHZhLmVyLmNvcmUuc2NoZWR1bGVyQG0
+  created: '2015-04-28T05:43:28.000Z'
+  updated: '2015-04-28T05:43:29.137Z'
+  summary: ! '***'
+  description: core
+  creator:
+    email: 1015162711729-4r5nn2ibft615vt22rh5npqarbpqoi27@developer.gserviceaccount.com
+  organizer:
+    email: va.er.core.scheduler@gmail.com
+    self: true
+  start:
+    dateTime: '2015-04-28T21:00:00-07:00'
+  end:
+    dateTime: '2015-04-28T22:00:00-07:00'
+  iCalUID: f88f74453f0a@google.com
+  sequence: 0
+  extendedProperties:
+    private:
+      doctor_id: '0'
+  reminders:
+    useDefault: true
+

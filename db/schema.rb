@@ -11,12 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150330174649) do
+ActiveRecord::Schema.define(:version => 20150428053303) do
 
   create_table "availabilities", :force => true do |t|
     t.integer "user_id"
     t.integer "shift_id"
     t.integer "availability"
+  end
+
+  create_table "flags", :force => true do |t|
+    t.datetime "flagstart"
+    t.boolean  "recurring"
   end
 
   create_table "shifts", :force => true do |t|
