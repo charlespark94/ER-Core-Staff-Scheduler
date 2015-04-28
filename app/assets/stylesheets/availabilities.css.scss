@@ -2,11 +2,20 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-td, th {
+td {
 	vertical-align: top;
 	text-align: center;
 	padding-left: 5px;
 	padding-right: 5px;
+	width: 10%
+}
+
+th {
+	text-align: center;
+}
+
+tr {
+	
 }
 div#green {
 	width: 20px;

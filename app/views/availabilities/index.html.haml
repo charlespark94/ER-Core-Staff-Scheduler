@@ -31,7 +31,10 @@
 	%div#page-content-wrapper
 		%div.container-fluid 
 			%h2 Set Your Preference
-
+			:plain
+				Pay Period
+			= (@date_start.strftime("%U")).to_i/2
+			%br
 			= link_to '<<', availabilities_path(:newstart => @date_start - 14.to_f)
 			= "#{@date_start.strftime("%B")}, #{@date_start.day} to #{(@date_start + 13.to_f).strftime("%B")}, #{(@date_start + 13.to_f).day}"
 			= link_to '>>', availabilities_path(:newstart => @date_start + 14.to_f)
@@ -169,22 +172,62 @@
 			%div.content-separator
 			%h2 Your Availabilities
 
-			= week_calendar number_of_weeks: 2 do |date|
-				%table.table
-					%thead
-						%tr
-							%th= "#{date.month}/#{date.day}"
-						%tbody
-							- @shifts.each do |shift|
-								- if shift.shiftstart.to_s[5..6] == date.to_s[5..6] && shift.shiftstart.to_s[8..9] == date.to_s[8..9]
-									- if shift.users || shift.possible_users
-										%tr
-											-availability = Availability.where(user_id: session[:user_id], shift_id: shift.id).first
-											- if !availability.nil? && availability.availability != 0
-												- if shift.shiftend.to_s[8..9].to_s == date.to_s[8..9]
-													%td= "#{shift.shiftstart.to_s[11..15]} to #{shift.shiftend.to_s[11..15]}"
-												- else
-													%td= "#{shift.shiftstart.to_s[11..15]} to #{shift.shiftend.to_s[11..15]}+"
+			%table.table
+				%thead
+					- @next_seven.each do |day|
+						%th= "#{day.to_time.strftime("%A")} #{day.month}/#{day.day}"
+				%tbody
+					%tr
+						- @next_seven.each do |day|
+							%td
+								%table
+									- @shifts.each do |shift|
+										- if shift.shiftstart.to_s[5..6] == day.to_s[5..6] && shift.shiftstart.to_s[8..9] == day.to_s[8..9]
+											- if shift.users || shift.possible_users
+												%tr
+													-availability = Availability.where(user_id: session[:user_id], shift_id: shift.id).first
+													- if !availability.nil? && availability.availability != 0
+														- if shift.shiftend.to_s[8..9].to_s == day.to_s[8..9]
+															%td= "#{shift.shiftstart.to_s[11..15]} to #{shift.shiftend.to_s[11..15]}"
+														- else
+															%td= "#{shift.shiftstart.to_s[11..15]} to #{shift.shiftend.to_s[11..15]}+"
+
+			%table.table
+				%thead
+					- @second_seven.each do |day|
+						%th= "#{day.to_time.strftime("%A")} #{day.month}/#{day.day}"
+				%tbody
+					%tr
+						- @second_seven.each do |day|
+							%td
+								%table
+									- @shifts.each do |shift|
+										- if shift.shiftstart.to_s[5..6] == day.to_s[5..6] && shift.shiftstart.to_s[8..9] == day.to_s[8..9]
+											- if shift.users || shift.possible_users
+												%tr
+													-availability = Availability.where(user_id: session[:user_id], shift_id: shift.id).first
+													- if !availability.nil? && availability.availability != 0
+														- if shift.shiftend.to_s[8..9].to_s == day.to_s[8..9]
+															%td= "#{shift.shiftstart.to_s[11..15]} to #{shift.shiftend.to_s[11..15]}"
+														- else
+															%td= "#{shift.shiftstart.to_s[11..15]} to #{shift.shiftend.to_s[11..15]}+"
+
+			/ = week_calendar number_of_weeks: 2 do |date|
+			/ 	%table.table
+			/ 		%thead
+			/ 			%tr
+			/ 				%th= "#{date.month}/#{date.day}"
+			/ 			%tbody
+			/ 				- @shifts.each do |shift|
+			/ 					- if shift.shiftstart.to_s[5..6] == date.to_s[5..6] && shift.shiftstart.to_s[8..9] == date.to_s[8..9]
+			/ 						- if shift.users || shift.possible_users
+			/ 							%tr
+			/ 								-availability = Availability.where(user_id: session[:user_id], shift_id: shift.id).first
+			/ 								- if !availability.nil? && availability.availability != 0
+			/ 									- if shift.shiftend.to_s[8..9].to_s == date.to_s[8..9]
+			/ 										%td= "#{shift.shiftstart.to_s[11..15]} to #{shift.shiftend.to_s[11..15]}"
+			/ 									- else
+			/ 										%td= "#{shift.shiftstart.to_s[11..15]} to #{shift.shiftend.to_s[11..15]}+"
 
 			/ %h2 these are all the shifts currently in the shifts table
 

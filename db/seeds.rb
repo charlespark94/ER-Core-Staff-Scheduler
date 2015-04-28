@@ -17,4 +17,8 @@ SHIFTS = [
 #  Shift.create!(shift)
 #end
 
-Flag.create!({:flagstart => DateTime.strptime("04/26/2015 00:00", "%m/%d/%Y %H:%M"), :recurring => false})
+if Flag.find_by_id(1)
+	Flag.find_by_id(1).update_attribute(:flagstart, DateTime.strptime("04/19/2015 00:00", "%m/%d/%Y %H:%M"))
+else
+	Flag.create!({:flagstart => DateTime.strptime("04/19/2015 00:00", "%m/%d/%Y %H:%M"), :recurring => false})
+end
