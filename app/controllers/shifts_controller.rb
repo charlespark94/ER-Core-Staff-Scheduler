@@ -7,9 +7,6 @@ class ShiftsController < ApplicationController
     @flag = Flag.find_by_id(1)
     Time.zone = "UTC"
     #Time.zone = "America/Los_Angeles"
-    if ((Time.current - 7.hour).to_date - @flag.flagstart.to_date).to_i >= 14
-      @flag.update_attribute(:flagstart, (Time.current - Time.current.wday.day).to_date)
-    end
     @date_start = @flag.flagstart.to_date
     if !params[:newstart].nil?
       @date_start = params[:newstart].to_date
@@ -109,7 +106,7 @@ class ShiftsController < ApplicationController
 
   def recur
     @flag = Flag.find_by_id(1)
-    if ((Time.current - 7.hours).to_date - @flag.flagstart.to_date).to_i == 14
+    if ((Time.current - 7.hours).to_date - @flag.flagstart.to_date).to_i >= 14
       if @flag.recurring
         @shift_template = IO.read("public/shift_template.json")
         @shift_pattern = JSON.parse(@shift_template)
@@ -127,6 +124,7 @@ class ShiftsController < ApplicationController
           counter += 1
         end
         @flag.update_attribute(:recurring, false)
+        @flag.update_attribute(:flagstart, (Time.current - Time.current.wday.day).to_date)
       end
     else
       @flag.update_attribute(:recurring, true) if !@flag.recurring
