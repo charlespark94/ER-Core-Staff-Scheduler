@@ -5,8 +5,7 @@
 				%p#notice= notice
 				%p#alert= alert
 				%h2.beforehome-title Please enter the email address associated with your account
-				= form_tag password_resets_path, :method => :post do
+				= form_tag(password_resets_path, class: 'signin') do
 					.field
-						= label_tag :email
-						= text_field_tag :email, params[:email]
-					.actions= submit_tag "Reset Password", :id => "forgot_submit"
+						= text_field_tag :email, params[:email], class: 'form-control', placeholder: 'Email'
+					%button.btn-login.btn-lg.btn-pprimary.btn-block.btn-signin{:type=>"submit"} Reset Password

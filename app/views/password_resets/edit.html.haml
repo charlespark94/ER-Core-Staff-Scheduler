@@ -9,10 +9,14 @@
               %ul
                 - for message in @user.errors.full_messages
                   %li= message
-          .field
-            = f.label :password
-            = f.password_field :password
-          .field
-            = f.label :password_confirmation
-            = f.password_field :password_confirmation
-          .actions= f.submit "Update Password"
+          = f.password_field :password, class: 'form-control', placeholder: "Password"
+          = f.password_field :password_confirmation, class: 'form-control', placeholder: "Password Confirmation"
+          %button.btn-login.btn-lg.btn-pprimary.btn-block.btn-signin{:type=>"submit"} Update Password
+          / These following lines worked in place of the three lines above
+          / .field
+          /   = f.label :password
+          /   = f.password_field :password
+          / .field
+          /   = f.label :password_confirmation
+          /   = f.password_field :password_confirmation
+          / .actions= f.submit "Update Password"
