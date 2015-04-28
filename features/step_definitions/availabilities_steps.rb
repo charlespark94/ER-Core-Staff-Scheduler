@@ -4,6 +4,12 @@ Given /the following shifts exist/ do |shifts_table|
   end
 end
 
+Given /the following flag exist/ do |flag_table|
+  flag_table.hashes.each do |flag|
+    Flag.create(flag)
+  end
+end
+
 When /^(?:|I )choose "([^"]*)" of shift: (.*)/ do |field, shifts|
   shifts.split(',').each do |shift|
     choose("#{shift}_#{field}")

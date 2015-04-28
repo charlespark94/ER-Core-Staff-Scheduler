@@ -16,6 +16,9 @@ Background:
   | 2015-03-08 19:00:00 UTC    | 2015-03-09 07:00:00 UTC |      
   | 2015-03-09 07:00:00 UTC    | 2015-03-09 19:00:00 UTC |    
   | 2015-03-09 10:00:00 UTC    | 2015-03-09 18:00:00 UTC |
+  And the following flag exist:
+  | flagstart                  | recurring   |
+  | 2015-04-26 00:00:00 UTC    | true        |
 
 Scenario: Add shift for all doctors to see in their availability
   Given that I am on the shift index page

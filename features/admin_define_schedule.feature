@@ -9,6 +9,9 @@ Background:
   Given I am logged in as 'admin' with password 'admin'
   Given that I am on the verified page
   Then I should see "The account has been verified and added to the application"
+  Given the following flag exist:
+  | flagstart                  | recurring   |
+  | 2015-04-26 00:00:00 UTC    | true        |
   Given that I am on the input schedule page
 
 Scenario: admin can input shift schedule

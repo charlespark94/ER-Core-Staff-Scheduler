@@ -10,7 +10,7 @@ Background: I am on the availabilities page
   Given that I am on the login page
   When I fill in "username" with "admin"
   And I fill in "password" with "admin"
-  When I press "login_submit"
+  When I press "Log In"
   Then I should be redirected to the home page
   Given that I am on the verified page
   Then I should see "The account has been verified and added to the application"
@@ -19,6 +19,9 @@ Background: I am on the availabilities page
   | 2015-04-30 07:00:00 UTC    | 2015-04-30 19:00:00 UTC |   
   | 2015-04-30 10:00:00 UTC    | 2015-04-30 18:00:00 UTC |       
   | 2015-04-30 14:00:00 UTC    | 2015-04-30 22:00:00 UTC |
+  And the following flag exist:
+  | flagstart                  | recurring   |
+  | 2015-04-26 00:00:00 UTC    | true        |
 
   And that I am on the availabilities page
 

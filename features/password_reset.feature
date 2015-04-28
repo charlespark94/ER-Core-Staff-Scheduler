@@ -11,7 +11,7 @@ Background: I exist in the databse, I am not logged in, and I am on the login pa
 Scenario: Reset password
     When I follow "forgot_link"
     When I fill in "email" with "example@example.com"
-    And I press "forgot_submit"
+    And I press "Reset Password"
     Then I should see "Email sent to example@example.com with password reset instructions"
     And "example@example.com" should have an email
     When I open the email
@@ -24,7 +24,7 @@ Scenario: Reset password
     Then I should see "Password has been reset"
     When I fill in "username" with "admin"
     And I fill in "password" with "newpassword"
-    And I press "login_submit"
+    And I press "Log In"
     Then I should be redirected to the home page
 
 
@@ -37,7 +37,7 @@ Scenario: Reset password no account
 Scenario: Reset password with expired token
     When I follow "forgot_link"
     When I fill in "email" with "example@example.com"
-    And I press "forgot_submit"
+    And I press "Reset Password"
     Then I should see "Email sent to example@example.com with password reset instructions"
     And "example@example.com" should have an email
     When I open the email

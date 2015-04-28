@@ -48,7 +48,7 @@ class ShiftsController < ApplicationController
       delete_id = User.find_by_first_name(old_user).id
     end
     date = DateTime.new(params[:shift][:"shiftstart(1i)"].to_i, params[:shift][:"shiftstart(2i)"].to_i, params[:shift][:"shiftstart(3i)"].to_i, params[:time][:hour].to_i, params[:time][:min].to_i)
-    @shift.update_attributes!(:shiftstart => date, :shiftend => (date + params[:length][:length].to_i.hours).to_datetime)
+    @shift.update_attributes!(:shiftstart => date, :shiftend => (date + params[:length][:length].to_i.hours).to_datetime, :owner => User.find_by_first_name(params[:shift][:owner]).first_name)
     dt_start = fix_timezone(@shift.shiftstart)
     dt_end = fix_timezone(@shift.shiftend)
     dt_doc = @shift.owner
