@@ -4,6 +4,19 @@ class AvailabilitiesController < ApplicationController
 	def index
 		@availabilities = Availability.all
 		@shifts = Shift.all
+		#raise params.inspect
+		#Time.zone = "America/Los_Angeles"
+		@date_start = (DateTime.now - DateTime.now.wday).to_date
+		if !params[:newstart].nil?
+			if session[:newstart].nil?
+				session[:newstart] = params[:newstart].to_f
+			else
+				session[:newstart] += params[:newstart].to_f
+			end
+			@date_start += session[:newstart]
+		end
+		@next_seven = @date_start..(@date_start + 6)
+		@second_seven = (@date_start + 7)..(@date_start + 13)
 	end
 
 	def update_all

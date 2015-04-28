@@ -14,11 +14,6 @@
         %li
           %a.button.btn.btn-default.btn-lg.btn-link{title: "Log Out", type: "button", href: "/logout"}
             %span.glyphicon.glyphicon-off
-
-:css
-  label {
-    width: 120px;
-  }
     
 %div#wrapper
   %div#sidebar-wrapper
@@ -43,7 +38,6 @@
         %li
           %b Shift Start Time: 
           = @shift.shiftstart.strftime("%m/%d/%Y at %H:%M")
-          /= "#{@shift.shiftstart.month}/#{@shift.shiftstart.day}/#{@shift.shiftstart.year} at #{@shift.shiftstart.hour}:#{@shift.shiftstart.min}"
         %li
           %b Shift Duration:
           = ((@shift.shiftend - @shift.shiftstart) / 1.hours).round

@@ -16,3 +16,5 @@ SHIFTS = [
 SHIFTS.each do |shift|
   Shift.create!(shift)
 end
+
+FLAG = [  {:flagstart => DateTime.strptime("04/26/2015 00:00", "%m/%d/%Y %H:%M")},]

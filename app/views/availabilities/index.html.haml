@@ -32,71 +32,136 @@
 		%div.container-fluid 
 			%h2 Set Your Preference
 
-			:css
-				td, th {
-					vertical-align: top;
-					text-align: center;
-					padding-left: 5px;
-					padding-right: 5px;
-				}
-			:css
-				div#green {
-					width: 20px;
-					border-bottom: 5px solid green;
-				}
-			:css
-				div#yellow {
-					width:20px;
-					border-bottom: 5px solid gold;
-				}
-			:css
-				div#red {
-					width:20px;
-					border-bottom: 5px solid red;
-				}
+			= link_to '<<', availabilities_path(:newstart => -14)
+			= "#{Date.today.strftime("%B")}, #{Date.today.day}"
+			= link_to '>>', availabilities_path(:newstart => 14)
 
 			= form_tag 'update_availabilities', :method => :get do
-				= week_calendar number_of_weeks: 2 do |date|
-					%table.table
-						%thead
-							%tr
-								%th= "#{date.month}/#{date.day}"
-							%tbody
-								- @shifts.each do |shift|
-									- if shift.shiftstart.to_s[5..6] == date.to_s[5..6] && shift.shiftstart.to_s[8..9] == date.to_s[8..9]
-										%tr
-											- if shift.shiftend.to_s[8..9].to_s == date.to_s[8..9]
-												%td= "#{shift.shiftstart.to_s[11..15]} to #{shift.shiftend.to_s[11..15]}"
-											- else
-												%td= "#{shift.shiftstart.to_s[11..15]} to #{shift.shiftend.to_s[11..15]}+"
-											- availability = Availability.where(user_id: session[:user_id], shift_id: shift.id).first
-											- if availability.nil? || availability.availability == 2
-												%td
-													%div#green= radio_button_tag "#{shift.id}", 'yes', true
-												%td
-													%div#yellow= radio_button_tag "#{shift.id}", 'maybe', false
-												%td
-													%div#red= radio_button_tag "#{shift.id}", 'no', false
-												%td.details= link_to 'details', shift
-											- elsif availability.availability == 1
-												%td
-													%div#green= radio_button_tag "#{shift.id}", 'yes', false
-												%td
-													%div#yellow= radio_button_tag "#{shift.id}", 'maybe', true
-												%td
-													%div#red= radio_button_tag "#{shift.id}", 'no', false
-												%td.details= link_to 'details', shift
-											- elsif availability.availability == 0
-												%td
-													%div#green= radio_button_tag "#{shift.id}", 'yes', false
-												%td
-													%div#yellow= radio_button_tag "#{shift.id}", 'maybe', false
-												%td
-													%div#red= radio_button_tag "#{shift.id}", 'no', true
-												%td.details= link_to 'details', shift
+				%table.table
+					%thead
+						- @next_seven.each do |day|
+							%th= "#{day.to_time.strftime("%A")} #{day.month}/#{day.day}"
+					%tbody
+						%tr
+							- @next_seven.each do |day|
+								%td
+									%table
+										- @shifts.each do |shift|
+											- if shift.shiftstart.to_s[5..6] == day.to_s[5..6] && shift.shiftstart.to_s[8..9] == day.to_s[8..9]
+												%tr
+													- if shift.shiftend.to_s[8..9].to_s == day.to_s[8..9]
+														%td= "#{shift.shiftstart.to_s[11..15]} to #{shift.shiftend.to_s[11..15]}"
+													- else
+														%td= "#{shift.shiftstart.to_s[11..15]} to #{shift.shiftend.to_s[11..15]}+"
+													- availability = Availability.where(user_id: session[:user_id], shift_id: shift.id).first
+													- if availability.nil? || availability.availability == 2
+														%td
+															%div#green= radio_button_tag "#{shift.id}", 'yes', true
+														%td
+															%div#yellow= radio_button_tag "#{shift.id}", 'maybe', false
+														%td
+															%div#red= radio_button_tag "#{shift.id}", 'no', false
+														%td.details= link_to 'details', shift
+													- elsif availability.availability == 1
+														%td
+															%div#green= radio_button_tag "#{shift.id}", 'yes', false
+														%td
+															%div#yellow= radio_button_tag "#{shift.id}", 'maybe', true
+														%td
+															%div#red= radio_button_tag "#{shift.id}", 'no', false
+														%td.details= link_to 'details', shift
+													- elsif availability.availability == 0
+														%td
+															%div#green= radio_button_tag "#{shift.id}", 'yes', false
+														%td
+															%div#yellow= radio_button_tag "#{shift.id}", 'maybe', false
+														%td
+															%div#red= radio_button_tag "#{shift.id}", 'no', true
+														%td.details= link_to 'details', shift
+
+				%table.table
+					%thead
+						- @second_seven.each do |day|
+							%th= "#{day.to_time.strftime("%A")} #{day.month}/#{day.day}"
+					%tbody
+						%tr
+							- @second_seven.each do |day|
+								%td
+									%table
+										- @shifts.each do |shift|
+											- if shift.shiftstart.to_s[5..6] == day.to_s[5..6] && shift.shiftstart.to_s[8..9] == day.to_s[8..9]
+												%tr
+													- if shift.shiftend.to_s[8..9].to_s == day.to_s[8..9]
+														%td= "#{shift.shiftstart.to_s[11..15]} to #{shift.shiftend.to_s[11..15]}"
+													- else
+														%td= "#{shift.shiftstart.to_s[11..15]} to #{shift.shiftend.to_s[11..15]}+"
+													- availability = Availability.where(user_id: session[:user_id], shift_id: shift.id).first
+													- if availability.nil? || availability.availability == 2
+														%td
+															%div#green= radio_button_tag "#{shift.id}", 'yes', true
+														%td
+															%div#yellow= radio_button_tag "#{shift.id}", 'maybe', false
+														%td
+															%div#red= radio_button_tag "#{shift.id}", 'no', false
+														%td.details= link_to 'details', shift
+													- elsif availability.availability == 1
+														%td
+															%div#green= radio_button_tag "#{shift.id}", 'yes', false
+														%td
+															%div#yellow= radio_button_tag "#{shift.id}", 'maybe', true
+														%td
+															%div#red= radio_button_tag "#{shift.id}", 'no', false
+														%td.details= link_to 'details', shift
+													- elsif availability.availability == 0
+														%td
+															%div#green= radio_button_tag "#{shift.id}", 'yes', false
+														%td
+															%div#yellow= radio_button_tag "#{shift.id}", 'maybe', false
+														%td
+															%div#red= radio_button_tag "#{shift.id}", 'no', true
+														%td.details= link_to 'details', shift
+
+				/ = week_calendar number_of_weeks: 2 do |date|
+				/ 	%table.table
+				/ 		%thead
+				/ 			%tr
+				/ 				%th= "#{date.month}/#{date.day}"
+				/ 			%tbody
+				/ 				- @shifts.each do |shift|
+				/ 					- if shift.shiftstart.to_s[5..6] == date.to_s[5..6] && shift.shiftstart.to_s[8..9] == date.to_s[8..9]
+				/ 						%tr
+				/ 							- if shift.shiftend.to_s[8..9].to_s == date.to_s[8..9]
+				/ 								%td= "#{shift.shiftstart.to_s[11..15]} to #{shift.shiftend.to_s[11..15]}"
+				/ 							- else
+				/ 								%td= "#{shift.shiftstart.to_s[11..15]} to #{shift.shiftend.to_s[11..15]}+"
+				/ 							- availability = Availability.where(user_id: session[:user_id], shift_id: shift.id).first
+				/ 							- if availability.nil? || availability.availability == 2
+				/ 								%td
+				/ 									%div#green= radio_button_tag "#{shift.id}", 'yes', true
+				/ 								%td
+				/ 									%div#yellow= radio_button_tag "#{shift.id}", 'maybe', false
+				/ 								%td
+				/ 									%div#red= radio_button_tag "#{shift.id}", 'no', false
+				/ 								%td.details= link_to 'details', shift
+				/ 							- elsif availability.availability == 1
+				/ 								%td
+				/ 									%div#green= radio_button_tag "#{shift.id}", 'yes', false
+				/ 								%td
+				/ 									%div#yellow= radio_button_tag "#{shift.id}", 'maybe', true
+				/ 								%td
+				/ 									%div#red= radio_button_tag "#{shift.id}", 'no', false
+				/ 								%td.details= link_to 'details', shift
+				/ 							- elsif availability.availability == 0
+				/ 								%td
+				/ 									%div#green= radio_button_tag "#{shift.id}", 'yes', false
+				/ 								%td
+				/ 									%div#yellow= radio_button_tag "#{shift.id}", 'maybe', false
+				/ 								%td
+				/ 									%div#red= radio_button_tag "#{shift.id}", 'no', true
+				/ 								%td.details= link_to 'details', shift
 
 
-					%br
+				/ 	%br
 				= submit_tag 'Update'
 
 				= link_to 'Set Availabilities to Previous Pay Period', new_availability_path

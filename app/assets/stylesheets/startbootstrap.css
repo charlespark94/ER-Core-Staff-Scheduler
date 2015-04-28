@@ -6,6 +6,15 @@
 
 /* Toggle Styles */
 
+a.title {
+    font-size: 1.3vw;
+}
+
+h2.title {
+    font-size: 1.5vw;
+    padding-top: 10px
+}
+
 .navbar-collapse {
     position: fixed;
     right: 2px;
