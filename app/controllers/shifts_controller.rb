@@ -1,5 +1,6 @@
 class ShiftsController < ApplicationController
   include Calendar
+  before_filter :recur
   def index
     @shifts = Shift.order(:shiftstart)
     @hours_per_person = show_hours_per_person
@@ -15,7 +16,6 @@ class ShiftsController < ApplicationController
     end
     @next_seven = @date_start..(@date_start + 6)
     @second_seven = (@date_start + 7)..(@date_start + 13)
-    #recur(true)
   end
 
   def new
@@ -107,24 +107,29 @@ class ShiftsController < ApplicationController
       end
   end
 
-  def recur(recurring)
-    @shift_template = IO.read("public/shift_template.json")
-    @shift_pattern = JSON.parse(@shift_template)
-    curSunday = Flag.find_by_id(1).flagstart
-    #recurDay = curSunday #+ 14.days
-    for i in 0..13
-      if !@shift_pattern[i].nil?
-        cur_pattern = @shift_pattern[i]
-        if @cur_pattern.nil?
-          for key in cur_pattern
-            recurDay = curSunday + i.day + key[1][0].hour + key[1][1].minute
-            dayend = recurDay + key[1][2].hours
-            Shift.create(:shiftstart => recurDay, :shiftend =>dayend)
-            #Not put into google calendar yet
+  def recur
+    @flag = Flag.find_by_id(1)
+    if ((Time.current - 7.hours).to_date - @flag.flagstart.to_date).to_i == 14
+      if @flag.recurring
+        @shift_template = IO.read("public/shift_template.json")
+        @shift_pattern = JSON.parse(@shift_template)
+        cur_sunday = @flag.flagstart + 2.week
+        counter = 0
+        @shift_pattern.each do |cur_pattern|
+          if !cur_pattern.nil?
+            for key in cur_pattern
+              recur_day = cur_sunday + counter.day + key[1][0].hour + key[1][1].minute
+              day_end = recur_day + key[1][2].hours
+              Shift.create(:shiftstart => recur_day, :shiftend =>day_end)
+              Shift.create(:shiftstart => (recur_day + 1.week), :shiftend => (day_end + 1.week))
+            end
           end
+          counter += 1
         end
+        @flag.update_attribute(:recurring, false)
       end
-     # recurDay = recurDay + 1.day
+    else
+      @flag.update_attribute(:recurring, true) if !@flag.recurring
     end
   end
 end
