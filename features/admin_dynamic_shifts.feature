@@ -19,16 +19,15 @@ Background:
   And the following flag exist:
   | flagstart                  | recurring   |
   | 2015-04-26 00:00:00 UTC    | true        |
+  Given that I am on the shift index page
 
 Scenario: Add shift for all doctors to see in their availability
-  Given that I am on the shift index page
   And I follow "Add new shift"
   Then I should be on the input schedule page
   When I add a shift for 04 - 08 from 12:00 to 20:00
   Then I should be redirected to the shift index page
 
 Scenario: Delete shift from available shifts
-  Given that I am on the shift index page
   And I follow edit for shift 1
   Then I should be redirected to the edit page for shift 1
   When I press "Delete"

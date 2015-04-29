@@ -31,6 +31,13 @@ Then /I should see a (.+) labeled (.+)/ do |e1, e2|
 	end
 end
 
+Then /I should see the shifts added to the page/ do
+	Shift.all.each do |shift|
+		Calendar.gcal_event_delete(shift.event_id)
+	end
+end
+
+
 When /I add a shift for (.+) - (.+) from (.+) to (.+)/ do |mon, day, shftst, shftend|
 	formStart = DateTime.iso8601('2015-'+mon+'-'+day+'T'+shftst+':00')
 	formEnd = DateTime.iso8601('2015-'+mon+'-'+day+'T'+shftend+':00')

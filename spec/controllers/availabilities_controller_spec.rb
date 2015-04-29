@@ -33,6 +33,8 @@ describe AvailabilitiesController do
 	end
 
 	before(:each) do
+		@flags = Flag.create(:flagstart => DateTime.strptime("04/19/2015 00:00", "%m/%d/%Y %H:%M"), :recurring => false)
+		Flag.stub(:find).and_return(@flags)
 		Calendar.stub(:gcal_event_insert)
 		Calendar.stub(:gcal_event_update)
 		Calendar.stub(:gcal_event_delete)

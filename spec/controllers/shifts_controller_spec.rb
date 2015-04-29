@@ -16,6 +16,10 @@ describe ShiftsController do
     }
   end
   before(:each) do
+    include Calendar
+    controller.stub(:gcal_event_insert).and_return(true)
+    @flags = Flag.create(:flagstart => DateTime.strptime("03/08/2015 00:00", "%m/%d/%Y %H:%M"), :recurring => true)
+    Flag.stub(:find).and_return(@flags)
     @user = User.create(user_params1)
     controller.stub(:session).and_return({:user_id => 1})
   end
@@ -28,14 +32,14 @@ describe ShiftsController do
     end
 
     it 'should redirect to edit page' do     
-      @testshift = double(Shift, :id => "1", :shiftstart => DateTime.iso8601('2015-05-01T10:00:00'), :shiftend => DateTime.iso8601('2015-05-01T18:00:00'), :owner => '***', :users => nil, :possible_users => nil, :ingcal => true, :event_id => 1)
+      @testshift = Shift.create(:id => "1", :shiftstart => DateTime.iso8601('2015-05-01T10:00:00'), :shiftend => DateTime.iso8601('2015-05-01T18:00:00'), :owner => '***', :users => nil, :possible_users => nil, :ingcal => true, :event_id => 1)
       Shift.stub(:find).with("1").and_return(@testshift)
       @testshift.stub(:update_attributes!).and_return(true)
       put :update, {:id => "1", :shiftend => DateTime.iso8601('2015-05-01T22:00:00')}
     end
 
     it 'should update event' do
-      @testshift = double(Shift, :id => "1", :shiftstart => DateTime.iso8601('2015-05-01T10:00:00'), :shiftend => DateTime.iso8601('2015-05-01T18:00:00'), :owner => @user.first_name, :users => @user.first_name, :possible_users => nil, :event_id => 1)
+      @testshift = Shift.create(:id => "1", :shiftstart => DateTime.iso8601('2015-05-01T10:00:00'), :shiftend => DateTime.iso8601('2015-05-01T18:00:00'), :owner => @user.first_name, :users => @user.first_name, :possible_users => nil, :event_id => 1)
       Shift.stub(:find).with("1").and_return(@testshift)      
       @testshift.stub(:update_attributes!).and_return(true)
       put :update, {:id => "1", :shiftend => DateTime.iso8601('2015-05-01T22:00:00')}
@@ -76,7 +80,7 @@ describe ShiftsController do
       include Calendar
       controller.stub(:params).and_return({:"shift" => {:"shiftstart(1i)" => "2015", :"shiftstart(2i)" => "4", :"shiftstart(3i)" => "25", :"shiftstart(4i)" => "18", :"shiftstart(5i)" => "17"}, :"length" => { :"length" => nil}})
       controller.should_receive(:gcal_event_insert).and_return(true)
-      post 'create', {}
+      post 'create'
     end
 
 
