@@ -1,21 +1,18 @@
 class ShiftsController < ApplicationController
   include Calendar
+  before_filter :recur
   def index
     @shifts = Shift.order(:shiftstart)
     @hours_per_person = show_hours_per_person
     @flag = Flag.find_by_id(1)
     Time.zone = "UTC"
     #Time.zone = "America/Los_Angeles"
-    if ((Time.current - 7.hour).to_date - @flag.flagstart.to_date).to_i >= 14
-      @flag.update_attribute(:flagstart, (Time.current - Time.current.wday.day).to_date)
-    end
     @date_start = @flag.flagstart.to_date
     if !params[:newstart].nil?
       @date_start = params[:newstart].to_date
     end
     @next_seven = @date_start..(@date_start + 6)
     @second_seven = (@date_start + 7)..(@date_start + 13)
-    #recur(true)
   end
 
   def new
@@ -51,7 +48,7 @@ class ShiftsController < ApplicationController
       delete_id = User.find_by_first_name(old_user).id
     end
     date = DateTime.new(params[:shift][:"shiftstart(1i)"].to_i, params[:shift][:"shiftstart(2i)"].to_i, params[:shift][:"shiftstart(3i)"].to_i, params[:time][:hour].to_i, params[:time][:min].to_i)
-    @shift.update_attributes!(:shiftstart => date, :shiftend => (date + params[:length][:length].to_i.hours).to_datetime)
+    @shift.update_attributes!(:shiftstart => date, :shiftend => (date + params[:length][:length].to_i.hours).to_datetime, :owner => User.find_by_first_name(params[:shift][:owner]).first_name)
     dt_start = fix_timezone(@shift.shiftstart)
     dt_end = fix_timezone(@shift.shiftend)
     dt_doc = @shift.owner
@@ -107,24 +104,40 @@ class ShiftsController < ApplicationController
       end
   end
 
-  def recur(recurring)
-    @shift_template = IO.read("public/shift_template.json")
-    @shift_pattern = JSON.parse(@shift_template)
-    curSunday = Flag.find_by_id(1).flagstart
-    #recurDay = curSunday #+ 14.days
-    for i in 0..13
-      if !@shift_pattern[i].nil?
-        cur_pattern = @shift_pattern[i]
-        if @cur_pattern.nil?
-          for key in cur_pattern
-            recurDay = curSunday + i.day + key[1][0].hour + key[1][1].minute
-            dayend = recurDay + key[1][2].hours
-            Shift.create(:shiftstart => recurDay, :shiftend =>dayend)
-            #Not put into google calendar yet
+  def recur
+    @flag = Flag.find_by_id(1)
+    if ((Time.current - 7.hours).to_date - @flag.flagstart.to_date).to_i >= 14
+      if @flag.recurring
+        @shift_template = IO.read("public/shift_template.json")
+        @shift_pattern = JSON.parse(@shift_template)
+        cur_sunday = @flag.flagstart + 2.week
+        counter = 0
+        @shift_pattern.each do |cur_pattern|
+          if !cur_pattern.nil?
+            for key in cur_pattern
+              recur_day = cur_sunday + counter.day + key[1][0].hour + key[1][1].minute
+              day_end = recur_day + key[1][2].hours
+              @shift_1 = Shift.create(:shiftstart => recur_day, :shiftend =>day_end)
+              dt_start_1 = fix_timezone(@shift_1.shiftstart)
+              dt_end_1 = fix_timezone(@shift_1.shiftend)
+              dt_doc_1 = @shift_1.owner
+              gcal_event_insert(0, dt_doc, "core", dt_start_1, dt_end_1, @shift_1.event_id)
+              @shift_1.update_attribute(:ingcal, true)
+              @shift_2 = Shift.create(:shiftstart => (recur_day + 1.week), :shiftend => (day_end + 1.week))
+              dt_start_2 = fix_timezone(@shift_2.shiftstart)
+              dt_end_2 = fix_timezone(@shift_2.shiftend)
+              dt_doc_2 = @shift_2.owner
+              gcal_event_insert(0, dt_doc2, "core", dt_start2, dt_end2, @shift_2.event_id)
+              @shift_2.update_attribute(:ingcal, true)
+            end
           end
+          counter += 1
         end
+        @flag.update_attribute(:recurring, false)
+        @flag.update_attribute(:flagstart, (Time.current - Time.current.wday.day).to_date)
       end
-     # recurDay = recurDay + 1.day
+    else
+      @flag.update_attribute(:recurring, true) if !@flag.recurring
     end
   end
 end

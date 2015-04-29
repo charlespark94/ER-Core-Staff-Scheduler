@@ -1,19 +1,4 @@
-%nav.navbar.navbar-default
-	%div.container-fluid
-		%div.navbar-brand
-			%a.title{:href => home_path} VA ER Core Staff Scheduler
-		%div.navbar-center
-			= hidden_field_tag @user = User.find_by_id(session[:user_id])
-			%h2.title= "Hello, #{@user.first_name} #{@user.last_name}"
-			%p.header-info= "You are logged in as #{@user.usertype} with FTE of #{@user.fte}"
-		%div.collapse.navbar-collapse
-			%ul.nav.navbar-nav.navbar-right
-				%li
-					%a.button.btn.btn-default.btn-lg.btn-link{title: "Account Settings", type: "button", href: "/settings"}
-						%span.glyphicon.glyphicon-cog
-				%li
-					%a.button.btn.btn-default.btn-lg.btn-link{title: "Log Out", type: "button", href: "/logout"}
-						%span.glyphicon.glyphicon-off
+=render :partial => "shared/navbar", :user => @user
 			
 %div#wrapper
 	%div#sidebar-wrapper
@@ -55,11 +40,11 @@
 				%br
 				= password_field :user, :password
 				%br
-				= label :user, :password_confirmation, 'New Password Confirnmation'
+				= label :user, :password_confirmation, 'New Password Confirmation'
 				%br
 				= password_field :user, :password_confirmation
 				%br
 				%br
-				= submit_tag 'Update Shift'
+				= submit_tag 'Update User Information'
 		%br
-		= link_to 'Back to all shifts', shifts_path
+		= link_to 'Back to User Information', shifts_path

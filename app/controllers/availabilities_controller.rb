@@ -7,9 +7,6 @@ class AvailabilitiesController < ApplicationController
 		@flag = Flag.find_by_id(1)
 		Time.zone = "UTC"
 		#Time.zone = "America/Los_Angeles"
-		if ((Time.current - 7.hour).to_date - @flag.flagstart.to_date).to_i >= 14
-			@flag.update_attribute(:flagstart, (Time.current - Time.current.wday.day).to_date)
-		end
 		@date_start = @flag.flagstart.to_date
 		if !params[:newstart].nil?
 			@date_start = params[:newstart].to_date

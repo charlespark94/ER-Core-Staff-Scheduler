@@ -13,7 +13,7 @@ Background:
 Scenario: user can change password
 	Given I fill in "user_password" with "test"
 	And I fill in "user_password_confirmation" with "test"
-	When I press "update_submit"
+	When I press "Update"
 	And I go to the logout page
 	And I fill in "username" with "admin"
 	And I fill in "password" with "test"
@@ -21,12 +21,12 @@ Scenario: user can change password
 
 Scenario: user can change FTE
 	Given I fill in "user_fte" with "0.9"
-	When I press "update_submit"
+	When I press "Update"
 	When I go to the home page
 	Then I should see "FTE of 0.9"
 
 Scenario: user inputs wrong password confirmation
 	Given I fill in "user_password" with "test"
 	And I fill in "user_password_confirmation" with "testnot"
-	When I press "update_submit"
+	When I press "Update"
 	Then I should be redirected to the settings page

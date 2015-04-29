@@ -1,19 +1,19 @@
 Given /^'(.*)' has been added to the database$/ do |username|
   visit path_to('signup')
-  step "I fill in \"First name\" with \"#{username}\""
-  step "I fill in \"Last name\" with \"#{username}\""
-  step "I fill in \"Username\" with \"#{username}\""
-  step "I fill in \"Email\" with \"example@example.com\""
-  step "I fill in \"Password\" with \"#{username}\""
-  step "I fill in \"Password confirmation\" with \"#{username}\""
-  step "I press \"signup_submit\""
+  step "I fill in \"user_first_name\" with \"#{username}\""
+  step "I fill in \"user_last_name\" with \"#{username}\""
+  step "I fill in \"user_username\" with \"#{username}\""
+  step "I fill in \"user_email\" with \"example@example.com\""
+  step "I fill in \"user_password\" with \"#{username}\""
+  step "I fill in \"user_password_confirmation\" with \"#{username}\""
+  step "I press \"Sign Up\""
 end
 
 Given /^(?:|I )am logged in as '(.*)' with password '(.*)'$/ do |username, password|
   visit path_to('login')
   step "I fill in \"username\" with \"#{username}\""
   step "I fill in \"password\" with \"#{password}\""
-  step "I press \"login_submit\""
+  step "I press \"Log In\""
   step "I should be redirected to the home page"
 end
 

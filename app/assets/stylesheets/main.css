@@ -44,3 +44,9 @@ body#center{
     margin-top: 20px;
     border-color: gray;
 }
+
+.btn-navbar:hover,
+.btn-navbar:active,
+.btn-navbar:focus {
+	color: rgb(0, 143, 178) !important;
+}
