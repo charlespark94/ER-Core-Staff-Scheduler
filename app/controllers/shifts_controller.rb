@@ -45,6 +45,8 @@ class ShiftsController < ApplicationController
     end
     date = DateTime.new(params[:shift][:"shiftstart(1i)"].to_i, params[:shift][:"shiftstart(2i)"].to_i, params[:shift][:"shiftstart(3i)"].to_i, params[:time][:hour].to_i, params[:time][:min].to_i)
     @shift.update_attributes!(:shiftstart => date, :shiftend => (date + params[:length][:length].to_i.hours).to_datetime)
+    dt_start = fix_timezone(@shift.shiftstart)
+    dt_end = fix_timezone(@shift.shiftend)
     dt_doc = params[:shift][:owner]
     if dt_doc == "" || dt_doc.nil?
       dt_doc = "***"
@@ -53,11 +55,11 @@ class ShiftsController < ApplicationController
       @shift.update_attribute(:owner, User.find_by_first_name(params[:shift][:owner]).first_name)
     end
     if (!@shift.users.nil? || !@shift.possible_users.nil?) &&(dt_doc != "***")
-      gcal_event_update(User.find_by_first_name(dt_doc).id, dt_doc, "core", fix_timezone(@shift.shiftstart), fix_timezone(@shift.shiftend), @shift.event_id)
+      gcal_event_update(User.find_by_first_name(dt_doc).id, dt_doc, "core", dt_start, dt_end, @shift.event_id)
     else
-      gcal_event_update(0, dt_doc, "core", fix_timezone(@shift.shiftstart), fix_timezone(@shift.shiftend), @shift.event_id)
+      gcal_event_update(0, dt_doc, "core", dt_start, dt_end, @shift.event_id)
     end
-    #flash[:notice] = "Shift was successfully updated."
+    flash[:notice] = "Shift was successfully updated."
     redirect_to shifts_path
   end
 
