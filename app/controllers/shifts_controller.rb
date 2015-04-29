@@ -44,13 +44,15 @@ class ShiftsController < ApplicationController
       delete_id = User.find_by_first_name(old_user).id
     end
     date = DateTime.new(params[:shift][:"shiftstart(1i)"].to_i, params[:shift][:"shiftstart(2i)"].to_i, params[:shift][:"shiftstart(3i)"].to_i, params[:time][:hour].to_i, params[:time][:min].to_i)
-    @shift.update_attributes!(:shiftstart => date, :shiftend => (date + params[:length][:length].to_i.hours).to_datetime, :owner => User.find_by_first_name(params[:shift][:owner]).first_name)
+    @shift.update_attributes!(:shiftstart => date, :shiftend => (date + params[:length][:length].to_i.hours).to_datetime)
     dt_start = fix_timezone(@shift.shiftstart)
     dt_end = fix_timezone(@shift.shiftend)
-    dt_doc = @shift.owner
+    dt_doc = params[:shift][:owner]
     if dt_doc == "" || dt_doc.nil?
       dt_doc = "***"
       @shift.update_attribute(:owner, '***')
+    else
+      @shift.update_attribute(:owner, User.find_by_first_name(params[:shift][:owner]).first_name)
     end
     if (!@shift.users.nil? || !@shift.possible_users.nil?) &&(dt_doc != "***")
       gcal_event_update(User.find_by_first_name(dt_doc).id, dt_doc, "core", dt_start, dt_end, @shift.event_id)
@@ -114,16 +116,10 @@ class ShiftsController < ApplicationController
               recur_day = cur_sunday + counter.day + key[1][0].hour + key[1][1].minute
               day_end = recur_day + key[1][2].hours
               @shift_1 = Shift.create(:shiftstart => recur_day, :shiftend =>day_end)
-              dt_start_1 = fix_timezone(@shift_1.shiftstart)
-              dt_end_1 = fix_timezone(@shift_1.shiftend)
-              dt_doc_1 = @shift_1.owner
-              gcal_event_insert(0, dt_doc, "core", dt_start_1, dt_end_1, @shift_1.event_id)
+              gcal_event_insert(0, @shift_1.owner, "core", fix_timezone(@shift_1.shiftstart), fix_timezone(@shift_1.shiftend), @shift_1.event_id)
               @shift_1.update_attribute(:ingcal, true)
               @shift_2 = Shift.create(:shiftstart => (recur_day + 1.week), :shiftend => (day_end + 1.week))
-              dt_start_2 = fix_timezone(@shift_2.shiftstart)
-              dt_end_2 = fix_timezone(@shift_2.shiftend)
-              dt_doc_2 = @shift_2.owner
-              gcal_event_insert(0, dt_doc2, "core", dt_start2, dt_end2, @shift_2.event_id)
+              gcal_event_insert(0, @shift_2.owner, "core", fix_timezone(@shift_2.shiftstart), fix_timezone(@shift_2.shiftend), @shift_2.event_id)
               @shift_2.update_attribute(:ingcal, true)
             end
           end
