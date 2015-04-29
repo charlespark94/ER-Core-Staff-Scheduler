@@ -53,7 +53,7 @@ class ShiftsController < ApplicationController
     else
       gcal_event_update(0, dt_doc, "core", dt_start, dt_end, @shift.event_id)
     end
-    flash[:notice] = "Shift was successfully updated."
+    #flash[:notice] = "Shift was successfully updated."
     redirect_to shifts_path
   end
 
