@@ -14,26 +14,26 @@
       <img src="./assets/0.9.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2015-04-28T16:49:06-07:00">2015-04-28T16:49:06-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2015-04-28T20:46:31-07:00">2015-04-28T20:46:31-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="green">94.2%</span></span>
+    (<span class="covered_percent"><span class="green">94.04%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         12.04
+         12.25
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>22</b> files in total.
-    <b>379</b> relevant lines. 
-    <span class="green"><b>357</b> lines covered</span> and
+    <b>369</b> relevant lines. 
+    <span class="green"><b>347</b> lines covered</span> and
     <span class="red"><b>22</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -132,12 +132,12 @@
       
       <tr>
         <td class="strong"><a href="#c8d3c91f9c595ad85ff055c31bb07ed8383a013d" class="src_link" title="app/controllers/shifts_controller.rb">app/controllers/shifts_controller.rb</a></td>
-        <td class="green strong">91.18 %</td>
-        <td>143</td>
-        <td>102</td>
-        <td>93</td>
+        <td class="green strong">90.22 %</td>
+        <td>133</td>
+        <td>92</td>
+        <td>83</td>
         <td>9</td>
-        <td>7.2</td>
+        <td>7.5</td>
       </tr>
       
       <tr>
@@ -279,19 +279,19 @@
           <div class="file_list_container" id="Controllers">
   <h2>
     <span class="group_name">Controllers</span>
-    (<span class="covered_percent"><span class="green">93.08%</span></span>
+    (<span class="covered_percent"><span class="green">92.86%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         12.83
+         13.11
        </span>
     </span> hits/line)
   </h2>
   <a name="Controllers"></a>
   <div>
     <b>11</b> files in total.
-    <b>318</b> relevant lines. 
-    <span class="green"><b>296</b> lines covered</span> and
+    <b>308</b> relevant lines. 
+    <span class="green"><b>286</b> lines covered</span> and
     <span class="red"><b>22</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -390,12 +390,12 @@
       
       <tr>
         <td class="strong"><a href="#c8d3c91f9c595ad85ff055c31bb07ed8383a013d" class="src_link" title="app/controllers/shifts_controller.rb">app/controllers/shifts_controller.rb</a></td>
-        <td class="green strong">91.18 %</td>
-        <td>143</td>
-        <td>102</td>
-        <td>93</td>
+        <td class="green strong">90.22 %</td>
+        <td>133</td>
+        <td>92</td>
+        <td>83</td>
         <td>9</td>
-        <td>7.2</td>
+        <td>7.5</td>
       </tr>
       
       <tr>
@@ -3052,10 +3052,10 @@
         <div class="source_table" id="c8d3c91f9c595ad85ff055c31bb07ed8383a013d">
   <div class="header">
     <h3>app/controllers/shifts_controller.rb</h3>
-    <h4><span class="green">91.18 %</span> covered</h4>
+    <h4><span class="green">90.22 %</span> covered</h4>
     <div>
-      <b>102</b> relevant lines. 
-      <span class="green"><b>93</b> lines covered</span> and
+      <b>92</b> relevant lines. 
+      <span class="green"><b>83</b> lines covered</span> and
       <span class="red"><b>9</b> lines missed.</span>
     </div>
   </div>
@@ -3252,670 +3252,610 @@
         <li class="covered" data-hits="1" data-linenumber="32">
           <span class="hits">1</span>
           
-          <code class="ruby">    flash[:notice] = &quot;Shift was successfully created.&quot;</code>
+          <code class="ruby">    gcal_event_insert(0, @shift.owner, &quot;core&quot;, fix_timezone(@shift.shiftstart), fix_timezone(@shift.shiftend), @shift.event_id)</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="33">
           <span class="hits">1</span>
           
-          <code class="ruby">    dt_start = fix_timezone(@shift.shiftstart)</code>
+          <code class="ruby">    @shift.ingcal = true</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="34">
           <span class="hits">1</span>
           
-          <code class="ruby">    dt_end = fix_timezone(@shift.shiftend)</code>
+          <code class="ruby">    @shift.save!</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="35">
           <span class="hits">1</span>
           
-          <code class="ruby">    dt_doc = @shift.owner</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="36">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    gcal_event_insert(0, dt_doc, &quot;core&quot;, dt_start, dt_end, @shift.event_id)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="37">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    @shift.ingcal = true</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="38">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    @shift.save!</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="39">
-          <span class="hits">1</span>
-          
           <code class="ruby">    redirect_to shifts_path</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="40">
+        <li class="never" data-hits="" data-linenumber="36">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="41">
+        <li class="never" data-hits="" data-linenumber="37">
           
           
           <code class="ruby">  </code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="42">
+        <li class="covered" data-hits="1" data-linenumber="38">
           <span class="hits">1</span>
           
           <code class="ruby">  def update</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="43">
+        <li class="covered" data-hits="2" data-linenumber="39">
           <span class="hits">2</span>
           
           <code class="ruby">    @shift = Shift.find params[:id]</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="44">
+        <li class="covered" data-hits="2" data-linenumber="40">
           <span class="hits">2</span>
           
           <code class="ruby">    old_user = @shift.owner</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="45">
+        <li class="covered" data-hits="2" data-linenumber="41">
           <span class="hits">2</span>
           
           <code class="ruby">    if old_user == '***' || old_user == &quot;&quot;</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="46">
+        <li class="covered" data-hits="2" data-linenumber="42">
           <span class="hits">2</span>
           
           <code class="ruby">      delete_id = 0</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="47">
+        <li class="never" data-hits="" data-linenumber="43">
           
           
           <code class="ruby">    else</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="48">
+        <li class="missed" data-hits="0" data-linenumber="44">
           
           
           <code class="ruby">      delete_id = User.find_by_first_name(old_user).id</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="49">
+        <li class="never" data-hits="" data-linenumber="45">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="50">
+        <li class="covered" data-hits="2" data-linenumber="46">
           <span class="hits">2</span>
           
           <code class="ruby">    date = DateTime.new(params[:shift][:&quot;shiftstart(1i)&quot;].to_i, params[:shift][:&quot;shiftstart(2i)&quot;].to_i, params[:shift][:&quot;shiftstart(3i)&quot;].to_i, params[:time][:hour].to_i, params[:time][:min].to_i)</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="51">
+        <li class="covered" data-hits="2" data-linenumber="47">
           <span class="hits">2</span>
           
           <code class="ruby">    @shift.update_attributes!(:shiftstart =&gt; date, :shiftend =&gt; (date + params[:length][:length].to_i.hours).to_datetime, :owner =&gt; User.find_by_first_name(params[:shift][:owner]).first_name)</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="52">
+        <li class="covered" data-hits="2" data-linenumber="48">
           <span class="hits">2</span>
           
           <code class="ruby">    dt_start = fix_timezone(@shift.shiftstart)</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="53">
+        <li class="covered" data-hits="2" data-linenumber="49">
           <span class="hits">2</span>
           
           <code class="ruby">    dt_end = fix_timezone(@shift.shiftend)</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="54">
+        <li class="covered" data-hits="2" data-linenumber="50">
           <span class="hits">2</span>
           
           <code class="ruby">    dt_doc = @shift.owner</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="55">
+        <li class="covered" data-hits="2" data-linenumber="51">
           <span class="hits">2</span>
           
           <code class="ruby">    if dt_doc == &quot;&quot; || dt_doc.nil?</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="56">
+        <li class="missed" data-hits="0" data-linenumber="52">
           
           
           <code class="ruby">      dt_doc = &quot;***&quot;</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="57">
+        <li class="missed" data-hits="0" data-linenumber="53">
           
           
           <code class="ruby">      @shift.update_attribute(:owner, '***')</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="58">
+        <li class="never" data-hits="" data-linenumber="54">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="59">
+        <li class="covered" data-hits="2" data-linenumber="55">
           <span class="hits">2</span>
           
           <code class="ruby">    if (!@shift.users.nil? || !@shift.possible_users.nil?) &amp;&amp;(dt_doc != &quot;***&quot;)</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="60">
+        <li class="covered" data-hits="2" data-linenumber="56">
           <span class="hits">2</span>
           
           <code class="ruby">      gcal_event_update(User.find_by_first_name(dt_doc).id, dt_doc, &quot;core&quot;, dt_start, dt_end, @shift.event_id)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="61">
+        <li class="never" data-hits="" data-linenumber="57">
           
           
           <code class="ruby">    else</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="62">
+        <li class="missed" data-hits="0" data-linenumber="58">
           
           
           <code class="ruby">      gcal_event_update(0, dt_doc, &quot;core&quot;, dt_start, dt_end, @shift.event_id)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="63">
+        <li class="never" data-hits="" data-linenumber="59">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="64">
+        <li class="covered" data-hits="2" data-linenumber="60">
           <span class="hits">2</span>
           
           <code class="ruby">    flash[:notice] = &quot;Shift was successfully updated.&quot;</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="65">
+        <li class="covered" data-hits="2" data-linenumber="61">
           <span class="hits">2</span>
           
           <code class="ruby">    redirect_to shifts_path</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="66">
+        <li class="never" data-hits="" data-linenumber="62">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="67">
+        <li class="never" data-hits="" data-linenumber="63">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="68">
+        <li class="covered" data-hits="1" data-linenumber="64">
           <span class="hits">1</span>
           
           <code class="ruby">  def destroy</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="69">
+        <li class="covered" data-hits="3" data-linenumber="65">
           <span class="hits">3</span>
           
           <code class="ruby">    @shift = Shift.find(params[:id])</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="70">
+        <li class="covered" data-hits="3" data-linenumber="66">
           <span class="hits">3</span>
           
           <code class="ruby">    if @shift.owner == '***' || @shift.owner == &quot;&quot; || @shift.owner.nil? || @shift.owner == &quot; &quot;</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="71">
+        <li class="covered" data-hits="3" data-linenumber="67">
           <span class="hits">3</span>
           
           <code class="ruby">      gcal_event_delete(@shift.event_id)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="72">
+        <li class="never" data-hits="" data-linenumber="68">
           
           
           <code class="ruby">    else</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="73">
+        <li class="missed" data-hits="0" data-linenumber="69">
           
           
           <code class="ruby">      dt_doc = @shift.owner</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="74">
+        <li class="missed" data-hits="0" data-linenumber="70">
           
           
           <code class="ruby">      gcal_event_delete(@shift.event_id)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="75">
+        <li class="never" data-hits="" data-linenumber="71">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="76">
+        <li class="covered" data-hits="3" data-linenumber="72">
           <span class="hits">3</span>
           
           <code class="ruby">    @shift.destroy</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="77">
+        <li class="covered" data-hits="3" data-linenumber="73">
           <span class="hits">3</span>
           
           <code class="ruby">    flash[:notice] = &quot;Shift deleted.&quot;</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="78">
+        <li class="covered" data-hits="3" data-linenumber="74">
           <span class="hits">3</span>
           
           <code class="ruby">    redirect_to shifts_path</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="79">
+        <li class="never" data-hits="" data-linenumber="75">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="80">
+        <li class="never" data-hits="" data-linenumber="76">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="81">
+        <li class="covered" data-hits="1" data-linenumber="77">
           <span class="hits">1</span>
           
           <code class="ruby">  def show_hours_per_person</code>
         </li>
       
-        <li class="covered" data-hits="15" data-linenumber="82">
+        <li class="covered" data-hits="15" data-linenumber="78">
           <span class="hits">15</span>
           
           <code class="ruby">    users = User.all</code>
         </li>
       
-        <li class="covered" data-hits="15" data-linenumber="83">
+        <li class="covered" data-hits="15" data-linenumber="79">
           <span class="hits">15</span>
           
           <code class="ruby">    hours_per_person = {&quot;***&quot; =&gt; [0, 0]}</code>
         </li>
       
-        <li class="covered" data-hits="15" data-linenumber="84">
+        <li class="covered" data-hits="15" data-linenumber="80">
           <span class="hits">15</span>
           
           <code class="ruby">    users.each do |user|</code>
         </li>
       
-        <li class="covered" data-hits="15" data-linenumber="85">
+        <li class="covered" data-hits="15" data-linenumber="81">
           <span class="hits">15</span>
           
           <code class="ruby">      full_name = &quot;#{user.first_name}&quot;</code>
         </li>
       
-        <li class="covered" data-hits="15" data-linenumber="86">
+        <li class="covered" data-hits="15" data-linenumber="82">
           <span class="hits">15</span>
           
           <code class="ruby">      hours_per_person[full_name] = [0, (user.fte*80).to_i]</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="87">
+        <li class="never" data-hits="" data-linenumber="83">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="covered" data-hits="15" data-linenumber="88">
+        <li class="covered" data-hits="15" data-linenumber="84">
           <span class="hits">15</span>
           
           <code class="ruby">    shifts = Shift.all</code>
         </li>
       
-        <li class="covered" data-hits="15" data-linenumber="89">
+        <li class="covered" data-hits="15" data-linenumber="85">
           <span class="hits">15</span>
           
           <code class="ruby">    shifts.each do |shift|</code>
         </li>
       
-        <li class="covered" data-hits="57" data-linenumber="90">
+        <li class="covered" data-hits="57" data-linenumber="86">
           <span class="hits">57</span>
           
           <code class="ruby">      if hours_per_person.has_key?(shift.owner)</code>
         </li>
       
-        <li class="covered" data-hits="57" data-linenumber="91">
+        <li class="covered" data-hits="57" data-linenumber="87">
           <span class="hits">57</span>
           
           <code class="ruby">        hours_per_person[shift.owner][0] = hours_per_person[shift.owner][0] + ((shift.shiftend - shift.shiftstart)/(60*60)).to_i</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="92">
+        <li class="never" data-hits="" data-linenumber="88">
           
           
           <code class="ruby">      else</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="93">
+        <li class="missed" data-hits="0" data-linenumber="89">
           
           
           <code class="ruby">        hours_per_person[shift.owner] = [((shift.shiftend - shift.shiftstart)/(60*60)).to_i, 0]      </code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="94">
+        <li class="never" data-hits="" data-linenumber="90">
           
           
           <code class="ruby">      end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="95">
+        <li class="never" data-hits="" data-linenumber="91">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="covered" data-hits="15" data-linenumber="96">
+        <li class="covered" data-hits="15" data-linenumber="92">
           <span class="hits">15</span>
           
           <code class="ruby">    return hours_per_person</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="97">
+        <li class="never" data-hits="" data-linenumber="93">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="98">
+        <li class="never" data-hits="" data-linenumber="94">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="99">
+        <li class="covered" data-hits="1" data-linenumber="95">
           <span class="hits">1</span>
           
           <code class="ruby">  def fix_timezone(dt)</code>
         </li>
       
-        <li class="covered" data-hits="34" data-linenumber="100">
+        <li class="covered" data-hits="34" data-linenumber="96">
           <span class="hits">34</span>
           
           <code class="ruby">      if Time.now.dst?</code>
         </li>
       
-        <li class="covered" data-hits="34" data-linenumber="101">
+        <li class="covered" data-hits="34" data-linenumber="97">
           <span class="hits">34</span>
           
           <code class="ruby">        return (dt + 6.hours).to_datetime</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="102">
+        <li class="never" data-hits="" data-linenumber="98">
           
           
           <code class="ruby">      else</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="103">
+        <li class="missed" data-hits="0" data-linenumber="99">
           
           
           <code class="ruby">        return (dt + 7.hours).to_datetime</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="104">
+        <li class="never" data-hits="" data-linenumber="100">
           
           
           <code class="ruby">      end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="105">
+        <li class="never" data-hits="" data-linenumber="101">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="106">
+        <li class="never" data-hits="" data-linenumber="102">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="107">
+        <li class="covered" data-hits="1" data-linenumber="103">
           <span class="hits">1</span>
           
           <code class="ruby">  def recur</code>
         </li>
       
-        <li class="covered" data-hits="35" data-linenumber="108">
+        <li class="covered" data-hits="35" data-linenumber="104">
           <span class="hits">35</span>
           
           <code class="ruby">    @flag = Flag.find_by_id(1)</code>
         </li>
       
-        <li class="covered" data-hits="35" data-linenumber="109">
+        <li class="covered" data-hits="35" data-linenumber="105">
           <span class="hits">35</span>
           
           <code class="ruby">    if ((Time.current - 7.hours).to_date - @flag.flagstart.to_date).to_i &gt;= 14</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="110">
+        <li class="covered" data-hits="1" data-linenumber="106">
           <span class="hits">1</span>
           
           <code class="ruby">      if @flag.recurring</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="111">
+        <li class="covered" data-hits="1" data-linenumber="107">
           <span class="hits">1</span>
           
           <code class="ruby">        @shift_template = IO.read(&quot;public/shift_template.json&quot;)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="112">
+        <li class="covered" data-hits="1" data-linenumber="108">
           <span class="hits">1</span>
           
           <code class="ruby">        @shift_pattern = JSON.parse(@shift_template)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="113">
+        <li class="covered" data-hits="1" data-linenumber="109">
           <span class="hits">1</span>
           
           <code class="ruby">        cur_sunday = @flag.flagstart + 2.week</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="114">
+        <li class="covered" data-hits="1" data-linenumber="110">
           <span class="hits">1</span>
           
           <code class="ruby">        counter = 0</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="115">
+        <li class="covered" data-hits="1" data-linenumber="111">
           <span class="hits">1</span>
           
           <code class="ruby">        @shift_pattern.each do |cur_pattern|</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="116">
+        <li class="covered" data-hits="7" data-linenumber="112">
           <span class="hits">7</span>
           
           <code class="ruby">          if !cur_pattern.nil?</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="117">
+        <li class="covered" data-hits="7" data-linenumber="113">
           <span class="hits">7</span>
           
           <code class="ruby">            for key in cur_pattern</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="118">
+        <li class="covered" data-hits="7" data-linenumber="114">
           <span class="hits">7</span>
           
           <code class="ruby">              recur_day = cur_sunday + counter.day + key[1][0].hour + key[1][1].minute</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="119">
+        <li class="covered" data-hits="7" data-linenumber="115">
           <span class="hits">7</span>
           
           <code class="ruby">              day_end = recur_day + key[1][2].hours</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="120">
+        <li class="covered" data-hits="7" data-linenumber="116">
           <span class="hits">7</span>
           
           <code class="ruby">              @shift_1 = Shift.create(:shiftstart =&gt; recur_day, :shiftend =&gt;day_end)</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="121">
+        <li class="covered" data-hits="7" data-linenumber="117">
           <span class="hits">7</span>
           
-          <code class="ruby">              dt_start_1 = fix_timezone(@shift_1.shiftstart)</code>
+          <code class="ruby">              gcal_event_insert(0, @shift_1.owner, &quot;core&quot;, fix_timezone(@shift_1.shiftstart), fix_timezone(@shift_1.shiftend), @shift_1.event_id)</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="122">
-          <span class="hits">7</span>
-          
-          <code class="ruby">              dt_end_1 = fix_timezone(@shift_1.shiftend)</code>
-        </li>
-      
-        <li class="covered" data-hits="7" data-linenumber="123">
-          <span class="hits">7</span>
-          
-          <code class="ruby">              dt_doc_1 = @shift_1.owner</code>
-        </li>
-      
-        <li class="covered" data-hits="7" data-linenumber="124">
-          <span class="hits">7</span>
-          
-          <code class="ruby">              gcal_event_insert(0, dt_doc_1, &quot;core&quot;, dt_start_1, dt_end_1, @shift_1.event_id)</code>
-        </li>
-      
-        <li class="covered" data-hits="7" data-linenumber="125">
+        <li class="covered" data-hits="7" data-linenumber="118">
           <span class="hits">7</span>
           
           <code class="ruby">              @shift_1.update_attribute(:ingcal, true)</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="126">
+        <li class="covered" data-hits="7" data-linenumber="119">
           <span class="hits">7</span>
           
           <code class="ruby">              @shift_2 = Shift.create(:shiftstart =&gt; (recur_day + 1.week), :shiftend =&gt; (day_end + 1.week))</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="127">
+        <li class="covered" data-hits="7" data-linenumber="120">
           <span class="hits">7</span>
           
-          <code class="ruby">              dt_start_2 = fix_timezone(@shift_2.shiftstart)</code>
+          <code class="ruby">              gcal_event_insert(0, @shift_2.owner, &quot;core&quot;, fix_timezone(@shift_2.shiftstart), fix_timezone(@shift_2.shiftend), @shift_2.event_id)</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="128">
-          <span class="hits">7</span>
-          
-          <code class="ruby">              dt_end_2 = fix_timezone(@shift_2.shiftend)</code>
-        </li>
-      
-        <li class="covered" data-hits="7" data-linenumber="129">
-          <span class="hits">7</span>
-          
-          <code class="ruby">              dt_doc_2 = @shift_2.owner</code>
-        </li>
-      
-        <li class="covered" data-hits="7" data-linenumber="130">
-          <span class="hits">7</span>
-          
-          <code class="ruby">              gcal_event_insert(0, dt_doc_2, &quot;core&quot;, dt_start_2, dt_end_2, @shift_2.event_id)</code>
-        </li>
-      
-        <li class="covered" data-hits="7" data-linenumber="131">
+        <li class="covered" data-hits="7" data-linenumber="121">
           <span class="hits">7</span>
           
           <code class="ruby">              @shift_2.update_attribute(:ingcal, true)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="132">
+        <li class="never" data-hits="" data-linenumber="122">
           
           
           <code class="ruby">            end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="133">
+        <li class="never" data-hits="" data-linenumber="123">
           
           
           <code class="ruby">          end</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="134">
+        <li class="covered" data-hits="7" data-linenumber="124">
           <span class="hits">7</span>
           
           <code class="ruby">          counter += 1</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="135">
+        <li class="never" data-hits="" data-linenumber="125">
           
           
           <code class="ruby">        end</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="136">
+        <li class="covered" data-hits="1" data-linenumber="126">
           <span class="hits">1</span>
           
           <code class="ruby">        @flag.update_attribute(:recurring, false)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="137">
+        <li class="covered" data-hits="1" data-linenumber="127">
           <span class="hits">1</span>
           
           <code class="ruby">        @flag.update_attribute(:flagstart, (Time.current - Time.current.wday.day).to_date)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="138">
+        <li class="never" data-hits="" data-linenumber="128">
           
           
           <code class="ruby">      end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="139">
+        <li class="never" data-hits="" data-linenumber="129">
           
           
           <code class="ruby">    else</code>
         </li>
       
-        <li class="covered" data-hits="34" data-linenumber="140">
+        <li class="covered" data-hits="34" data-linenumber="130">
           <span class="hits">34</span>
           
           <code class="ruby">      @flag.update_attribute(:recurring, true) if !@flag.recurring</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="141">
+        <li class="never" data-hits="" data-linenumber="131">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="142">
+        <li class="never" data-hits="" data-linenumber="132">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="143">
+        <li class="never" data-hits="" data-linenumber="133">
           
           
           <code class="ruby">end</code>
