@@ -70,7 +70,7 @@ class ShiftsController < ApplicationController
     #  gcal_event_delete(@shift.event_id)
     #end
     @shift.destroy
-    #flash[:notice] = "Shift deleted."
+    flash[:notice] = "Shift deleted."
     redirect_to shifts_path
   end
 
