@@ -22,6 +22,7 @@ describe ShiftsController do
     Flag.stub(:find).and_return(@flags)
     @user = User.create(user_params1)
     controller.stub(:session).and_return({:user_id => 1})
+    @tester = Shift.create(:shiftstart => DateTime.iso8601('2015-05-01T10:00:00'), :shiftend => DateTime.iso8601('2015-05-01T18:00:00'), :owner => '***', :users => [], :possible_users => " ")
   end
 
 
@@ -31,16 +32,10 @@ describe ShiftsController do
       response.should render_template('index')
     end
 
-    it 'should redirect to edit page' do     
-      @testshift = Shift.create(:id => "1", :shiftstart => DateTime.iso8601('2015-05-01T10:00:00'), :shiftend => DateTime.iso8601('2015-05-01T18:00:00'), :owner => '***', :users => [], :possible_users => " ", :ingcal => true, :event_id => 1)
-      Shift.stub(:find).with("1").and_return(@testshift)
-      @testshift.stub(:update_attributes!).and_return(true)
-      put :update, {:id => "1", :shiftend => DateTime.iso8601('2015-05-01T22:00:00')}
-    end
-
     it 'should update event' do
-      @testshift = Shift.create(:id => "1", :shiftstart => DateTime.iso8601('2015-05-01T10:00:00'), :shiftend => DateTime.iso8601('2015-05-01T18:00:00'), :owner => @user.first_name, :users => @user.first_name, :possible_users => " ", :event_id => 1)
-      Shift.stub(:find).with("1").and_return(@testshift)      
+      @user = User.create(user_params1)
+      @testshift = double(Shift, :id => "1", :shiftstart => DateTime.iso8601('2015-05-01T10:00:00'), :shiftend => DateTime.iso8601('2015-05-01T18:00:00'), :owner => '***', :users => nil, :possible_users => nil)
+      Shift.stub(:find).with("1").and_return(@testshift)
       @testshift.stub(:update_attributes!).and_return(true)
       put :update, {:id => "1", :shiftend => DateTime.iso8601('2015-05-01T22:00:00')}
     end
@@ -49,7 +44,7 @@ describe ShiftsController do
 
   describe 'display shift info' do
     it 'should load show page' do
-      @testshift = double(Shift, :id => "1", :shiftstart => DateTime.iso8601('2015-05-01T10:00:00'), :shiftend => DateTime.iso8601('2015-05-01T18:00:00'), :owner => '***', :users => nil, :possible_users => nil)
+      @testshift = Shift.create(:id => "1", :shiftstart => DateTime.iso8601('2015-05-01T10:00:00'), :shiftend => DateTime.iso8601('2015-05-01T18:00:00'), :owner => '***', :users => [], :possible_users => [])
       Shift.stub(:find).with("1").and_return(@testshift)
       controller.stub(:params).and_return({:id => "1"})
       get :show, {:id => "1"}
