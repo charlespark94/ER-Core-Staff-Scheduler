@@ -63,14 +63,14 @@ class ShiftsController < ApplicationController
 
   def destroy
     @shift = Shift.find(params[:id])
-    if @shift.owner == '***' || @shift.owner == "" || @shift.owner.nil? || @shift.owner == " "
-      gcal_event_delete(@shift.event_id)
-    else
-      dt_doc = @shift.owner
-      gcal_event_delete(@shift.event_id)
-    end
+    #if @shift.owner == '***' || @shift.owner == "" || @shift.owner.nil? || @shift.owner == " "
+    gcal_event_delete(@shift.event_id)
+    #else
+    #  dt_doc = @shift.owner
+    #  gcal_event_delete(@shift.event_id)
+    #end
     @shift.destroy
-    flash[:notice] = "Shift deleted."
+    #flash[:notice] = "Shift deleted."
     redirect_to shifts_path
   end
 
