@@ -11,15 +11,16 @@ module Calendar
   CACHED_API_FILE = "calendar-#{API_VERSION}.cache"
   CALENDAR_ID = @googleapi_hash["calendarId"]
 
-	def gcal_event_insert(doctor_id, name, type_of_doctor, dt_start, dt_end, e_id)
+	def gcal_event_insert(doctor_id, shift)
 		doctor_id = doctor_id.to_s
+		shift.update_attribute(:ingcal, true)
 		params = {
 			calendarId: CALENDAR_ID
 		}
 		result = client.execute(
 			:api_method => calendar.events.insert,
 			:parameters => params,
-			:body_object => convert_to_gcal_event(doctor_id, name, type_of_doctor, dt_start, dt_end, e_id)
+			:body_object => convert_to_gcal_event(doctor_id, shift.owner, "core", shift.shiftstart, shift.shiftend, shift.event_id)
 		)
 	end
 

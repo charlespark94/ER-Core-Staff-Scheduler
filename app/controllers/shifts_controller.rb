@@ -28,9 +28,9 @@ class ShiftsController < ApplicationController
   def create
     date = create_date
     @shift = Shift.create(:shiftstart => date, :shiftend => (date + params[:length][:length].to_i.hours).to_datetime)
-    gcal_event_insert(0, @shift.owner, "core", fix_timezone(@shift.shiftstart), fix_timezone(@shift.shiftend), @shift.event_id)
-    @shift.ingcal = true
-    @shift.save!
+    @shift.shiftstart = fix_timezone(@shift.shifstart)
+    @shift.shiftend = fix_timezone(@shift.shiftend)
+    gcal_event_insert(0, @shift)
     redirect_to shifts_path
   end
 
@@ -103,11 +103,13 @@ class ShiftsController < ApplicationController
               recur_day = cur_sunday + counter.day + key[1][0].hour + key[1][1].minute
               day_end = recur_day + key[1][2].hours
               @shift_1 = Shift.create(:shiftstart => recur_day, :shiftend =>day_end)
-              gcal_event_insert(0, @shift_1.owner, "core", fix_timezone(@shift_1.shiftstart), fix_timezone(@shift_1.shiftend), @shift_1.event_id)
-              @shift_1.update_attribute(:ingcal, true)
+              @shift_1.shiftstart = fix_timezone(@shift_1.shifstart)
+              @shift_1.shiftend = fix_timezone(@shift_1.shiftend)
+              gcal_event_insert(0, @shift_1)
               @shift_2 = Shift.create(:shiftstart => (recur_day + 1.week), :shiftend => (day_end + 1.week))
-              gcal_event_insert(0, @shift_2.owner, "core", fix_timezone(@shift_2.shiftstart), fix_timezone(@shift_2.shiftend), @shift_2.event_id)
-              @shift_2.update_attribute(:ingcal, true)
+              @shift_2.shiftstart = fix_timezone(@shift_2.shifstart)
+              @shift_2.shiftend = fix_timezone(@shift_2.shiftend)
+              gcal_event_insert(0, @shift_2)
             end
           end
           counter += 1
