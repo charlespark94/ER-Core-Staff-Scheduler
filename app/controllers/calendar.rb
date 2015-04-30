@@ -24,7 +24,7 @@ module Calendar
 		)
 	end
 
-	def gcal_event_update(doctor_id, name, type_of_doctor, dt_start, dt_end, e_id)
+	def gcal_event_update(doctor_id, shift)
 		doctor_id = doctor_id.to_s
 		params = {
 			calendarId: CALENDAR_ID,
@@ -33,7 +33,7 @@ module Calendar
 		result = client.execute(
 			:api_method => calendar.events.update,
 			:parameters => params,
-			:body_object => convert_to_gcal_event(doctor_id, name, type_of_doctor, dt_start, dt_end, e_id)
+			:body_object => convert_to_gcal_event(doctor_id, shift.owner, "core", shift.shiftstart, shift.shiftend, shift.event_id)
 		)
 	end
 

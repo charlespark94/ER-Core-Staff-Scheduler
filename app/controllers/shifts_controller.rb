@@ -47,10 +47,12 @@ class ShiftsController < ApplicationController
     else
       @shift.update_attribute(:owner, (User.find_by_first_name(params[:shift][:owner]).first_name))
     end
+    @shift.shiftstart = fix_timezone(@shift.shiftstart)
+    @shift.shiftend = fix_timezone(@shift.shiftend)
     if (!@shift.users.nil? || !@shift.possible_users.nil?) &&(@shift.owner != "***")
-      gcal_event_update(User.find_by_first_name(@shift.owner).id, @shift.owner, "core", fix_timezone(@shift.shiftstart), fix_timezone(@shift.shiftend), @shift.event_id)
+      gcal_event_update(User.find_by_first_name(@shift.owner).id, @shift)
     else
-      gcal_event_update(0, @shift.owner, "core", fix_timezone(@shift.shiftstart), fix_timezone(@shift.shiftend), @shift.event_id)
+      gcal_event_update(0, @shift)
     end
     redirect_to shifts_path
   end
