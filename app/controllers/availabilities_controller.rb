@@ -6,7 +6,6 @@ class AvailabilitiesController < ApplicationController
 		@shifts = Shift.order(:shiftstart)
 		@flag = Flag.find_by_id(1)
 		Time.zone = "UTC"
-		#Time.zone = "America/Los_Angeles"
 		@date_start = @flag.flagstart.to_date
 		if !params[:newstart].nil?
 			@date_start = params[:newstart].to_date

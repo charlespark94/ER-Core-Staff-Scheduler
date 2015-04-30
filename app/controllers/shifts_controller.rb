@@ -6,7 +6,6 @@ class ShiftsController < ApplicationController
     @hours_per_person = show_hours_per_person
     @flag = Flag.find_by_id(1)
     Time.zone = "UTC"
-    #Time.zone = "America/Los_Angeles"
     @date_start = @flag.flagstart.to_date
     if !params[:newstart].nil?
       @date_start = params[:newstart].to_date
@@ -41,33 +40,24 @@ class ShiftsController < ApplicationController
 
   def update
     @shift = Shift.find params[:id]
-    date = DateTime.new(params[:shift][:"shiftstart(1i)"].to_i, params[:shift][:"shiftstart(2i)"].to_i, params[:shift][:"shiftstart(3i)"].to_i, params[:time][:hour].to_i, params[:time][:min].to_i)
-    @shift.update_attributes!(:shiftstart => date, :shiftend => (date + params[:length][:length].to_i.hours).to_datetime)
-    dt_start = fix_timezone(@shift.shiftstart)
-    dt_end = fix_timezone(@shift.shiftend)
-    dt_doc = params[:shift][:owner]
-    if dt_doc == "" || dt_doc.nil?
-      dt_doc = "***"
+    date_update = DateTime.new(params[:shift][:"shiftstart(1i)"].to_i, params[:shift][:"shiftstart(2i)"].to_i, params[:shift][:"shiftstart(3i)"].to_i, params[:time][:hour].to_i, params[:time][:min].to_i)
+    @shift.update_attributes!(:shiftstart => date_update, :shiftend => (date_update+ params[:length][:length].to_i.hours).to_datetime)
+    if params[:shift][:owner] == "" || params[:shift][:owner].nil?
       @shift.update_attribute(:owner, '***')
     else
       @shift.update_attribute(:owner, (User.find_by_first_name(params[:shift][:owner]).first_name))
     end
-    if (!@shift.users.nil? || !@shift.possible_users.nil?) &&(dt_doc != "***")
-      gcal_event_update(User.find_by_first_name(dt_doc).id, dt_doc, "core", dt_start, dt_end, @shift.event_id)
+    if (!@shift.users.nil? || !@shift.possible_users.nil?) &&(@shift.owner != "***")
+      gcal_event_update(User.find_by_first_name(@shift.owner).id, @shift.owner, "core", fix_timezone(@shift.shiftstart), fix_timezone(@shift.shiftend), @shift.event_id)
     else
-      gcal_event_update(0, dt_doc, "core", dt_start, dt_end, @shift.event_id)
+      gcal_event_update(0, @shift.owner, "core", fix_timezone(@shift.shiftstart), fix_timezone(@shift.shiftend), @shift.event_id)
     end
     redirect_to shifts_path
   end
 
   def destroy
     @shift = Shift.find(params[:id])
-    #if @shift.owner == '***' || @shift.owner == "" || @shift.owner.nil? || @shift.owner == " "
     gcal_event_delete(@shift.event_id)
-    #else
-    #  dt_doc = @shift.owner
-    #  gcal_event_delete(@shift.event_id)
-    #end
     @shift.destroy
     flash[:notice] = "Shift deleted."
     redirect_to shifts_path
