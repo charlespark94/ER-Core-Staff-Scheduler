@@ -50,8 +50,8 @@
 
       = form_tag shift_path(@shift), :method => :put do
 
-        = label :shift, :shiftstart, 'Shift Start Date:'
-        = date_select :shift, :shiftstart, :start_year => Date.today.year
+        = label :s, :date, 'Shift Start Date:'
+        = date_select :s, :date, :start_year => Date.today.year
         %br
         =label :time, :hour, 'Shift Start Time:'
         - hour = @shift.shiftstart.hour.to_i
@@ -62,12 +62,12 @@
           :
         = select :time, :min, ['00', '15', '30', '45'], selected: @shift.shiftstart.min.to_s
         %br
-        = label :shift, :shiftend, 'Duration of Shift:'
+        = label :s, :shiftend, 'Duration of Shift:'
         = select :length, :length, [1, 2, 4, 6, 8, 12], selected: ((@shift.shiftend - @shift.shiftstart)/1.hour).round
         %br
 
         - if @shift.users != [] || @shift.possible_users != " " 
-          = label :shift, :owner, 'Assign Doctor:'
+          = label :s, :owner, 'Assign Doctor:'
           - @temp1 = @shift.users.where(id: @shift.availabilities.select(:user_id).where(shift_id: @shift.id, availability: 2))
           - @temp2 = @shift.users.where(id: @shift.availabilities.select(:user_id).where(shift_id: @shift.id, availability: 1))
           - @temp3 = @temp1 | @temp2

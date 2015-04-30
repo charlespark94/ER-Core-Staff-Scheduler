@@ -18,19 +18,19 @@
 			%h1 Add a shift
 
 			= form_tag shifts_path do
-				= label :shift, :date, 'Shift Start Date:'
-				= date_select :shift, :date, :start_year => Time.now.year, :default => -7.hour.from_now
+				= label :s, :date, 'Shift Start Date:'
+				= date_select :s, :date, :start_year => Time.now.year, :default => -7.hour.from_now
 				%br
-				=label :shift, :time, 'Shift Start Time:'
+				=label :time, :time, 'Shift Start Time:'
 				- hour = Time.now.hour.to_i
 				- if hour < 10
 					- hour = "0#{hour}"
-				= select :shift, :hour, ['00', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23'], selected: hour
+				= select :time, :hour, ['00', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23'], selected: hour
 				:plain
 					:
-				= select :shift, :min, ['00', '15', '30', '45']
+				= select :time, :min, ['00', '15', '30', '45']
 				%br
-				= label :shift, :shiftend, 'Duration of Shift:'
+				= label :s, :shiftend, 'Duration of Shift:'
 				= select :length, :length, [1, 2, 4, 6, 8, 12]
 				:plain
 					hour(s)

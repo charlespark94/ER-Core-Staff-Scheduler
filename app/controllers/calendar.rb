@@ -28,7 +28,7 @@ module Calendar
 		doctor_id = doctor_id.to_s
 		params = {
 			calendarId: CALENDAR_ID,
-			eventId: e_id
+			eventId: shift.event_id
 		}
 		result = client.execute(
 			:api_method => calendar.events.update,
