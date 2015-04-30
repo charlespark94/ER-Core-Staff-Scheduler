@@ -46,14 +46,13 @@ class ShiftsController < ApplicationController
       dt_doc = "***"
       @shift.update_attribute(:owner, '***')
     else
-      @shift.update_attribute(:owner, User.find_by_first_name(params[:shift][:owner]).first_name)
+      @shift.update_attribute(:owner, (User.find_by_first_name(params[:shift][:owner]).first_name) 
     end
     if (!@shift.users.nil? || !@shift.possible_users.nil?) &&(dt_doc != "***")
       gcal_event_update(User.find_by_first_name(dt_doc).id, dt_doc, "core", dt_start, dt_end, @shift.event_id)
     else
       gcal_event_update(0, dt_doc, "core", dt_start, dt_end, @shift.event_id)
     end
-    #flash[:notice] = "Shift was successfully updated."
     redirect_to shifts_path
   end
 

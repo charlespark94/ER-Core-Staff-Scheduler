@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/home/saasbook/Project/ER-Core-Staff-Scheduler/app/controllers/application_controller.rb": [
+      "/home/saasbook/Documents/finalProj/ER-Core-Staff-Scheduler/app/controllers/application_controller.rb": [
         1,
         1,
         null,
@@ -30,31 +30,31 @@
         null,
         null
       ],
-      "/home/saasbook/Project/ER-Core-Staff-Scheduler/app/helpers/application_helper.rb": [
+      "/home/saasbook/Documents/finalProj/ER-Core-Staff-Scheduler/app/helpers/application_helper.rb": [
         1,
         null
       ],
-      "/home/saasbook/Project/ER-Core-Staff-Scheduler/app/helpers/fte_multiplier_helper.rb": [
+      "/home/saasbook/Documents/finalProj/ER-Core-Staff-Scheduler/app/helpers/fte_multiplier_helper.rb": [
         1,
         null
       ],
-      "/home/saasbook/Project/ER-Core-Staff-Scheduler/app/helpers/home_helper.rb": [
+      "/home/saasbook/Documents/finalProj/ER-Core-Staff-Scheduler/app/helpers/home_helper.rb": [
         1,
         null
       ],
-      "/home/saasbook/Project/ER-Core-Staff-Scheduler/app/helpers/password_resets_helper.rb": [
+      "/home/saasbook/Documents/finalProj/ER-Core-Staff-Scheduler/app/helpers/password_resets_helper.rb": [
         1,
         null
       ],
-      "/home/saasbook/Project/ER-Core-Staff-Scheduler/app/helpers/settings_helper.rb": [
+      "/home/saasbook/Documents/finalProj/ER-Core-Staff-Scheduler/app/helpers/settings_helper.rb": [
         1,
         null
       ],
-      "/home/saasbook/Project/ER-Core-Staff-Scheduler/app/helpers/verification_helper.rb": [
+      "/home/saasbook/Documents/finalProj/ER-Core-Staff-Scheduler/app/helpers/verification_helper.rb": [
         1,
         null
       ],
-      "/home/saasbook/Project/ER-Core-Staff-Scheduler/app/controllers/availabilities_controller.rb": [
+      "/home/saasbook/Documents/finalProj/ER-Core-Staff-Scheduler/app/controllers/availabilities_controller.rb": [
         1,
         null,
         null,
@@ -166,14 +166,14 @@
         null,
         null
       ],
-      "/home/saasbook/Project/ER-Core-Staff-Scheduler/app/models/availability.rb": [
+      "/home/saasbook/Documents/finalProj/ER-Core-Staff-Scheduler/app/models/availability.rb": [
         1,
         1,
         1,
         1,
         null
       ],
-      "/home/saasbook/Project/ER-Core-Staff-Scheduler/app/controllers/calendar.rb": [
+      "/home/saasbook/Documents/finalProj/ER-Core-Staff-Scheduler/app/controllers/calendar.rb": [
         1,
         1,
         1,
@@ -295,7 +295,7 @@
         null,
         null
       ],
-      "/home/saasbook/Project/ER-Core-Staff-Scheduler/app/controllers/fte_multiplier_controller.rb": [
+      "/home/saasbook/Documents/finalProj/ER-Core-Staff-Scheduler/app/controllers/fte_multiplier_controller.rb": [
         1,
         1,
         1,
@@ -307,7 +307,7 @@
         null,
         null
       ],
-      "/home/saasbook/Project/ER-Core-Staff-Scheduler/app/controllers/home_controller.rb": [
+      "/home/saasbook/Documents/finalProj/ER-Core-Staff-Scheduler/app/controllers/home_controller.rb": [
         1,
         1,
         null,
@@ -324,7 +324,7 @@
         null,
         null
       ],
-      "/home/saasbook/Project/ER-Core-Staff-Scheduler/app/controllers/password_resets_controller.rb": [
+      "/home/saasbook/Documents/finalProj/ER-Core-Staff-Scheduler/app/controllers/password_resets_controller.rb": [
         1,
         1,
         1,
@@ -353,7 +353,7 @@
         null,
         null
       ],
-      "/home/saasbook/Project/ER-Core-Staff-Scheduler/app/controllers/sessions_controller.rb": [
+      "/home/saasbook/Documents/finalProj/ER-Core-Staff-Scheduler/app/controllers/sessions_controller.rb": [
         1,
         1,
         1,
@@ -385,7 +385,7 @@
         null,
         null
       ],
-      "/home/saasbook/Project/ER-Core-Staff-Scheduler/app/controllers/settings_controller.rb": [
+      "/home/saasbook/Documents/finalProj/ER-Core-Staff-Scheduler/app/controllers/settings_controller.rb": [
         1,
         1,
         1,
@@ -417,7 +417,7 @@
         null,
         null
       ],
-      "/home/saasbook/Project/ER-Core-Staff-Scheduler/app/controllers/shifts_controller.rb": [
+      "/home/saasbook/Documents/finalProj/ER-Core-Staff-Scheduler/app/controllers/shifts_controller.rb": [
         1,
         1,
         1,
@@ -426,6 +426,7 @@
         1,
         1,
         1,
+        null,
         1,
         1,
         0,
@@ -461,9 +462,9 @@
         0,
         0,
         0,
-        0,
-        0,
-        0,
+        null,
+        null,
+        null,
         null,
         0,
         null,
@@ -472,7 +473,7 @@
         null,
         0,
         null,
-        0,
+        null,
         0,
         null,
         null,
@@ -485,7 +486,7 @@
         null,
         null,
         1,
-        null,
+        1,
         1,
         null,
         null,
@@ -547,7 +548,7 @@
         null,
         null
       ],
-      "/home/saasbook/Project/ER-Core-Staff-Scheduler/app/models/shift.rb": [
+      "/home/saasbook/Documents/finalProj/ER-Core-Staff-Scheduler/app/models/shift.rb": [
         1,
         1,
         1,
@@ -562,7 +563,7 @@
         null,
         null
       ],
-      "/home/saasbook/Project/ER-Core-Staff-Scheduler/app/controllers/users_controller.rb": [
+      "/home/saasbook/Documents/finalProj/ER-Core-Staff-Scheduler/app/controllers/users_controller.rb": [
         1,
         1,
         1,
@@ -580,7 +581,7 @@
         null,
         null
       ],
-      "/home/saasbook/Project/ER-Core-Staff-Scheduler/app/models/user.rb": [
+      "/home/saasbook/Documents/finalProj/ER-Core-Staff-Scheduler/app/models/user.rb": [
         1,
         1,
         1,
@@ -631,7 +632,7 @@
         null,
         null
       ],
-      "/home/saasbook/Project/ER-Core-Staff-Scheduler/app/controllers/verification_controller.rb": [
+      "/home/saasbook/Documents/finalProj/ER-Core-Staff-Scheduler/app/controllers/verification_controller.rb": [
         1,
         1,
         1,
@@ -660,7 +661,7 @@
         null,
         null
       ],
-      "/home/saasbook/Project/ER-Core-Staff-Scheduler/app/mailers/user_mailer.rb": [
+      "/home/saasbook/Documents/finalProj/ER-Core-Staff-Scheduler/app/mailers/user_mailer.rb": [
         1,
         1,
         null,
@@ -685,12 +686,12 @@
         null,
         null
       ],
-      "/home/saasbook/Project/ER-Core-Staff-Scheduler/app/models/flag.rb": [
+      "/home/saasbook/Documents/finalProj/ER-Core-Staff-Scheduler/app/models/flag.rb": [
         1,
         1,
         null
       ]
     },
-    "timestamp": 1430282988
+    "timestamp": 1430350996
   }
 }
