@@ -38,8 +38,13 @@ class ShiftsController < ApplicationController
   def create_date
     p = params[:s]
     t = params[:time]
-    dt = Date.new(p[:"date(1i)"].to_i, p[:"date(2i)"].to_i, p[:"date(3i)"].to_i)
-    final_dt = dt + t[:hour].to_i.hour + t[:min].to_i.minute
+    p_1 = p[:"date(1i)"].to_i
+    p_2 = p[:"date(2i)"].to_i
+    p_3 = p[:"date(3i)"].to_i
+    dt = Date.new(p_1, p_2, p_3)
+    h = t[:hour].to_i
+    m = t[:min].to_i
+    final_dt = dt + h.hour + m.minute
     return final_dt.to_datetime
   end
 
