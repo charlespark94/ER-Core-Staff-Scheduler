@@ -107,17 +107,10 @@ class ShiftsController < ApplicationController
         counter = 0
         @shift_pattern.each do |cur_pattern|
           if !cur_pattern.nil?
-            for key in cur_pattern
+            for key in cur_pattern         
               recur_day = cur_sunday + counter.day + key[1][0].hour + key[1][1].minute
               day_end = recur_day + key[1][2].hours
-              @shift_1 = Shift.create(:shiftstart => recur_day, :shiftend =>day_end)
-              @shift_1.shiftstart = fix_timezone(@shift_1.shiftstart)
-              @shift_1.shiftend = fix_timezone(@shift_1.shiftend)
-              gcal_event_insert(0, @shift_1)
-              @shift_2 = Shift.create(:shiftstart => (recur_day + 1.week), :shiftend => (day_end + 1.week))
-              @shift_2.shiftstart = fix_timezone(@shift_2.shiftstart)
-              @shift_2.shiftend = fix_timezone(@shift_2.shiftend)
-              gcal_event_insert(0, @shift_2)
+              recur_helper(recur_day, day_end)
             end
           end
           counter += 1
@@ -128,5 +121,16 @@ class ShiftsController < ApplicationController
     else
       @flag.update_attribute(:recurring, true) if !@flag.recurring
     end
+  end
+
+  def recur_helper(recur_day, day_end)
+    @shift_1 = Shift.create(:shiftstart => recur_day, :shiftend =>day_end)
+    @shift_1.shiftstart = fix_timezone(@shift_1.shiftstart)
+    @shift_1.shiftend = fix_timezone(@shift_1.shiftend)
+    gcal_event_insert(0, @shift_1)
+    @shift_2 = Shift.create(:shiftstart => (recur_day + 1.week), :shiftend => (day_end + 1.week))
+    @shift_2.shiftstart = fix_timezone(@shift_2.shiftstart)
+    @shift_2.shiftend = fix_timezone(@shift_2.shiftend)
+    gcal_event_insert(0, @shift_2)
   end
 end
