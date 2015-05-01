@@ -42,7 +42,15 @@
 													- else
 														%td= "#{shift.shiftstart.to_s[11..15]} to #{shift.shiftend.to_s[11..15]}+"
 													- availability = Availability.where(user_id: session[:user_id], shift_id: shift.id).first
-													- if availability.availability == 2
+													- if availability.nil? || availability.availability == 0
+														%td
+															%div#green= radio_button_tag "#{shift.id}", 'yes', false
+														%td
+															%div#yellow= radio_button_tag "#{shift.id}", 'maybe', false
+														%td
+															%div#red= radio_button_tag "#{shift.id}", 'no', true
+														%td.details= link_to 'details', shift
+													- elsif availability.availability == 2
 														%td
 															%div#green= radio_button_tag "#{shift.id}", 'yes', true
 														%td
@@ -57,14 +65,6 @@
 															%div#yellow= radio_button_tag "#{shift.id}", 'maybe', true
 														%td
 															%div#red= radio_button_tag "#{shift.id}", 'no', false
-														%td.details= link_to 'details', shift
-													- elsif availability.nil? || availability.availability == 0
-														%td
-															%div#green= radio_button_tag "#{shift.id}", 'yes', false
-														%td
-															%div#yellow= radio_button_tag "#{shift.id}", 'maybe', false
-														%td
-															%div#red= radio_button_tag "#{shift.id}", 'no', true
 														%td.details= link_to 'details', shift
 
 				%table.table
@@ -84,7 +84,15 @@
 													- else
 														%td= "#{shift.shiftstart.to_s[11..15]} to #{shift.shiftend.to_s[11..15]}+"
 													- availability = Availability.where(user_id: session[:user_id], shift_id: shift.id).first
-													- if availability.availability == 2
+													- if availability.nil? || availability.availability == 0
+														%td
+															%div#green= radio_button_tag "#{shift.id}", 'yes', false
+														%td
+															%div#yellow= radio_button_tag "#{shift.id}", 'maybe', false
+														%td
+															%div#red= radio_button_tag "#{shift.id}", 'no', true
+														%td.details= link_to 'details', shift
+													- elsif availability.availability == 2
 														%td
 															%div#green= radio_button_tag "#{shift.id}", 'yes', true
 														%td
@@ -99,14 +107,6 @@
 															%div#yellow= radio_button_tag "#{shift.id}", 'maybe', true
 														%td
 															%div#red= radio_button_tag "#{shift.id}", 'no', false
-														%td.details= link_to 'details', shift
-													- elsif availability.nil? || availability.availability == 0
-														%td
-															%div#green= radio_button_tag "#{shift.id}", 'yes', false
-														%td
-															%div#yellow= radio_button_tag "#{shift.id}", 'maybe', false
-														%td
-															%div#red= radio_button_tag "#{shift.id}", 'no', true
 														%td.details= link_to 'details', shift
 
 				= submit_tag 'Update'
