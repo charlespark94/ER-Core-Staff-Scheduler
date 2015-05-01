@@ -33,7 +33,7 @@ Scenario: Admin can see hour amount change from assigning
 	Then I should see a dropdown menu for Assign Doctor
 	Then I select admin for Assign Person
 	When I press "Update Shift"
-	Then I should see that "admin" has 0 hours assigned
+	Then I should see that "admin" has 12 hours assigned
 
 Scenario: Admin can see hour amount change from reassigning
 	When I follow edit for shift 1

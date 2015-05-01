@@ -16,8 +16,8 @@
           = f.text_field :last_name, class: 'form-control', placeholder: "Last Name"
           = f.text_field :email, class: 'form-control', placeholder: "Email"
           = f.label :usertype, "Select User Type"
-          = f.select(:usertype, ['Administrator', 'Core Doctor', 'Night Doctor'], {}, {:class=> 'form-control'})
-          = f.label :fte, "FTE Multiplier"
+          = f.select(:usertype, ['Core Doctor', 'Night Doctor', 'Administrator', 'Administrative Assistant'], {}, {:class=> 'form-control'})
+          = f.label :fte, "Clinical FTE"
           = f.number_field :fte, step: 0.1, :"value" => 1.0, :"max" => 1.0, :"min" => 0.1, class: 'form-control'
           = f.label :account_info, "Account Information"
           = f.text_field :username, class: 'form-control', placeholder: "Username"

@@ -35,7 +35,7 @@ describe ShiftsController do
 
     it 'should update event' do
       Shift.should_receive(:find).and_return(@tester)
-      controller.stub(:params).and_return({:s => {:"date(1i)" => "2015", :"date(2i)" => "4", :"date(3i)" => "01"}, :"time" => {:hour => "01", :min => "15"}, :shift => {:owner => "***"}, :length => {:length => "15"}})
+      controller.stub(:params).and_return({:shift => {:"shiftstart(1i)" => "2015", :"shiftstart(2i)" => "4", :"shiftstart(3i)" => "01", :owner => "***"}, :"time" => {:hour => "01", :min => "15"}, :length => {:length => "15"}})
       controller.should_receive(:gcal_event_update).and_return(true)
       User.should_receive(:find_by_first_name).and_return(@user)
       User.should_receive(:find_by_first_name).and_return(@user)
