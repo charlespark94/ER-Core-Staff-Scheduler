@@ -68,13 +68,12 @@ class ShiftsController < ApplicationController
     s = params[:shift]
     lh = l[:length].to_i
     df = date_update + lh.hour
+    o = s[:owner]
+    user = User.find_by_first_name(o)
     shift.update_attribute(:shiftstart, date_update)
     shift.update_attribute(:shiftend, df.to_datetime)
-    if s[:owner] == "" || s[:owner].nil?
-      shift.update_attribute(:owner, '***')
-    else
-      shift.update_attribute(:owner, (User.find_by_first_name(s[:owner]).first_name))
-    end
+    shift.update_attribute(:owner, '***') if o == ""
+    shift.update_attribute(:owner, user.first_name) if o != ""
     shift.shiftstart = fix_timezone(shift.shiftstart)
     shift.shiftend = fix_timezone(shift.shiftend)
   end
