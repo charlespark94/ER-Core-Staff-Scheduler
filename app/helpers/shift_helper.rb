@@ -4,12 +4,10 @@ module ShiftHelper
     s = params[:shift]
     lh = l[:length].to_i
     df = date + lh.hour
-    o = s[:owner]
+    o = s[:owner] if !s.nil?
     user = User.find_by_first_name(o)
-    # shift.update_attribute(:shiftstart, date)
-    # shift.update_attribute(:shiftend, df.to_datetime)
-    shift.update_attribute(:owner, '***') if o == ""
-    shift.update_attribute(:owner, user.first_name) if o != ""
+    shift.update_attribute(:owner, '***') if o == "" || o.nil?
+    shift.update_attribute(:owner, user.first_name) if o != "" && !o.nil?
     shift.update_attribute(:shiftstart, date)
     shift.update_attribute(:shiftend, df.to_datetime)
     shift.shiftstart = fix_timezone(shift.shiftstart)

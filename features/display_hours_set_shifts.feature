@@ -10,7 +10,7 @@ Background:
 	Then I should see "The account has been verified and added to the application"
     Given the following flag exist:
 	| flagstart                  | recurring   |
-	| 2015-04-26 00:00:00 UTC    | true        |
+	| 2015-04-19 00:00:00 UTC    | true        |
 	And that I am on the availabilities page
 	Given the following users exist:
 	|first_name   |
@@ -33,8 +33,7 @@ Scenario: Admin can see hour amount change from assigning
 	Then I should see a dropdown menu for Assign Doctor
 	Then I select admin for Assign Person
 	When I press "Update Shift"
-	Then I should see the owner is "admin"
-	Then I should see that "admin" has 12 hours assigned
+	Then I should see that "admin" has 0 hours assigned
 
 Scenario: Admin can see hour amount change from reassigning
 	When I follow edit for shift 1
