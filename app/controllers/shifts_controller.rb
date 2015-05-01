@@ -106,10 +106,8 @@ class ShiftsController < ApplicationController
     cur_sunday = @flag.flagstart + 2.week
     counter = 0
     @shift_pattern.each do |cur_pattern|
-      if !cur_pattern.nil?
-        for key in cur_pattern         
-          recur_day_gen(key, cur_sunday, counter)
-        end
+      cur_pattern.each do |key|
+        recur_day_gen(key, cur_sunday, counter) if !cur_pattern.nil?
       end
       counter += 1
     end
