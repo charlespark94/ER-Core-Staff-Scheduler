@@ -50,6 +50,16 @@ class ShiftsController < ApplicationController
 
   def update
     @shift = Shift.find params[:id]
+    update_helper(params, @shift)
+    if (!@shift.users.nil? || !@shift.possible_users.nil?) &&(@shift.owner != "***")
+      gcal_event_update(User.find_by_first_name(@shift.owner).id, @shift)
+    else
+      gcal_event_update(0, @shift)
+    end
+    redirect_to shifts_path
+  end
+
+  def update_helper(p, s)
     date_update = create_date
     l = params[:length]
     s = params[:shift]
@@ -61,12 +71,6 @@ class ShiftsController < ApplicationController
     end
     @shift.shiftstart = fix_timezone(@shift.shiftstart)
     @shift.shiftend = fix_timezone(@shift.shiftend)
-    if (!@shift.users.nil? || !@shift.possible_users.nil?) &&(@shift.owner != "***")
-      gcal_event_update(User.find_by_first_name(@shift.owner).id, @shift)
-    else
-      gcal_event_update(0, @shift)
-    end
-    redirect_to shifts_path
   end
 
   def destroy
