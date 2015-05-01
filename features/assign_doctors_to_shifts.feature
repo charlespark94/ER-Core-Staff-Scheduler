@@ -8,6 +8,7 @@ Background:
   Given 'admin' has been added to the database
   Given I am logged in as 'admin' with password 'admin'
   Given that I am on the verified page
+  Then I press "Update"
   Then I should see "The account has been verified and added to the application"
   Given the following users exist:
   | first_name |

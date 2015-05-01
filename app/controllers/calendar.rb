@@ -13,7 +13,6 @@ module Calendar
 
 	def gcal_event_insert(doctor_id, shift)
 		doctor_id = doctor_id.to_s
-		shift.update_attribute(:ingcal, true)
 		result = client.execute(
 			:api_method => calendar.events.insert,
 			:parameters => {calendarId: CALENDAR_ID},

@@ -7,6 +7,7 @@ Given /^'(.*)' has been added to the database$/ do |username|
   step "I fill in \"user_password\" with \"#{username}\""
   step "I fill in \"user_password_confirmation\" with \"#{username}\""
   step "I press \"Sign Up\""
+  User.find_by_first_name("#{username}").update_attributes(:fte => 1, :fte_multiplier => 1)
 end
 
 Given /^(?:|I )am logged in as '(.*)' with password '(.*)'$/ do |username, password|

@@ -8,7 +8,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :password
       t.string :email
       t.string :auth_token
-      t.float :fte
+      t.float :fte, default: 1.0
       t.string :encrypted_password
       t.boolean :verified, default: false
       t.float :fte_multiplier, default: 1.0

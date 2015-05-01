@@ -14,8 +14,16 @@ class VerificationController < ApplicationController
 	end
 
 	def index
-		user = User.find_by_id(params[:format])
-		verification(user)
+		@user = User.find_by_id(params[:format])
+	end
+
+	def new
+		@user = User.find_by_first_name(params[:first_name])
+		@user.update_attribute(:fte_multiplier, params[:"#{@user.id}"])
+		@user.update_attribute(:fte, params[:"#{@user.id}_fte"])
+		@user.update_attribute(:first_name, params[:first_name])
+		@user.update_attribute(:last_name, params[:last_name])
+		verification(@user)
 	end
 
 	def verification(user)

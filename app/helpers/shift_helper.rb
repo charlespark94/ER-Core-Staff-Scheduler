@@ -4,16 +4,14 @@ module ShiftHelper
     s = params[:shift]
     lh = l[:length].to_i
     df = date + lh.hour
-    o = s[:owner]
+    o = s[:owner] if !s.nil?
     user = User.find_by_first_name(o)
-    # shift.update_attribute(:shiftstart, date)
-    # shift.update_attribute(:shiftend, df.to_datetime)
-    shift.update_attribute(:owner, '***') if o == ""
-    shift.update_attribute(:owner, user.first_name) if o != ""
+    shift.update_attribute(:owner, '***') if o == "" || o.nil?
+    shift.update_attribute(:owner, user.first_name) if o != "" && !o.nil?
     shift.update_attribute(:shiftstart, date)
     shift.update_attribute(:shiftend, df.to_datetime)
-    shift.shiftstart = fix_timezone(shift.shiftstart)
-    shift.shiftend = fix_timezone(shift.shiftend)
+    shift.shiftstart = fix_timezone_gcal(shift.shiftstart)
+    shift.shiftend = fix_timezone_gcal(shift.shiftend)
   end
 
   def show_hours_per_person
@@ -44,11 +42,19 @@ module ShiftHelper
   end
 
 
-  def fix_timezone(dt)
+  def fix_timezone_gcal(dt)
       if Time.now.dst?
         return (dt + 6.hours).to_datetime
       else
         return (dt + 7.hours).to_datetime
+      end
+  end
+
+  def fix_timezone_app(dt)
+      if Time.now.dst?
+        return (dt - 6.hours).to_datetime
+      else
+        return (dt - 7.hours).to_datetime
       end
   end
 
@@ -78,13 +84,17 @@ module ShiftHelper
 
   def recur_helper(recur_day, day_end)
     @shift_1 = Shift.create(:shiftstart => recur_day, :shiftend =>day_end)
-    @shift_1.shiftstart = fix_timezone(@shift_1.shiftstart)
-    @shift_1.shiftend = fix_timezone(@shift_1.shiftend)
+    @shift_1.shiftstart = fix_timezone_gcal(@shift_1.shiftstart)
+    @shift_1.shiftend = fix_timezone_gcal(@shift_1.shiftend)
     gcal_event_insert(0, @shift_1)
+    @shift_1.shiftstart = fix_timezone_app(@shift_1.shiftstart)
+    @shift_1.shiftend = fix_timezone_app(@shift_1.shiftend)
     @shift_2 = Shift.create(:shiftstart => (recur_day + 1.week), :shiftend => (day_end + 1.week))
-    @shift_2.shiftstart = fix_timezone(@shift_2.shiftstart)
-    @shift_2.shiftend = fix_timezone(@shift_2.shiftend)
+    @shift_2.shiftstart = fix_timezone_gcal(@shift_2.shiftstart)
+    @shift_2.shiftend = fix_timezone_gcal(@shift_2.shiftend)
     gcal_event_insert(0, @shift_2)
+    @shift_2.shiftstart = fix_timezone_app(@shift_2.shiftstart)
+    @shift_2.shiftend = fix_timezone_app(@shift_2.shiftend)
   end
 
   def check_time(flag)

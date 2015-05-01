@@ -30,18 +30,21 @@ class ShiftsController < ApplicationController
     date = create_date
     l = params[:length]
     @shift = Shift.create(:shiftstart => date, :shiftend => (date + l[:length].to_i.hours).to_datetime)
-    @shift.shiftstart = fix_timezone(@shift.shiftstart)
-    @shift.shiftend = fix_timezone(@shift.shiftend)
+    @shift.shiftstart = fix_timezone_gcal(@shift.shiftstart)
+    @shift.shiftend = fix_timezone_gcal(@shift.shiftend)
     gcal_event_insert(0, @shift)
+    @shift.shiftstart = fix_timezone_app(@shift.shiftstart)
+    @shift.shiftend = fix_timezone_app(@shift.shiftend)
+    @shift.update_attribute(:ingcal, true)
     redirect_to shifts_path
   end
 
   def create_date
-    p = params[:s]
+    p = params[:shift]
     t = params[:time]
-    p_1 = p[:"date(1i)"].to_i
-    p_2 = p[:"date(2i)"].to_i
-    p_3 = p[:"date(3i)"].to_i
+    p_1 = p[:"shiftstart(1i)"].to_i
+    p_2 = p[:"shiftstart(2i)"].to_i
+    p_3 = p[:"shiftstart(3i)"].to_i
     dt = Date.new(p_1, p_2, p_3)
     h = t[:hour].to_i
     m = t[:min].to_i
