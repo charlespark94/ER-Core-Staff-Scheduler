@@ -51,11 +51,14 @@ class ShiftsController < ApplicationController
   def update
     @shift = Shift.find params[:id]
     update_helper(params, @shift)
-    if (!@shift.users.nil? || !@shift.possible_users.nil?) &&(@shift.owner != "***")
-      gcal_event_update(User.find_by_first_name(@shift.owner).id, @shift)
-    else
-      gcal_event_update(0, @shift)
-    end
+    gcal_event_update(0, @shift) if @shift.owner == '***'
+    #if (!@shift.users.nil? || !@shift.possible_users.nil?) &&(@shift.owner != "***")
+    #  gcal_event_update(User.find_by_first_name(@shift.owner).id, @shift)
+    #else
+    #  gcal_event_update(0, @shift)
+    #end
+    user = User.find_by_first_name(@shift.owner)
+    gcal_event_update(user.id, @shfit) if @shift.owner != '***'
     redirect_to shifts_path
   end
 
