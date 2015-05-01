@@ -10,6 +10,12 @@ Given /the following flag exist/ do |flag_table|
   end
 end
 
+Given /the following availabilities exist/ do |availabilities_table|
+  availabilities_table.hashes.each do |avail|
+    Availability.create(avail)
+  end
+end
+
 When /^(?:|I )choose "([^"]*)" of shift: (.*)/ do |field, shifts|
   shifts.split(',').each do |shift|
     choose("#{shift}_#{field}")
