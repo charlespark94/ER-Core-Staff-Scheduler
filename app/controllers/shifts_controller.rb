@@ -100,8 +100,9 @@ class ShiftsController < ApplicationController
 
   def recur
     @flag = Flag.find_by_id(1)
-    if ((Time.current - 7.hours).to_date - @flag.flagstart.to_date).to_i < 14
-      @flag.update_attribute(:recurring, true) if !@flag.recurring and return
+    if check_time(@flag)
+      @flag.update_attribute(:recurring, true) if !@flag.recurring
+      return
     end
     if @flag.recurring
       @shift_template = IO.read("public/shift_template.json")
@@ -123,7 +124,7 @@ class ShiftsController < ApplicationController
 
   def recur_day_gen(key, cur_sunday, counter)
     rd = cur_sunday + counter.day + key[1][0].hour + key[1][1].minute
-    de = recur_day + key[1][2].hours
+    de = rd + key[1][2].hours
     recur_helper(rd, de)
   end
 
@@ -136,5 +137,12 @@ class ShiftsController < ApplicationController
     @shift_2.shiftstart = fix_timezone(@shift_2.shiftstart)
     @shift_2.shiftend = fix_timezone(@shift_2.shiftend)
     gcal_event_insert(0, @shift_2)
+  end
+
+  def check_time(flag)
+    t = Time.current - 7.hours
+    f = flag.flagstart
+    diff = t.to_date - f.to_date
+    return diff.to_i < 14
   end
 end
