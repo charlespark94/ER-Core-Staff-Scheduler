@@ -42,7 +42,7 @@
 													- else
 														%td= "#{shift.shiftstart.to_s[11..15]} to #{shift.shiftend.to_s[11..15]}+"
 													- availability = Availability.where(user_id: session[:user_id], shift_id: shift.id).first
-													- if availability.nil? || availability.availability == 2
+													- if availability.availability == 2
 														%td
 															%div#green= radio_button_tag "#{shift.id}", 'yes', true
 														%td
@@ -58,7 +58,7 @@
 														%td
 															%div#red= radio_button_tag "#{shift.id}", 'no', false
 														%td.details= link_to 'details', shift
-													- elsif availability.availability == 0
+													- elsif availability.nil? || availability.availability == 0
 														%td
 															%div#green= radio_button_tag "#{shift.id}", 'yes', false
 														%td
@@ -84,7 +84,7 @@
 													- else
 														%td= "#{shift.shiftstart.to_s[11..15]} to #{shift.shiftend.to_s[11..15]}+"
 													- availability = Availability.where(user_id: session[:user_id], shift_id: shift.id).first
-													- if availability.nil? || availability.availability == 2
+													- if availability.availability == 2
 														%td
 															%div#green= radio_button_tag "#{shift.id}", 'yes', true
 														%td
@@ -100,7 +100,7 @@
 														%td
 															%div#red= radio_button_tag "#{shift.id}", 'no', false
 														%td.details= link_to 'details', shift
-													- elsif availability.availability == 0
+													- elsif availability.nil? || availability.availability == 0
 														%td
 															%div#green= radio_button_tag "#{shift.id}", 'yes', false
 														%td
@@ -110,8 +110,6 @@
 														%td.details= link_to 'details', shift
 
 				= submit_tag 'Update'
-
-				= link_to 'Set Availabilities to Previous Pay Period', new_availability_path
 
 			%div.content-separator
 			%h2 Your Availabilities
@@ -155,3 +153,5 @@
 															%td= "#{shift.shiftstart.to_s[11..15]} to #{shift.shiftend.to_s[11..15]}"
 														- else
 															%td= "#{shift.shiftstart.to_s[11..15]} to #{shift.shiftend.to_s[11..15]}+"
+
+			= link_to 'Set Availabilities to Previous Pay Period', new_availability_path
