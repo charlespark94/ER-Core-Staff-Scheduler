@@ -16,7 +16,7 @@ module Calendar
 		shift.update_attribute(:ingcal, true)
 		result = client.execute(
 			:api_method => calendar.events.insert,
-			:parameters => {calendarId: CALENDAR_ID}
+			:parameters => {calendarId: CALENDAR_ID},
 			:body_object => convert_to_gcal_event(doctor_id, shift.owner, "core", shift.shiftstart, shift.shiftend, shift.event_id)
 		)
 	end
