@@ -87,9 +87,14 @@ class ShiftsController < ApplicationController
     shifts = Shift.all
     shifts.each do |shift|
       if hours_per_person.has_key?(shift.owner)
-        hours_per_person[shift.owner][0] = hours_per_person[shift.owner][0] + ((shift.shiftend - shift.shiftstart)/(60*60)).to_i
+        se = shift.shiftend
+        ss = shift.shiftstart
+        diff = se - ss
+        dh = diff/1.hour
+        input = hours_per_person[shift.owner][0] + dh.to_i
+        hours_per_person[shift.owner][0] = input
       else
-        hours_per_person[shift.owner] = [((shift.shiftend - shift.shiftstart)/(60*60)).to_i, 0]      
+        hours_per_person[shift.owner] = [dh.to_i, 0]      
       end
     end
     return hours_per_person
