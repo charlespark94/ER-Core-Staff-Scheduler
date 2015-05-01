@@ -87,18 +87,23 @@ class ShiftsController < ApplicationController
     shifts = Shift.all
     shifts.each do |shift|
       if hours_per_person.has_key?(shift.owner)
-        se = shift.shiftend
-        ss = shift.shiftstart
-        diff = se - ss
-        dh = diff/1.hour
-        input = hours_per_person[shift.owner][0] + dh.to_i
-        hours_per_person[shift.owner][0] = input
+        show_hours_helper(hours_per_person, shift)
       else
         hours_per_person[shift.owner] = [dh.to_i, 0]      
       end
     end
     return hours_per_person
   end
+
+  def show_hours_helper(hp, shift)
+    se = shift.shiftend
+    ss = shift.shiftstart
+    diff = se - ss
+    dh = diff/1.hour
+    input = hp[shift.owner][0] + dh.to_i
+    hp[shift.owner][0] = input
+  end
+
 
   def fix_timezone(dt)
       if Time.now.dst?
