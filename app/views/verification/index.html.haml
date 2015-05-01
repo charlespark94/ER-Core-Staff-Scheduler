@@ -1,1 +1,23 @@
-%h2 The account has been verified and added to the application
+%h2 Please fill our the information for the doctor below
+:css
+	th, td {
+		vertical-align: top;
+		text-align: center;
+		padding: 15px;
+		width: 30px;
+	}
+= form_tag verification_complete_path, :method => :get do
+	%table#multiplier
+		%thead
+			%tr
+				%th Doctor's First Name
+				%th Doctor's Last Name
+				%th Clinical FTE
+				%th FTE Multiplier
+			%tbody
+				%tr
+					%td= text_field_tag "first_name", @user.first_name
+					%td= text_field_tag "last_name", @user.last_name
+					%td= number_field_tag "#{@user.id}_fte", @user.fte, step: 0.05, min: 0.1, max: 1.0
+					%td= number_field_tag "#{@user.id}", @user.fte_multiplier, step: 0.1
+	= submit_tag 'Update'

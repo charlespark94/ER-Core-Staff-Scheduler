@@ -10,7 +10,6 @@ Scenario: user can create an account
   When I fill in "user_first_name" with "Charles"
   And I fill in "user_last_name" with "Park"
   And I select "Core Doctor" from "user_usertype"
-  And I fill in "user_fte" with "0.8"
   And I fill in "user_email" with "example@example.com"
   And I fill in "user_username" with "core"
   And I fill in "user_password" with "core"

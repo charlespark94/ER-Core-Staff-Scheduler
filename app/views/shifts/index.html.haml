@@ -5,9 +5,9 @@
 		%ul.sidebar-nav
 			%li
 				%a= link_to 'Home', home_path
-			%li
 			-if @user.usertype != 'Administrative Assistant'
-				%a= link_to 'Set Availability', availabilities_path
+				%li
+					%a= link_to 'Set Availability', availabilities_path
 			- if @user.usertype == 'Administrator' || @user.usertype == 'Administrative Assistant'
 				%li 
 					%a= link_to 'Shift Scheduler', shifts_path

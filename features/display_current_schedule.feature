@@ -8,6 +8,7 @@ Background: Given I have been added to the database
 	Given 'admin' has been added to the database
 	Given I am logged in as 'admin' with password 'admin'
 	When I go to the verified page
+  	Then I press "Update"
 	And I go to the home page
 	Then I should be on the home page
 

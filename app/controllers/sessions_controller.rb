@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   skip_before_filter :check_logged_in
+  skip_before_filter :check_account_verified
   def new
     if session[:user_id] != nil
       redirect_to home_path and return

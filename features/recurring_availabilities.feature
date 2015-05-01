@@ -15,6 +15,7 @@ Background: I am on the availabilities page
   When I press "Log In"
   Then I should be redirected to the home page
   Given that I am on the verified page
+  Then I press "Update"
   Then I should see "The account has been verified and added to the application"
   Given the following shifts exist:
   | shiftstart                 | shiftend                | possible_users |

@@ -33,7 +33,7 @@ describe SessionsController do
 		it "should redirect not verified" do
 			@user = User.create(user_params1)
 			get :new, nil, {user_id: 1}
-			response.should redirect_to(not_verified_path)
+			response.should redirect_to(home_path)
 		end
 		it "should redirect home" do
 			@user = User.create(user_params2)
