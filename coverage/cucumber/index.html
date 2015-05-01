@@ -14,7 +14,7 @@
       <img src="./assets/0.9.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2015-04-30T17:32:04-07:00">2015-04-30T17:32:04-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2015-04-30T17:36:16-07:00">2015-04-30T17:36:16-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -113,7 +113,7 @@
       <tr>
         <td class="strong"><a href="#cc42a03695d01f432dea45e3175cb95de1dffb23" class="src_link" title="app/controllers/sessions_controller.rb">app/controllers/sessions_controller.rb</a></td>
         <td class="green strong">94.74 %</td>
-        <td>30</td>
+        <td>29</td>
         <td>19</td>
         <td>18</td>
         <td>1</td>
@@ -371,7 +371,7 @@
       <tr>
         <td class="strong"><a href="#cc42a03695d01f432dea45e3175cb95de1dffb23" class="src_link" title="app/controllers/sessions_controller.rb">app/controllers/sessions_controller.rb</a></td>
         <td class="green strong">94.74 %</td>
-        <td>30</td>
+        <td>29</td>
         <td>19</td>
         <td>18</td>
         <td>1</td>
@@ -2712,118 +2712,112 @@
         <li class="covered" data-hits="23" data-linenumber="11">
           <span class="hits">23</span>
           
-          <code class="ruby">    if user</code>
+          <code class="ruby">    if !user</code>
         </li>
       
-        <li class="covered" data-hits="21" data-linenumber="12">
-          <span class="hits">21</span>
-          
-          <code class="ruby">      if params[:remember_me]</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="13">
-          
-          
-          <code class="ruby">        cookies.permanent[:auth_token] = user.auth_token</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="14">
-          
-          
-          <code class="ruby">      else</code>
-        </li>
-      
-        <li class="covered" data-hits="21" data-linenumber="15">
-          <span class="hits">21</span>
-          
-          <code class="ruby">        cookies[:auth_token] = user.auth_token</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="16">
-          
-          
-          <code class="ruby">      end</code>
-        </li>
-      
-        <li class="covered" data-hits="21" data-linenumber="17">
-          <span class="hits">21</span>
-          
-          <code class="ruby">      session[:user_id] = user.id</code>
-        </li>
-      
-        <li class="covered" data-hits="21" data-linenumber="18">
-          <span class="hits">21</span>
-          
-          <code class="ruby">      redirect_to home_path and return</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="19">
-          
-          
-          <code class="ruby">    else</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="20">
+        <li class="covered" data-hits="2" data-linenumber="12">
           <span class="hits">2</span>
           
           <code class="ruby">      flash[:notice] = &quot;Invalid username and/or password&quot;</code>
         </li>
       
-        <li class="covered" data-hits="2" data-linenumber="21">
+        <li class="covered" data-hits="2" data-linenumber="13">
           <span class="hits">2</span>
           
           <code class="ruby">      redirect_to login_path and return</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="22">
+        <li class="never" data-hits="" data-linenumber="14">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="23">
+        <li class="covered" data-hits="21" data-linenumber="15">
+          <span class="hits">21</span>
+          
+          <code class="ruby">    if params[:remember_me]</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="16">
+          
+          
+          <code class="ruby">      cookies.permanent[:auth_token] = user.auth_token</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="17">
+          
+          
+          <code class="ruby">    else</code>
+        </li>
+      
+        <li class="covered" data-hits="21" data-linenumber="18">
+          <span class="hits">21</span>
+          
+          <code class="ruby">      cookies[:auth_token] = user.auth_token</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="19">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="covered" data-hits="21" data-linenumber="20">
+          <span class="hits">21</span>
+          
+          <code class="ruby">    session[:user_id] = user.id</code>
+        </li>
+      
+        <li class="covered" data-hits="21" data-linenumber="21">
+          <span class="hits">21</span>
+          
+          <code class="ruby">    redirect_to home_path and return</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="22">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="24">
+        <li class="never" data-hits="" data-linenumber="23">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="25">
+        <li class="covered" data-hits="1" data-linenumber="24">
           <span class="hits">1</span>
           
           <code class="ruby">  def destroy</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="26">
+        <li class="covered" data-hits="5" data-linenumber="25">
           <span class="hits">5</span>
           
           <code class="ruby">    cookies.delete(:auth_token)</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="27">
+        <li class="covered" data-hits="5" data-linenumber="26">
           <span class="hits">5</span>
           
           <code class="ruby">    session[:user_id] = nil</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="28">
+        <li class="covered" data-hits="5" data-linenumber="27">
           <span class="hits">5</span>
           
           <code class="ruby">    redirect_to login_path</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="29">
+        <li class="never" data-hits="" data-linenumber="28">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="30">
+        <li class="never" data-hits="" data-linenumber="29">
           
           
           <code class="ruby">end</code>
