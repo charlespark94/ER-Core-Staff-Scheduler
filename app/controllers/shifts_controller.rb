@@ -100,10 +100,7 @@ class ShiftsController < ApplicationController
 
   def recur
     @flag = Flag.find_by_id(1)
-    if check_time(@flag)
-      @flag.update_attribute(:recurring, true) if !@flag.recurring
-      return
-    end
+    return if check_time(@flag)
     if @flag.recurring
       @shift_template = IO.read("public/shift_template.json")
       @shift_pattern = JSON.parse(@shift_template)
@@ -143,6 +140,7 @@ class ShiftsController < ApplicationController
     t = Time.current - 7.hours
     f = flag.flagstart
     diff = t.to_date - f.to_date
+    flag.update_attribute(:recurring, true) if !@flag.recurring if diff.to_i < 14
     return diff.to_i < 14
   end
 end
