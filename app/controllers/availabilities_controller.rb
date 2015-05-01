@@ -51,9 +51,7 @@ class AvailabilitiesController < ApplicationController
 		@shifts = recurring_avail(@flag.flagstart, @flag.flagstart + 2.weeks)
 		@shifts.each do |shift|
 			prev_shift = Shift.where("shiftstart = ?", shift.shiftstart - 2.weeks).where("shiftend = ?", shift.shiftend - 2.weeks)
-			if prev_shift.nil?
-				next
-			end
+			next if prev_shift.nil?
 			availability = Availability.where(user_id: session[:user_id], shift_id: shift.id).first
 			prev_avail = Availability.where(user_id: session[:user_id], shift_id: prev_shift[0].id).first
 			availability.update_attribute(:availability, prev_avail.availability)
