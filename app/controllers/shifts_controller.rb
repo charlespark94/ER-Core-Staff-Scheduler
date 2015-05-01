@@ -50,7 +50,8 @@ class ShiftsController < ApplicationController
 
   def update
     @shift = Shift.find params[:id]
-    update_helper(@shift)
+    date_update = create_date
+    update_helper(date_update, @shift)
     gcal_event_update(0, @shift) if @shift.owner == '***'
     #if (!@shift.users.nil? || !@shift.possible_users.nil?) &&(@shift.owner != "***")
     #  gcal_event_update(User.find_by_first_name(@shift.owner).id, @shift)
@@ -62,15 +63,14 @@ class ShiftsController < ApplicationController
     redirect_to shifts_path
   end
 
-  def update_helper(shift)
-    date_update = create_date
+  def update_helper(date, shift)
     l = params[:length]
     s = params[:shift]
     lh = l[:length].to_i
-    df = date_update + lh.hour
+    df = date + lh.hour
     o = s[:owner]
     user = User.find_by_first_name(o)
-    shift.update_attribute(:shiftstart, date_update)
+    shift.update_attribute(:shiftstart, date)
     shift.update_attribute(:shiftend, df.to_datetime)
     shift.update_attribute(:owner, '***') if o == ""
     shift.update_attribute(:owner, user.first_name) if o != ""
