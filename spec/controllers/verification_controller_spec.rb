@@ -28,4 +28,10 @@ describe VerificationController do
 		should redirect_to(home_path)
 	end
 
+		it "should redirect not verified" do
+		@user = User.create(user_params)
+		User.stub(:find_by_first_name).and_return(@user)
+		get :new, nil, {user_id: 1}
+	end
+
 end
