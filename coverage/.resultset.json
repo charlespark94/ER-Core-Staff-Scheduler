@@ -39,6 +39,14 @@
         1,
         0,
         null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        null,
         null
       ],
       "/home/saasbook/Project/ER-Core-Staff-Scheduler/app/helpers/fte_multiplier_helper.rb": [
@@ -216,10 +224,6 @@
         null,
         null,
         1,
-        0,
-        0,
-        0,
-        0,
         0,
         0,
         0,
@@ -704,6 +708,6 @@
         null
       ]
     },
-    "timestamp": 1430469747
+    "timestamp": 1430470045
   }
 }
