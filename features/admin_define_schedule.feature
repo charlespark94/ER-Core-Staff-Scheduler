@@ -30,4 +30,5 @@ Scenario: admin can view shifts they have added
   Then I should be redirected to the edit page for shift 1
   When I press "Delete"
   Then I should delete the shift for 04 - 01 starting at 00 from google
+  Then the shifts should be deleted
   Then I should be redirected to the shift index page 

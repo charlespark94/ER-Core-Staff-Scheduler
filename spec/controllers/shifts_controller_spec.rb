@@ -17,6 +17,7 @@ describe ShiftsController do
   end
   before(:each) do
     include Calendar
+    include ShiftHelper
     controller.stub(:gcal_event_insert).and_return(true)
     @flags = Flag.create(:flagstart => DateTime.strptime("03/08/2015 00:00", "%m/%d/%Y %H:%M"), :recurring => true)
     Flag.stub(:find).and_return(@flags)
@@ -33,10 +34,12 @@ describe ShiftsController do
     end
 
     it 'should update event' do
-      @user = User.create(user_params1)
-      @testshift = double(Shift, :id => "1", :shiftstart => DateTime.iso8601('2015-05-01T10:00:00'), :shiftend => DateTime.iso8601('2015-05-01T18:00:00'), :owner => '***', :users => nil, :possible_users => nil)
-      Shift.stub(:find).with("1").and_return(@testshift)
-      @testshift.stub(:update_attributes!).and_return(true)
+      Shift.should_receive(:find).and_return(@tester)
+      controller.stub(:params).and_return({:s => {:"date(1i)" => "2015", :"date(2i)" => "4", :"date(3i)" => "01"}, :"time" => {:hour => "01", :min => "15"}, :shift => {:owner => "***"}, :length => {:length => "15"}})
+      controller.should_receive(:gcal_event_update).and_return(true)
+      #controller.should_receive(:update_helper).and_return(true)
+      User.should_receive(:find_by_first_name).and_return(@user)
+      User.should_receive(:find_by_first_name).and_return(@user)
       put :update, {:id => "1", :shiftend => DateTime.iso8601('2015-05-01T22:00:00')}
     end
 
@@ -73,8 +76,9 @@ describe ShiftsController do
      
     it 'should create a shift with attributes' do
       include Calendar
-      controller.stub(:params).and_return({:"shift"=>{:"date(1i)"=>"2015", :"date(2i)"=>"4", :"date(3i)"=>"28", :"hour"=>"20", :"min"=>"00"}, :"length"=>{:"length"=>"1"}})
+      controller.stub(:params).and_return({:"shift"=>{:"date(1i)"=>"2015", :"date(2i)"=>"4", :"date(3i)"=>"28"},:"time"=>{:"hour"=>"20", :"min"=>"00"}, :"length"=>{:"length"=>"1"}})
       controller.should_receive(:gcal_event_insert).and_return(true)
+      controller.should_receive(:create_date).and_return Date.new
       post 'create', {}
     end
 

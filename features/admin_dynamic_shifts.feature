@@ -24,12 +24,11 @@ Background:
 Scenario: Add shift for all doctors to see in their availability
   And I follow "Add new shift"
   Then I should be on the input schedule page
-  When I add a shift for 04 - 08 from 12:00 to 20:00
   Then I should be redirected to the shift index page
 
 Scenario: Delete shift from available shifts
   And I follow edit for shift 1
   Then I should be redirected to the edit page for shift 1
   When I press "Delete"
-  Then I should delete the shift for 03 - 08 starting at 07 from google
+  Then the shifts should be deleted
   Then I should be redirected to the shift index page 

@@ -41,5 +41,6 @@ Scenario: Admin can see hour amount change from reassigning
 	Then I should be redirected to the edit page for shift 1
 	Then I should see the users is ["admin"]
  	When I press "Delete"
+ 	Then the shifts should be deleted
   	Then I should be redirected to the shift index page 
 	And I should see that "admin" has 0 hours assigned

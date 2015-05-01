@@ -54,11 +54,6 @@ class ShiftsController < ApplicationController
     date_update = create_date
     update_helper(date_update, @shift, params)
     gcal_event_update(0, @shift) if @shift.owner == '***'
-    #if (!@shift.users.nil? || !@shift.possible_users.nil?) &&(@shift.owner != "***")
-    #  gcal_event_update(User.find_by_first_name(@shift.owner).id, @shift)
-    #else
-    #  gcal_event_update(0, @shift)
-    #end
     user = User.find_by_first_name(@shift.owner)
     gcal_event_update(user.id, @shift) if @shift.owner != '***'
     redirect_to shifts_path

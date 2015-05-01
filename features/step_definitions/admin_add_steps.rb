@@ -37,6 +37,12 @@ Then /I should see the shifts added to the page/ do
 	end
 end
 
+Then /the shifts should be deleted/ do
+	Shift.all.each do |shift|
+		Calendar.gcal_event_delete(shift.event_id)
+	end
+end
+
 
 When /I add a shift for (.+) - (.+) from (.+) to (.+)/ do |mon, day, shftst, shftend|
 	formStart = DateTime.iso8601('2015-'+mon+'-'+day+'T'+shftst+':00')
