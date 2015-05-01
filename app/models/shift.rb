@@ -17,6 +17,7 @@ class Shift < ActiveRecord::Base
 
   def delete_availabilities
   	self.availabilities.delete_all
+  	self.owner = '***'
   end
 
 end
