@@ -106,13 +106,14 @@ class ShiftsController < ApplicationController
     cur_sunday = @flag.flagstart + 2.week
     counter = 0
     @shift_pattern.each do |cur_pattern|
-      cur_pattern.each do |key|
-        recur_day_gen(key, cur_sunday, counter) if !cur_pattern.nil?
+      if !cur_pattern.nil?
+        for key in cur_pattern         
+          recur_day_gen(key, cur_sunday, counter)
+        end
       end
       counter += 1
     end
-    @flag.update_attribute(:recurring, false)
-    @flag.update_attribute(:flagstart, (Time.current - Time.current.wday.day).to_date)
+    flag_update_helper(@flag)
   end
 
   def recur_day_gen(key, cur_sunday, counter)
@@ -138,5 +139,13 @@ class ShiftsController < ApplicationController
     diff = t.to_date - f.to_date
     flag.update_attribute(:recurring, true) if !@flag.recurring if diff.to_i < 14
     return diff.to_i < 14
+  end
+
+  def flag_update_helper(flag)
+    flag.update_attribute(:recurring, false)
+    t = Time.current
+    w = t.wday
+    sun = t - w.day
+    flag.update_attribute(:flagstart, sun.to_date)
   end
 end
