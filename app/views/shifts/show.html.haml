@@ -21,10 +21,10 @@
 			%ul#details
 				%li
 					Start Time: 
-					= @shift.shiftstart
+					= @shift.shiftstart.strftime("%m/%d/%Y at %H:%M")
 				%li
 					End Time:
-					= @shift.shiftend
+					= @shift.shiftend.strftime("%m/%d/%Y at %H:%M")
 					
 				%li
 					Available People:
