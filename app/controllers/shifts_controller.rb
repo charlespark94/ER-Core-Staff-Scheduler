@@ -39,7 +39,8 @@ class ShiftsController < ApplicationController
     p = params[:s]
     t = params[:time]
     dt = Date.new(p[:"date(1i)"].to_i, p[:"date(2i)"].to_i, p[:"date(3i)"].to_i)
-    return (dt + t[:hour].to_i.hour + t[:min].to_i.minute).to_datetime
+    final_dt = dt + t[:hour].to_i.hour + t[:min].to_i.minute
+    return final_dt.to_datetime
   end
 
   def update
@@ -108,9 +109,7 @@ class ShiftsController < ApplicationController
         @shift_pattern.each do |cur_pattern|
           if !cur_pattern.nil?
             for key in cur_pattern         
-              recur_day = cur_sunday + counter.day + key[1][0].hour + key[1][1].minute
-              day_end = recur_day + key[1][2].hours
-              recur_helper(recur_day, day_end)
+              recur_day_gen(key, cur_sunday, counter)
             end
           end
           counter += 1
@@ -121,6 +120,12 @@ class ShiftsController < ApplicationController
     else
       @flag.update_attribute(:recurring, true) if !@flag.recurring
     end
+  end
+
+  def recur_day_gen(key, cur_sunday, counter)
+    rd = cur_sunday + counter.day + key[1][0].hour + key[1][1].minute
+    de = recur_day + key[1][2].hours
+    recur_helper(rd, de)
   end
 
   def recur_helper(recur_day, day_end)
