@@ -100,25 +100,24 @@ class ShiftsController < ApplicationController
 
   def recur
     @flag = Flag.find_by_id(1)
-    if ((Time.current - 7.hours).to_date - @flag.flagstart.to_date).to_i >= 14
-      if @flag.recurring
-        @shift_template = IO.read("public/shift_template.json")
-        @shift_pattern = JSON.parse(@shift_template)
-        cur_sunday = @flag.flagstart + 2.week
-        counter = 0
-        @shift_pattern.each do |cur_pattern|
-          if !cur_pattern.nil?
-            for key in cur_pattern         
-              recur_day_gen(key, cur_sunday, counter)
-            end
+    if ((Time.current - 7.hours).to_date - @flag.flagstart.to_date).to_i < 14
+      @flag.update_attribute(:recurring, true) if !@flag.recurring and return
+    end
+    if @flag.recurring
+      @shift_template = IO.read("public/shift_template.json")
+      @shift_pattern = JSON.parse(@shift_template)
+      cur_sunday = @flag.flagstart + 2.week
+      counter = 0
+      @shift_pattern.each do |cur_pattern|
+        if !cur_pattern.nil?
+          for key in cur_pattern         
+            recur_day_gen(key, cur_sunday, counter)
           end
-          counter += 1
         end
-        @flag.update_attribute(:recurring, false)
-        @flag.update_attribute(:flagstart, (Time.current - Time.current.wday.day).to_date)
+        counter += 1
       end
-    else
-      @flag.update_attribute(:recurring, true) if !@flag.recurring
+      @flag.update_attribute(:recurring, false)
+      @flag.update_attribute(:flagstart, (Time.current - Time.current.wday.day).to_date)
     end
   end
 
