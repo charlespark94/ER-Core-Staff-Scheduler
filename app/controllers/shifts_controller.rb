@@ -59,18 +59,21 @@ class ShiftsController < ApplicationController
     redirect_to shifts_path
   end
 
-  def update_helper(p, s)
+  def update_helper(p, shift)
     date_update = create_date
     l = params[:length]
     s = params[:shift]
-    @shift.update_attributes!(:shiftstart => date_update, :shiftend => (date_update+ l[:length].to_i.hours).to_datetime)
+    lh = l[:length].to_i
+    df = date_update + lh.hour
+    shift.update_attribute(:shiftstart, date_update)
+    shift.update_attribute(:shiftend, df.to_datetime)
     if s[:owner] == "" || s[:owner].nil?
-      @shift.update_attribute(:owner, '***')
+      shift.update_attribute(:owner, '***')
     else
-      @shift.update_attribute(:owner, (User.find_by_first_name(s[:owner]).first_name))
+      shift.update_attribute(:owner, (User.find_by_first_name(s[:owner]).first_name))
     end
-    @shift.shiftstart = fix_timezone(@shift.shiftstart)
-    @shift.shiftend = fix_timezone(@shift.shiftend)
+    shift.shiftstart = fix_timezone(shift.shiftstart)
+    shift.shiftend = fix_timezone(shift.shiftend)
   end
 
   def destroy
