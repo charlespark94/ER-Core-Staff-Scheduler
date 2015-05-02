@@ -5,9 +5,10 @@
     %ul.sidebar-nav
       %li
         %a= link_to 'Home', home_path
-      %li
-        %a= link_to 'Set Availability', availabilities_path
-      - if @user.usertype == 'Administrator'
+      -if @user.usertype != 'Administrative Assistant'
+        %li
+          %a= link_to 'Set Availability', availabilities_path
+      - if @user.usertype == 'Administrator' || @user.usertype == 'Administrative Assistant'
         %li 
           %a= link_to 'Shift Scheduler', shifts_path
         %li
@@ -30,15 +31,17 @@
             hour(s)
         %li
           %b Available Doctors:
-          - if @shift.users != []
-            = @shift.users.where(id: @shift.availabilities.select(:user_id).where(shift_id: @shift.id, availability: 2)).pluck(:last_name)
+          - avail = @shift.users.where(id: @shift.availabilities.select(:user_id).where(shift_id: @shift.id, availability: 2)).pluck(:last_name)
+          - if avail != []
+            = avail
           - else
             No Available Doctors
 
         %li
           %b Possibly Available Doctors:
-          - if @shift.possible_users != " "
-            = @shift.users.where(id: @shift.availabilities.select(:user_id).where(shift_id: @shift.id, availability: 1)).pluck(:last_name)
+          - p_avail = @shift.users.where(id: @shift.availabilities.select(:user_id).where(shift_id: @shift.id, availability: 1)).pluck(:last_name)
+          - if p_avail != []
+            =p_avail
           - else
             No Possibly Available Doctors
 
@@ -50,7 +53,7 @@
 
       = form_tag shift_path(@shift), :method => :put do
 
-        = label :shift, :shiftstart, 'Shift Start Date:'
+        = label :shift, :date, 'Shift Start Date:'
         = date_select :shift, :shiftstart, :start_year => Date.today.year
         %br
         =label :time, :hour, 'Shift Start Time:'
@@ -62,7 +65,7 @@
           :
         = select :time, :min, ['00', '15', '30', '45'], selected: @shift.shiftstart.min.to_s
         %br
-        = label :shift, :shiftend, 'Duration of Shift:'
+        = label :s, :shiftend, 'Duration of Shift:'
         = select :length, :length, [1, 2, 4, 6, 8, 12], selected: ((@shift.shiftend - @shift.shiftstart)/1.hour).round
         %br
 

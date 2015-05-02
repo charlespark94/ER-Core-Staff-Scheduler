@@ -6,8 +6,10 @@
 			%li
 				%a= link_to 'Home', home_path
 			%li
-				%a= link_to 'Set Availability', availabilities_path
-			- if @user.usertype == 'Administrator'
+			-if @user.usertype != 'Administrative Assistant'
+				%li
+					%a= link_to 'Set Availability', availabilities_path
+			- if @user.usertype == 'Administrator' || @user.usertype == 'Administrative Assistant'
 				%li 
 					%a= link_to 'Shift Scheduler', shifts_path
 				%li
@@ -18,7 +20,7 @@
 			%h1 Set the FTE multiplier for each doctor
 
 			:css
-				tr, th {
+				tr, th, td {
 					vertical-align: top;
 					text-align: center;
 					padding: 15px;
@@ -38,9 +40,9 @@
 								%tr
 									%td= "#{user.last_name}, #{user.first_name}"
 									%td= user.usertype
-									%td= user.fte
+									%td= number_field_tag "#{user.id}_fte", user.fte, step: 0.05, min: 0.1, max: 1.0
 									%td= user.fte_multiplier
-									%td= number_field_tag "#{user.id}", user.fte_multiplier, step: 0.1
+									%td= number_field_tag "#{user.id}", user.fte_multiplier, step: 0.05
 									%td= (user.fte*user.fte_multiplier*80)
 
 				= submit_tag 'Update'

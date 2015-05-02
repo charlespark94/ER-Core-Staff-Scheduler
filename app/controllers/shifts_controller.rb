@@ -1,21 +1,18 @@
 class ShiftsController < ApplicationController
   include Calendar
+  include ShiftHelper
+  before_filter :recur
   def index
     @shifts = Shift.order(:shiftstart)
     @hours_per_person = show_hours_per_person
     @flag = Flag.find_by_id(1)
     Time.zone = "UTC"
-    #Time.zone = "America/Los_Angeles"
-    if ((Time.current - 7.hour).to_date - @flag.flagstart.to_date).to_i >= 14
-      @flag.update_attribute(:flagstart, (Time.current - Time.current.wday.day).to_date)
-    end
     @date_start = @flag.flagstart.to_date
     if !params[:newstart].nil?
       @date_start = params[:newstart].to_date
     end
     @next_seven = @date_start..(@date_start + 6)
     @second_seven = (@date_start + 7)..(@date_start + 13)
-    #recur(true)
   end
 
   def new
@@ -30,101 +27,46 @@ class ShiftsController < ApplicationController
   end
 
   def create
-    date = DateTime.new(params[:shift][:"date(1i)"].to_i, params[:shift][:"date(2i)"].to_i, params[:shift][:"date(3i)"].to_i, params[:shift][:hour].to_i, params[:shift][:min].to_i)
-    @shift = Shift.create(:shiftstart => date, :shiftend => (date + params[:length][:length].to_i.hours).to_datetime)
-    flash[:notice] = "Shift was successfully created."
-    dt_start = fix_timezone(@shift.shiftstart)
-    dt_end = fix_timezone(@shift.shiftend)
-    dt_doc = @shift.owner
-    gcal_event_insert(0, dt_doc, "core", dt_start, dt_end, @shift.event_id)
-    @shift.ingcal = true
-    @shift.save!
+    date = create_date
+    l = params[:length]
+    @shift = Shift.create(:shiftstart => date, :shiftend => (date + l[:length].to_i.hours).to_datetime)
+    @shift.shiftstart = fix_timezone_gcal(@shift.shiftstart)
+    @shift.shiftend = fix_timezone_gcal(@shift.shiftend)
+    gcal_event_insert(0, @shift)
+    @shift.shiftstart = fix_timezone_app(@shift.shiftstart)
+    @shift.shiftend = fix_timezone_app(@shift.shiftend)
+    @shift.update_attribute(:ingcal, true)
     redirect_to shifts_path
   end
-  
+
+  def create_date
+    p = params[:shift]
+    t = params[:time]
+    p_1 = p[:"shiftstart(1i)"].to_i
+    p_2 = p[:"shiftstart(2i)"].to_i
+    p_3 = p[:"shiftstart(3i)"].to_i
+    dt = Date.new(p_1, p_2, p_3)
+    h = t[:hour].to_i
+    m = t[:min].to_i
+    final_dt = dt + h.hour + m.minute
+    return final_dt.to_datetime
+  end
+
   def update
     @shift = Shift.find params[:id]
-    old_user = @shift.owner
-    if old_user == '***' || old_user == ""
-      delete_id = 0
-    else
-      delete_id = User.find_by_first_name(old_user).id
-    end
-    date = DateTime.new(params[:shift][:"shiftstart(1i)"].to_i, params[:shift][:"shiftstart(2i)"].to_i, params[:shift][:"shiftstart(3i)"].to_i, params[:time][:hour].to_i, params[:time][:min].to_i)
-    @shift.update_attributes!(:shiftstart => date, :shiftend => (date + params[:length][:length].to_i.hours).to_datetime)
-    dt_start = fix_timezone(@shift.shiftstart)
-    dt_end = fix_timezone(@shift.shiftend)
-    dt_doc = @shift.owner
-    if dt_doc == "" || dt_doc.nil?
-      dt_doc = "***"
-      @shift.update_attribute(:owner, '***')
-    end
-    if (!@shift.users.nil? || !@shift.possible_users.nil?) &&(dt_doc != "***")
-      gcal_event_update(User.find_by_first_name(dt_doc).id, dt_doc, "core", dt_start, dt_end, @shift.event_id)
-    else
-      gcal_event_update(0, dt_doc, "core", dt_start, dt_end, @shift.event_id)
-    end
-    flash[:notice] = "Shift was successfully updated."
+    date_update = create_date
+    update_helper(date_update, @shift, params)
+    gcal_event_update(0, @shift) if @shift.owner == '***'
+    user = User.find_by_first_name(@shift.owner)
+    gcal_event_update(user.id, @shift) if @shift.owner != '***'
     redirect_to shifts_path
   end
 
   def destroy
     @shift = Shift.find(params[:id])
-    if @shift.owner == '***' || @shift.owner == "" || @shift.owner.nil? || @shift.owner == " "
-      gcal_event_delete(@shift.event_id)
-    else
-      dt_doc = @shift.owner
-      gcal_event_delete(@shift.event_id)
-    end
+    gcal_event_delete(@shift.event_id)
     @shift.destroy
     flash[:notice] = "Shift deleted."
     redirect_to shifts_path
-  end
-
-  def show_hours_per_person
-    users = User.all
-    hours_per_person = {"***" => [0, 0]}
-    users.each do |user|
-      full_name = "#{user.first_name}"
-      hours_per_person[full_name] = [0, (user.fte*80).to_i]
-    end
-    shifts = Shift.all
-    shifts.each do |shift|
-      if hours_per_person.has_key?(shift.owner)
-        hours_per_person[shift.owner][0] = hours_per_person[shift.owner][0] + ((shift.shiftend - shift.shiftstart)/(60*60)).to_i
-      else
-        hours_per_person[shift.owner] = [((shift.shiftend - shift.shiftstart)/(60*60)).to_i, 0]      
-      end
-    end
-    return hours_per_person
-  end
-
-  def fix_timezone(dt)
-      if Time.now.dst?
-        return (dt + 6.hours).to_datetime
-      else
-        return (dt + 7.hours).to_datetime
-      end
-  end
-
-  def recur(recurring)
-    @shift_template = IO.read("public/shift_template.json")
-    @shift_pattern = JSON.parse(@shift_template)
-    curSunday = Flag.find_by_id(1).flagstart
-    #recurDay = curSunday #+ 14.days
-    for i in 0..13
-      if !@shift_pattern[i].nil?
-        cur_pattern = @shift_pattern[i]
-        if @cur_pattern.nil?
-          for key in cur_pattern
-            recurDay = curSunday + i.day + key[1][0].hour + key[1][1].minute
-            dayend = recurDay + key[1][2].hours
-            Shift.create(:shiftstart => recurDay, :shiftend =>dayend)
-            #Not put into google calendar yet
-          end
-        end
-      end
-     # recurDay = recurDay + 1.day
-    end
   end
 end

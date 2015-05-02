@@ -8,7 +8,11 @@ Background:
   Given 'admin' has been added to the database
   Given I am logged in as 'admin' with password 'admin'
   Given that I am on the verified page
+  Then I press "Update"
   Then I should see "The account has been verified and added to the application"
+  Given the following flag exist:
+  | flagstart                  | recurring   |
+  | 2015-04-26 00:00:00 UTC    | true        |
   Given that I am on the input schedule page
 
 Scenario: admin can input shift schedule
@@ -27,4 +31,5 @@ Scenario: admin can view shifts they have added
   Then I should be redirected to the edit page for shift 1
   When I press "Delete"
   Then I should delete the shift for 04 - 01 starting at 00 from google
+  Then the shifts should be deleted
   Then I should be redirected to the shift index page 

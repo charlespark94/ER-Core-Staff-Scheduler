@@ -16,8 +16,14 @@ describe ShiftsController do
     }
   end
   before(:each) do
+    include Calendar
+    include ShiftHelper
+    controller.stub(:gcal_event_insert).and_return(true)
+    @flags = Flag.create(:flagstart => DateTime.strptime("03/08/2015 00:00", "%m/%d/%Y %H:%M"), :recurring => true)
+    Flag.stub(:find).and_return(@flags)
     @user = User.create(user_params1)
     controller.stub(:session).and_return({:user_id => 1})
+    @tester = Shift.create(:shiftstart => DateTime.iso8601('2015-05-01T10:00:00'), :shiftend => DateTime.iso8601('2015-05-01T18:00:00'), :owner => '***', :users => [], :possible_users => " ")
   end
 
 
@@ -27,17 +33,12 @@ describe ShiftsController do
       response.should render_template('index')
     end
 
-    it 'should redirect to edit page' do     
-      @testshift = double(Shift, :id => "1", :shiftstart => DateTime.iso8601('2015-05-01T10:00:00'), :shiftend => DateTime.iso8601('2015-05-01T18:00:00'), :owner => '***', :users => nil, :possible_users => nil, :ingcal => true, :event_id => 1)
-      Shift.stub(:find).with("1").and_return(@testshift)
-      @testshift.stub(:update_attributes!).and_return(true)
-      put :update, {:id => "1", :shiftend => DateTime.iso8601('2015-05-01T22:00:00')}
-    end
-
     it 'should update event' do
-      @testshift = double(Shift, :id => "1", :shiftstart => DateTime.iso8601('2015-05-01T10:00:00'), :shiftend => DateTime.iso8601('2015-05-01T18:00:00'), :owner => @user.first_name, :users => @user.first_name, :possible_users => nil, :event_id => 1)
-      Shift.stub(:find).with("1").and_return(@testshift)      
-      @testshift.stub(:update_attributes!).and_return(true)
+      Shift.should_receive(:find).and_return(@tester)
+      controller.stub(:params).and_return({:shift => {:"shiftstart(1i)" => "2015", :"shiftstart(2i)" => "4", :"shiftstart(3i)" => "01", :owner => "***"}, :"time" => {:hour => "01", :min => "15"}, :length => {:length => "15"}})
+      controller.should_receive(:gcal_event_update).and_return(true)
+      User.should_receive(:find_by_first_name).and_return(@user)
+      User.should_receive(:find_by_first_name).and_return(@user)
       put :update, {:id => "1", :shiftend => DateTime.iso8601('2015-05-01T22:00:00')}
     end
 
@@ -45,7 +46,7 @@ describe ShiftsController do
 
   describe 'display shift info' do
     it 'should load show page' do
-      @testshift = double(Shift, :id => "1", :shiftstart => DateTime.iso8601('2015-05-01T10:00:00'), :shiftend => DateTime.iso8601('2015-05-01T18:00:00'), :owner => '***', :users => nil, :possible_users => nil)
+      @testshift = Shift.create(:id => "1", :shiftstart => DateTime.iso8601('2015-05-01T10:00:00'), :shiftend => DateTime.iso8601('2015-05-01T18:00:00'), :owner => '***', :users => [], :possible_users => [])
       Shift.stub(:find).with("1").and_return(@testshift)
       controller.stub(:params).and_return({:id => "1"})
       get :show, {:id => "1"}
@@ -74,8 +75,9 @@ describe ShiftsController do
      
     it 'should create a shift with attributes' do
       include Calendar
-      controller.stub(:params).and_return({:"shift" => {:"shiftstart(1i)" => "2015", :"shiftstart(2i)" => "4", :"shiftstart(3i)" => "25", :"shiftstart(4i)" => "18", :"shiftstart(5i)" => "17"}, :"length" => { :"length" => nil}})
+      controller.stub(:params).and_return({:"shift"=>{:"date(1i)"=>"2015", :"date(2i)"=>"4", :"date(3i)"=>"28"},:"time"=>{:"hour"=>"20", :"min"=>"00"}, :"length"=>{:"length"=>"1"}})
       controller.should_receive(:gcal_event_insert).and_return(true)
+      controller.should_receive(:create_date).and_return Date.new
       post 'create', {}
     end
 
@@ -93,7 +95,7 @@ describe ShiftsController do
     it 'should return a hash of assigned and required hours per person' do
       @testshift = Shift.create(:id => "1", :shiftstart => DateTime.iso8601('2015-05-01T10:00:00'), :shiftend => DateTime.iso8601('2015-05-01T18:00:00'), :owner => @user.first_name, :users => [], :possible_users => [], :ingcal => true, :event_id => 1)
       Shift.stub(:all).and_return([@testshift])
-      controller.show_hours_per_person().should == {"***" => [0,0], @user.first_name => [8,64]}
+      controller.show_hours_per_person().should == {"***" => [8,0], @user.first_name => [0,64]}
     end
   end
 end

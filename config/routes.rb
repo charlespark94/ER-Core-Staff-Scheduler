@@ -78,6 +78,7 @@ ErCoreStaffScheduler::Application.routes.draw do
   get "logout" => "sessions#destroy", :as =>"logout"
   get "home" => "home#index", :as =>"home"
   get "not_verified" => "verification#not", :as => "not_verified"
+  get "verified_complete" => "verification#new", :as => "verification_complete"
   get "verified" => "verification#index", :as => "verified"
   get "multiply" => "fte_multiplier#index", :as => "multiply"
   get "update_availabilities" => "availabilities#update_all", :as => "update_all"

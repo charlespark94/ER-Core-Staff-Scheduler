@@ -33,6 +33,8 @@ describe AvailabilitiesController do
 	end
 
 	before(:each) do
+		@flags = Flag.create(:flagstart => DateTime.strptime("04/19/2015 00:00", "%m/%d/%Y %H:%M"), :recurring => false)
+		Flag.stub(:find).and_return(@flags)
 		Calendar.stub(:gcal_event_insert)
 		Calendar.stub(:gcal_event_update)
 		Calendar.stub(:gcal_event_delete)
@@ -78,17 +80,5 @@ describe AvailabilitiesController do
 		Availability.stub(:save).and_return(false)
 		controller.stub(:flash).with(:notice).and_return("Something bad happened, saving new ability in availabilities_controller")
 		get :index, {}
-	end
-
-	it "should have reccuring shift" do
-		@testshift1 = Shift.create(:id => "1", :shiftstart => DateTime.iso8601(DateTime.now.to_s), :shiftend => DateTime.iso8601(DateTime.now.to_s), :owner => '***', :users => [], :possible_users => [], :ingcal => true, :event_id => 1)
-		@testshift2 = Shift.create(:id => "2", :shiftstart => DateTime.iso8601((DateTime.now - 2.week).to_s), :shiftend => DateTime.iso8601((DateTime.now - 2.week).to_s), :owner => @user1.last_name, :users => [], :possible_users => [], :ingcal => true, :event_id => 1)
-		Shift.all.each do |shift|
-			@match_startshift = shift.shiftstart - (14*24*60*60)
-			@match_endshift = shift.shiftend - (14*24*60*60)
-			prev_shifts = Shift.where(:shiftstart => @match_startshift, :shiftend => @match_endshift).all
-			prev_time = prev_shifts[0]
-		end
-		get :new
 	end
 end
