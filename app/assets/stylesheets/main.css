@@ -47,7 +47,10 @@ body#center{
 
 .btn-navbar:hover,
 .btn-navbar:active,
-.btn-navbar:focus {
+.btn-navbar:focus,
+#sidebar-show:hover,
+#sidebar-show:active,
+#sidebar-show:focus {
 	color: rgb(0, 143, 178) !important;
 }
 
@@ -61,6 +64,11 @@ body#center{
 #sidebar-show {
 	z-index: 9996;
 	position: absolute;
+	border-radius: 0px;
+	background-color: #CCCCCC;
+	margin-top: 22.5%;
+	border: 1px solid black;
+	border-left: 0px;
 }
 
 #toggle-sidebar {
