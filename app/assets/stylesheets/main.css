@@ -50,3 +50,19 @@ body#center{
 .btn-navbar:focus {
 	color: rgb(0, 143, 178) !important;
 }
+
+#expander {
+	/*float: left;*/
+	z-index: 9996;
+	position: absolute;
+	display: none;
+}
+
+#sidebar-show {
+	z-index: 9996;
+	position: absolute;
+}
+
+#toggle-sidebar {
+	text-align: center
+}

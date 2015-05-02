@@ -150,7 +150,7 @@ h2.title {
         padding: 20px;
         position: relative;
         margin-top: 60px;
-        z-index: 9996;
+        z-index: 9995;
     }
 
     #wrapper.toggled #page-content-wrapper {

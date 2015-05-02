@@ -1,3 +1,4 @@
+= javascript_include_tag "application"
 =render :partial => "shared/navbar", :user => @user						
 
 %div#wrapper
@@ -12,8 +13,16 @@
 					%a= link_to 'Shift Scheduler', shifts_path
 				%li
 					%a= link_to 'Set FTE Multiplier', multiply_path
+	
+	%div
+		%a#sidebar-show.btn.btn-default.btn-xs{:onclick => 'expandOrShrink(); return false;'} <<<
 
 	%div#page-content-wrapper
-		%div.container-fluid 
+		%div.container-fluid
+			/ %a#toggle-sidebar.btn.btn-default{:onclick => 'expandOrShrink(); return false;'} Sidebar Collapse
+			/ = link_to("Sidebar Collapse",  "#", :id => 'toggle-sidebar', :onclick => "expandOrShrink(); return false") 
+			/ %a.btn.btn-default#menu-toggle {:href => '#menu-toggle'} 
+			/ 	Sidebar Collapse 
+
 			<iframe src="https://www.google.com/calendar/embed?src=va.er.core.scheduler%40gmail.com&ctz=America/San_Francisco" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
 			
