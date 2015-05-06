@@ -121,7 +121,7 @@
 			- Availability.all.each do |availability|
 				- if User.find(availability.user_id) == @user and availability.availability != 0
 					- shift = Shift.find(availability.shift_id)
-					- printf "_______________________________________#{shift.shiftstart}"
+					/ - printf "_______________________________________#{shift.shiftstart}"
 					- if shift.shiftstart >= @date_start and shift.shiftstart <= (@date_start + 13.to_f)
 						- curr_amt += (shift.shiftend - shift.shiftstart)/1.hours
 			%p= "You are currently signed up for #{curr_amt.to_i} hours of the required #{(@user.fte*@user.fte_multiplier*80).to_i} hours you need to make yourself available."
