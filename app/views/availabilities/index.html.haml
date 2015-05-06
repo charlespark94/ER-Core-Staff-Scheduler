@@ -32,10 +32,11 @@
 
 			%p= "You are currently signed up for #{curr_amt.to_i} hours of the required #{(@user.fte*@user.fte_multiplier*80).to_i} hours you need to make yourself available."
 			%p= "However, you only have to work #{(@user.fte*80).to_i} hours per pay period."
-			%br
 
+			%br
 			:plain
 				<b> Pay Period </b>
+			/ = (@date_start.strftime("%U")).to_i/2
 			%br
 			= link_to '<<', availabilities_path(:newstart => @date_start - 14.to_f)
 			= "#{@date_start.strftime("%B")} #{@date_start.day} to #{(@date_start + 13.to_f).strftime("%B")} #{(@date_start + 13.to_f).day}"

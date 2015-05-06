@@ -70,8 +70,8 @@
 			%br
 			%br
 			:plain
-				Pay Period
-			= (@date_start.strftime("%U")).to_i/2
+				<b> Pay Period </b>
+			/ = (@date_start.strftime("%U")).to_i/2
 			%br
 			= link_to '<<', shifts_path(:newstart => @date_start - 14.to_f)
 			= "#{@date_start.strftime("%B")} #{@date_start.day} to #{(@date_start + 13.to_f).strftime("%B")} #{(@date_start + 13.to_f).day}"
