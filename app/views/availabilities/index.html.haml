@@ -19,9 +19,23 @@
 	%div#page-content-wrapper
 		%div.container-fluid 
 			%h2 Set Your Preference
+
+			- curr_amt = 0
+			- Availability.all.each do |availability|
+				- if User.find(availability.user_id) == @user and availability.availability != 0
+					- begin
+						- shift = Shift.find(availability.shift_id)
+						- if shift.shiftstart >= @date_start and shift.shiftstart <= (@date_start + 13.to_f)
+							- curr_amt += (shift.shiftend - shift.shiftstart)/1.hours
+					- rescue
+						- printf "Couldn't find shift"
+
+			%p= "You are currently signed up for #{curr_amt.to_i} hours of the required #{(@user.fte*@user.fte_multiplier*80).to_i} hours you need to make yourself available."
+			%p= "However, you only have to work #{(@user.fte*80).to_i} hours per pay period."
+			%br
+
 			:plain
-				Pay Period
-			= (@date_start.strftime("%U")).to_i/2
+				<b> Pay Period </b>
 			%br
 			= link_to '<<', availabilities_path(:newstart => @date_start - 14.to_f)
 			= "#{@date_start.strftime("%B")} #{@date_start.day} to #{(@date_start + 13.to_f).strftime("%B")} #{(@date_start + 13.to_f).day}"
@@ -116,19 +130,6 @@
 
 			%div.content-separator
 			%h2 Your Availabilities
-
-			- curr_amt = 0
-			- Availability.all.each do |availability|
-				- if User.find(availability.user_id) == @user and availability.availability != 0
-					- begin
-						- shift = Shift.find(availability.shift_id)
-						- if shift.shiftstart >= @date_start and shift.shiftstart <= (@date_start + 13.to_f)
-							- curr_amt += (shift.shiftend - shift.shiftstart)/1.hours
-					- rescue
-						- printf "Couldn't find shift"
-
-			%p= "You are currently signed up for #{curr_amt.to_i} hours of the required #{(@user.fte*@user.fte_multiplier*80).to_i} hours you need to make yourself available."
-			%p= "However, you have to work #{(@user.fte*80).to_i} hours per pay period."
 
 			%table.table
 				%thead
